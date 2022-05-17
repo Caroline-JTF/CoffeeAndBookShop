@@ -1,0 +1,161 @@
+/*
+==================================
+PARTIE CSS DE LA SECTION : HEADING 
+==================================
+*/
+.heading{
+    margin: 3rem 0;
+}
+/*
+=======================================
+PARTIE CSS DE LA SECTION CONTAINER-CARD
+=======================================
+*/
+.container-card {
+    margin: 0 0 3rem;
+    display: grid;
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 100%;
+    min-height: 350px;
+    gap: 2rem;
+    justify-content: center;
+}
+.container-card img{
+    width: 350px;
+    height: 200px;
+}
+.container-card .card{
+    max-width: 350px;
+    max-height: 350px;
+}
+.container-card .card h2{
+    margin: 1rem 0;
+}
+/*
+=================================
+PARTIE CSS DE LA SECTION PARALLAX 
+=================================
+*/
+.parallax{
+    background: url('/assets/img/background/bg-section.jpg') no-repeat top right / cover;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.parallax article{
+    width: 80%;
+    height: 400px;
+    margin: auto auto;
+}
+.parallax article h2{
+    font-size: 4rem;
+    text-shadow: 
+        1px 0px 1px var(--color-brown-dark), 
+        0px 1px 1px var(--color-brown-light), 
+        2px 1px 1px var(--color-brown-dark), 
+        1px 2px 1px var(--color-brown-light), 
+        3px 2px 1px var(--color-brown-dark), 
+        2px 3px 1px var(--color-brown-light), 
+        4px 3px 1px var(--color-brown-dark), 
+        3px 4px 1px var(--color-brown-light), 
+        5px 4px 1px var(--color-brown-dark), 
+        4px 5px 1px var(--color-brown-light), 
+        6px 5px 1px var(--color-brown-dark), 
+        5px 6px 1px var(--color-brown-light), 
+        7px 6px 1px var(--color-brown-dark);
+}
+.parallax article p{
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem;
+}
+/*
+================================
+PARTIE CSS DE LA SECTION : STATE
+================================
+*/
+.container-step{
+    display: grid;
+    display: flex;
+    grid-template-columns: repeat(5, 1fr);
+    min-width: 100%;
+    min-height: 400px;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+.container-step .step img{
+    max-width: 100px;
+    max-height: 100px;
+}
+.container-step .step{
+    max-width: 200px;
+    min-height: 350px;
+}
+.container-step .step h2{
+    margin: 1rem 0;
+}
+/*
+=======================================
+PARTIE CSS DE LA SECTION : PRESENTATION 
+=======================================
+*/
+.container-presentation{
+    background-color: var(--color-light);
+    display: flex;
+    max-width: 80%;
+    max-height: 500px;
+    margin: 0 auto;
+}
+.container-presentation .presentation-img{
+    width: 50%;
+}
+.container-presentation .presentation-img img{
+    width: 100%;
+    height: 500px;
+}
+.container-presentation .presentation-text{
+    width: 50%;
+    padding: 3rem;
+}
+.container-presentation .presentation-text h2{
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+.container-presentation .presentation-text p{
+    font-size: 1rem;
+}
+/*
+==================================
+PARTIE CSS DE LA SECTION : CONTACT 
+==================================
+*/
+.contact{
+    width: 100%;
+    height: 700px;
+    background-color: var(--color-brown-light);
+    padding: 3rem 0;
+}
+.contact .container-form{
+    width: 70%;
+    margin: 2rem auto;
+}
+.contact .container-form input[type=text], textarea, input[type=email] {
+    min-width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    margin: 0.5rem;
+    resize: none;
+}
+.contact .container-form .logo-contact{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+}

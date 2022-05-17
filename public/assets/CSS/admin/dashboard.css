@@ -1,0 +1,61 @@
+/*
+===============================================
+PARTIE CSS DE LA PREMIER SECTION : PRESENTATION 
+===============================================
+*/
+.heading{
+    margin: 3rem;
+}
+/*
+=========================================
+PARTIE CSS DE LA SECTION GESTION PRODUITS
+=========================================
+*/
+.command-btn{
+    display: flex;
+    width: 90%;
+    margin: 0 auto 3rem;
+}
+.container-box{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.container-box a{
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.container-box a:hover{
+    text-decoration: underline;
+}
+.container-box .box{
+    display: none;
+    flex-direction: column;
+}
+table{
+    margin: 3rem 0;
+}
+table th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--color-brown-dark);
+    color: white;
+}
+table td, table th {
+    border: 1px solid var(--color-light);
+    padding: 1rem;
+}
+table tr:nth-child(even){
+    background-color: var(--color-brown-light);
+} 
+table tr:hover {
+    background-color: var(--color-light);
+}
+.active{
+    display: flex !important;
+}
+#addFood{
+    width: 20rem;
+}

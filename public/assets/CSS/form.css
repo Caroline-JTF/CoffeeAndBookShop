@@ -1,0 +1,51 @@
+/*
+===================================
+PARTIE CSS DE LA SECTION FORMULAIRE
+===================================
+*/
+
+/* 
+->Utiliser sur la page : /security/login 
+->Utiliser sur la page : /security/signup 
+
+->Utiliser sur la page : /admin/add/coffee 
+->Utiliser sur la page : /admin/add/food 
+->Utiliser sur la page : /admin/add/book 
+
+->Utiliser sur la page : /admin/update/user
+->Utiliser sur la page : /admin/update/coffee
+->Utiliser sur la page : /admin/update/food
+->Utiliser sur la page : /admin/update/book
+*/
+.section-form{
+    margin: 0 auto;
+    width: 80%;
+}
+.section-form .message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+}
+.section-form .message a{
+    cursor: pointer;
+    margin-left: 1px;
+}
+.section-form .heading{
+    margin: 3rem;
+}
+.section-form .heading a{
+    justify-content: center;
+    align-items: center;   
+}
+.section-form .container-form label{
+    display: block;
+}
+.section-form .container-form input{
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    border-radius: 4px;
+    resize: none;
+    margin-bottom: 1rem;
+}

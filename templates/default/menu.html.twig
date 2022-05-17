@@ -1,0 +1,157 @@
+{# ==================== EXTENDS ==================== #}
+{# ==================== EXTENDS ==================== #}
+{# ==================== EXTENDS ==================== #}
+
+{% extends "base.html.twig" %}
+
+{# ==================== STYLE ==================== #}
+{# ==================== STYLE ==================== #}
+{# ==================== STYLE ==================== #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="assets/CSS/default/menu.css">
+{% endblock %}
+
+{# ==================== BODY ==================== #}
+{# ==================== BODY ==================== #}
+{# ==================== BODY ==================== #}
+
+{% block body %}
+
+    
+
+    <main>
+
+        {# ==================== MENU ==================== #}
+        {# ==================== MENU ==================== #}
+        {# ==================== MENU ==================== #}
+
+        <section class="container-product menu active">
+
+            <div class="heading">
+                <h2 class="text-center font-serif uppercase">Voici la carte des cafés</h2>
+            </div>
+            
+            {% for coffee in coffees %}
+                <div class="product">
+                            
+                    <img width="100px" height="100px" src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
+
+                    <div class="text-product">
+                        <div class="description">
+                            <h2>{{ coffee.name }}</h2>
+                            <p class="color-red">{{ coffee.description }}</p>
+                        </div>
+                        <div class="price">
+                            <div class="line"></div> 
+                            <p>{{ coffee.price }}€</p>
+                            <button class="btn-add">+</button>
+                        </div>  
+                        
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            <p class="text-center">1/3</p>
+            
+        </section>
+
+        {# ==================== MENU ==================== #}
+        {# ==================== MENU ==================== #}
+        {# ==================== MENU ==================== #}
+
+        <section class="container-product menu">
+
+            <div class="heading">
+                <h2 class="text-center font-serif uppercase">Voici la carte des viennoiseries</h2>
+            </div>
+            
+            {% for food in foods %}
+                <div class="product">
+                            
+                    <img width="100px" height="100px" src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
+
+                    <div class="text-product">
+                        <div class="description">
+                            <h2>{{ food.name }}</h2>
+                            <p class="color-red">{{ food.description }}</p>
+                        </div>
+                        <div class="price">
+                            <div class="line"></div> 
+                            <p>{{ food.price }}€</p>
+                            <button class="btn-add">+</button>
+                        </div>  
+                        
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            <p class="text-center">2/3</p>
+            
+        </section>
+
+        {# ==================== MENU ==================== #}
+        {# ==================== MENU ==================== #}
+        {# ==================== MENU ==================== #}
+
+        <section class="container-product menu">
+
+            <div class="heading">
+                <h2 class="text-center font-serif uppercase">Voici la carte des livres</h2>
+            </div>
+            
+            {% for book in books %}
+                <div class="product">
+                            
+                    <img width="100px" height="100px" src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
+
+                    <div class="text-product">
+                        <div class="description">
+                            <h2>{{ book.name }}</h2>
+                            <p class="color-red">{{ book.description }}</p>
+                        </div>
+                        <div class="price">
+                            <div class="line"></div> 
+                            <p>{{ book.price }}€</p>
+                            <button class="btn-add">+</button>
+                        </div>  
+                        
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            <p class="text-center">3/3</p>
+            
+        </section>
+
+        {# ==================== COMMAND ==================== #}
+        {# ==================== COMMAND ==================== #}
+        {# ==================== COMMAND ==================== #}
+
+        <section class="view-command">
+        
+            <h2 class="text-center font-serif uppercase color-red">Votre commande :</h2>
+            <p>affichage de la commande</p>
+        
+        </section>
+
+    </main>
+
+     <section class="command-btn">
+
+        <button class="btn1">Étape précédente</button>
+
+        <button class="btn2">Étape suivante</button>
+
+    </section>
+
+    
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="assets/JS/default/menu.js"></script>
+{% endblock %}

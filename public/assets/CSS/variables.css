@@ -1,0 +1,23 @@
+/*
+============================
+DEFINITION DES VARIABLES CSS
+============================
+*/
+
+:root{
+    /* FONT */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans-serif: Arial, Helvetica, sans-serif;
+    --font-default: 'Lato', sans-serif;
+
+    /* COLOR */
+    --color-dark: #2d2d2d;
+    --color-light: #f9f9f9;
+    --color-grey: #f3f3f3;
+    --color-brown-dark: rgb(217, 204, 188);
+    --color-brown-light: rgb(239, 236, 233);
+    --color-red: #ab3e2a;
+
+    /* OPACITY FOR OVERLAY */
+    --overlay: rgba(0, 0, 0, 0.3);
+}

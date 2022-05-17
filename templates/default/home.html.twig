@@ -1,0 +1,276 @@
+{# ==================== EXTENDS ==================== #}
+{# ==================== EXTENDS ==================== #}
+{# ==================== EXTENDS ==================== #}
+
+{% extends "base.html.twig" %}
+
+{# ==================== STYLE ==================== #}
+{# ==================== STYLE ==================== #}
+{# ==================== STYLE ==================== #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="assets/CSS/default/home.css">
+{% endblock %}
+
+{# ==================== BODY ==================== #}
+{# ==================== BODY ==================== #}
+{# ==================== BODY ==================== #}
+
+{% block title %}Accueil{% endblock %}
+
+{# ==================== BODY ==================== #}
+{# ==================== BODY ==================== #}
+{# ==================== BODY ==================== #}
+
+{% block body %}
+
+    <main class="wrapper">
+
+        {# ==================== HEADING ==================== #}
+        {# ==================== HEADING ==================== #}
+        {# ==================== HEADING ==================== #}
+
+        <section class="heading">
+            <p class="color-brown-dark font-serif text-center uppercase">What's happening here?</p>
+            <h2 class="font-serif text-center uppercase">Bienvenue sur C&B shop</h2>
+            <p class="color-red font-serif text-center uppercase">Le premier bistro qui vous livre un moment de détente</p> 
+        </section>
+
+        {# ==================== CONTAINER CARD ==================== #}
+        {# ==================== CONTAINER CARD ==================== #}
+        {# ==================== CONTAINER CARD ==================== #}
+
+        <section class="container-card">
+
+                {# ==================== FIRST CARD ==================== #}
+                {# ==================== FIRST CARD ==================== #}
+                {# ==================== FIRST CARD ==================== #}
+
+                <div class="card">
+                    <img src="assets/img/photo/accueil/img1.jpg" alt="">
+                    <div class="text-card">
+                        <h2 class="color-red font-serif">
+                            <span class="color-dark">01.</span> 
+                            Café rustique
+                        </h2>
+                        <p>
+                            Un bistro à l’ambiance rustique.
+                            Un café fraichement moulu.
+                            Une torréfaction parfaite.
+                            Les meilleurs arômes avec des grains venus du monde entier.
+                        </p>
+                    </div>
+                </div>
+
+                {# ==================== SECOND CARD ==================== #}
+                {# ==================== SECOND CARD ==================== #}
+                {# ==================== SECOND CARD ==================== #}
+
+                <div class="card">
+                    <img src="assets/img/photo/accueil/img2.jpg" alt="">
+                    <div class="text-card">
+                        <h2 class="color-red font-serif">
+                            <span class="color-dark">02.</span> 
+                            Café gourmand
+                        </h2>
+                        <p>
+                            On parle des cafés ou des douceurs?
+                            Quoiqu’il en soit, nous vous offrons le meilleur en terme de qualité.
+                        </p>
+                    </div>
+                </div>
+
+                {# ==================== THREE CARD ==================== #}
+                {# ==================== THREE CARD ==================== #}
+                {# ==================== THREE CARD ==================== #}
+
+                <div class="card">
+                    <img src="assets/img/photo/accueil/img3.jpg" alt="">
+                    <div class="text-card">
+                        <h2 class="color-red font-serif">
+                            <span class="color-dark">03.</span> 
+                            Café détente
+                        </h2>
+                        <p>
+                            Vous trouverez chez C&B la possibilité d’emprunter un livre en guise d’accompagnement avec votre café pour vous offrir un réel moment de détente.
+                        </p>
+                    </div>
+                </div>
+
+        </section>{# END .CONTAINER-CARD #}
+
+        {# ==================== PARALLAX EFFECT ==================== #}
+        {# ==================== PARALLAX EFFECT ==================== #}
+        {# ==================== PARALLAX EFFECT ==================== #}
+
+        <section class="parallax">
+            <article>
+                <h2 class="color-light font-serif uppercase">
+                    Le café <br>
+                    connecté
+                </h2>
+                <p class="color-light font-serif">
+                    Commander votre café en ligne <br>
+                    Livraison partout dans Paris
+                </p>
+                <button class="btn-large">
+                    <a href="{{ path('app_menu') }}">
+                        <img src="assets/img/icons/beans-black.png" alt="">
+                        Commander
+                    </a>
+                </button>
+            </article>
+            
+        </section>{# END .PARRALLAX #}
+
+        {# ==================== CONTAINER-STEP ==================== #}
+        {# ==================== CONTAINER-STEP ==================== #}
+        {# ==================== CONTAINER-STEP ==================== #}
+
+        <section class="container-step text-center">
+
+            {# ==================== FIRST STEP ==================== #}
+            {# ==================== FIRST STEP ==================== #}
+            {# ==================== FIRST STEP ==================== #}
+
+            <div class="step">
+                <img src="assets/img/step/beans-color.png" alt="">
+                <h2 class="color-red font-serif">
+                    <span class="color-dark">01.</span> 
+                    Grain de café
+                </h2>
+                <p>
+                    Vous êtes à la recherche de nouveaux arômes? Nous avons sélectionné pour vous les meilleurs grains de café venus du monde entier.
+                </p>
+            </div>
+
+            {# ==================== SECOND STEP ==================== #}
+            {# ==================== SECOND STEP ==================== #}
+            {# ==================== SECOND STEP ==================== #}
+
+            <div class="step">
+                <img src="assets/img/step/moulin-a-cafe.png" alt="">
+                <h2 class="color-red font-serif">
+                    <span class="color-dark">02.</span> 
+                    Broyeur à grain
+                </h2>
+                <p>
+                    Un moulin à café pour varier les plaisir et libérer tout les arômes de votre café.
+                </p>
+            </div>
+
+            {# ==================== THIRD STEP ==================== #}
+            {# ==================== THIRD STEP ==================== #}
+            {# ==================== THIRD STEP ==================== #}
+
+            <div class="step">
+                <img src="assets/img/step/machine-a-cafe.png">
+                <h2 class="color-red font-serif">
+                    <span class="color-dark">03.</span> 
+                    Machine à café
+                </h2>
+                <p>
+                    Un café parfaitement torréfié en France, de manières lente, avec passion et surtout qui respecte votre café.
+                </p>
+            </div>
+
+            {# ==================== FOURTH STEP ==================== #}
+            {# ==================== FOURTH STEP ==================== #}
+            {# ==================== FOURTH STEP ==================== #}
+
+            <div class="step">
+                <img src="assets/img/step/mug.png">
+                <h2 class="color-red font-serif">
+                    <span class="color-dark">04.</span> 
+                    Tasse de café
+                </h2>
+                <p>
+                    Pour la dégustation de votre café vous aurez la possibilité de le prendre sur place, à emporter, ou de le commander sur notre site. 
+                </p>
+            </div>
+
+            {# ==================== FIFTH STEP ==================== #}
+            {# ==================== FIFTH STEP ==================== #}
+            {# ==================== FIFTH STEP ==================== #}
+
+            <div class="step">
+                <img src="assets/img/step/book-stack.png">
+                <h2 class="color-red font-serif">
+                    <span class="color-dark">05.</span> 
+                    Un bon livre
+                </h2>
+                <p>
+                    Chez C&B SHOP nous vous offrons la possibilité de vous évader pour déguster votre café dans un monde qui vous fait envie en choissisant parmis les livres que nous vous proposons.
+                </p>
+            </div>
+
+        </section>{# END .CONTAINER-STEP #}
+
+        {# ==================== PRESENTATION ==================== #}
+        {# ==================== PRESENTATION ==================== #}
+        {# ==================== PRESENTATION ==================== #}
+
+        <section class="container-presentation">
+
+            {# ==================== LEFT PART : TEXT ==================== #}
+            {# ==================== LEFT PART : TEXT ==================== #}
+            {# ==================== LEFT PART : TEXT ==================== #}
+
+            <div class="presentation-text">
+                <h2 class="font-serif uppercase">Vous avez un grain décalé ? <br> Nous aussi!</h2>
+                    <p>
+                        COFFEE AND BOOK SHOP est le premier bistro qui vous sert cafés, viennoiseries et livres pour vous garantir un véritable moment d’évasion, que ce soit en terrasse ou dans votre canapé. Chacun de nous a droit à un moment de répit dans son monde et nous voulons vous aider à travers saveurs venues du monde entier et imagination à vous transporter.
+                    </p>
+            </div>
+
+            {# ==================== RIGHT PART : IMG ==================== #}
+            {# ==================== RIGHT PART : IMG ==================== #}
+            {# ==================== RIGHT PART : IMG ==================== #}
+
+            <div class="presentation-img">
+                <img src="assets/img/photo/accueil/img-section.jpg" alt="">
+            </div>
+
+        </section>{# END .PRESENTATION #}
+
+        <button class="btn-center">
+            <a href="{{ path('app_default_coffee-beans') }}">
+                <img src="assets/img/icons/beans-black.png" alt="">
+                Voir nos grains
+            </a>
+        </button>
+
+        {# ==================== FIFTH SECTION : CONTACT ==================== #}
+        {# ==================== FIFTH SECTION : CONTACT ==================== #}
+        {# ==================== FIFTH SECTION : CONTACT ==================== #}
+
+        <section class="contact">
+            
+            <p class="color-brown-dark text-center font-serif uppercase">Vous avez une question?</p>
+            <h2 class="color-dark text-center font-serif uppercase">Contactez-nous</h2>
+            <p class="color-red text-center font-serif uppercase">Bistro de café & Livre</p>
+
+            <form class="container-form "action="">
+
+                <input type="text" id="fname" name="firstname" placeholder="Votre nom et prénom">
+
+                <input id="emailAddress" type="email" name="email" placeholder="Votre email">
+
+                <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
+
+                <textarea id="subject" name="subject" placeholder="Votre message" style="height:200px"></textarea>
+
+                <button class="btn-center" type="submit" value="Envoyer">
+                    <a href="">
+                        <img src="assets/img/icons/beans-black.png" alt="">
+                        Envoyer
+                    </a>
+                </button>
+                
+            </form>
+
+        </section>{# END .CONTACT #}
+
+    </main> {# END .WRAPPER #}
+
+{% endblock %}

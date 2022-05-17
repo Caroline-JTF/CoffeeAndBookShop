@@ -1,0 +1,107 @@
+/*
+=============================
+PARTIE CSS DU HEADER : HEADER
+=============================
+*/
+.header{
+    background: url(/assets/img/background/bg-carte.jpg) no-repeat center center / cover !important;
+}
+/*
+==================================
+PARTIE CSS DE LA SECTION : HEADING 
+==================================
+*/
+.heading{
+    margin: 3rem 0;
+}
+/*
+===============================
+PARTIE CSS DE LA SECTION : MENU
+===============================
+*/
+main{
+    display: flex;
+    width: 90%;
+    margin: 5rem auto 3rem;
+}
+/*
+==================================
+PARTIE CSS DE LA SECTION : PRODUCT
+==================================
+*/
+.container-product{
+    width: 60%;
+    display: none;
+}
+
+.container-product .product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 1rem auto;
+    width: 80%;
+    height: 100px;
+}
+.container-product .product img{
+    border-radius: 50%;
+    margin-right: 1rem;
+    width: 100px;
+    height: 100px;
+}
+.container-product .product .text-product{
+    display: flex;
+}
+.container-product .product .description{
+    width: 300px;
+}
+.container-product .product .price{
+    width: 300px;
+    display: flex;
+}
+.container-product .product .line{
+    background-color: var(--color-brown-light);
+    width: 100px ;
+    height: 3px;
+    margin: auto 0;
+}
+.price p{
+    background: var(--color-brown-light);
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin: auto 0;
+    line-height: 30px;
+}
+.btn-add{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: auto 1rem;
+}
+/*
+==================================
+PARTIE CSS DE LA SECTION : COMMAND
+==================================
+*/
+.view-command{
+    width: 40%;
+    padding: 3rem;
+    background-color: var(--color-brown-light);
+}
+.view-command p{
+    padding-top: 3rem;
+}
+
+.command-btn{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.command-btn button{
+    margin: 3rem 1rem 5rem;
+}
+.active{
+    display: block !important;
+}
