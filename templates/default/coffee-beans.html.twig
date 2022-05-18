@@ -10,7 +10,9 @@
 {# ==================== STYLE ==================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/CSS/default/beans-coffee.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <link rel="stylesheet" href="assets/css/default/beans-coffee.css">
+    <link rel="stylesheet" href="assets/map/map.css">
 {% endblock %}
 
 {# ==================== TITLE ==================== #}
@@ -25,6 +27,10 @@
 {# ==================== BODY ==================== #}
 
 {% block body %}
+    <div class="container-map">
+        <div id="map"></div>
+    </div>
+    
 
     {# ==================== SECTION BTN BEANS ==================== #}
     {# ==================== SECTION BTN BEANS ==================== #}
@@ -33,25 +39,25 @@
     <section id="header" class="container-btn">
         <button class="btn-center">
             <a href="#colombian_beans">
-                <img src="assets/img/icons/beans-black.png" alt="">
+                <img src="assets/img/icons/beans-btn.png" alt="">
                     Grain de Colombie
             </a>
         </button>
         <button class="btn-center">
             <a href="#bolivia_beans">
-                <img src="assets/img/icons/beans-black.png" alt="">
+                <img src="assets/img/icons/beans-btn.png" alt="">
                     Grain de Bolivie
             </a>
         </button>
         <button class="btn-center">
             <a href="#peru_beans">
-                <img src="assets/img/icons/beans-black.png" alt="">
+                <img src="assets/img/icons/beans-btn.png" alt="">
                     Grain du Pérou
             </a>
         </button>
         <button class="btn-center">
             <a href="#honduras_beans">
-                <img src="assets/img/icons/beans-black.png" alt="">
+                <img src="assets/img/icons/beans-btn.png" alt="">
                     Grain d'Honduras
             </a>
         </button>
@@ -74,7 +80,7 @@
             {# ==================== LEFT PART : IMG ==================== #}
 
             <div class="img">
-                <img src="assets/img/photo/beans/article1.jpg" alt="">
+                <img src="assets/img/beans/article1.jpg" alt="">
             </div>
 
             {# ==================== RIGHT PART : TEXT ==================== #}
@@ -88,7 +94,7 @@
                 </p>
                 <button class="btn-center">
                     <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-de-colombie/" target="_blank">
-                         <img src="assets/img/icons/beans-black.png" alt="">
+                         <img src="assets/img/icons/beans-btn.png" alt="">
                         Voir l'article
                     </a>
                 </button>
@@ -115,7 +121,7 @@
                 </p>
                 <button class="btn-center">
                     <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-de-bolivie/" target="_blank">
-                        <img src="assets/img/icons/beans-black.png" alt="">
+                        <img src="assets/img/icons/beans-btn.png" alt="">
                         Voir l'article
                     </a>
                 </button>
@@ -127,7 +133,7 @@
             {# ==================== RIGHT PART : IMG ==================== #}
 
             <div class="img">
-                <img src="assets/img/photo/beans/article2.jpg" alt="">
+                <img src="assets/img/beans/article2.jpg" alt="">
             </div>
 
         </article>
@@ -143,7 +149,7 @@
             {# ==================== LEFT PART : IMG ==================== #}
 
             <div class="img">
-                <img src="assets/img/photo/beans/article3.jpg" alt="">
+                <img src="assets/img/beans/article3.jpg" alt="">
             </div>
 
             {# ==================== RIGHT PART : TEXT ==================== #}
@@ -161,7 +167,7 @@
                 </p>
                 <button class="btn-center">
                     <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-du-perou/" target="_blank">
-                        <img src="assets/img/icons/beans-black.png" alt="">
+                        <img src="assets/img/icons/beans-btn.png" alt="">
                         Voir l'article
                     </a>
                 </button>
@@ -188,7 +194,7 @@
                 </p>
                 <button class="btn-center">
                     <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-du-honduras/" target="_blank">
-                        <img src="assets/img/icons/beans-black.png" alt="">
+                        <img src="assets/img/icons/beans-btn.png" alt="">
                         Voir l'article
                     </a>
                 </button>
@@ -199,7 +205,7 @@
             {# ==================== RIHT PART : IMG ==================== #}
             
             <div class="img">
-                <img src="assets/img/photo/beans/article4.png" alt="">
+                <img src="assets/img/beans/article4.png" alt="">
             </div>
             
         </article>
@@ -208,9 +214,14 @@
 
     <button class="btn-center">
         <a href="#header">
-            <img src="assets/img/icons/beans-black.png" alt="">
+            <img src="assets/img/icons/beans-btn.png" alt="">
             Revenir au début
         </a>
     </button>
 
+{% endblock %}
+
+{% block javascripts %}
+     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+     <script src="assets/map/map.js"></script>
 {% endblock %}
