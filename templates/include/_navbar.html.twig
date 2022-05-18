@@ -1,6 +1,6 @@
+{# =============================================== #}
 {# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
+{# =============================================== #}
 
 {% block stylesheets %}
 
@@ -15,67 +15,73 @@
 
 {% endblock %}
 
-{# ==================== HEADER ==================== #}
-{# ==================== HEADER ==================== #}
-{# ==================== HEADER ==================== #}
+{# ========================================================== #}
+{# ==================== CONTAINER HEADER ==================== #}
+{# ========================================================== #}
     
-<div class="header">
+<div class="container-header">
     
+    {# ==================================================== #}
     {# ==================== NAVIGATION ==================== #}
-    {# ==================== NAVIGATION ==================== #}
-    {# ==================== NAVIGATION ==================== #}
-
+    {# ==================================================== #}
     <nav>
 
-        {# ==================== LOGO ==================== #}
-        {# ==================== LOGO ==================== #}
-        {# ==================== LOGO ==================== #}
-
-        <a href="{{ path('app_default_home') }}"class="logo">
-            <img src="/assets/img/step/mug-and-book.png" alt="">
+        {# Logo du site #}
+        <a href="{{ path('app_default_home_page') }}"class="logo">
+            <img src="/assets/img/logo.png" alt="">
         </a>
 
-        {# ==================== LINK ==================== #}
-        {# ==================== LINK ==================== #}
-        {# ==================== LINK ==================== #}
-
+        {# Lien vers les différentes pages du site #}
         <div class="navigation">
+                
+                {# Partie visible quand on est déconnecter #}
+                {# Partie visible quand on est déconnecter #}
+                {# Partie visible quand on est déconnecter #}
 
-                <a href="" title="Vos commandes" >
-                    <img src="/assets/img/icons/navbar/tasse-a-cafe.png" alt="Icône d'une gobelet à café">
-                </a>
-                    
-                <a href="{{ path('app_menu') }}" title="La carte" >
-                    <img src="/assets/img/icons/navbar/beans-white.png" alt="Icône d'un grain de café">
-                </a>
-                    
-                 <a href="" title="Accédez à vôtre panier" >
-                    <img src="/assets/img/icons/navbar/basket.png" alt="Icône d'un panier">
+                <a  href="" title="Les grains de café" >
+                    <img src="/assets/img/icons/beans.png" alt="Icône d'un grain de café">
                 </a>
 
+                <a href="{{ path('app_menu') }}"  title="La carte" >
+                    <img src="/assets/img/icons/menu.png" alt="Icône de grain de café">
+                </a>
+
+                <a href="" title="Nous contacter" >
+                    <img src="/assets/img/icons/contact.png" alt="Icône d'une enveloppe">
+                </a>
+                
+                {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
+                {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
+                {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
                 {% if not app.user %}
 
-                       <a href="{{ path('app_security_login') }}" title="Connectez-vous" >
-                        <img src="/assets/img/icons/navbar/enter.png" alt="Icône de connexion">
+                    <a href="{{ path('app_security_login') }}" title="Connectez-vous" >
+                        <img src="/assets/img/icons/login.png" alt="Icône de connexion">
                     </a>
 
+                    {# Partie visible quand on est connecter en tant qu'utilisateur #}
+                    {# Partie visible quand on est connecter en tant qu'utilisateur #}
+                    {# Partie visible quand on est connecter en tant qu'utilisateur #}
                     {% else %}
-                    
+
+                        <a href="{{ path('app_default_account') }}" title="Votre compte" >
+                            <img src="/assets/img/icons/account.png" alt="Icône d'utilisateur">
+                        </a>
+
+                        {# Partie visible quand on est connecter en tant qu'utilisateur #}
+                        {# Partie visible quand on est connecter en tant qu'utilisateur #}
+                        {# Partie visible quand on est connecter en tant qu'utilisateur #}
                         {% if is_granted("ROLE_ADMIN") %}
 
                             <a href="{{ path('app_admin_dashboard') }}" title="Accès à votre dashboard">
-                                <img src="/assets/img/icons/navbar/dashboard.png" alt="Icône de dashboard">
+                                <img src="/assets/img/icons/dashboard.png" alt="Icône de dashboard">
                              </a>
 
                         {% endif %} {# END IS_GRANTED #}
 
-                        <a href="{{ path('app_default_account') }}" title="Votre compte" >
-                            <img src="/assets/img/icons/navbar/user.png" alt="Icône d'utilisateur">
-                        </a>
-
-                        <a href="{{ path('app_security_logout') }}" title="Déconnectez-vous" >
-                            <img src="/assets/img/icons/navbar/logout.png" alt="Icône de déconnexion">
-                        </a>
+                    <a href="{{ path('app_security_logout') }}" title="Déconnectez-vous" >
+                        <img src="/assets/img/icons/logout.png" alt="Icône de déconnexion">
+                    </a>
 
                 {% endif %}{# END IF #}
             
@@ -83,20 +89,12 @@
 
     </nav>
 
+    {# ================================================ #}
     {# ==================== HEADER ==================== #}
-    {# ==================== HEADER ==================== #}
-    {# ==================== HEADER ==================== #}
-
+    {# ================================================ #}
     <header>
-
-        <h1 class="color-brown-dark font-serif uppercase text-center">
-            {% block page_title 'Coffee and Book Shop' %}
-        </h1>
-
-        <p class="color-light font-serif text-center">
-             « Un bon livre doit vous faire le même effet que le café : vous maintenir en éveil.»
-        </p>
-
+        <h1>{% block page_title 'Coffee and Book' %} </h1>
+        <p> « Un bon livre doit vous faire le même effet que le café : vous maintenir en éveil.» </p>
     </header>
 
-</div> {# END .HEADER #}
+</div> {# END CONTAINER NAVBAR #}

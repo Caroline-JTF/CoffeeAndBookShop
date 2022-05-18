@@ -41,36 +41,34 @@ PARTIE CSS DE LA SECTION PARALLAX
     background: url('/assets/img/background/bg-section.jpg') no-repeat top right / cover;
     background-attachment: fixed;
     width: 100%;
-    min-height: 600px;
+    height: 700px;
     display: flex;
     justify-content: start;
     align-items: center;
 }
 .parallax article{
-    width: 80%;
-    height: 400px;
-    margin: auto auto;
+    width: 50%;
+    margin: 0 5rem;
+    line-height: 4rem;
 }
 .parallax article h2{
-    font-size: 4rem;
-    text-shadow: 
-        1px 0px 1px var(--color-brown-dark), 
-        0px 1px 1px var(--color-brown-light), 
-        2px 1px 1px var(--color-brown-dark), 
-        1px 2px 1px var(--color-brown-light), 
-        3px 2px 1px var(--color-brown-dark), 
-        2px 3px 1px var(--color-brown-light), 
-        4px 3px 1px var(--color-brown-dark), 
-        3px 4px 1px var(--color-brown-light), 
-        5px 4px 1px var(--color-brown-dark), 
-        4px 5px 1px var(--color-brown-light), 
-        6px 5px 1px var(--color-brown-dark), 
-        5px 6px 1px var(--color-brown-light), 
-        7px 6px 1px var(--color-brown-dark);
+    text-shadow:
+        1px 0px 1px var(--color-dark-brown), 
+        0px 1px 1px var(--color-dark-brown), 
+        2px 1px 1px var(--color-dark-brown), 
+        1px 2px 1px var(--color-dark-brown), 
+        3px 2px 1px var(--color-dark-brown), 
+        2px 3px 1px var(--color-dark-brown), 
+        4px 3px 1px var(--color-dark-brown), 
+        3px 4px 1px var(--color-dark-brown), 
+        5px 4px 1px var(--color-dark-brown), 
+        4px 5px 1px var(--color-dark-brown), 
+        6px 5px 1px var(--color-dark-brown), 
+        5px 6px 1px var(--color-dark-brown), 
+        7px 6px 1px var(--color-dark-brown);
 }
 .parallax article p{
-    font-size: 1.5rem;
-    margin: 1rem 0 2rem;
+    margin: 1rem 0;
 }
 /*
 ================================

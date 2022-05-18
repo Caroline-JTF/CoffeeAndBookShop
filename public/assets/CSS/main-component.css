@@ -16,7 +16,7 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-brown-dark);
+    background-color: var(--color-dark-brown);
     color: var(--color-dark);
     font-family: var(--font-serif);
     font-size: 1rem;
@@ -50,7 +50,26 @@ STYLE MAIN COMPONENT : FONT-FAMILY
 .font-default{
     font-family: var(--font-default);
 }
-
+/*
+============================
+STYLE MAIN COMPONENT : COLOR
+============================
+*/
+.size5{
+    font-size: 5rem;
+}
+.size4{
+    font-size: 4rem;
+}
+.size3{
+    font-size: 3rem;
+}
+.size2{
+    font-size: 2rem;
+}
+.size15{
+    font-size: 1.5rem;
+}
 /*
 ============================
 STYLE MAIN COMPONENT : COLOR
@@ -68,11 +87,11 @@ STYLE MAIN COMPONENT : COLOR
 .color-red{
     color: var(--color-red);
 }
-.color-brown-light{
-    color: var(--color-brown-light);
+.color-light-brown{
+    color: var(--color-light-brown);
 }
-.color-brown-dark{
-    color: var(--color-brown-dark);
+.color-dark-brown{
+    color: var(--color-dark-brown);
 }
 
 /*

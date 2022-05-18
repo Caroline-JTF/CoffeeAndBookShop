@@ -35,7 +35,7 @@ class securityController extends AbstractController
             $entity->flush();
 
             $this->addFlash('success', 'Votre inscription est validée. Connectez-vous à présent !');
-            return $this->redirectToRoute('app_default_home');
+            return $this->redirectToRoute('app_default_home_page');
         }
 
         return $this->render('security/signUp.html.twig', [

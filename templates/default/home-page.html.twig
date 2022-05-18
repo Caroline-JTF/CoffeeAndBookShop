@@ -9,7 +9,7 @@
 {# ==================== STYLE ==================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/CSS/default/home.css">
+    <link rel="stylesheet" href="assets/css/default/home-page.css">
 {% endblock %}
 
 {# ==================== BODY ==================== #}
@@ -31,9 +31,9 @@
         {# ==================== HEADING ==================== #}
 
         <section class="heading">
-            <p class="color-brown-dark font-serif text-center uppercase">What's happening here?</p>
-            <h2 class="font-serif text-center uppercase">Bienvenue sur C&B shop</h2>
-            <p class="color-red font-serif text-center uppercase">Le premier bistro qui vous livre un moment de détente</p> 
+            <p class="color-dark-brown font-serif text-center uppercase">What's happening here?</p>
+            <h2 class="font-serif text-center uppercase">Bienvenue sur C&B</h2>
+            <p class="color-red font-serif text-center uppercase">Le bistro qui vous livre un moment de détente</p> 
         </section>
 
         {# ==================== CONTAINER CARD ==================== #}
@@ -47,7 +47,7 @@
                 {# ==================== FIRST CARD ==================== #}
 
                 <div class="card">
-                    <img src="assets/img/photo/accueil/img1.jpg" alt="">
+                    <img src="assets/img/homepage/rustic.jpg" alt="Photo d'un café rustique">
                     <div class="text-card">
                         <h2 class="color-red font-serif">
                             <span class="color-dark">01.</span> 
@@ -67,7 +67,7 @@
                 {# ==================== SECOND CARD ==================== #}
 
                 <div class="card">
-                    <img src="assets/img/photo/accueil/img2.jpg" alt="">
+                    <img src="assets/img/homepage/gourmet.jpg" alt="Photo d'un café avec des douceurs">
                     <div class="text-card">
                         <h2 class="color-red font-serif">
                             <span class="color-dark">02.</span> 
@@ -85,7 +85,7 @@
                 {# ==================== THREE CARD ==================== #}
 
                 <div class="card">
-                    <img src="assets/img/photo/accueil/img3.jpg" alt="">
+                    <img src="assets/img/homepage/relaxation.jpg" alt="Photo d'un café avec un livre">
                     <div class="text-card">
                         <h2 class="color-red font-serif">
                             <span class="color-dark">03.</span> 
@@ -105,18 +105,20 @@
 
         <section class="parallax">
             <article>
-                <h2 class="color-light font-serif uppercase">
-                    Le café <br>
-                    connecté
-                </h2>
-                <p class="color-light font-serif">
-                    Commander votre café en ligne <br>
-                    Livraison partout dans Paris
-                </p>
+                <div>
+                    <h2 class="color-e-brown font-serif uppercase">
+                        Ayez le choix, <br>
+                        <span>jusqu'au bout de vos grains!</span> 
+                    </h2>
+                    
+                </div>
+                <p class="color-light font-serif uppercase">
+                        Choissisez le grain qui vous convient.
+                    </p>
                 <button class="btn-large">
-                    <a href="{{ path('app_menu') }}">
-                        <img src="assets/img/icons/beans-black.png" alt="">
-                        Commander
+                    <a href="">
+                        <img src="assets/img/icons/beans-btn.png" alt="">
+                        Voir nos grains de café
                     </a>
                 </button>
             </article>
@@ -234,7 +236,7 @@
         </section>{# END .PRESENTATION #}
 
         <button class="btn-center">
-            <a href="{{ path('app_default_coffee-beans') }}">
+            <a href="">
                 <img src="assets/img/icons/beans-black.png" alt="">
                 Voir nos grains
             </a>
@@ -246,7 +248,7 @@
 
         <section class="contact">
             
-            <p class="color-brown-dark text-center font-serif uppercase">Vous avez une question?</p>
+            <p class="color-dark-brown text-center font-serif uppercase">Vous avez une question?</p>
             <h2 class="color-dark text-center font-serif uppercase">Contactez-nous</h2>
             <p class="color-red text-center font-serif uppercase">Bistro de café & Livre</p>
 
@@ -270,6 +272,12 @@
             </form>
 
         </section>{# END .CONTACT #}
+
+        <button>
+            <a href="">
+                Voir les avis
+            </a>
+        </button>
 
     </main> {# END .WRAPPER #}
 

@@ -1,15 +1,16 @@
-/*
-=============================
-PARTIE CSS DU HEADER : .HEADER
-=============================
-*/
-.header{
+
+/* ======================================================================= */
+/* ====================PARTIE CSS DU CONTAINER HEADER ==================== */
+/* ======================================================================= */
+
+.container-header{
     background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
     min-width: 100%;
     min-height: 600px;
-    position: relative;
+    position: relative; /* Pour pouvoir utiliser la position absolute*/
 }
-.header::after{
+
+.container-header::after{
     content: '';
     position: absolute;
     top: 0;
@@ -19,39 +20,67 @@ PARTIE CSS DU HEADER : .HEADER
     z-index: 0;
     background: var(--overlay);
 }
-/*
-=================================
-PARTIE CSS DU HEADER : NAVIGATION
-=================================
-*/
+
+/* ============================================================================ */ 
+/* ==================== PARTIE CSS DE LA CLASSE NAVIGATION ==================== */
+/* ============================================================================ */
+
 nav{
     min-width: 100%;
-    position: relative;
+    position: relative; /* Pour pouvoir utiliser le z-index*/
     z-index: 1;
     padding: 1rem 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-.navigation{
+
+nav .navigation{
     text-align: right;
 }
-.navigation a{
-    display: inline-block;
+
+nav .navigation a{
+    display: inline-block; /* Pour mettre les éléments l'un à côté de l'autre */
     margin-left: 2rem;
 }
-/*
-=============================
-PARTIE CSS DU HEADER : HEADER
-=============================
-*/
+
+/* ============================================================== */
+/* ==================== PARTIE CSS DU HEADER ==================== */
+/* ============================================================== */
+
 header{
-    position: absolute;
     min-width: 100%;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
 }
+
 header h1{
-    font-size: 4rem;
+    font-family: var(--font-serif);
+    text-transform: uppercase;
+    font-size: 5rem;
+    text-align: center;
+    color: var(--color-light-brown);
+    text-shadow:
+        1px 0px 1px var(--color-dark-brown), 
+        0px 1px 1px var(--color-light-brown), 
+        2px 1px 1px var(--color-dark-brown), 
+        1px 2px 1px var(--color-light-brown), 
+        3px 2px 1px var(--color-dark-brown), 
+        2px 3px 1px var(--color-light-brown), 
+        4px 3px 1px var(--color-dark-brown), 
+        3px 4px 1px var(--color-light-brown), 
+        5px 4px 1px var(--color-dark-brown), 
+        4px 5px 1px var(--color-light-brown), 
+        6px 5px 1px var(--color-dark-brown), 
+        5px 6px 1px var(--color-light-brown), 
+        7px 6px 1px var(--color-dark-brown);
+}
+header p{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-family: var(--font-serif);
+    color: var(--color-light-brown);
+    text-align: center;
 }
