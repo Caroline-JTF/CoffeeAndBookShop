@@ -4,14 +4,14 @@ STYLE MAIN COMPONENT
 ====================
 */
 body{
-    font-size: 15px;
+    font-size: 16px;
     font-family: var(--font-default);
     color: var(--color-dark);
     background-color: var(--color-grey);
     overflow-x: hidden;
 }
 button{
-    width: 15rem;
+    width: 25rem;
     height: 3rem;
     display: flex;
     justify-content: center;
@@ -25,97 +25,39 @@ button{
     border-radius: 4px;
     cursor: pointer;
 }
+
 .btn-center{
     margin: 3rem auto;
 }
-.btn-large{
-    width: 20rem;
-}
-a{
-    text-decoration: none;
-    color: var(--color-dark);
-    display: flex;
-}
-/*
-==================================
-STYLE MAIN COMPONENT : FONT-FAMILY
-==================================
-*/
-.font-serif{
-    font-family: var(--font-serif);
-}
-.font-sans-serif{
-    font-family: var(--font-sans-serif);
-}
-.font-default{
-    font-family: var(--font-default);
-}
-/*
-============================
-STYLE MAIN COMPONENT : COLOR
-============================
-*/
-.size5{
-    font-size: 5rem;
-}
-.size4{
-    font-size: 4rem;
-}
-.size3{
-    font-size: 3rem;
-}
-.size2{
-    font-size: 2rem;
-}
-.size15{
-    font-size: 1.5rem;
-}
-/*
-============================
-STYLE MAIN COMPONENT : COLOR
-============================
-*/
-.color-dark{
-    color: var(--color-dark);
-}
-.color-grey{
-    color: var(--color-grey);
-}
-.color-light{
-    color: var(--color-light);
-}
-.color-red{
-    color: var(--color-red);
-}
-.color-light-brown{
-    color: var(--color-light-brown);
-}
-.color-dark-brown{
-    color: var(--color-dark-brown);
-}
 
-/*
-================================
-STYLE MAIN COMPONENT : IMG/ICONS
-================================
-*/
 button a img{
     width: 20px;
     height: 20px;
     margin-right: 1rem;
 }
+
+a{
+    text-decoration: none;
+    color: var(--color-dark);
+    display: flex;
+}
+
 a img{
     width: 30px;
     height: 30px;
 }
-/*
-===========================
-STYLE MAIN COMPONENT : TEXT
-===========================
-*/
-.uppercase{
+/* ============================= */
+/* ========== HEADING ========== */
+/* ============================= */
+.heading{
+    padding: 3rem 0;
     text-transform: uppercase;
-}
-.text-center{
     text-align: center;
+    font-family: var(--font-serif);
+}
+.heading p:first-child{
+    color: var(--color-dark-brown);
+}
+.heading p:last-child{
+    color: var(--color-red);
 }

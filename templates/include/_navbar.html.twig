@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/assets/CSS/include/navbar.css">
-    <link rel="stylesheet" href="/assets/CSS/mini-reset.css">
-    <link rel="stylesheet" href="/assets/CSS/variables.css"> 
-    <link rel="stylesheet" href="/assets/CSS/main-component.css"> 
+    <link rel="stylesheet" href="/assets/css/include/navbar.css">
+    <link rel="stylesheet" href="/assets/css/mini-reset.css">
+    <link rel="stylesheet" href="/assets/css/variables.css"> 
+    <link rel="stylesheet" href="/assets/css/main-component.css"> 
 
 {% endblock %}
 
@@ -24,21 +24,18 @@
     {# ==================================================== #}
     {# ==================== NAVIGATION ==================== #}
     {# ==================================================== #}
+
     <nav>
 
-        {# Logo du site #}
         <a href="{{ path('app_default_home_page') }}"class="logo">
             <img src="/assets/img/logo.png" alt="">
         </a>
 
-        {# Lien vers les différentes pages du site #}
         <div class="navigation">
                 
                 {# Partie visible quand on est déconnecter #}
-                {# Partie visible quand on est déconnecter #}
-                {# Partie visible quand on est déconnecter #}
 
-                <a  href="" title="Les grains de café" >
+                <a  href="{{ path('app_default_coffee_beans') }}" title="Les grains de café" >
                     <img src="/assets/img/icons/beans.png" alt="Icône d'un grain de café">
                 </a>
 
@@ -46,12 +43,10 @@
                     <img src="/assets/img/icons/menu.png" alt="Icône de grain de café">
                 </a>
 
-                <a href="" title="Nous contacter" >
+                <a href="{{ path('app_default_home_page', {'_fragment': 'contact'}) }}" title="Nous contacter" >
                     <img src="/assets/img/icons/contact.png" alt="Icône d'une enveloppe">
                 </a>
                 
-                {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
-                {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
                 {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
                 {% if not app.user %}
 
@@ -60,16 +55,12 @@
                     </a>
 
                     {# Partie visible quand on est connecter en tant qu'utilisateur #}
-                    {# Partie visible quand on est connecter en tant qu'utilisateur #}
-                    {# Partie visible quand on est connecter en tant qu'utilisateur #}
                     {% else %}
 
                         <a href="{{ path('app_default_account') }}" title="Votre compte" >
                             <img src="/assets/img/icons/account.png" alt="Icône d'utilisateur">
                         </a>
 
-                        {# Partie visible quand on est connecter en tant qu'utilisateur #}
-                        {# Partie visible quand on est connecter en tant qu'utilisateur #}
                         {# Partie visible quand on est connecter en tant qu'utilisateur #}
                         {% if is_granted("ROLE_ADMIN") %}
 
@@ -92,6 +83,7 @@
     {# ================================================ #}
     {# ==================== HEADER ==================== #}
     {# ================================================ #}
+
     <header>
         <h1>{% block page_title 'Coffee and Book' %} </h1>
         <p> « Un bon livre doit vous faire le même effet que le café : vous maintenir en éveil.» </p>

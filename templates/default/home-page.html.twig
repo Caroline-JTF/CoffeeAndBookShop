@@ -1,258 +1,188 @@
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
 
 {% extends "base.html.twig" %}
 
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
+{# ======================================== #}
+{# ================== STYLE =============== #}
+{# ======================================== #}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="assets/css/default/home-page.css">
 {% endblock %}
 
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
 
 {% block title %}Accueil{% endblock %}
 
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
 
 {% block body %}
+    
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
 
-    <main class="wrapper">
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Bienvenue sur C&B</h2>
+        <p>Le bistro qui vous livre un moment de détente</p> 
+    </section>
 
-        {# ==================== HEADING ==================== #}
-        {# ==================== HEADING ==================== #}
-        {# ==================== HEADING ==================== #}
+    {# ======================================== #}
+    {# ============ CONTAINER CARD ============ #}
+    {# ======================================== #}
 
-        <section class="heading">
-            <p class="color-dark-brown font-serif text-center uppercase">What's happening here?</p>
-            <h2 class="font-serif text-center uppercase">Bienvenue sur C&B</h2>
-            <p class="color-red font-serif text-center uppercase">Le bistro qui vous livre un moment de détente</p> 
-        </section>
+    <section class="container-card">
 
-        {# ==================== CONTAINER CARD ==================== #}
-        {# ==================== CONTAINER CARD ==================== #}
-        {# ==================== CONTAINER CARD ==================== #}
+        <div class="card">
+            <img src="assets/img/homepage/rustic.jpg" alt="Photo d'un café rustique">
+            <div class="card-text">
+                <h2> <span>01.</span> Café rustique </h2>
+                <p>
+                    Un bistro à l’ambiance rustique.
+                        Un café fraichement moulu.
+                        Une torréfaction parfaite.
+                        Les meilleurs arômes avec des grains venus du monde entier.
+                </p>
+            </div>
+        </div>
 
-        <section class="container-card">
+        {# ===================================================== #}
 
-                {# ==================== FIRST CARD ==================== #}
-                {# ==================== FIRST CARD ==================== #}
-                {# ==================== FIRST CARD ==================== #}
+        <div class="card">
+            <img src="assets/img/homepage/gourmet.jpg" alt="Photo d'un café avec des douceurs">
+            <h2> <span>02.</span> Café gourmand </h2>
+            <p>
+                On parle des cafés ou des douceurs?
+                    Quoiqu’il en soit, nous vous offrons le meilleur en terme de qualité.
+            </p>
+        </div>
 
-                <div class="card">
-                    <img src="assets/img/homepage/rustic.jpg" alt="Photo d'un café rustique">
-                    <div class="text-card">
-                        <h2 class="color-red font-serif">
-                            <span class="color-dark">01.</span> 
-                            Café rustique
-                        </h2>
-                        <p>
-                            Un bistro à l’ambiance rustique.
-                            Un café fraichement moulu.
-                            Une torréfaction parfaite.
-                            Les meilleurs arômes avec des grains venus du monde entier.
-                        </p>
-                    </div>
-                </div>
+        {# ==================================================== #}
 
-                {# ==================== SECOND CARD ==================== #}
-                {# ==================== SECOND CARD ==================== #}
-                {# ==================== SECOND CARD ==================== #}
+        <div class="card">
+            <img src="assets/img/homepage/relaxation.jpg" alt="Photo d'un café avec un livre">
+            <h2> <span>03.</span> Café détente </h2>
+            <p>
+                Vous trouverez chez C&B la possibilité d’emprunter un livre en guise d’accompagnement avec votre café pour vous offrir un réel moment de détente.
+            </p>
+        </div>
 
-                <div class="card">
-                    <img src="assets/img/homepage/gourmet.jpg" alt="Photo d'un café avec des douceurs">
-                    <div class="text-card">
-                        <h2 class="color-red font-serif">
-                            <span class="color-dark">02.</span> 
-                            Café gourmand
-                        </h2>
-                        <p>
-                            On parle des cafés ou des douceurs?
-                            Quoiqu’il en soit, nous vous offrons le meilleur en terme de qualité.
-                        </p>
-                    </div>
-                </div>
+    </section>{# END .CONTAINER-CARD #}
 
-                {# ==================== THREE CARD ==================== #}
-                {# ==================== THREE CARD ==================== #}
-                {# ==================== THREE CARD ==================== #}
+    {# ========================================================= #}
+    {# ==================== PARALLAX EFFECT ==================== #}
+    {# ========================================================= #}
 
-                <div class="card">
-                    <img src="assets/img/homepage/relaxation.jpg" alt="Photo d'un café avec un livre">
-                    <div class="text-card">
-                        <h2 class="color-red font-serif">
-                            <span class="color-dark">03.</span> 
-                            Café détente
-                        </h2>
-                        <p>
-                            Vous trouverez chez C&B la possibilité d’emprunter un livre en guise d’accompagnement avec votre café pour vous offrir un réel moment de détente.
-                        </p>
-                    </div>
-                </div>
-
-        </section>{# END .CONTAINER-CARD #}
-
-        {# ==================== PARALLAX EFFECT ==================== #}
-        {# ==================== PARALLAX EFFECT ==================== #}
-        {# ==================== PARALLAX EFFECT ==================== #}
-
-        <section class="parallax">
-            <article>
-                <div>
-                    <h2 class="color-e-brown font-serif uppercase">
-                        Ayez le choix, <br>
-                        <span>jusqu'au bout de vos grains!</span> 
-                    </h2>
-                    
-                </div>
-                <p class="color-light font-serif uppercase">
-                        Choissisez le grain qui vous convient.
-                    </p>
-                <button class="btn-large">
-                    <a href="">
-                        <img src="assets/img/icons/beans-btn.png" alt="">
-                        Voir nos grains de café
-                    </a>
-                </button>
-            </article>
+    <section class="parallax">
+        <div class="text-parallax">
+            <h2>
+                Ayez le choix, <br>
+                <span>jusqu'au bout de vos grains!</span> 
+            </h2>
+            <p>
+                 Choissisez le grain qui vous convient.
+            </p>
+            <button>
+                <a href="{{ path('app_default_coffee_beans') }}">
+                    <img src="assets/img/icons/beans-btn.png" alt="">
+                    Voir nos grains de café
+                </a>
+            </button>
+        </div>
             
-        </section>{# END .PARRALLAX #}
+    </section>{# END .PARRALLAX #}
 
-        {# ==================== CONTAINER-STEP ==================== #}
-        {# ==================== CONTAINER-STEP ==================== #}
-        {# ==================== CONTAINER-STEP ==================== #}
 
-        <section class="container-step text-center">
+    {# ====================================================== #}
+    {# ==================== PRESENTATION ==================== #}
+    {# ====================================================== #}
 
-            {# ==================== FIRST STEP ==================== #}
-            {# ==================== FIRST STEP ==================== #}
-            {# ==================== FIRST STEP ==================== #}
+    <section class="container-presentation">
 
-            <div class="step">
-                <img src="assets/img/step/beans-color.png" alt="">
-                <h2 class="color-red font-serif">
-                    <span class="color-dark">01.</span> 
-                    Grain de café
-                </h2>
-                <p>
-                    Vous êtes à la recherche de nouveaux arômes? Nous avons sélectionné pour vous les meilleurs grains de café venus du monde entier.
-                </p>
+        <div class="text-presentation">
+            <h2>Vous avez un grain décalé ? <br> Nous aussi!</h2>
+            <p>
+                COFFEE AND BOOK SHOP est le premier bistro qui vous sert cafés, viennoiseries et livres pour vous garantir un véritable moment d’évasion, que ce soit sur place ou à emporter. Chacun de nous a droit à un moment de répit dans son monde et nous voulons vous aider à travers saveurs venues du monde entier et imagination à vous transporter.
+            </p>
+        </div>
+        <div class="img-presentation">
+            <img src="assets/img/homepage/presentation.jpg" alt="">
+        </div>
+
+    </section>{# END .PRESENTATION #}
+
+    <button class="btn-center">
+        <a href="{{ path('app_menu') }}">
+            <img src="assets/img/icons/beans-btn.png" alt="">
+            Voir la carte
+        </a>
+    </button>
+
+    {# ================================================= #}
+    {# ==================== CONTACT ==================== #}
+    {# ================================================= #}
+        
+        
+    <section class="container-contact">
+
+        {# =================================================== #}
+        {# ==================== PERSONNEL ==================== #}
+        {# =================================================== #}
+
+        <section class="box box1 active">
+            <section class="heading">
+                <p>What's happening here?</p>
+                <h2>Le c&b shop c'est qui?</h2>
+                <p>voici une courte présentation de notre équipe</p>
+            </section>
+
+            <div class="container-personnel">
+                <div class="card card1">
+                    <img src="assets/img/homepage/alexis.jpg"/>
+                    <h3>Alexis</h3>
+                    <div class="focus-content">
+                        <p>Alexis est notre barista, c’est un vrai sommelier du café, il maitrise la technique du LATTE ART depuis 2013</p>
+                    </div>
+                </div>
+                <div class="card card2">
+                    <img src="assets/img/homepage/olga.jpg"/>
+                    <h3>Olga</h3>
+                    <div class="focus-content">
+                        <p>Olga est une passionnée de livre depuis son plus jeune âge, elle décide d’ouvrir le Coffee and Book en 2016. En plus d’être la gérante, elle fait également le service pour préserver une relation employés-client unique</p>
+                    </div>
+                </div>
+                <div class="card card3">
+                    <img src="assets/img/homepage/nicolas.jpg"/>
+                    <h3>Nicolas</h3>
+                    <div class="focus-content">
+                        <p>Boulanger depuis 2016, il est élu meilleur apprenti de France en 2014 pendant ses études grâce à son fameux pain au chocolat aux amendes, qui fait partie de la carte.</p>
+                    </div>
+                </div>
             </div>
 
-            {# ==================== SECOND STEP ==================== #}
-            {# ==================== SECOND STEP ==================== #}
-            {# ==================== SECOND STEP ==================== #}
+            <button id="contact" class="btn-center btn1">Nous contacter</button>
+        </section>{# END CONTAINER-PERSONNEL #}
 
-            <div class="step">
-                <img src="assets/img/step/moulin-a-cafe.png" alt="">
-                <h2 class="color-red font-serif">
-                    <span class="color-dark">02.</span> 
-                    Broyeur à grain
-                </h2>
-                <p>
-                    Un moulin à café pour varier les plaisir et libérer tout les arômes de votre café.
-                </p>
-            </div>
+        {# ==================================================== #}
+        {# ==================== FORMULAIRE ==================== #}
+        {# ==================================================== #}
 
-            {# ==================== THIRD STEP ==================== #}
-            {# ==================== THIRD STEP ==================== #}
-            {# ==================== THIRD STEP ==================== #}
+        <section class="container-form box box2">
+                
+            <section class="heading">
+                <p>What's happening here?</p>
+                <h2>Contactez-nous</h2>
+                <p>Bistro de café & Livre</p>
+            </section>
 
-            <div class="step">
-                <img src="assets/img/step/machine-a-cafe.png">
-                <h2 class="color-red font-serif">
-                    <span class="color-dark">03.</span> 
-                    Machine à café
-                </h2>
-                <p>
-                    Un café parfaitement torréfié en France, de manières lente, avec passion et surtout qui respecte votre café.
-                </p>
-            </div>
-
-            {# ==================== FOURTH STEP ==================== #}
-            {# ==================== FOURTH STEP ==================== #}
-            {# ==================== FOURTH STEP ==================== #}
-
-            <div class="step">
-                <img src="assets/img/step/mug.png">
-                <h2 class="color-red font-serif">
-                    <span class="color-dark">04.</span> 
-                    Tasse de café
-                </h2>
-                <p>
-                    Pour la dégustation de votre café vous aurez la possibilité de le prendre sur place, à emporter, ou de le commander sur notre site. 
-                </p>
-            </div>
-
-            {# ==================== FIFTH STEP ==================== #}
-            {# ==================== FIFTH STEP ==================== #}
-            {# ==================== FIFTH STEP ==================== #}
-
-            <div class="step">
-                <img src="assets/img/step/book-stack.png">
-                <h2 class="color-red font-serif">
-                    <span class="color-dark">05.</span> 
-                    Un bon livre
-                </h2>
-                <p>
-                    Chez C&B SHOP nous vous offrons la possibilité de vous évader pour déguster votre café dans un monde qui vous fait envie en choissisant parmis les livres que nous vous proposons.
-                </p>
-            </div>
-
-        </section>{# END .CONTAINER-STEP #}
-
-        {# ==================== PRESENTATION ==================== #}
-        {# ==================== PRESENTATION ==================== #}
-        {# ==================== PRESENTATION ==================== #}
-
-        <section class="container-presentation">
-
-            {# ==================== LEFT PART : TEXT ==================== #}
-            {# ==================== LEFT PART : TEXT ==================== #}
-            {# ==================== LEFT PART : TEXT ==================== #}
-
-            <div class="presentation-text">
-                <h2 class="font-serif uppercase">Vous avez un grain décalé ? <br> Nous aussi!</h2>
-                    <p>
-                        COFFEE AND BOOK SHOP est le premier bistro qui vous sert cafés, viennoiseries et livres pour vous garantir un véritable moment d’évasion, que ce soit en terrasse ou dans votre canapé. Chacun de nous a droit à un moment de répit dans son monde et nous voulons vous aider à travers saveurs venues du monde entier et imagination à vous transporter.
-                    </p>
-            </div>
-
-            {# ==================== RIGHT PART : IMG ==================== #}
-            {# ==================== RIGHT PART : IMG ==================== #}
-            {# ==================== RIGHT PART : IMG ==================== #}
-
-            <div class="presentation-img">
-                <img src="assets/img/photo/accueil/img-section.jpg" alt="">
-            </div>
-
-        </section>{# END .PRESENTATION #}
-
-        <button class="btn-center">
-            <a href="">
-                <img src="assets/img/icons/beans-black.png" alt="">
-                Voir nos grains
-            </a>
-        </button>
-
-        {# ==================== FIFTH SECTION : CONTACT ==================== #}
-        {# ==================== FIFTH SECTION : CONTACT ==================== #}
-        {# ==================== FIFTH SECTION : CONTACT ==================== #}
-
-        <section class="contact">
-            
-            <p class="color-dark-brown text-center font-serif uppercase">Vous avez une question?</p>
-            <h2 class="color-dark text-center font-serif uppercase">Contactez-nous</h2>
-            <p class="color-red text-center font-serif uppercase">Bistro de café & Livre</p>
-
-            <form class="container-form "action="">
+            <form action="">
 
                 <input type="text" id="fname" name="firstname" placeholder="Votre nom et prénom">
 
@@ -262,23 +192,16 @@
 
                 <textarea id="subject" name="subject" placeholder="Votre message" style="height:200px"></textarea>
 
-                <button class="btn-center" type="submit" value="Envoyer">
-                    <a href="">
-                        <img src="assets/img/icons/beans-black.png" alt="">
-                        Envoyer
-                    </a>
-                </button>
-                
+                <button class="btn-center" type="submit" value="Envoyer">Envoyer</button>
             </form>
 
-        </section>{# END .CONTACT #}
+            <p class="btn2">Voir les employés</p>  
 
-        <button>
-            <a href="">
-                Voir les avis
-            </a>
-        </button>
+        </section>{# END CONTAINER-FORM #}
+    </section>{# END CONTAINER-CONTACT #}
 
-    </main> {# END .WRAPPER #}
+{% endblock %}
 
+{% block javascripts %}
+    <script src="/assets/js/default/home-page.js"></script>
 {% endblock %}

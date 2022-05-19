@@ -1,15 +1,14 @@
-
-/* ======================================================================= */
-/* ====================PARTIE CSS DU CONTAINER HEADER ==================== */
-/* ======================================================================= */
-
+/*
+=========================================
+======== SECTION CONTAINER HEADER =======
+=========================================
+*/
 .container-header{
     background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
     min-width: 100%;
     min-height: 600px;
-    position: relative; /* Pour pouvoir utiliser la position absolute*/
+    position: relative; 
 }
-
 .container-header::after{
     content: '';
     position: absolute;
@@ -20,14 +19,14 @@
     z-index: 0;
     background: var(--overlay);
 }
-
-/* ============================================================================ */ 
-/* ==================== PARTIE CSS DE LA CLASSE NAVIGATION ==================== */
-/* ============================================================================ */
-
+/*
+========================================
+================== NAV =================
+========================================
+*/
 nav{
     min-width: 100%;
-    position: relative; /* Pour pouvoir utiliser le z-index*/
+    position: relative; 
     z-index: 1;
     padding: 1rem 2rem;
     display: grid;
@@ -39,14 +38,14 @@ nav .navigation{
 }
 
 nav .navigation a{
-    display: inline-block; /* Pour mettre les éléments l'un à côté de l'autre */
+    display: inline-block; 
     margin-left: 2rem;
 }
-
-/* ============================================================== */
-/* ==================== PARTIE CSS DU HEADER ==================== */
-/* ============================================================== */
-
+/* 
+========================================
+================ HEADER ================
+======================================== 
+*/
 header{
     min-width: 100%;
     position: absolute;

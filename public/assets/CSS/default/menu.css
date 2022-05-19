@@ -7,14 +7,6 @@ PARTIE CSS DU HEADER : HEADER
     background: url(/assets/img/background/bg-carte.jpg) no-repeat center center / cover !important;
 }
 /*
-==================================
-PARTIE CSS DE LA SECTION : HEADING 
-==================================
-*/
-.heading{
-    margin: 3rem 0;
-}
-/*
 ===============================
 PARTIE CSS DE LA SECTION : MENU
 ===============================
