@@ -1,0 +1,73 @@
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
+
+{% extends "base.html.twig" %}
+
+{# ======================================== #}
+{# ================== STYLE =============== #}
+{# ======================================== #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/form.css">
+{% endblock %}
+
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
+
+{% block title %}Connexion{% endblock %}
+
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
+
+{% block body %}
+
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
+
+    <section class="heading">
+        <h2>Connexion</h2>
+    </section>
+
+    {# ======================================== #}
+    {# =============== CONNEXION ============== #}
+    {# ======================================== #}
+
+    <section class="container-form">
+
+        <form method="post">
+
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+
+            {% endif %}
+
+            {% if app.user %}
+                <div>
+                    Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_user_logout') }}">Déconnexion</a>
+                </div>
+            {% endif %}
+
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+            <input type="hidden" name="_csrf_token"value="{{ csrf_token('authenticate') }}">
+                        
+            <button class="btn-center" type="submit">Se connecter</button>
+
+        </form>
+                    
+    </section>
+
+    <section class="message">
+        <p> Vous n'avez pas de compte ?</p>
+        <a href=" {{ path('app_security_sign_up') }}">Inscrivez-vous</a>
+    </section> 
+
+{% endblock %}

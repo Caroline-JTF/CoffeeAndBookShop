@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
@@ -30,6 +31,8 @@ class UserFormType extends AbstractType
                 'label' => 'Email :',
             ])
             ->add('password', RepeatedType::class, [
+                'required' => false,
+                'mapped' => false,
                 'type' => PasswordType::class,
                 'first_options' => [
                     'label' => 'Mot de passe :',
@@ -38,14 +41,12 @@ class UserFormType extends AbstractType
                     'label' => 'Répétez votre mot de passe :',
                 ]
             ])
-            ->add('address', TextType::class, [
-                'label' => 'Adresse',
-            ])
-            ->add('city', TextType::class, [
-                'label' => 'Ville',
-            ])
-            ->add('postalCode', TextType::class, [
-                'label' => 'CP',
+            ->add('submit', SubmitType::class, [
+                'label' => 'Envoyer',
+                'validate' => false,
+                'attr' => [
+                    'class' => 'btn-center'
+                ]
             ])
         ;
     }

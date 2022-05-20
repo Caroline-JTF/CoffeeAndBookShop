@@ -16,7 +16,7 @@
 {# ================= TITLE ================ #}
 {# ======================================== #}
 
-{% block title %}Modifier la viennoiserie{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {# ======================================== #}
 {# ================= BODY ================= #}
@@ -27,34 +27,32 @@
     {# ======================================== #}
     {# ================ HEADING =============== #}
     {# ======================================== #}
-
+    
     <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Modifier la viennoiserie suivante : {{food.name }}</h2>
-        <a href="{{ path('app_admin_dashboard') }}">Retour</a>
+        <h2>Inscription</h2>
     </section>
 
     {# ======================================== #}
-    {# ================== FOOD ================ #}
+    {# ============== INSCRIPTION ============= #}
     {# ======================================== #}
 
-    <section class="section-form">
-    
-        {# FORMULAIRE #}
-        <div class="container-form">
+    <section class="container-form">
+        
+        {{ form_start(form) }}
 
-            {{ form_start(form) }}
-            
-                {{ form_row(form.name) }}
-                {{ form_row(form.description) }}
-                {{ form_row(form.price) }}
-                {{ form_row(form.img) }}
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.phoneNumber) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.password) }}
 
-            {{ form_end(form) }}
-
-        </div>
+        {{ form_end(form) }}
 
     </section>
 
-    
+    <section class="message">
+        <p> Vous avez un compte ?</p>
+        <a href=" {{ path('app_security_log_in') }}">Connectez-vous</a>
+    </section> 
+
 {% endblock %}

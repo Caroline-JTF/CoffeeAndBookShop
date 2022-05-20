@@ -1,46 +1,45 @@
 /*
-===============================================
-PARTIE CSS DE LA PREMIER SECTION : PRESENTATION 
-===============================================
-*/
-.heading{
-    margin: 3rem;
-}
-/*
-=========================================
-PARTIE CSS DE LA SECTION GESTION PRODUITS
-=========================================
+============================
+====== SECTION BUTTON ======
+============================
 */
 .command-btn{
     display: flex;
     width: 90%;
-    margin: 0 auto 3rem;
+    margin: 0 auto;
 }
+.command-btn button{
+    width: 15rem !important;
+    margin: 0 auto;
+}
+/*
+============================
+======= SECTION TABLE ======
+============================
+*/
 .container-box{
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
-    align-items: center; 
-}
-.container-box a{
-    justify-content: center;
     align-items: center;
-    cursor: pointer;
-}
-.container-box a:hover{
-    text-decoration: underline;
 }
 .container-box .box{
     display: none;
+    width: 80%;
     flex-direction: column;
+}
+.box a{
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
 }
 table{
     margin: 3rem 0;
 }
 table th{
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 2rem 0;
     text-align: center;
-    background-color: var(--color-brown-dark);
+    background-color: var(--color-dark-brown);
     color: white;
 }
 table td, table th {
@@ -48,11 +47,18 @@ table td, table th {
     padding: 1rem;
 }
 table tr:nth-child(even){
-    background-color: var(--color-brown-light);
+    background-color: var(--color-light-brown);
 } 
 table tr:hover {
     background-color: var(--color-light);
 }
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .active{
     display: flex !important;
 }

@@ -30,27 +30,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $phoneNumber;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $address;
-
-    #[ORM\Column(type: 'string', length: 255)]
-    private $city;
-
-    #[ORM\Column(type: 'string', length: 5)]
-    private $postalCode;
-
-    #[ORM\Column(type: 'string', length: 255)]
     private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $lastname;
-
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Command::class)]
-    private $commands;
-
-    public function __construct()
-    {
-        $this->commands = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -153,42 +136,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    public function getPostalCode(): ?string
-    {
-        return $this->postalCode;
-    }
-
-    public function setPostalCode(string $postalCode): self
-    {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
     public function getFirstname(): ?string
     {
         return $this->firstname;
@@ -209,36 +156,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Command>
-     */
-    public function getCommands(): Collection
-    {
-        return $this->commands;
-    }
-
-    public function addCommand(Command $command): self
-    {
-        if (!$this->commands->contains($command)) {
-            $this->commands[] = $command;
-            $command->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommand(Command $command): self
-    {
-        if ($this->commands->removeElement($command)) {
-            // set the owning side to null (unless already changed)
-            if ($command->getUser() === $this) {
-                $command->setUser(null);
-            }
-        }
 
         return $this;
     }

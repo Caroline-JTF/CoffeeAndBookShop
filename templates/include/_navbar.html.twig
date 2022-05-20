@@ -1,6 +1,6 @@
-{# =============================================== #}
-{# ==================== STYLE ==================== #}
-{# =============================================== #}
+{# ======================================== #}
+{# ================== STYLE =============== #}
+{# ======================================== #}
 
 {% block stylesheets %}
 
@@ -15,15 +15,15 @@
 
 {% endblock %}
 
-{# ========================================================== #}
-{# ==================== CONTAINER HEADER ==================== #}
-{# ========================================================== #}
+{# ================================================== #}
+{# ================= CONTAINER HEADER =============== #}
+{# ================================================== #}
     
 <div class="container-header">
     
-    {# ==================================================== #}
-    {# ==================== NAVIGATION ==================== #}
-    {# ==================================================== #}
+    {# ======================================== #}
+    {# =================== NAV ================ #}
+    {# ======================================== #}
 
     <nav>
 
@@ -39,7 +39,7 @@
                     <img src="/assets/img/icons/beans.png" alt="Icône d'un grain de café">
                 </a>
 
-                <a href="{{ path('app_menu') }}"  title="La carte" >
+                <a href="{{ path('app_default_menu') }}"  title="La carte" >
                     <img src="/assets/img/icons/menu.png" alt="Icône de grain de café">
                 </a>
 
@@ -50,18 +50,14 @@
                 {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
                 {% if not app.user %}
 
-                    <a href="{{ path('app_security_login') }}" title="Connectez-vous" >
+                    <a href="{{ path('app_security_log_in') }}" title="Connectez-vous" >
                         <img src="/assets/img/icons/login.png" alt="Icône de connexion">
                     </a>
 
                     {# Partie visible quand on est connecter en tant qu'utilisateur #}
                     {% else %}
 
-                        <a href="{{ path('app_default_account') }}" title="Votre compte" >
-                            <img src="/assets/img/icons/account.png" alt="Icône d'utilisateur">
-                        </a>
-
-                        {# Partie visible quand on est connecter en tant qu'utilisateur #}
+                        {# Partie visible quand on est connecter en tant qu'administrateur #}
                         {% if is_granted("ROLE_ADMIN") %}
 
                             <a href="{{ path('app_admin_dashboard') }}" title="Accès à votre dashboard">
@@ -70,7 +66,7 @@
 
                         {% endif %} {# END IS_GRANTED #}
 
-                    <a href="{{ path('app_security_logout') }}" title="Déconnectez-vous" >
+                    <a href="{{ path('app_security_log_out') }}" title="Déconnectez-vous" >
                         <img src="/assets/img/icons/logout.png" alt="Icône de déconnexion">
                     </a>
 
@@ -80,9 +76,9 @@
 
     </nav>
 
-    {# ================================================ #}
-    {# ==================== HEADER ==================== #}
-    {# ================================================ #}
+    {# ======================================== #}
+    {# ================== HEADER ============== #}
+    {# ======================================== #}
 
     <header>
         <h1>{% block page_title 'Coffee and Book' %} </h1>

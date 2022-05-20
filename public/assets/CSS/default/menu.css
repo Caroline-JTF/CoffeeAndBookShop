@@ -1,46 +1,103 @@
 /*
-=============================
-PARTIE CSS DU HEADER : HEADER
-=============================
+=========================================
+======== SECTION CONTAINER HEADER =======
+=========================================
 */
-.header{
-    background: url(/assets/img/background/bg-carte.jpg) no-repeat center center / cover !important;
+.container-header{
+    background: url(/assets/img/background/bg-menu.jpg) no-repeat center center / cover !important;
 }
 /*
-===============================
-PARTIE CSS DE LA SECTION : MENU
-===============================
+============================
+====== SECTION HEADING =====
+============================
+*/
+.heading p:nth-child(2){
+    color: var(--color-dark-brown);
+}
+/*
+========================================
+============ SECTION BUTTON ============
+========================================
+*/
+.command-btn{
+    padding: 3rem 0;
+    background-color: var(--color-light-brown);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.command-btn .btn{
+    display: flex;
+    margin: 0 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background-color: var(--color-light);
+}
+.command-btn .btn img{
+    width: 80px;
+    height: 80px;
+}
+.command-btn .btn .btn-text{
+    font-family: var(--font-serif);
+    color: var(--color-dark);
+}
+.command-btn .btn .btn-text span{
+    color: var(--color-red);
+}
+/*
+========================================
+================== MAIN ================
+========================================
 */
 main{
     display: flex;
-    width: 90%;
-    margin: 5rem auto 3rem;
+    width: 100%;
+    background-color: var(--color-light-brown);
+    padding-bottom: 3rem;
 }
 /*
-==================================
-PARTIE CSS DE LA SECTION : PRODUCT
-==================================
+========================================
+================= MENU =================
+========================================
 */
-.container-product{
-    width: 60%;
+.menu{
+    width: 100%;
+    margin: 0 auto;
     display: none;
 }
-
+.menu .heading h2{
+    font-size: 3rem;
+}
+.container-product{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
 .container-product .product{
     display: flex;
     justify-content: center;
     align-items: center;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
     margin: 1rem auto;
-    width: 80%;
-    height: 100px;
 }
-.container-product .product img{
+.menu1 .container-product .product img,
+.menu2 .container-product .product img{
+    object-fit: cover;
     border-radius: 50%;
     margin-right: 1rem;
     width: 100px;
     height: 100px;
+}
+.menu3 .container-product .product img{
+    object-fit: cover;
+    width: 100px;
+    height: 150px;
+    margin-right: 1rem;
 }
 .container-product .product .text-product{
     display: flex;
@@ -49,51 +106,28 @@ PARTIE CSS DE LA SECTION : PRODUCT
     width: 300px;
 }
 .container-product .product .price{
-    width: 300px;
     display: flex;
+    float: right;
 }
 .container-product .product .line{
-    background-color: var(--color-brown-light);
+    background-color: var(--color-light);
     width: 100px ;
     height: 3px;
     margin: auto 0;
 }
 .price p{
-    background: var(--color-brown-light);
+    background: var(--color-light);
     width: 100px;
     height: 30px;
     text-align: center;
     margin: auto 0;
     line-height: 30px;
 }
-.btn-add{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin: auto 1rem;
-}
 /*
-==================================
-PARTIE CSS DE LA SECTION : COMMAND
-==================================
+========================================
+============== DYNAMISE JS =============
+========================================
 */
-.view-command{
-    width: 40%;
-    padding: 3rem;
-    background-color: var(--color-brown-light);
-}
-.view-command p{
-    padding-top: 3rem;
-}
-
-.command-btn{ 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.command-btn button{
-    margin: 3rem 1rem 5rem;
-}
 .active{
     display: block !important;
 }

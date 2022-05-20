@@ -1,4 +1,6 @@
-//afficher année en cours sur le copyright
+// =========================================
+// =============== FONCTIONS ===============
+// =========================================
 
 function displayYear (){
     let date = new Date();

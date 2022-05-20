@@ -1,53 +1,56 @@
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
 
 {% extends "base.html.twig" %}
 
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
+{# ======================================== #}
+{# ================== STYLE =============== #}
+{# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="/assets/CSS/form.css">
+    <link rel="stylesheet" href="/assets/css/form.css">
 {% endblock %}
 
-{# ==================== TITLE ==================== #}
-{# ==================== TITLE ==================== #}
-{# ==================== TITLE ==================== #}
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
 
 {% block title %}Modifier l'utilisateur{% endblock %}
 
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
 
 {% block body %}
 
-    {# ==================== UPDATE COFFEE ==================== #}
-    {# ==================== UPDATE COFFEE ==================== #}
-    {# ==================== UPDATE COFFEE ==================== #}
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
 
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Modifier l'utilisateur suivant : {{ user.firstname}} {{ user.lastname }}</h2>
+        <a href="{{ path('app_admin_dashboard') }}">Retour</a>
+    </section>
+
+    {# ======================================== #}
+    {# ================== USER ================ #}
+    {# ======================================== #}
     <section class="section-form">
-
-        {# MESSAGE #}
-        
-        <div class="heading">
-            <p class="color-brown-dark font-serif text-center uppercase">What's happening here?</p>
-            <h2 class="color-dark font-serif text-center uppercase">Modifier l'utilisateur suivant : {{ user.name }}</h2>
-            <a href="{{ path('app_admin_dashboard') }}" class="color-red font-serif text-center uppercase">Retour</a>
-        </div>
-        
     
         {# FORMULAIRE #}
         <div class="container-form">
 
             {{ form_start(form) }}
             
-                {{ form_row(form.name) }}
-                {{ form_row(form.description) }}
-                {{ form_row(form.price) }}
-                {{ form_row(form.img) }}
+                {{ form_row(form.firstname) }}
+                {{ form_row(form.lastname) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.phoneNumber) }}
+                <div style="display: none;">
+                    {{ form_widget(form.password) }}
+                </div>
 
             {{ form_end(form) }}
 

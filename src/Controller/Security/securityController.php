@@ -17,7 +17,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class securityController extends AbstractController
 {
     //Formulaire d'inscription :
-    #[Route('/signUp', name: 'app_security_signUp', methods: ['GET', 'POST'])]
+    #[Route('/inscription', name: 'app_security_sign_up', methods: ['GET', 'POST'])]
     public function inscription(Request $request, EntityManagerInterface $entity, UserPasswordHasherInterface $hasher): Response 
     {
         $user = new User();
@@ -38,26 +38,26 @@ class securityController extends AbstractController
             return $this->redirectToRoute('app_default_home_page');
         }
 
-        return $this->render('security/signUp.html.twig', [
+        return $this->render('security/sign-up.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
     //Formulaure de connexion
-    #[Route('/login', name: 'app_security_login')]
+    #[Route('/connexion', name: 'app_security_log_in')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
 
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', [
+        return $this->render('security/log-in.html.twig', [
             'last_username' => $lastUsername, 'error' => $error
         ]);
     }
 
     // Déconnexion
-    #[Route(path: '/deconnexion', name: 'app_security_logout')]
+    #[Route(path: '/deconnexion', name: 'app_security_log_out')]
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');

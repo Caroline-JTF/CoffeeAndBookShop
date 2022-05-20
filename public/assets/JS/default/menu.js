@@ -1,50 +1,67 @@
-// Boutons
+// =========================================
+// =============== VARIABLES ===============
+// =========================================
+
 const btn1 = document.querySelector(".btn1");
 const btn2 = document.querySelector(".btn2");
+const btn3 = document.querySelector(".btn3");
 
-const menu = document.querySelectorAll(".menu");
+const menu1 = document.querySelector(".menu1");
+const menu2 = document.querySelector(".menu2");
+const menu3 = document.querySelector(".menu3");
 
-let index = 0;
+const circle1 = document.querySelector('.circle1');
+const circle2 = document.querySelector('.circle2');
+const circle3 = document.querySelector('.circle3');
 
-// events
-btn1.addEventListener("click", precedent);
-btn2.addEventListener("click", suivant);
+// =========================================
+// =============== EVENEMNTS ===============
+// =========================================
 
-//Fonctions
+btn1.addEventListener("click", viewMenu1);
+btn2.addEventListener("click", viewMenu2);
+btn3.addEventListener("click", viewMenu3);
 
-function suivant(){
+// =========================================
+// =============== FONCTIONS ===============
+// =========================================
 
-    if(index < 2){
-
-        menu[index].classList.remove('active');
-        index++;
-        menu[index].classList.add('active');
-
-    }
-    else if (index === 2) {
-
-        menu[index].classList.remove('active');
-        index = 0;
-        menu[index].classList.add('active');
-
-    }
-
+function viewMenu1(){
+    if(menu2.classList.contains("active")){
+        menu2.classList.remove("active")
+    };
+    if(menu3.classList.contains("active")){
+        menu3.classList.remove("active")
+    };
+    if(!menu1.classList.contains('active')){
+        menu1.classList.add("active")  
+    }   
 }
 
-function precedent(){
+// =========================================
 
-    if(index > 0){
+function viewMenu2(){
+    if(menu1.classList.contains("active")){
+        menu1.classList.remove("active")
+    };
+    if(menu3.classList.contains("active")){
+        menu3.classList.remove("active")
+    };
+    if(!menu2.classList.contains('active')){
+        menu2.classList.add("active")  
+    }   
+}
 
-        menu[index].classList.remove('active');
-        index--;
-        menu[index].classList.add('active');
+// =========================================
 
-    }
-    else if (index === 0) {
-
-        menu[index].classList.remove('active');
-        index = 2;
-        menu[index].classList.add('active');
-
-    }
+function viewMenu3(){
+    if(menu1.classList.contains("active")){
+        menu1.classList.remove("active")
+    };
+    if(menu2.classList.contains("active")){
+        menu2.classList.remove("active")
+    };
+    if(!menu3.classList.contains('active')){
+        menu3.classList.add("active")  
+    }   
 }

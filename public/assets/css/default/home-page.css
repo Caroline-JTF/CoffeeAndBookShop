@@ -39,7 +39,7 @@
     background: url('/assets/img/background/bg-section.jpg') no-repeat top right / cover;
     background-attachment: fixed;
     width: 100%;
-    height: 600px;
+    height: 700px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -52,7 +52,7 @@
     top: 0;
     left: 0;
     min-width: 100%;
-    min-height: 600px;
+    min-height: 700px;
     z-index: 0;
     background: var(--overlay);
 }
@@ -73,60 +73,17 @@
     font-size: 2.5rem;
 }
 .parallax .text-parallax p{
+    font-family: var(--font-serif);
     color: var(--color-light);
     font-size: 1.5rem;
     margin: 1rem 0;
 }
-/*
-========================================
-============= SECTION STEP =============
-========================================
-*/
-.container-step{
-    display: grid;
-    grid-template-areas: 
-    'step1 step2 step3'
-    'step4 step5 step6'
-    ;
-    width: 100%;
-    height: 600px;
-    justify-content: center;
-    align-items: center;
+.parallax .container-btn{
+    display: flex;
 }
-.container-step .step img{
-    max-width: 80px;
-    max-height: 80px;
-}
-.container-step .step{
-    max-width: 200px;
-    min-height: 300px;
-    text-align: center;
-    margin: 0 5rem;
-}
-.step1{
-    grid-area: step1;
-}
-.step2{
-    grid-area: step2;
-}
-.step3{
-    grid-area: step3;
-}
-.step4{
-    grid-area: step4;
-}
-.step5{
-    grid-area: step5;
-}
-.step6{
-    grid-area: step6;
-}
-.container-step .step h2{
-    color: var(--color-red);
-    margin: 1rem 0;
-}
-.container-step .step span{
-    color: var(--color-dark);
+.parallax .container-btn button{
+    width: 15rem !important;
+    margin-right: 1rem;
 }
 /*
 ========================================
@@ -138,7 +95,7 @@
     display: flex;
     max-width: 80%;
     max-height: 500px;
-    margin: 5rem auto;
+    margin: 10rem auto;
 }
 .container-presentation .img-presentation{
     width: 50%;
@@ -150,15 +107,24 @@
 .container-presentation .text-presentation{
     width: 50%;
     padding: 3rem;
+    position: relative;
 }
 .container-presentation .text-presentation h2{
     font-size: 1.5rem;
-    margin-bottom: 3rem;
     font-family: var(--font-serif);
     text-transform: uppercase;
 }
 .container-presentation .text-presentation p{
     font-size: 1rem;
+    margin: 3rem 0;
+}
+.container-presentation .text-presentation button{
+    width: 15rem !important;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 10%;
+
 }
 /*
 ========================================

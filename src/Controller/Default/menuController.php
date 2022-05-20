@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class menuController extends AbstractController
 {
-    #[Route("/la-carte", name: "app_menu", methods: ["GET"])]
+    #[Route("/la-carte", name: "app_default_menu", methods: ["GET"])]
     public function menu(
         CoffeeRepository $coffeeRepository,
         FoodRepository $foodRepository,

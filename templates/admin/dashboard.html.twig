@@ -1,71 +1,71 @@
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
 
 {% extends "base.html.twig" %}
 
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
+{# ======================================== #}
+{# ================== STYLE =============== #}
+{# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="/assets/CSS/admin/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/admin/dashboard.css">
 {% endblock %}
 
-{# ==================== TITLE ==================== #}
-{# ==================== TITLE ==================== #}
-{# ==================== TITLE ==================== #}
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
 
 {% block title %}Panneau de gestion{% endblock %}
 
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
 
 {% block body %}
     
 
-    {# ==================== FIRST SECTION : PRESENTATION ==================== #}
-    {# ==================== FIRST SECTION : PRESENTATION ==================== #}
-    {# ==================== FIRST SECTION : PRESENTATION ==================== #}
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
 
     <section class="heading">
-
-        <p class="color-brown-dark font-serif text-center uppercase">What's happening here?</p>
-        <h2 class="font-serif text-center uppercase">Votre panneau de gestion</h2>
-        <p class="color-red font-serif text-center uppercase">Gérer votre Coffee and Book Shop ici</p>
-
+        <p>What's happening here?</p>
+        <h2>Votre panneau de gestion</h2>
+        <p>Gérer votre Coffee and Book ici</p>
     </section>
     
-    {# ==================== SECOND SECTION : BUTTON ==================== #}
-    {# ==================== SECOND SECTION : BUTTON ==================== #}
-    {# ==================== SECOND SECTION : BUTTON ==================== #}
+    {# ======================================== #}
+    {# ================= BUTTON =============== #}
+    {# ======================================== #}
 
     
     <section class="command-btn">
 
-        <button class="btn1 btn-center color-light">Utilisateurs</button>
-        <button class="btn2 btn-center color-light">Cafés</button>
-        <button class="btn3 btn-center color-light">Viennoiseries</button>
-        <button class="btn4 btn-center color-light">Livres</button>
+        <button class="btn1">Utilisateurs</button>
+        <button class="btn2">Boissons</button>
+        <button class="btn3">Viennoiseries</button>
+        <button class="btn4">Livres</button>
         
 
     </section>
 
-    {# ==================== SECTION : COMMMAND, LIST USER, COFFEE, FOOD & BOOK ==================== #}
-    {# ==================== SECTION : COMMMAND, LIST USER, COFFEE, FOOD & BOOK ==================== #}
-    {# ==================== SECTION : COMMMAND, LIST USER, COFFEE, FOOD & BOOK ==================== #}
+    {# ================================================================================== #}
+    {# ==================== SECTION : LIST USER, COFFEE, FOOD & BOOK ==================== #}
+    {# ================================================================================== #}
 
     <section class="container-box">
 
-
-        {# ==================== SECTION : USERS ==================== #}
-        {# ==================== SECTION : USERS ==================== #}
-        {# ==================== SECTION : USERS ==================== #}
+        {# ======================================== #}
+        {# ================== USER ================ #}
+        {# ======================================== #}
 
         <section class="box1 box active">
             
-            <h2 class="uppercase text-center color-dark font-serif">Liste des utilisateurs</h2>
+            <section class="heading">
+                <h2>Liste des utilisateurs</h2>
+                <p></p>
+            </section>
 
             <table>
 
@@ -76,9 +76,6 @@
                         <th>Prénom</th>
                         <th>Email</th>
                         <th>N° de téléphone</th>
-                        <th>Adresse</th>
-                        <th>Code Postal</th>
-                        <th>Ville</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -91,12 +88,9 @@
                             <td>{{ user.firstname}}</td>
                             <td>{{ user.email}}</td>
                             <td>{{ user.phoneNumber}}</td>
-                            <td>{{ user.address}}</td>
-                            <td>{{ user.postalCode}}</td>
-                            <td>{{ user.city}}</td>
                             <td>
 
-                                <div style="display:flex;">
+                                <div  class="actions">
 
                                     {# MODIFIER #}
                                     <a href="{{ path('app_admin_update_user', {'id': user.id}) }}" title="Modifier l'utilisateur">
@@ -129,16 +123,18 @@
                 
             </table>
 
-        </section>
+        </section> {# END SECTION USER #}
 
-        {# ==================== SECTION : COFFEES ==================== #}
-        {# ==================== SECTION : COFFEES ==================== #}
-        {# ==================== SECTION : COFFEES ==================== #}
+        {# ======================================== #}
+        {# ================ COFFEE ================ #}
+        {# ======================================== #}
 
         <section class="box2 box">
 
-            <h2 class="color-dark font-serif text-center uppercase">Liste des cafés</h2>
-            <a href="#addCoffee" class="text-center uppercase color-red font-serif"> Ajouter un café?</a>
+            <section class="heading">
+                <h2>Liste des boissons</h2>
+                <a href="#addCoffee"> Ajouter une boisson?</a>
+            </section>
 
             <table>
 
@@ -146,7 +142,7 @@
                     <tr>
                         <th>Identifiant</th>
                         <th>Photo</th>
-                        <th>Café</th>
+                        <th>Boisson</th>
                         <th>Description</th>
                         <th>Prix</th>
                         <th>Actions</th>
@@ -158,14 +154,14 @@
                         <tr>
                             <td>{{ coffee.id}}</td>
                             <td>
-                                <img width="100px" height="auto" src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
+                                <img width="100px" height="100px" src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
                             </td>
                             <td>{{ coffee.name}}</td>
                             <td>{{ coffee.description}}</td>
                             <td>{{ coffee.price}}€</td>
                             <td>
 
-                                <div style="display:flex;">
+                                <div class="actions">
 
                                     {# MODIFIER #}
                                     <a href="{{ path('app_admin_update_coffee', {'id': coffee.id}) }}">
@@ -200,20 +196,23 @@
 
             <button id="addCoffee" class="btn-center">
                 <a href="{{ path('app_admin_add_coffee') }}">
-                    <img src="/assets/img/icons/beans-black.png" alt="">
-                    Ajouter un café ?
+                    <img src="/assets/img/icons/beans-btn.png" alt="">
+                    Ajouter une boisson ?
                 </a>
             </button>
 
-        </section>
+        </section> {# END SECTION COFFEE #}
 
-        {# ==================== SECTION : FOODS ==================== #}
-        {# ==================== SECTION : FOODS ==================== #}
-        {# ==================== SECTION : FOODS ==================== #}
+        {# ======================================== #}
+        {# ================== FOOD ================ #}
+        {# ======================================== #}
 
         <section class="box3 box">
-            <h2 class="color-dark font-serif text-center uppercase">Liste des viennoiseries</h2>
-            <a href="#addFood" class="text-center uppercase color-red font-serif"> Ajouter une viennoiserie?</a>
+
+            <section class="heading">
+                <h2>Liste des viennoiseries</h2>
+                <a href="#addFood"> Ajouter une viennoiserie?</a>
+            </section>
 
             <table>
 
@@ -233,14 +232,14 @@
                         <tr>
                             <td>{{ food.id}}</td>
                             <td>
-                                <img width="100px" height="auto" src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
+                                <img width="100px" height="100px" src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
                             </td>
                             <td>{{ food.name}}</td>
                             <td>{{ food.description}}</td>
                             <td>{{ food.price}}€</td>
                             <td>
 
-                                <div style="display:flex;">
+                                <div  class="actions">
                                     
                                     {# MODIFIER #}
                                     <a href="{{ path('app_admin_update_food', {'id': food.id}) }}">
@@ -275,21 +274,23 @@
 
             <button id="addFood" class="btn-center">
                 <a href="{{ path('app_admin_add_food') }}">
-                    <img src="/assets/img/icons/beans-black.png" alt="">
+                    <img src="/assets/img/icons/beans-btn.png" alt="">
                     Ajouter une viennoiserie ?
                 </a>
             </button>
 
-        </section>
+        </section> {# END SECTION FOOD #}
 
-        {# ==================== SECTION : BOOKS ==================== #}
-        {# ==================== SECTION : BOOKS ==================== #}
-        {# ==================== SECTION : BOOKS ==================== #}
+        {# ======================================== #}
+        {# ================== BOOK ================ #}
+        {# ======================================== #}
 
         <section class="box4 box">
 
-            <h2 class="color-dark font-serif text-center uppercase">Liste des livres</h2>
-            <a href="#addBook" class="text-center uppercase color-red font-serif"> Ajouter un livre?</a>
+            <section class="heading">
+                <h2>Liste des livres</h2>
+                <a href="#addBook"> Ajouter un livre?</a>
+            </section>
 
             <table>
                  <thead>
@@ -308,14 +309,14 @@
                         <tr>
                             <td>{{ book.id}}</td>
                             <td>
-                                <img width="100px" height="auto" src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
+                                <img width="100px" height="150px" src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
                             </td>
                             <td>{{ book.name}}</td>
                             <td>{{ book.description}}</td>
                             <td>{{ book.price}}€</td>
                             <td>
 
-                                <div style="display:flex;">
+                                <div  class="actions">
                                     
                                     {# MODIFIER #}
                                     <a href="{{ path('app_admin_update_book', {'id': book.id}) }}">
@@ -350,17 +351,17 @@
 
             <button id="addBook" class="btn-center">
                 <a href="{{ path('app_admin_add_book') }}" >
-                    <img src="/assets/img/icons/beans-black.png" alt="">
+                    <img src="/assets/img/icons/beans-btn.png" alt="">
                     Ajouter un livre ?
                 </a>
             </button>
 
-        </section>
+        </section> {# END SECTION BOOK #}
         
-    </section>{# END FIRST SECTION #}
+    </section>{# END CONTAINER BOK #}
 
 {% endblock %}
 
 {% block javascripts %}
-    <script src="assets/JS/admin/dashboard.js"></script>
+    <script src="assets/js/admin/dashboard.js"></script>
 {% endblock %}

@@ -5,7 +5,7 @@
 {% extends "base.html.twig" %}
 
 {# ======================================== #}
-{# ================== STYLE =============== #}
+{# ================ STYLE ================= #}
 {# ======================================== #}
 
 {% block stylesheets %}
@@ -89,12 +89,20 @@
             <p>
                  Choissisez le grain qui vous convient.
             </p>
-            <button>
-                <a href="{{ path('app_default_coffee_beans') }}">
-                    <img src="assets/img/icons/beans-btn.png" alt="">
-                    Voir nos grains de café
-                </a>
-            </button>
+            <div class="container-btn">
+                <button>
+                    <a href="{{ path('app_default_coffee_beans') }}">
+                        <img src="assets/img/icons/beans-btn.png" alt="">
+                        Voir nos grains
+                    </a>
+                </button>
+                <button>
+                    <a href="{{ path('app_default_coffee_beans') }}">
+                        <img src="assets/img/icons/beans-btn.png" alt="">
+                        Voir la carte
+                    </a>
+                </button>
+            </div>
         </div>
             
     </section>{# END .PARRALLAX #}
@@ -111,19 +119,15 @@
             <p>
                 COFFEE AND BOOK SHOP est le premier bistro qui vous sert cafés, viennoiseries et livres pour vous garantir un véritable moment d’évasion, que ce soit sur place ou à emporter. Chacun de nous a droit à un moment de répit dans son monde et nous voulons vous aider à travers saveurs venues du monde entier et imagination à vous transporter.
             </p>
+            <button>
+                Voir les avis
+            </button>
         </div>
         <div class="img-presentation">
             <img src="assets/img/homepage/presentation.jpg" alt="">
         </div>
 
     </section>{# END .PRESENTATION #}
-
-    <button class="btn-center">
-        <a href="{{ path('app_menu') }}">
-            <img src="assets/img/icons/beans-btn.png" alt="">
-            Voir la carte
-        </a>
-    </button>
 
     {# ================================================= #}
     {# ==================== CONTACT ==================== #}
@@ -136,7 +140,7 @@
         {# ==================== PERSONNEL ==================== #}
         {# =================================================== #}
 
-        <section class="box box1 active">
+        <section id="personnel" class="box box1 active">
             <section class="heading">
                 <p>What's happening here?</p>
                 <h2>Le c&b shop c'est qui?</h2>

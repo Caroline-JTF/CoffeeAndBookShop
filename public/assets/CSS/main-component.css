@@ -1,7 +1,7 @@
 /*
-====================
-STYLE MAIN COMPONENT
-====================
+============================
+======= ELEMENT BODY =======
+============================
 */
 body{
     font-size: 16px;
@@ -10,6 +10,11 @@ body{
     background-color: var(--color-grey);
     overflow-x: hidden;
 }
+/*
+============================
+====== ELEMENT BUTTON ======
+============================
+*/
 button{
     width: 25rem;
     height: 3rem;
@@ -25,7 +30,6 @@ button{
     border-radius: 4px;
     cursor: pointer;
 }
-
 .btn-center{
     margin: 3rem auto;
 }
@@ -35,7 +39,11 @@ button a img{
     height: 20px;
     margin-right: 1rem;
 }
-
+/*
+============================
+========= ELEMENT A ========
+============================
+*/
 a{
     text-decoration: none;
     color: var(--color-dark);
@@ -46,9 +54,11 @@ a img{
     width: 30px;
     height: 30px;
 }
-/* ============================= */
-/* ========== HEADING ========== */
-/* ============================= */
+/*
+============================
+====== SECTION HEADING =====
+============================
+*/
 .heading{
     padding: 3rem 0;
     text-transform: uppercase;
@@ -60,4 +70,13 @@ a img{
 }
 .heading p:last-child{
     color: var(--color-red);
+}
+.heading a{
+    justify-content: center;
+    align-items: center;
+    color: var(--color-red);
+    cursor: pointer;
+}
+.heading a:hover{
+    text-decoration: underline;
 }

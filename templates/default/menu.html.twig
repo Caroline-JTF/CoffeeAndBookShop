@@ -1,154 +1,172 @@
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
-
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
 {% extends "base.html.twig" %}
 
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
+{# ======================================== #}
+{# ================ STYLE ================= #}
+{# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/CSS/default/menu.css">
+    <link rel="stylesheet" href="assets/css/default/menu.css">
 {% endblock %}
 
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
+
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
+
+{% block title %}La carte{% endblock %}
+
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
 
 {% block body %}
 
-    
-
-    <main>
-
-        {# ==================== MENU ==================== #}
-        {# ==================== MENU ==================== #}
-        {# ==================== MENU ==================== #}
-
-        <section class="container-product menu active">
-
-            <div class="heading">
-                <h2 class="text-center font-serif uppercase">Voici la carte des cafés</h2>
-            </div>
-            
-            {% for coffee in coffees %}
-                <div class="product">
-                            
-                    <img width="100px" height="100px" src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
-
-                    <div class="text-product">
-                        <div class="description">
-                            <h2>{{ coffee.name }}</h2>
-                            <p class="color-red">{{ coffee.description }}</p>
-                        </div>
-                        <div class="price">
-                            <div class="line"></div> 
-                            <p>{{ coffee.price }}€</p>
-                            <button class="btn-add">+</button>
-                        </div>  
-                        
-                    </div>
-                </div>
-
-            {% endfor %}
-
-            <p class="text-center">1/3</p>
-            
-        </section>
-
-        {# ==================== MENU ==================== #}
-        {# ==================== MENU ==================== #}
-        {# ==================== MENU ==================== #}
-
-        <section class="container-product menu">
-
-            <div class="heading">
-                <h2 class="text-center font-serif uppercase">Voici la carte des viennoiseries</h2>
-            </div>
-            
-            {% for food in foods %}
-                <div class="product">
-                            
-                    <img width="100px" height="100px" src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
-
-                    <div class="text-product">
-                        <div class="description">
-                            <h2>{{ food.name }}</h2>
-                            <p class="color-red">{{ food.description }}</p>
-                        </div>
-                        <div class="price">
-                            <div class="line"></div> 
-                            <p>{{ food.price }}€</p>
-                            <button class="btn-add">+</button>
-                        </div>  
-                        
-                    </div>
-                </div>
-
-            {% endfor %}
-
-            <p class="text-center">2/3</p>
-            
-        </section>
-
-        {# ==================== MENU ==================== #}
-        {# ==================== MENU ==================== #}
-        {# ==================== MENU ==================== #}
-
-        <section class="container-product menu">
-
-            <div class="heading">
-                <h2 class="text-center font-serif uppercase">Voici la carte des livres</h2>
-            </div>
-            
-            {% for book in books %}
-                <div class="product">
-                            
-                    <img width="100px" height="100px" src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
-
-                    <div class="text-product">
-                        <div class="description">
-                            <h2>{{ book.name }}</h2>
-                            <p class="color-red">{{ book.description }}</p>
-                        </div>
-                        <div class="price">
-                            <div class="line"></div> 
-                            <p>{{ book.price }}€</p>
-                            <button class="btn-add">+</button>
-                        </div>  
-                        
-                    </div>
-                </div>
-
-            {% endfor %}
-
-            <p class="text-center">3/3</p>
-            
-        </section>
-
-        {# ==================== COMMAND ==================== #}
-        {# ==================== COMMAND ==================== #}
-        {# ==================== COMMAND ==================== #}
-
-        <section class="view-command">
-        
-            <h2 class="text-center font-serif uppercase color-red">Votre commande :</h2>
-            <p>affichage de la commande</p>
-        
-        </section>
-
-    </main>
+    {# ========================================== #}
+    {# ================== BUTTON ================ #}
+    {# ========================================== #}
 
      <section class="command-btn">
 
-        <button class="btn1">Étape précédente</button>
-
-        <button class="btn2">Étape suivante</button>
+        <div class="btn btn1">
+            <img src="assets/img/icons-step/beans.png" alt="">
+            <div class="btn-text">
+                <h2> <span>01.</span> Boisson </h2>
+            </div>
+        </div>
+        </div>
+        <div class="btn btn2">
+            <img src="assets/img/icons-step/eat.png" alt="">
+            <div class="btn-text">
+                <h2> <span>02.</span> Douceur </h2>
+            </div>
+        </div>
+        <div class="btn btn3">
+            <img src="assets/img/icons-step/book-stack.png" alt="">
+            <div class="btn-text">
+                <h2> <span>03.</span> Livre </h2>
+            </div>
+            </div>
+        </div>
 
     </section>
 
-    
+    {# ========================================== #}
+    {# =================== MENU ================= #}
+    {# ========================================== #}
+
+    <main>
+
+        {# ========================================== #}
+        {# ================== COFFEE ================ #}
+        {# ========================================== #}
+
+        <section class="menu menu1 active">
+
+            <div class="heading">
+                <h2 class="text-center font-serif uppercase">La carte des boissons</h2>
+            </div>
+            
+            {% for coffee in coffees %}
+                <div class="container-product">
+
+                    <div class="product">
+                        <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
+
+                        <div class="text-product">
+                            <div class="description">
+                                <h2>{{ coffee.name }}</h2>
+                                <p class="color-red">{{ coffee.description }}</p>
+                            </div>
+                            <div class="price">
+                                <div class="line"></div> 
+                                <p>{{ coffee.price }}€</p>
+                            </div>  
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            {% endfor %}
+            
+        </section>
+
+        {# ========================================== #}
+        {# =================== FOOD ================= #}
+        {# ========================================== #}
+
+        <section class="menu menu2">
+
+            <div class="heading">
+                <h2 class="text-center font-serif uppercase">La carte des viennoiseries</h2>
+            </div>
+            
+            {% for food in foods %}
+                <div class="container-product">
+
+                    <div class="product">
+                        <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
+
+                        <div class="text-product">
+                            <div class="description">
+                                <h2>{{ food.name }}</h2>
+                                <p class="color-red">{{ food.description }}</p>
+                            </div>
+                            <div class="price">
+                                <div class="line"></div> 
+                                <p>{{ food.price }}€</p>
+                            </div>  
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            {% endfor %}
+            
+        </section>
+
+        {# ========================================== #}
+        {# =================== BOOK ================= #}
+        {# ========================================== #}
+
+        <section class="menu menu3">
+
+            <div class="heading">
+                <h2 class="text-center font-serif uppercase">La carte des livres</h2>
+                <p>Le prix des livres correspond à la caution</p>
+                <p>Chaque livre emprunté doit être rendu</p>
+            </div>
+            
+            {% for book in books %}
+                <div class="container-product">
+
+                    <div class="product">
+                        <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
+
+                        <div class="text-product">
+                            <div class="description">
+                                <h2>{{ book.name }}</h2>
+                                <p class="color-red">{{ book.description }}</p>
+                            </div>
+                            <div class="price">
+                                <div class="line"></div> 
+                                <p>{{ book.price }}€</p>
+                            </div>  
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            {% endfor %}
+            
+        </section>
+
+    </main>
 
 {% endblock %}
 
