@@ -1,71 +1,82 @@
 /*
-=============================
-PARTIE CSS DU HEADER : HEADER
-=============================
+=========================================
+======== SECTION CONTAINER HEADER =======
+=========================================
 */
-.header{
-    background: url(/assets/img/background/bg-beans.jpg) no-repeat center bottom / cover !important;
+.container-header{
+    background: url(/assets/img/background/bg-beans.jpg) no-repeat center center / cover !important;
 }
 /*
-=================================
-PARTIE CSS DE LA SECTION : BOUTON 
-=================================
+========================================
+=============== LEGEND =================
+========================================
 */
-.container-btn{
+.container-legend{
+    width: 80%;
+    margin: auto auto;
+    margin-bottom: 3rem;
+}
+.container-legend .legend{
     display: flex;
-    max-width: 80%;
-    margin: 5rem auto;
+    margin-bottom: 0.5rem;
+}
+.color{
+    width: 20px;
+    height: 20px;
+    border: var(1px solid color-dark);
+    margin-right: 0.5rem;
+}
+.color-no-coffee{
+    background-color: #d9ccbc;
+}
+.color-coffee{
+    background-color: #9d8a78;
 }
 /*
 ================================
 PARTIE CSS DE LA SECTION : BEANS
 ================================
 */
-.container-beans .beans{
+.section-beans{
     background-color: var(--color-light);
-    display: flex;
     max-width: 80%;
-    max-height: 420px;
-    margin: 5rem auto;
-    position: relative;
+    margin: 3rem auto;
+    padding: 3rem;
 }
-.container-beans .beans .img{
-    width: 40%;
-}
-.container-beans .img:nth-child(1)::after,
-.container-beans .img:nth-child(3)::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 420px;
-    z-index: 0;
-    background: var(--overlay);
-}
-.container-beans .img:nth-child(2)::after,
-.container-beans .img:nth-child(4)::after{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 40%;
-    height: 420px;
-    z-index: 0;
-    background: var(--overlay);
-}
-.container-beans .beans .img img{
+.section-beans .container-beans{
+    display: flex;
     width: 100%;
-    height: 420px;
 }
-.container-beans .beans .text{
-    width: 60%;
-    padding: 3rem 5rem 0;
+.beans{
+    width: 50%;
+    padding: 1rem;
+    background-color: var(--color-grey);
 }
-.container-beans .beans .text h2{
+.description{
+    width: 50%;
+    padding: 1rem;
+    background-color: var(--color-light-brown);
+}
+.section-beans h2{
     margin-bottom: 3rem;
     font-size: 2rem;
+    font-family: var(--font-serif);
+    text-transform: uppercase;
 }
-.container-beans .beans .text p{
-    height: 120px;
+.section-beans .beans div{
+    margin: 1rem 0;
+}
+.section-beans h3{
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    font-family: var(--font-serif);
+    text-transform: uppercase;
+    color: var(--color-red);
+}
+
+.visibility{
+    display: none;
+}
+.active{
+    display: block !important;
 }

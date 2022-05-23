@@ -1,13 +1,12 @@
-
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
-{# ==================== EXTENDS ==================== #}
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
 
 {% extends "base.html.twig" %}
 
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
-{# ==================== STYLE ==================== #}
+{# ======================================== #}
+{# ================= STYLE ================ #}
+{# ======================================== #}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
@@ -15,209 +14,51 @@
     <link rel="stylesheet" href="assets/map/map.css">
 {% endblock %}
 
-{# ==================== TITLE ==================== #}
-{# ==================== TITLE ==================== #}
-{# ==================== TITLE ==================== #}
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
 
 
 {% block title %}Nos grains de cafés{% endblock %}
 
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
-{# ==================== BODY ==================== #}
+{# ======================================== #}
+{# ================== BODY ================ #}
+{# ======================================== #}
 
 {% block body %}
+
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
+
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Voyez d'où viennent nos grains</h2>
+        <p>Pour vous aider à choisir le meilleur pour votre café</p> 
+    </section>
+
+    {# ======================================== #}
+    {# ================== MAP ================= #}
+    {# ======================================== #}
+
     <div class="container-map">
         <div id="map"></div>
     </div>
-    
 
-    {# ==================== SECTION BTN BEANS ==================== #}
-    {# ==================== SECTION BTN BEANS ==================== #}
-    {# ==================== SECTION BTN BEANS ==================== #}
+    {# ======================================== #}
+    {# ================ LEGEND ================ #}
+    {# ======================================== #}
 
-    <section id="header" class="container-btn">
-        <button class="btn-center">
-            <a href="#colombian_beans">
-                <img src="assets/img/icons/beans-btn.png" alt="">
-                    Grain de Colombie
-            </a>
-        </button>
-        <button class="btn-center">
-            <a href="#bolivia_beans">
-                <img src="assets/img/icons/beans-btn.png" alt="">
-                    Grain de Bolivie
-            </a>
-        </button>
-        <button class="btn-center">
-            <a href="#peru_beans">
-                <img src="assets/img/icons/beans-btn.png" alt="">
-                    Grain du Pérou
-            </a>
-        </button>
-        <button class="btn-center">
-            <a href="#honduras_beans">
-                <img src="assets/img/icons/beans-btn.png" alt="">
-                    Grain d'Honduras
-            </a>
-        </button>
+    <section class="container-legend">
+        <div class="legend">
+            <div class="color color-no-coffee"></div>
+            <p>Pays qui ne cultive pas le café</p>
+        </div>
+        <div class="legend">
+            <div class="color color-coffee"></div>
+            <p>Pays qui cultive le café</p>
+        </div>
     </section>
-
-    {# ==================== SECTION BEANS ==================== #}
-    {# ==================== SECTION BEANS ==================== #}
-    {# ==================== SECTION BEANS ==================== #}
-
-    <section class="container-beans">
-        
-        {# ==================== COLOMBIAN BEANS ==================== #}
-        {# ==================== COLOMBIAN BEANS ==================== #}
-        {# ==================== COLOMBIAN BEANS ==================== #}
-
-        <article id="colombian_beans" class="beans">
-
-            {# ==================== LEFT PART : IMG ==================== #}
-            {# ==================== LEFT PART : IMG ==================== #}
-            {# ==================== LEFT PART : IMG ==================== #}
-
-            <div class="img">
-                <img src="assets/img/beans/article1.jpg" alt="">
-            </div>
-
-            {# ==================== RIGHT PART : TEXT ==================== #}
-            {# ==================== RIGHT PART : TEXT ==================== #}
-            {# ==================== RIGHT PART : TEXT ==================== #}
-
-            <div class="text">
-                <h2 class="font-serif uppercase">Le goût du café colombien</h2>
-                <p>
-                    Au niveau goût le café colombien es assez proche du café brésilien. Il est suave, rond et très bien équilibré. Ainsi, vous n’avez jamais cette sensation d’amertume ou d’acidité avec le café colombien. Il présente souvent des notes aromatiques de cerise et cacaotées, mais aussi du miel et du caramel.
-                </p>
-                <button class="btn-center">
-                    <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-de-colombie/" target="_blank">
-                         <img src="assets/img/icons/beans-btn.png" alt="">
-                        Voir l'article
-                    </a>
-                </button>
-            </div>
-
-        </article>
-        
-        {# ==================== BOLIVIA BEANS ==================== #}
-        {# ==================== BOLIVIA BEANS ==================== #}
-        {# ==================== BOLIVIA BEANS ==================== #}
-
-        <article id="bolivia_beans" class="beans">
-
-            {# ==================== LEFT PART : TEXT ==================== #}
-            {# ==================== LEFT PART : TEXT ==================== #}
-            {# ==================== LEFT PART : TEXT ==================== #}
-
-            <div class="text">
-                <h2 class="font-serif uppercase">Le goût du café bolivien</h2>
-                <p>
-                    Le café bolivien propose une tasse douce et harmonieuse aux notes fraîches et fruitées avec une faible acidité. Des arômes caramélisés et de chocolat peuvent se développer pendant le processus de torréfaction du café.
-                    <br>
-                    Certains torréfacteurs proposent un goût de de Tye sous-bois, suave et doux.
-                </p>
-                <button class="btn-center">
-                    <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-de-bolivie/" target="_blank">
-                        <img src="assets/img/icons/beans-btn.png" alt="">
-                        Voir l'article
-                    </a>
-                </button>
-            </div>
-
-
-            {# ==================== RIGHT PART : IMG ==================== #}
-            {# ==================== RIGHT PART : IMG ==================== #}
-            {# ==================== RIGHT PART : IMG ==================== #}
-
-            <div class="img">
-                <img src="assets/img/beans/article2.jpg" alt="">
-            </div>
-
-        </article>
-        
-        {# ==================== PERU BEANS ==================== #}
-        {# ==================== PERU BEANS ==================== #}
-        {# ==================== PERU BEANS ==================== #}
-
-        <article id="peru_beans" class="beans">
-
-            {# ==================== LEFT PART : IMG ==================== #}
-            {# ==================== LEFT PART : IMG ==================== #}
-            {# ==================== LEFT PART : IMG ==================== #}
-
-            <div class="img">
-                <img src="assets/img/beans/article3.jpg" alt="">
-            </div>
-
-            {# ==================== RIGHT PART : TEXT ==================== #}
-            {# ==================== RIGHT PART : TEXT ==================== #}
-            {# ==================== RIGHT PART : TEXT ==================== #}
-
-            <div class="text">
-                <h2 class="font-serif uppercase">Le goût du café péruvien</h2>
-                <p>
-                    Son goût dépends beaucoup de l’endroit où il a été cultivé.
-                    <br><br>
-                    Les plantations de basse altitude propose un café au corps moyen, une acidité douce avec des notes de fruits, de fleurs et de noix.
-                    <br><br>
-                    Quand vous montez dans les hautes terres des Andes, son acidité est plus accentuée. Le café qui y est récolté délivre des arômes floraux bien marqués.
-                </p>
-                <button class="btn-center">
-                    <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-du-perou/" target="_blank">
-                        <img src="assets/img/icons/beans-btn.png" alt="">
-                        Voir l'article
-                    </a>
-                </button>
-            </div>
-
-        </article>
-        
-        {# ==================== HONDURAS BEANS ==================== #}
-        {# ==================== HONDURAS BEANS ==================== #}
-        {# ==================== HONDURAS BEANS ==================== #}
-
-        <article id="honduras_beans" class="beans">
-
-            {# ==================== LEFT PART : TEXT ==================== #}
-            {# ==================== LEFT PART : TEXT ==================== #}
-            {# ==================== LEFT PART : TEXT ==================== #}
-
-            <div class="text">
-                <h2 class="font-serif uppercase">Le goût du café hondurien</h2>
-                <p>
-                    D’une manière générales, le Honduras propose un bon Arabica, doté d’un arôme agréable, une bonne acidité, mais un léger manque de corps. Il est idéal pour les mélanges.
-                    <br><br>
-                    Les caractéristiques peuvent aller du très sucré avec des saveur chocolatée aux saveurs tropicales et d’agrumes avec une forte acidité. Selon la région dont ils proviennent et le cépage, ils présenteront certaines nuances et saveurs spécifiques.
-                </p>
-                <button class="btn-center">
-                    <a href="https://graine-de-cafe.com/tout-savoir-sur-le-cafe-du-honduras/" target="_blank">
-                        <img src="assets/img/icons/beans-btn.png" alt="">
-                        Voir l'article
-                    </a>
-                </button>
-            </div>
-
-            {# ==================== RIHT PART : IMG ==================== #}
-            {# ==================== RIHT PART : IMG ==================== #}
-            {# ==================== RIHT PART : IMG ==================== #}
-            
-            <div class="img">
-                <img src="assets/img/beans/article4.png" alt="">
-            </div>
-            
-        </article>
-
-    </section>{# END CONTAINER BEANS #}
-
-    <button class="btn-center">
-        <a href="#header">
-            <img src="assets/img/icons/beans-btn.png" alt="">
-            Revenir au début
-        </a>
-    </button>
 
 {% endblock %}
 
