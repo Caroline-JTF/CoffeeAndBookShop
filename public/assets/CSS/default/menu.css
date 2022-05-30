@@ -38,14 +38,14 @@
 .menu .heading h2{
     font-size: 3rem;
 }
-.container-product{
+.menu .container-product{
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column; 
 }
-.container-product .product{
+.menu .container-product .product{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,23 +65,23 @@
     height: 150px;
     margin-right: 1rem;
 }
-.container-product .product .text-product{
+.menu .container-product .product .text-product{
     display: flex;
 }
-.container-product .product .description{
+.menu .container-product .product .description{
     width: 300px;
 }
-.container-product .product .price{
+.menu .container-product .product .price{
     display: flex;
     float: right;
 }
-.container-product .product .line{
+.menu .container-product .product .line{
     background-color: var(--color-light-brown);
     width: 100px ;
     height: 3px;
     margin: auto 0;
 }
-.price p{
+.menu .container-product .product .price p{
     background: var(--color-light-brown);
     width: 100px;
     height: 30px;

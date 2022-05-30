@@ -1,0 +1,48 @@
+/*
+========================================
+============ CONTAINER BUTTON ==========
+========================================
+*/
+.container-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.box{
+    display: none;
+}
+.active{
+    display: block;
+}
+.container-form{
+    margin-top: 5rem;
+}
+/*
+========================================
+============ CONTAINER REVIEW ==========
+========================================
+*/
+.container-review{
+    width: 90%;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.container-review .review{
+    height: 300px;
+    overflow-x: auto;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: var(--color-light-brown);
+}
+.container-review .review .text{
+    text-align: justify;
+}
+.container-review .review .name,
+.container-review .review .datetime{
+    text-align: right;
+}
+.name{
+    margin-top: 1rem;
+}

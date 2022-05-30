@@ -89,6 +89,10 @@
 
                 </div>
 
+                {% else %}
+                    
+                    <p class="else">Il n'y a pas de café à la carte</p>
+
             {% endfor %}
             
         </section>
@@ -123,6 +127,10 @@
                     </div>
 
                 </div>
+
+                {% else %}
+                    
+                    <p class="else">Il n'y a pas de viennoiseries à la carte</p>
 
             {% endfor %}
             
@@ -161,11 +169,21 @@
 
                 </div>
 
+                {% else %}
+                    
+                    <p class="else">Il n'y a pas de livre à la carte</p>
+
             {% endfor %}
             
         </section>
 
-    </section>
+       
+
+    </section>{# END CONTAINER MENU #}
+
+    <button class="btn-center">
+        <a href="#">Revenir en haut</a>
+    </button>
 
 {% endblock %}
 

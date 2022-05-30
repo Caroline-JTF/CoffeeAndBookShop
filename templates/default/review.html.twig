@@ -1,0 +1,88 @@
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
+{% extends "base.html.twig" %}
+
+{# ======================================== #}
+{# ================ STYLE ================= #}
+{# ======================================== #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="assets/css/default/review.css">
+{% endblock %}
+
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
+
+{% block title %}Le mur des avis{% endblock %}
+
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
+
+{% block body %}
+
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
+
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Bienvenue sur le mur des avis</h2>
+        <p>Laisser votre marque dans l'histoire du café</p> 
+    </section>
+
+    {# ======================================== #}
+    {# ============== FORMULAIRE ============== #}
+    {# ======================================== #}
+
+    <div class="container-btn">
+        <button class="btn">Vous voulez laisser un avis ?</button>
+    </div>
+
+    {# ======================================== #}
+    {# ============== FORMULAIRE ============== #}
+    {# ======================================== #}
+
+    <div class="box">
+        <section class="container-form">
+            
+            {{ form(form) }}
+
+        </section>
+    </div>
+
+    
+
+    {# ======================================== #}
+    {# ================ REVIEW ================ #}
+    {# ======================================== #}
+
+    <section class="container-review">
+
+        {% for review in reviews %}
+
+            <div class="review">
+                <div class="text">
+                    <p>{{ review.message}}</p>
+                </div>
+                <div class="name">
+                    <p>{{ review.name}}</p>
+                </div>
+                <div class="datetime">
+                    <p>{{ review.createdAt | date('d/m/Y') }}</p>
+                </div>
+            </div>
+
+            
+        {% endfor %}
+        
+
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="assets/JS/default/review.js"></script>
+{% endblock %}

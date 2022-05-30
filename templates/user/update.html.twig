@@ -8,7 +8,7 @@
 {# ================= TITLE ================ #}
 {# ======================================== #}
 
-{% block title %}Ajouter une viennoiserie{% endblock %}
+{% block title %}Modifier vos informations{% endblock %}
 
 {# ======================================== #}
 {# ================= BODY ================= #}
@@ -22,14 +22,13 @@
 
     <section class="heading">
         <p>What's happening here?</p>
-        <h2>Ajouter une nouvelle viennoiserie</h2>
-        <a href="{{ path('app_admin_dashboard') }}">Retour</a>
+        <h2>Modifier vos informations</h2>
+        <a href="{{ path('app_user_account') }}">Retour</a>
     </section>
 
     {# ======================================== #}
-    {# ================== FOOD ================ #}
+    {# ================== USER ================ #}
     {# ======================================== #}
-
     <section class="section-form">
     
         {# FORMULAIRE #}
@@ -37,10 +36,13 @@
 
             {{ form_start(form) }}
             
-                {{ form_row(form.name) }}
-                {{ form_row(form.description) }}
-                {{ form_row(form.price) }}
-                {{ form_row(form.img) }}
+                {{ form_row(form.firstname) }}
+                {{ form_row(form.lastname) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.phoneNumber) }}
+                <div style="display: none;">
+                    {{ form_widget(form.password) }}
+                </div>
 
             {{ form_end(form) }}
 

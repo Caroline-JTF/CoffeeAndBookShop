@@ -1,7 +1,7 @@
 /*
-============================
-======= ELEMENT BODY =======
-============================
+========================================
+================ BODY ==================
+========================================
 */
 body{
     font-size: 16px;
@@ -11,9 +11,9 @@ body{
     overflow-x: hidden;
 }
 /*
-============================
-====== ELEMENT BUTTON ======
-============================
+========================================
+=============== BUTTON =================
+========================================
 */
 button{
     width: 25rem;
@@ -40,9 +40,9 @@ button a img{
     margin-right: 1rem;
 }
 /*
-============================
-========= ELEMENT A ========
-============================
+========================================
+=============== LIENS ==================
+========================================
 */
 a{
     text-decoration: none;
@@ -55,9 +55,9 @@ a img{
     height: 30px;
 }
 /*
-============================
-====== SECTION HEADING =====
-============================
+========================================
+=============== HEADING ================
+========================================
 */
 .heading{
     padding: 3rem 0;
@@ -79,4 +79,62 @@ a img{
 }
 .heading a:hover{
     text-decoration: underline;
+}
+/*
+========================================
+============= FORMULAIRE ===============
+========================================
+*/
+.container-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-form form{
+    width: 50%;
+}
+.container-form label{
+    display: block;
+}
+.container-form input,
+.container-form textarea{
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    resize: none;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.container-form input[type='file']{
+    padding: 1rem 0 !important;
+}
+.container-form textarea{
+    height: 150px;
+}
+.container-form button{
+    margin: 1rem auto 3rem !important;
+}
+.message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 3rem;
+}
+.message a{
+    cursor: pointer;
+    margin-left: 5px;
+}
+.message a:hover{
+    text-decoration: underline;
+}
+/*
+========================================
+================== ELSE ================
+========================================
+*/
+.else{
+    text-align:center;
 }

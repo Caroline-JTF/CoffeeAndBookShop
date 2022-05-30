@@ -10,10 +10,6 @@ const menu1 = document.querySelector(".menu1");
 const menu2 = document.querySelector(".menu2");
 const menu3 = document.querySelector(".menu3");
 
-const circle1 = document.querySelector('.circle1');
-const circle2 = document.querySelector('.circle2');
-const circle3 = document.querySelector('.circle3');
-
 // =========================================
 // =============== EVENEMNTS ===============
 // =========================================

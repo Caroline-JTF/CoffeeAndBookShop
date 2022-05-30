@@ -157,7 +157,7 @@
                                 <img width="100px" height="100px" src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
                             </td>
                             <td>{{ coffee.name}}</td>
-                            <td>{{ coffee.description}}</td>
+                            <td style="width:50%;">{{ coffee.description}}</td>
                             <td>{{ coffee.price}}€</td>
                             <td>
 
@@ -235,7 +235,7 @@
                                 <img width="100px" height="100px" src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
                             </td>
                             <td>{{ food.name}}</td>
-                            <td>{{ food.description}}</td>
+                            <td style="width:50%;">{{ food.description}}</td>
                             <td>{{ food.price}}€</td>
                             <td>
 
@@ -312,7 +312,7 @@
                                 <img width="100px" height="150px" src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
                             </td>
                             <td>{{ book.name}}</td>
-                            <td>{{ book.description}}</td>
+                            <td style="width:50%;">{{ book.description}}</td>
                             <td>{{ book.price}}€</td>
                             <td>
 
@@ -343,7 +343,11 @@
                                 </div>
 
                             </td>
-                        </tr>    
+                        </tr>
+                        {% else %}
+                                <tr>
+                                    <td colspan="6" style="text-align:center;">Pas de livre pour le moment</td>
+                                </tr>    
                     {% endfor %}
                 </tbody>
 
@@ -365,3 +369,4 @@
 {% block javascripts %}
     <script src="assets/js/admin/dashboard.js"></script>
 {% endblock %}
+                            

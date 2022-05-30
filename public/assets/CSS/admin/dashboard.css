@@ -27,6 +27,7 @@
     display: none;
     width: 80%;
     flex-direction: column;
+    text-align: center;
 }
 .box a{
     justify-content: center;
@@ -45,6 +46,7 @@ table th{
 table td, table th {
     border: 1px solid var(--color-light);
     padding: 1rem;
+    width: 20%;
 }
 table tr:nth-child(even){
     background-color: var(--color-light-brown);
@@ -57,8 +59,11 @@ table tr:hover {
     justify-content: center;
     align-items: center;
 }
-
-
+/*
+========================================
+============== DYNAMISE JS =============
+========================================
+*/
 .active{
     display: flex !important;
 }

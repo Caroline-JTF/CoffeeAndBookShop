@@ -50,7 +50,7 @@ class foodController extends AbstractController
         ]);
     }
 
-    //Modifiez un douceur
+    //Modifiez une viennoiserie
     #[Route('/admin/modifiez-la-viennoiserie/{id}', name: 'app_admin_update_food', methods: ['GET', 'POST'])]
     public function updateFood(Food $food, EntityManagerInterface $em, Request $request, SluggerInterface $slugger): Response
     {

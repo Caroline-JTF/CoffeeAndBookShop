@@ -31,66 +31,118 @@
     <section class="heading">
         <p>What's happening here?</p>
         <h2>Bienvenue sur votre espace {{ app.user.firstname }}</h2>
-        <p>Gérer votre espace ou laisser un avis ici</p> 
+        <p>Gérer votre espace ou vos avis ici</p> 
+    </section>
+
+    {# ======================================== #}
+    {# ================= BUTTON =============== #}
+    {# ======================================== #}
+
+    
+    <section class="command-btn">
+
+        <button class="btn1">Vos informations</button>
+        <button class="btn2">Vos avis</button>
+        
+
     </section>
 
     {# ======================================== #}
     {# =========== VOS INFORMATIONS =========== #}
     {# ======================================== #}
 
-    <section class="container-information">
+    <div class="box box1 active">
+        
+        <h2>Vos informations personnelles</h2>
+    
+        <section class="container-information">
 
-        <div class="info">
-            <p class="entete">Nom</p>                
-            <p class="value">{{ app.user.lastname }}</p>
-            <a href="" title="Modifier l'utilisateur">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                </svg>
-            </a>
-             
-        </div>
+            <div class="information">
+            
+                <div class="info">
+                    <p>Nom</p>                
+                    <p>{{ app.user.lastname }}</p>
+                </div>
 
-        <div class="info">
-            <p class="entete">Prénom</p>             
-            <p class="value">{{ app.user.firstname}}</p> 
-            {# MODIFIER #}
-            <a href="" title="Modifier l'utilisateur">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                </svg>
-            </a>
-        </div>
+                <div class="info">
+                    <p>Prénom</p>             
+                    <p>{{ app.user.firstname}}</p> 
+                </div>
 
-        <div class="info">
-            <p class="entete">N° de téléphone</p>    
-            <p class="value">{{ app.user.phoneNumber}}</p>
-            {# MODIFIER #}
-            <a href="" title="Modifier l'utilisateur">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                </svg>
-            </a>
-        </div>
+                <div class="info">
+                    <p>N° de téléphone</p>    
+                    <p>{{ app.user.phoneNumber}}</p>
+                </div>
 
-        <div class="info">
-            <p class="entete">Adresse email</p>      
-            <p class="value">{{ app.user.email}}</p>
-            {# MODIFIER #}
-            <a href="" title="Modifier l'utilisateur">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                </svg>
-            </a>
-        </div>
-    </section>
+                <div class="info">
+                    <p>Adresse email</p>      
+                    <p>{{ app.user.email}}</p>
+                </div>
+            </div>
 
+            <button class="btn-center">
+                <a href="{{ path('app_user_update', {'id': app.user.id}) }}">
+                Modifier les informations
+                </a>
+            </button>
+
+        </section>
+    </div>
+
+    {# ======================================== #}
+    {# =============== VOS AVIS =============== #}
+    {# ======================================== #}
+
+    <div class="box box2">
+        <h2>Vos avis laissés</h2>
+    
+        <section class="container-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Heure</th>
+                        <th>Votre avis</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                {# {% for review in reviews %} #}
+
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="actions">
+                                    {# SUPPRIMER #}
+                                    <a href="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <line x1="4" y1="7" x2="20" y2="7" />
+                                            <line x1="10" y1="11" x2="10" y2="17" />
+                                            <line x1="14" y1="11" x2="14" y2="17" />
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                        </svg>
+                                    </a>
+                                </div> 
+
+                            </td>
+                        </tr>
+                        {# {% else %} #}
+                            <tr>
+                                <td colspan="6" style="text-align:center;">Vous n'avez laissé aucun avis</td>
+                            </tr>
+                    </tbody>
+                {# {% endfor %} #}
+            </table>
+        </section>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="assets/js/user/account.js"></script>
 {% endblock %}
