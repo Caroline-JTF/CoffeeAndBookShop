@@ -21,7 +21,7 @@ class coffeeController extends AbstractController
 
     //Ajout d'un café
     #[Route("/admin/ajoutez-un-cafe", name: "app_admin_add_coffee", methods: ["GET", "POST"])]
-    public function coffee(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response{
+    public function coffee(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response{
 
         //Ajouter un café
         $coffee = new coffee();
@@ -39,8 +39,8 @@ class coffeeController extends AbstractController
                 $this->handleFile($coffee, $photo, $slugger);
             }
             
-            $entityManager->persist($coffee);
-            $entityManager->flush();
+            $em->persist($coffee);
+            $em->flush();
 
             return $this->redirectToRoute('app_admin_dashboard');
         }
@@ -52,7 +52,7 @@ class coffeeController extends AbstractController
 
     //Modifiez un café
     #[Route('/admin/modifiez-le-cafe/{id}', name: 'app_admin_update_coffee', methods: ['GET', 'POST'])]
-    public function updateCoffee(Coffee $coffee, EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger): Response
+    public function updateCoffee(Coffee $coffee, EntityManagerInterface $em, Request $request, SluggerInterface $slugger): Response
     {
         $originalPhoto = $coffee->getImg();
 
@@ -71,8 +71,8 @@ class coffeeController extends AbstractController
                 $coffee->setImg($originalPhoto);
             }
 
-            $entityManager->persist($coffee);
-            $entityManager->flush();
+            $em->persist($coffee);
+            $em->flush();
 
             $this->addFlash('success', 'Vous avez modifié le produit avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
@@ -86,10 +86,10 @@ class coffeeController extends AbstractController
 
     //Supprimez un café
     #[Route('/admin/supprimez-le-cafe/{id}', name: 'app_admin_delete_coffee')]
-	public function deleteCoffee(Coffee $coffee, CoffeeRepository $repository, EntityManagerInterface $entityManager): Response
+	public function deleteCoffee(Coffee $coffee, CoffeeRepository $repository, EntityManagerInterface $em): Response
 	{
 		$repository->remove($coffee);
-        $entityManager->flush();
+        $em->flush();
 
         $this->addFlash('sucess', 'Vous avez supprimé le produit avec succès !');
 

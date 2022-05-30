@@ -1,0 +1,96 @@
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
+
+{% extends "base.html.twig" %}
+
+{# ======================================== #}
+{# ================ STYLE ================= #}
+{# ======================================== #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="assets/css/user/account.css">
+{% endblock %}
+
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
+
+{% block title %}Mon compte{% endblock %}
+
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
+
+{% block body %}
+    
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
+
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Bienvenue sur votre espace {{ app.user.firstname }}</h2>
+        <p>Gérer votre espace ou laisser un avis ici</p> 
+    </section>
+
+    {# ======================================== #}
+    {# =========== VOS INFORMATIONS =========== #}
+    {# ======================================== #}
+
+    <section class="container-information">
+
+        <div class="info">
+            <p class="entete">Nom</p>                
+            <p class="value">{{ app.user.lastname }}</p>
+            <a href="" title="Modifier l'utilisateur">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                </svg>
+            </a>
+             
+        </div>
+
+        <div class="info">
+            <p class="entete">Prénom</p>             
+            <p class="value">{{ app.user.firstname}}</p> 
+            {# MODIFIER #}
+            <a href="" title="Modifier l'utilisateur">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="info">
+            <p class="entete">N° de téléphone</p>    
+            <p class="value">{{ app.user.phoneNumber}}</p>
+            {# MODIFIER #}
+            <a href="" title="Modifier l'utilisateur">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="info">
+            <p class="entete">Adresse email</p>      
+            <p class="value">{{ app.user.email}}</p>
+            {# MODIFIER #}
+            <a href="" title="Modifier l'utilisateur">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+{% endblock %}

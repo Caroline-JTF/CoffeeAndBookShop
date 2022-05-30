@@ -1,63 +1,29 @@
 /*
-=========================================
-======== SECTION CONTAINER HEADER =======
-=========================================
-*/
-.container-header{
-    background: url(/assets/img/background/bg-menu.jpg) no-repeat center center / cover !important;
-}
-/*
-============================
-====== SECTION HEADING =====
-============================
-*/
-.heading p:nth-child(2){
-    color: var(--color-dark-brown);
-}
-/*
 ========================================
 ============ SECTION BUTTON ============
 ========================================
 */
 .command-btn{
-    padding: 3rem 0;
-    background-color: var(--color-light-brown);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 3rem;
 }
-.command-btn .btn{
-    display: flex;
-    margin: 0 3rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 210px;
-    height: 210px;
-    border-radius: 50%;
-    background-color: var(--color-light);
-}
-.command-btn .btn img{
-    width: 80px;
-    height: 80px;
-}
-.command-btn .btn .btn-text{
-    font-family: var(--font-serif);
-    color: var(--color-dark);
-}
-.command-btn .btn .btn-text span{
-    color: var(--color-red);
+.command-btn button{
+    width: 15rem !important;
+    margin: 0 1rem;
 }
 /*
 ========================================
-================== MAIN ================
+============= CONTAINER MENU ===========
 ========================================
 */
-main{
+.container-menu{
     display: flex;
-    width: 100%;
-    background-color: var(--color-light-brown);
+    width: 80%;
+    background-color: var(--color-light);
     padding-bottom: 3rem;
+    margin: 3rem auto;
 }
 /*
 ========================================
@@ -110,13 +76,13 @@ main{
     float: right;
 }
 .container-product .product .line{
-    background-color: var(--color-light);
+    background-color: var(--color-light-brown);
     width: 100px ;
     height: 3px;
     margin: auto 0;
 }
 .price p{
-    background: var(--color-light);
+    background: var(--color-light-brown);
     width: 100px;
     height: 30px;
     text-align: center;

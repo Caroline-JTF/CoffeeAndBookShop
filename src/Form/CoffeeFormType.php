@@ -34,7 +34,7 @@ class CoffeeFormType extends AbstractType
                 ]
             ])
             ->add('price', TextType::class, [
-                'label' => 'prix :',
+                'label' => 'Prix :',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez taper un prix'
@@ -42,6 +42,7 @@ class CoffeeFormType extends AbstractType
                 ]
             ])
             ->add('img', FileType::class, [
+                'label' => 'Photo :',
                 'data_class' => null,
                 'required' => false,
                 'mapped' => false,

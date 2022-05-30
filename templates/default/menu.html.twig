@@ -24,32 +24,31 @@
 
 {% block body %}
 
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
+
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Voici la carte du C&B</h2>
+        <p>Cafés, viennoiseries et livres</p> 
+    </section>
+
     {# ========================================== #}
     {# ================== BUTTON ================ #}
     {# ========================================== #}
 
      <section class="command-btn">
 
-        <div class="btn btn1">
-            <img src="assets/img/icons-step/beans.png" alt="">
-            <div class="btn-text">
-                <h2> <span>01.</span> Boisson </h2>
-            </div>
-        </div>
-        </div>
-        <div class="btn btn2">
-            <img src="assets/img/icons-step/eat.png" alt="">
-            <div class="btn-text">
-                <h2> <span>02.</span> Douceur </h2>
-            </div>
-        </div>
-        <div class="btn btn3">
-            <img src="assets/img/icons-step/book-stack.png" alt="">
-            <div class="btn-text">
-                <h2> <span>03.</span> Livre </h2>
-            </div>
-            </div>
-        </div>
+        <button class="btn1">
+            Voir les cafés
+        </button>
+        <button class="btn2">
+            Voir les douceurs
+        </button>
+        <button class="btn3">
+            Voir les livres
+        </button>
 
     </section>
 
@@ -57,7 +56,7 @@
     {# =================== MENU ================= #}
     {# ========================================== #}
 
-    <main>
+    <section class="container-menu">
 
         {# ========================================== #}
         {# ================== COFFEE ================ #}
@@ -66,7 +65,7 @@
         <section class="menu menu1 active">
 
             <div class="heading">
-                <h2 class="text-center font-serif uppercase">La carte des boissons</h2>
+                <h2 class="text-center font-serif uppercase">La carte des cafés</h2>
             </div>
             
             {% for coffee in coffees %}
@@ -166,7 +165,7 @@
             
         </section>
 
-    </main>
+    </section>
 
 {% endblock %}
 

@@ -13,7 +13,6 @@ class homePageController extends AbstractController
     #[Route("/", name: "app_default_home_page", methods: ["GET"])]
     public function homepage(): Response
     {
-      return $this->render('default/home-page.html.twig');
-
+        return $this->render('default/home-page.html.twig');
     }
 }

@@ -21,7 +21,7 @@ class foodController extends AbstractController
 
     //Ajout + liste des viennoiseries
     #[Route("/admin/gerez-vos-viennoiseries", name: "app_admin_add_food", methods: ["GET", "POST"])]
-    public function food(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response{
+    public function food(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response{
 
         //Ajouter une viennoiserie
         $food = new food();
@@ -39,8 +39,8 @@ class foodController extends AbstractController
                 $this->handleFile($food, $photo, $slugger);
             }
             
-            $entityManager->persist($food);
-            $entityManager->flush();
+            $em->persist($food);
+            $em->flush();
 
             return $this->redirectToRoute('app_admin_dashboard');
         }
@@ -52,7 +52,7 @@ class foodController extends AbstractController
 
     //Modifiez un douceur
     #[Route('/admin/modifiez-la-viennoiserie/{id}', name: 'app_admin_update_food', methods: ['GET', 'POST'])]
-    public function updateFood(Food $food, EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger): Response
+    public function updateFood(Food $food, EntityManagerInterface $em, Request $request, SluggerInterface $slugger): Response
     {
         $originalPhoto = $food->getimg();
 
@@ -71,8 +71,8 @@ class foodController extends AbstractController
                 $food->setimg($originalPhoto);
             }
 
-            $entityManager->persist($food);
-            $entityManager->flush();
+            $em->persist($food);
+            $em->flush();
 
             $this->addFlash('success', 'Vous avez modifié le produit avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
@@ -86,26 +86,27 @@ class foodController extends AbstractController
 
     //Supprimez une viennoiserie
     #[Route('/admin/supprimez-la-viennoiserie/{id}', name: 'app_admin_delete_food')]
-	public function deleteFood(Food $Food, FoodRepository $repository): Response
+	public function deleteFood(Food $food, FoodRepository $repository, EntityManagerInterface $em): Response
 	{
-		$repository->remove($Food);
+		$repository->remove($food);
+        $em->flush();
 
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 
     //Private function
-    private function handleFile(Food $Food, UploadedFile $photo, SluggerInterface $slugger): void
+    private function handleFile(Food $food, UploadedFile $photo, SluggerInterface $slugger): void
     {
         
         $extension = '.' . $photo->guessExtension();
 
-        $safeFilename = $slugger->slug($Food->getName());
+        $safeFilename = $slugger->slug($food->getName());
 
         $newFilename = $safeFilename . '_' . uniqid() . $extension;
 
         try {
             $photo->move($this->getParameter('uploads_dir'), $newFilename);
-            $Food->setImg($newFilename);
+            $food->setImg($newFilename);
         } catch (FileException $exception) {
             $this->addFlash('warning', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
         } // end catch()

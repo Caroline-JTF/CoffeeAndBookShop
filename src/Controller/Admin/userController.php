@@ -18,7 +18,7 @@ class userController extends AbstractController
 
     //Modifiez un utilisateur
     #[Route('/admin/modifiez-l-utilisateur/{id}', name: 'app_admin_update_user', methods: ['GET', 'POST'])]
-    public function updateUser(User $user, EntityManagerInterface $entityManager, Request $request): Response
+    public function updateUser(User $user, EntityManagerInterface $em, Request $request): Response
     {
 
         $form = $this->createForm(UserFormType::class, $user)
@@ -26,8 +26,8 @@ class userController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $em->persist($user);
+            $em->flush();
 
             $this->addFlash('success', 'Vous avez modifié l\'utilisateur avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
@@ -41,9 +41,10 @@ class userController extends AbstractController
 
     //Supprimez un utilisateur
     #[Route('/admin/supprimez-l-utilisateur/{id}', name: 'app_admin_delete_user')]
-	public function deleteUser(User $user, UserRepository $repository): Response
+	public function deleteUser(User $user, UserRepository $repository, EntityManagerInterface $em): Response
 	{
 		$repository->remove($user);
+        $em->flush();
 
 		return $this->redirectToRoute('app_admin_dashboard');
 	}

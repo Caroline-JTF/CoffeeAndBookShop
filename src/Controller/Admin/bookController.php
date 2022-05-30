@@ -21,7 +21,7 @@ class bookController extends AbstractController
 
     //Ajout + liste des livres
     #[Route("/admin/gerez-vos-livres", name: "app_admin_add_book", methods: ["GET", "POST"])]
-    public function book(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response{
+    public function book(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response{
 
         //Ajouter un livre
         $book = new book();
@@ -39,8 +39,8 @@ class bookController extends AbstractController
                 $this->handleFile($book, $photo, $slugger);
             }
             
-            $entityManager->persist($book);
-            $entityManager->flush();
+            $em->persist($book);
+            $em->flush();
 
             return $this->redirectToRoute('app_admin_dashboard');
         }
@@ -52,7 +52,7 @@ class bookController extends AbstractController
 
     //Modifiez un livre
     #[Route('/admin/modifiez-le-livre/{id}', name: 'app_admin_update_book', methods: ['GET', 'POST'])]
-    public function updateBook(Book $book, EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger): Response
+    public function updateBook(Book $book, EntityManagerInterface $em, Request $request, SluggerInterface $slugger): Response
     {
         $originalPhoto = $book->getimg();
 
@@ -71,8 +71,8 @@ class bookController extends AbstractController
                 $book->setimg($originalPhoto);
             }
 
-            $entityManager->persist($book);
-            $entityManager->flush();
+            $em->persist($book);
+            $em->flush();
 
             $this->addFlash('success', 'Vous avez modifié le produit avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
@@ -86,26 +86,27 @@ class bookController extends AbstractController
 
     //Supprimez un livre
     #[Route('/admin/supprimez-le-livres/{id}', name: 'app_admin_delete_book')]
-	public function deleteBook(Book $Book, BookRepository $repository): Response
+	public function deleteBook(Book $book, BookRepository $repository, EntityManagerInterface $em): Response
 	{
-		$repository->remove($Book);
+		$repository->remove($book);
+        $em->flush();
 
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 
     //Private function
-    private function handleFile(Book $Book, UploadedFile $photo, SluggerInterface $slugger): void
+    private function handleFile(Book $book, UploadedFile $photo, SluggerInterface $slugger): void
     {
         
         $extension = '.' . $photo->guessExtension();
 
-        $safeFilename = $slugger->slug($Book->getName());
+        $safeFilename = $slugger->slug($book->getName());
 
         $newFilename = $safeFilename . '_' . uniqid() . $extension;
 
         try {
             $photo->move($this->getParameter('uploads_dir'), $newFilename);
-            $Book->setImg($newFilename);
+            $book->setImg($newFilename);
         } catch (FileException $exception) {
             $this->addFlash('warning', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
         } // end catch()
