@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Controller\User;
 
 use App\Entity\User;
+use App\Entity\Review;
 use App\Form\UserFormType;
+use App\Repository\UserRepository;
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,15 +20,17 @@ class accountController extends AbstractController
     #[Route("/mon-compte", name: "app_user_account", methods: ["GET"])]
     public function account(ReviewRepository $reviewRepository): Response
     {
-        // $reviews = $reviewRepository->findBy(['mon-compte' => $this->getUser()]);
+        // $user = $userRepository->findBy(['id' => $this->getUser()], ['id' => 'ASC'],1,0);
+        // $reviews = $user[0]->getReviews();
+        $reviews = $reviewRepository->findBy(['user' => $this->getUser()]);
 
         return $this->render('/user/account.html.twig', [
-            // 'reviews' => $reviews,
+            'reviews' => $reviews,
         ]);
     }
 
     //Modifiez un utilisateur
-    #[Route('/mon-compte/modifiez-l-utilisateur/{id}', name: 'app_user_update', methods: ['GET', 'POST'])]
+    #[Route('/mon-compte/modifier-l-utilisateur/{id}', name: 'app_user_update', methods: ['GET', 'POST'])]
     public function updateUser(User $user, EntityManagerInterface $em, Request $request): Response
     {
 
@@ -47,4 +51,16 @@ class accountController extends AbstractController
             'user' => $user,
         ]);
     }
+
+    //Supprimez un avis
+    #[Route('/mon-compte/supprimer-un-avis/{id}', name: 'app_user_delete_review')]
+	public function deletereview(Review $review, ReviewRepository $reviewRepository, EntityManagerInterface $em): Response
+	{
+		$reviewRepository->remove($review);
+        $em->flush();
+
+        $this->addFlash('sucess', 'Vous avez supprimé l\'avis avec succès !');
+
+		return $this->redirectToRoute('app_user_account');
+	}
 }

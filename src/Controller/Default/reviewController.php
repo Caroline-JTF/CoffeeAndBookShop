@@ -28,6 +28,8 @@ class reviewController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
 
             $review->setCreatedAt(new DateTime());
+            
+            $review->setUser($this->getUser());
 
             $em->persist($review);
             $em->flush();

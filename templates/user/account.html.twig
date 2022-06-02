@@ -23,7 +23,7 @@
 {# ======================================== #}
 
 {% block body %}
-    
+
     {# ======================================== #}
     {# ================ HEADING =============== #}
     {# ======================================== #}
@@ -43,7 +43,6 @@
 
         <button class="btn1">Vos informations</button>
         <button class="btn2">Vos avis</button>
-        
 
     </section>
 
@@ -94,6 +93,7 @@
     {# ======================================== #}
 
     <div class="box box2">
+        
         <h2>Vos avis laissés</h2>
     
         <section class="container-table">
@@ -107,17 +107,16 @@
                     </tr>
                 </thead>
 
-                {# {% for review in reviews %} #}
-
-                    <tbody>
+                <tbody>
+                    {% for review in reviews | reverse %}
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ review.createdAt | date('d/m/Y') }}</td>
+                            <td>{{ review.createdAt | date('H:i') }}</td>
+                            <td>{{ review.message }}</td>
                             <td>
                                 <div class="actions">
                                     {# SUPPRIMER #}
-                                    <a href="">
+                                    <a href="{{ path('app_user_delete_review', {'id': review.id}) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <line x1="4" y1="7" x2="20" y2="7" />
@@ -131,12 +130,12 @@
 
                             </td>
                         </tr>
-                        {# {% else %} #}
+                        {% else %}
                             <tr>
                                 <td colspan="6" style="text-align:center;">Vous n'avez laissé aucun avis</td>
                             </tr>
-                    </tbody>
-                {# {% endfor %} #}
+                    {% endfor %}
+                </tbody>
             </table>
         </section>
     </div>

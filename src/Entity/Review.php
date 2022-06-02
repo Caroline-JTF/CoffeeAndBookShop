@@ -22,6 +22,9 @@ class Review
     #[ORM\Column(type: 'text')]
     private $message;
 
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reviews')]
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Review
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
