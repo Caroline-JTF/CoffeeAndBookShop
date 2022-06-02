@@ -33,7 +33,8 @@ class reviewController extends AbstractController
 
             $em->persist($review);
             $em->flush();
-
+            
+            $this->addFlash('success', 'Votre avis à bien été enregistré');
             return $this->redirectToRoute('app_default_review');
         }
 

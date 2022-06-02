@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Form\UserFormType;
+use App\Repository\ReviewRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,11 +42,18 @@ class userController extends AbstractController
 
     //Supprimez un utilisateur
     #[Route('/admin/supprimez-l-utilisateur/{id}', name: 'app_admin_delete_user')]
-	public function deleteUser(User $user, UserRepository $repository, EntityManagerInterface $em): Response
+	public function deleteUser(User $user, UserRepository $repository, ReviewRepository $reviewRepository, EntityManagerInterface $em): Response
 	{
+        $reviews = $reviewRepository->findBy(['user' => $user->getId()]);
+
+        foreach($reviews as $review){
+            $review->setUser(Null);
+        } 
+
 		$repository->remove($user);
         $em->flush();
 
+        $this->addFlash('error', 'L\'utilisateur à été supprimé avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 }

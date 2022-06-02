@@ -59,7 +59,7 @@ class accountController extends AbstractController
 		$reviewRepository->remove($review);
         $em->flush();
 
-        $this->addFlash('sucess', 'Vous avez supprimé l\'avis avec succès !');
+        $this->addFlash('message', 'Vous avez supprimé l\'avis avec succès !');
 
 		return $this->redirectToRoute('app_user_account');
 	}

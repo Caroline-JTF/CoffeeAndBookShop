@@ -23,6 +23,22 @@
 {# ======================================== #}
 
 {% block body %}
+
+    {# ======================================== #}
+    {# ================ FLASHES =============== #}
+    {# ======================================== #}
+
+    <div class="login-anim">
+        {% for message in app.flashes('success') %}
+            <div class="flash successFlash">{{message}}</div>
+        {% endfor %}
+        {% for message in app.flashes('warning') %}
+            <div class="flash warningFlash">{{message}}</div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="flash errorFlash">{{message}}</div>
+        {% endfor %}
+    </div>
     
 
     {# ======================================== #}
@@ -129,7 +145,7 @@
         {# ================ COFFEE ================ #}
         {# ======================================== #}
 
-        <section class="box2 box">
+        <section id="coffee" class="box2 box">
 
             <section class="heading">
                 <h2>Liste des cafés</h2>

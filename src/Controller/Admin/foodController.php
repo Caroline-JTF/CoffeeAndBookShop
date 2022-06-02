@@ -42,6 +42,8 @@ class foodController extends AbstractController
             $em->persist($food);
             $em->flush();
 
+            $this->addFlash('success', 'Votre viennoiserie a été enregistré avec succès !');
+
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -91,6 +93,7 @@ class foodController extends AbstractController
 		$repository->remove($food);
         $em->flush();
 
+        $this->addFlash('error', 'La viennoiserie à été supprimé avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

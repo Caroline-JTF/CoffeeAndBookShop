@@ -21,9 +21,10 @@ class dashboard extends AbstractController
         UserRepository $userRepository, 
         CoffeeRepository $coffeeRepository,
         FoodRepository $foodRepository,
-        BookRepository $bookRepository
+        BookRepository $bookRepository,
     ): Response
     {
+        // Afficher les utilisateurs, boissons, viennoiseries et livres sur le dashboard:
         $users = $userRepository->findAll();
         $coffees = $coffeeRepository->findAll();
         $foods = $foodRepository->findAll();
@@ -36,4 +37,6 @@ class dashboard extends AbstractController
             'books' => $books,
         ]);
     }
+
+    
 }

@@ -138,3 +138,38 @@ a img{
 .else{
     text-align:center;
 }
+/*
+========================================
+================ FLASHES ===============
+========================================
+*/
+.flash{
+    margin: 0 auto;
+    width: 100%;
+    border: none;
+	padding: 15px 40px;
+    border-radius: 0 0 5px 5px;
+    font-family: var(--font-serif);
+    text-transform: uppercase;
+    position: relative;
+    z-index: -2;
+    transform: translateY(-50px);
+    animation: apparition 0.5s 0.7s ease-out forwards;
+}
+@keyframes apparition {
+    100%{
+      transform: none;
+    }
+}
+.successFlash{
+    background: #27AE60;
+    color: var(--color-light);
+}
+.warningFlash{
+    background-color: #F4D03F;
+    color: var(--color-light);
+}
+.errorFlash{
+    background-color: #E74C3C;
+    color: var(--color-light);
+}

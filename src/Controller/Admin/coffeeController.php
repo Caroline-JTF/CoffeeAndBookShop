@@ -42,7 +42,9 @@ class coffeeController extends AbstractController
             $em->persist($coffee);
             $em->flush();
 
+            $this->addFlash('success', 'Votre boisson a été enregistrée avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
+
         }
 
         return $this->render('/admin/add/coffee.html.twig', [
@@ -91,8 +93,7 @@ class coffeeController extends AbstractController
 		$repository->remove($coffee);
         $em->flush();
 
-        $this->addFlash('sucess', 'Vous avez supprimé le produit avec succès !');
-
+        $this->addFlash('error', 'Le café à été supprimé avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 
