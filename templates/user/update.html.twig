@@ -34,17 +34,7 @@
         {# FORMULAIRE #}
         <div class="container-form">
 
-            {{ form_start(form) }}
-            
-                {{ form_row(form.firstname) }}
-                {{ form_row(form.lastname) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.phoneNumber) }}
-                <div style="display: none;">
-                    {{ form_widget(form.password) }}
-                </div>
-
-            {{ form_end(form) }}
+            {{ form(form) }}
 
         </div>
 

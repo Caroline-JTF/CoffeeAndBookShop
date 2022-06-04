@@ -32,9 +32,6 @@
         {% for message in app.flashes('success') %}
             <div class="flash successFlash">{{message}}</div>
         {% endfor %}
-        {% for message in app.flashes('warning') %}
-            <div class="flash warningFlash">{{message}}</div>
-        {% endfor %}
         {% for message in app.flashes('error') %}
             <div class="flash errorFlash">{{message}}</div>
         {% endfor %}
@@ -170,7 +167,7 @@
                         <tr>
                             <td>{{ coffee.id}}</td>
                             <td>
-                                <img width="100px" height="100px" src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
+                                <img width="100px" height="100px" src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" onerror="this.style.display='none';"/>
                             </td>
                             <td>{{ coffee.name}}</td>
                             <td style="width:50%;">{{ coffee.description}}</td>
@@ -204,7 +201,11 @@
                                 </div> 
 
                             </td>
-                        </tr>    
+                        </tr>
+                        {% else %}
+                                <tr>
+                                    <td colspan="6" style="text-align:center;">Pas de boisson pour le moment</td>
+                                </tr> 
                     {% endfor %}
                 </tbody>
 
@@ -283,6 +284,10 @@
 
                             </td>
                         </tr>    
+                        {% else %}
+                                <tr>
+                                    <td colspan="6" style="text-align:center;">Pas de viennoiserie pour le moment</td>
+                                </tr> 
                     {% endfor %}
                 </tbody>
 

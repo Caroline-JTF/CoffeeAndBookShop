@@ -26,8 +26,8 @@ class bookController extends AbstractController
         //Ajouter un livre
         $book = new book();
 
-        $form = $this->createForm(BookFormType::class, $book)
-                     ->handleRequest($request);
+        $form = $this->createForm(BookFormType::class, $book);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
@@ -60,7 +60,8 @@ class bookController extends AbstractController
 
         $form = $this->createForm(BookFormType::class, $book, [
             'img' => $originalPhoto
-        ])->handleRequest($request);
+        ]);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
@@ -76,7 +77,7 @@ class bookController extends AbstractController
             $em->persist($book);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié le produit avec succès !');
+            $this->addFlash('success', 'Le livre a été modifié avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -93,7 +94,7 @@ class bookController extends AbstractController
 		$repository->remove($book);
         $em->flush();
 
-        $this->addFlash('error', 'Le livre' . $book . 'à été supprimé avec succès !');
+        $this->addFlash('error', 'Le livre à été supprimé avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

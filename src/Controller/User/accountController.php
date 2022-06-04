@@ -7,7 +7,6 @@ namespace App\Controller\User;
 use App\Entity\User;
 use App\Entity\Review;
 use App\Form\UserFormType;
-use App\Repository\UserRepository;
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,25 +29,24 @@ class accountController extends AbstractController
     }
 
     //Modifiez un utilisateur
-    #[Route('/mon-compte/modifier-l-utilisateur/{id}', name: 'app_user_update', methods: ['GET', 'POST'])]
+    #[Route('/mon-compte/modifier-vos-informations/{id}', name: 'app_user_update', methods: ['GET', 'POST'])]
     public function updateUser(User $user, EntityManagerInterface $em, Request $request): Response
     {
-
-        $form = $this->createForm(UserFormType::class, $user)
-                     ->handleRequest($request);
+    
+        $form = $this->createForm(UserFormType::class, $user);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié l\'utilisateur avec succès !');
+            $this->addFlash('success', 'Les informations ont été modifié avec succès !');
             return $this->redirectToRoute('app_user_account');
-        }
 
+        }
         return $this->render('/user/update.html.twig', [
             'form' => $form->createView(),
-            'user' => $user,
         ]);
     }
 
@@ -59,8 +57,7 @@ class accountController extends AbstractController
 		$reviewRepository->remove($review);
         $em->flush();
 
-        $this->addFlash('message', 'Vous avez supprimé l\'avis avec succès !');
-
+        $this->addFlash('error', 'L\'avis à été supprimé avec succès !');
 		return $this->redirectToRoute('app_user_account');
 	}
 }

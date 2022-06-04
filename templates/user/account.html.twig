@@ -28,9 +28,12 @@
     {# ================ FLASHES =============== #}
     {# ======================================== #}
 
-    <div class="login-anim">
-        {% for message in app.flashes('message') %}
+     <div class="login-anim">
+        {% for message in app.flashes('success') %}
             <div class="flash successFlash">{{message}}</div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="flash errorFlash">{{message}}</div>
         {% endfor %}
     </div>
     

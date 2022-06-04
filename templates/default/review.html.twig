@@ -24,17 +24,6 @@
 {% block body %}
 
     {# ======================================== #}
-    {# ================ FLASHES =============== #}
-    {# ======================================== #}
-
-    <div class="login-anim">
-        {% for message in app.flashes('message') %}
-            <div class="flash successFlash">{{message}}</div>
-        {% endfor %}
-    </div>
-    
-
-    {# ======================================== #}
     {# ================ HEADING =============== #}
     {# ======================================== #}
 
@@ -72,16 +61,14 @@
 
     <section class="container-review">
 
-        {% for review in reviews %}
+        {% for review in reviews | reverse %}
 
             <div class="review">
                 <div class="text">
                     <p>{{ review.message}}</p>
                 </div>
-                <div class="name">
+                <div class="signature">
                     <p>{{ review.name}}</p>
-                </div>
-                <div class="datetime">
                     <p>{{ review.createdAt | date('d/m/Y') }}</p>
                 </div>
             </div>

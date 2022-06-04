@@ -153,13 +153,18 @@ a img{
     text-transform: uppercase;
     position: relative;
     z-index: -2;
-    transform: translateY(-50px);
-    animation: apparition 0.5s 0.7s ease-out forwards;
+    animation: apparition 3s 3s ease-out forwards;
 }
 @keyframes apparition {
-    100%{
-      transform: none;
+    to{
+        transform: translateY(-51px);
     }
+    from{
+        transform: translateY(none);
+    }
+    /* 100%{
+      transform: none;
+    } */
 }
 .successFlash{
     background: #27AE60;

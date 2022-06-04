@@ -50,19 +50,31 @@
     {# ======================================== #}
 
     <section class="container-legend">
-        <div class="legend">
-            <div class="color color-no-coffee"></div>
-            <p>Pays qui ne cultive pas le café</p>
+
+        <div class="container-legends-color">
+            <div class="legend">
+                <div class="color color-no-coffee"></div>
+                <p>Pays qui ne cultive pas le café</p>
+            </div>
+            <div class="legend">
+                <div class="color color-coffee"></div>
+                <p>Pays qui cultive le café</p>
+            </div>
+            <div class="legend">
+                <div class="color color-available"></div>
+                <p>Grain de café que nous proposons</p>
+            </div>
         </div>
-        <div class="legend">
-            <div class="color color-coffee"></div>
-            <p>Pays qui cultive le café</p>
+
+        <div class="container-legends-text">
+            <div>
+                <h2 id="titleInfo">Cliquez sur un pays</h2>
+                <p id="textInfo">Pour afficher son détail</p>
+            </div>
         </div>
-        <div class="legend">
-            <div class="color color-coffee"></div>
-            <p>Grain de café que nous proposons</p>
-        </div>
+    
     </section>
+
 
 {% endblock %}
 

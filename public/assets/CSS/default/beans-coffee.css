@@ -4,71 +4,44 @@
 ========================================
 */
 .container-legend{
-    width: 80%;
-    margin: auto auto;
-    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 150px;
+    margin: 5rem auto;
 }
-.container-legend .legend{
+.container-legends-color{
+    width: 30%;
+    height: 110px;
+    padding: 1rem;
+    border-right: 1px solid var(--color-dark);
+}
+.container-legend .container-legends-text{
+    width: 70%;
+    height: 150px;
+    padding: 1rem;
+}
+.container-legends-color .legend{
     display: flex;
     margin-bottom: 0.5rem;
 }
-.color{
+.container-legend .container-legends-color .color{
     width: 20px;
     height: 20px;
-    border: var(1px solid color-dark);
     margin-right: 0.5rem;
 }
-.color-no-coffee{
-    background-color: #d9ccbc;
+.container-legend .container-legends-color .color-no-coffee{
+    background-color: var(--color-dark-brown);
 }
-.color-coffee{
+.container-legend .container-legends-color .color-coffee{
     background-color: #9d8a78;
 }
-/*
-================================
-PARTIE CSS DE LA SECTION : BEANS
-================================
-*/
-.section-beans{
-    background-color: var(--color-light);
-    max-width: 80%;
-    margin: 3rem auto;
-    padding: 3rem;
+.container-legend .container-legends-color .color-available{
+    background-color: var(--color-red);
 }
-.section-beans .container-beans{
-    display: flex;
-    width: 100%;
-}
-.beans{
-    width: 50%;
-    padding: 1rem;
-    background-color: var(--color-grey);
-}
-.description{
-    width: 50%;
-    padding: 1rem;
-    background-color: var(--color-light-brown);
-}
-.section-beans h2{
-    margin-bottom: 3rem;
-    font-size: 2rem;
+.container-legend .container-legends-text h2{
     font-family: var(--font-serif);
     text-transform: uppercase;
-}
-.section-beans .beans div{
-    margin: 1rem 0;
-}
-.section-beans h3{
-    margin: 0 0 1rem;
-    font-size: 1rem;
-    font-family: var(--font-serif);
-    text-transform: uppercase;
-    color: var(--color-red);
-}
-
-.visibility{
-    display: none;
-}
-.active{
-    display: block !important;
+    margin-bottom: 0.5rem;
 }

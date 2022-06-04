@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Security;
 
 use App\Entity\User;
-use App\Form\UserFormType;
+use App\Form\RegisterFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,8 +21,8 @@ class securityController extends AbstractController
     public function inscription(Request $request, EntityManagerInterface $entity, UserPasswordHasherInterface $hasher): Response 
     {
         $user = new User();
-        $form = $this->createForm(UserFormType::class, $user)
-                     ->handleRequest($request);
+        $form = $this->createForm(RegisterFormType::class, $user);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
             $user->setRoles(['ROLE_USER']);
@@ -34,8 +34,7 @@ class securityController extends AbstractController
             $entity->persist($user);
             $entity->flush();
 
-            $this->addFlash('success', 'Votre inscription est validée. Connectez-vous à présent !', 'app_security_log_in');
-            return $this->redirectToRoute('app_security_sign_up');
+            return $this->redirectToRoute('app_security_log_in');
         }
 
         return $this->render('security/sign-up.html.twig', [
@@ -60,6 +59,6 @@ class securityController extends AbstractController
     #[Route(path: '/deconnexion', name: 'app_security_log_out')]
     public function logout(): void
     {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        // throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }

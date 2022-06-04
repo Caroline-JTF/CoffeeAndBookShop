@@ -31,18 +31,17 @@
 }
 .container-review .review{
     height: 300px;
-    overflow-x: auto;
     padding: 2rem;
     margin: 1rem;
     background-color: var(--color-light-brown);
 }
 .container-review .review .text{
     text-align: justify;
+    overflow: auto;
+    height: 200px;
+    margin-bottom: 1rem;
 }
-.container-review .review .name,
-.container-review .review .datetime{
+.signature{
+    height: 50px;
     text-align: right;
-}
-.name{
-    margin-top: 1rem;
 }

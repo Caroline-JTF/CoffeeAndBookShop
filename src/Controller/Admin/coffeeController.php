@@ -26,8 +26,8 @@ class coffeeController extends AbstractController
         //Ajouter un café
         $coffee = new coffee();
 
-        $form = $this->createForm(CoffeeFormType::class, $coffee)
-                     ->handleRequest($request);
+        $form = $this->createForm(CoffeeFormType::class, $coffee);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
@@ -42,7 +42,7 @@ class coffeeController extends AbstractController
             $em->persist($coffee);
             $em->flush();
 
-            $this->addFlash('success', 'Votre boisson a été enregistrée avec succès !');
+            $this->addFlash('success', 'La boisson a été modifié avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
 
         }
@@ -60,7 +60,8 @@ class coffeeController extends AbstractController
 
         $form = $this->createForm(CoffeeFormType::class, $coffee, [
             'img' => $originalPhoto
-        ])->handleRequest($request);
+        ]);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
@@ -93,7 +94,7 @@ class coffeeController extends AbstractController
 		$repository->remove($coffee);
         $em->flush();
 
-        $this->addFlash('error', 'Le café à été supprimé avec succès !');
+        $this->addFlash('error', 'La boisson à été supprimé avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

@@ -26,8 +26,8 @@ class foodController extends AbstractController
         //Ajouter une viennoiserie
         $food = new food();
 
-        $form = $this->createForm(FoodFormType::class, $food)
-                     ->handleRequest($request);
+        $form = $this->createForm(FoodFormType::class, $food);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
@@ -60,7 +60,8 @@ class foodController extends AbstractController
 
         $form = $this->createForm(FoodFormType::class, $food, [
             'img' => $originalPhoto
-        ])->handleRequest($request);
+        ]);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
@@ -76,7 +77,7 @@ class foodController extends AbstractController
             $em->persist($food);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié le produit avec succès !');
+            $this->addFlash('success', 'La viennoiserie à été modifié avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
