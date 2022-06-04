@@ -20,21 +20,23 @@ class reviewController extends AbstractController
     public function review(Request $request, EntityManagerInterface $em, ReviewRepository $reviewRepository): Response{
         
         //Ajouter un avis
-        $review = new Review();
+        $review = new review();
 
-        $form = $this->createForm(ReviewFormType::class, $review)
-            ->handleRequest($request);
+        //Remplir automatique le champs si on est connecté
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $user = $this->getUser();
+            $review->setName($user->getFirstname());
+        }
+
+        $form = $this->createForm(ReviewFormType::class, $review);
+        $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-
             $review->setCreatedAt(new DateTime());
-            
-            $review->setUser($this->getUser());
 
             $em->persist($review);
             $em->flush();
             
-            $this->addFlash('success', 'Votre avis à bien été enregistré');
             return $this->redirectToRoute('app_default_review');
         }
 
