@@ -28,7 +28,7 @@ class RegisterFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Ce champ ne peut être vide',
+                        'message' => 'Veuillez renseigner un nom',
                     ]),
                     new Length([
                         'max' => 50,
@@ -46,7 +46,7 @@ class RegisterFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Ce champ ne peut être vide',
+                        'message' => 'Veuillez renseigner un prénom',
                     ]),
                     new Length([
                         'max' => 50,
@@ -64,7 +64,7 @@ class RegisterFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Ce champ ne peut être vide',
+                        'message' => 'Veuillez renseigner un numéro de téléphone',
                     ]),
                 ]
             ])
@@ -75,7 +75,7 @@ class RegisterFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Ce champ ne peut être vide',
+                        'message' => 'Veuillez renseigner une adresse email',
                     ]),
                     new Email([
                         'message' => 'Votre email n\'est pas au bon format: ex. mail@example.com'
@@ -93,7 +93,7 @@ class RegisterFormType extends AbstractType
                     ],
                     'constraints' => [
                         new NotBlank([
-                            'message' => 'Ce champ ne peut être vide',
+                            'message' => 'Veuillez renseigner un mot de passe',
                         ]),
                     ],
                 ],
@@ -104,7 +104,7 @@ class RegisterFormType extends AbstractType
                     ],
                     'constraints' => [
                         new NotBlank([
-                            'message' => 'Ce champ ne peut être vide',
+                            'message' => 'Veuillez répéter votre mot de passe',
                         ]),
                     ],
                 ],

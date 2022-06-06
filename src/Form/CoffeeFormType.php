@@ -21,7 +21,7 @@ class CoffeeFormType extends AbstractType
                 'label' => 'Nom :',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez taper un nom'
+                        'message' => 'Veuillez renseigner un nom'
                     ])
                 ]
             ])
@@ -29,7 +29,7 @@ class CoffeeFormType extends AbstractType
                 'label' => 'Description :',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez taper une description'
+                        'message' => 'Veuillez renseigner une description'
                     ])
                 ]
             ])
@@ -37,7 +37,7 @@ class CoffeeFormType extends AbstractType
                 'label' => 'Prix :',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez taper un prix'
+                        'message' => 'Veuillez renseigner un prix'
                     ])
                 ]
             ])
@@ -56,7 +56,7 @@ class CoffeeFormType extends AbstractType
                 ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => $options['img'] ? 'Modifier' : 'Ajouter',
+                'label' => 'Valider',
                 'validate' => false,
                 'attr' => [
                     'class' => 'btn-center'

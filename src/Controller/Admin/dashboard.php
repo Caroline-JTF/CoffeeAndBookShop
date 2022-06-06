@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
+use DateTime;
 use App\Repository\BookRepository;
 use App\Repository\FoodRepository;
 use App\Repository\UserRepository;
 use App\Repository\CoffeeRepository;
+use App\Repository\EventRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,6 +24,7 @@ class dashboard extends AbstractController
         CoffeeRepository $coffeeRepository,
         FoodRepository $foodRepository,
         BookRepository $bookRepository,
+        EventRepository $eventRepository,
     ): Response
     {
         // Afficher les utilisateurs, boissons, viennoiseries et livres sur le dashboard:
@@ -29,12 +32,14 @@ class dashboard extends AbstractController
         $coffees = $coffeeRepository->findAll();
         $foods = $foodRepository->findAll();
         $books = $bookRepository->findAll();
+        $events = $eventRepository->findAll();
 
         return $this->render('/admin/dashboard.html.twig', [
             'users' => $users,
             'coffees' => $coffees,
             'foods' => $foods,
             'books' => $books,
+            'events' => $events,
         ]);
     }
 

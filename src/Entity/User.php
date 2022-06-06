@@ -38,9 +38,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Review::class)]
     private $reviews;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Participant::class)]
+    private $participants;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Participant::class)]
+    private $userParticipants;
+
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
+        $this->participants = new ArrayCollection();
+        $this->userParticipants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -192,6 +200,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($review->getUser() === $this) {
                 $review->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Participant>
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->participants;
+    }
+
+    public function addParticipant(Participant $participant): self
+    {
+        if (!$this->participants->contains($participant)) {
+            $this->participants[] = $participant;
+            $participant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Participant $participant): self
+    {
+        if ($this->participants->removeElement($participant)) {
+            // set the owning side to null (unless already changed)
+            if ($participant->getUser() === $this) {
+                $participant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Participant>
+     */
+    public function getUserParticipants(): Collection
+    {
+        return $this->userParticipants;
+    }
+
+    public function addUserParticipant(Participant $userParticipant): self
+    {
+        if (!$this->userParticipants->contains($userParticipant)) {
+            $this->userParticipants[] = $userParticipant;
+            $userParticipant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserParticipant(Participant $userParticipant): self
+    {
+        if ($this->userParticipants->removeElement($userParticipant)) {
+            // set the owning side to null (unless already changed)
+            if ($userParticipant->getUser() === $this) {
+                $userParticipant->setUser(null);
             }
         }
 

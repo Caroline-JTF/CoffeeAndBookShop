@@ -7,6 +7,8 @@ namespace App\Controller\User;
 use App\Entity\User;
 use App\Entity\Review;
 use App\Form\UserFormType;
+use App\Repository\EventRepository;
+use App\Repository\ParticipantRepository;
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,19 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class accountController extends AbstractController
 {
-    #[Route("/mon-compte", name: "app_user_account", methods: ["GET"])]
-    public function account(ReviewRepository $reviewRepository): Response
-    {
-        // $user = $userRepository->findBy(['id' => $this->getUser()], ['id' => 'ASC'],1,0);
-        // $reviews = $user[0]->getReviews();
-        $reviews = $reviewRepository->findBy(['user' => $this->getUser()]);
-
-        return $this->render('/user/account.html.twig', [
-            'reviews' => $reviews,
-        ]);
-    }
-
-    //Modifiez un utilisateur
+    // Modifiez les informations 
     #[Route('/mon-compte/modifier-vos-informations/{id}', name: 'app_user_update', methods: ['GET', 'POST'])]
     public function updateUser(User $user, EntityManagerInterface $em, Request $request): Response
     {
@@ -50,7 +40,24 @@ class accountController extends AbstractController
         ]);
     }
 
-    //Supprimez un avis
+    // Afficher les avis
+    #[Route("/mon-compte", name: "app_user_account", methods: ["GET"])]
+    public function review(ReviewRepository $reviewRepository, ParticipantRepository $participantRepository, EventRepository $eventRepository): Response
+    {
+        // $user = $userRepository->findBy(['id' => $this->getUser()], ['id' => 'ASC'],1,0);
+        // $reviews = $user[0]->getReviews();
+        $reviews = $reviewRepository->findBy(['user' => $this->getUser()]);
+        $participants = $participantRepository->findBy(['user' => $this->getUser()]);
+        $events = $eventRepository->findAll();
+
+        return $this->render('/user/account.html.twig', [
+            'reviews' => $reviews,
+            'participants' => $participants,
+            'events' => $events,
+        ]);
+    }
+
+    // Supprimez un avis
     #[Route('/mon-compte/supprimer-un-avis/{id}', name: 'app_user_delete_review')]
 	public function deletereview(Review $review, ReviewRepository $reviewRepository, EntityManagerInterface $em): Response
 	{

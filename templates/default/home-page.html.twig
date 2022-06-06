@@ -115,15 +115,24 @@
     <section class="container-presentation">
 
         <div class="text-presentation">
-            <h2>Vous avez un grain décalé ? <br> Nous aussi!</h2>
+            <h2>Vous êtes un grain décalé ? <br> Nous aussi!</h2>
             <p>
-                COFFEE AND BOOK SHOP est le premier bistro qui vous sert cafés, viennoiseries et livres pour vous garantir un véritable moment d’évasion, que ce soit sur place ou à emporter. Chacun de nous a droit à un moment de répit dans son monde et nous voulons vous aider, à travers saveurs venues du monde entier et imagination, à vous transporter.
+                COFFEE AND BOOK est le premier bistro qui vous sert cafés, viennoiseries et livres pour vous garantir un véritable moment d’évasion, que ce soit sur place ou à emporter. Chacun de nous a droit à un moment de répit dans son monde et nous voulons vous aider, à travers saveurs venues du monde entier et imagination, à vous transporter.
+                <br><br>
+                Nous vous proposons également de nombreux évènements, allant de la dégustation de grains de cafés à la dédicace de livres par vos auteurs préférés. Ces évènements seront gratuits, mais à places limitées donc dépêchez-vous de prendre vos places afin de passer un moment inoubliable aux côtés de l'équipe du C&B !
             </p>
-            <button>
-                <a href="{{ path('app_default_review') }}">
-                Voir les avis
-                </a>
-            </button>
+            <div class="container-btn">
+                <button>
+                    <a href="{{ path('app_default_review') }}">
+                    Voir les avis
+                    </a>
+                </button>
+                <button>
+                    <a href="{{ path('app_default_event') }}">
+                    Voir les évènements
+                    </a>
+                </button>
+            </div>
         </div>
         <div class="img-presentation">
             <img src="assets/img/homepage/presentation.jpg" alt="">

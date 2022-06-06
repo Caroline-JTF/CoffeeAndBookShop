@@ -56,7 +56,8 @@
     <section class="command-btn">
 
         <button class="btn1">Vos informations</button>
-        <button class="btn2">Vos avis</button>
+        <button class="btn2">Vos évènements</button>
+        <button class="btn3">Vos avis</button>
 
     </section>
 
@@ -107,6 +108,49 @@
     {# ======================================== #}
 
     <div class="box box2">
+        
+        <h2>Vos évènements</h2>
+    
+        <section class="container-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Participants</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for participant in participants | reverse %}
+                        {% for event in events %}
+                            {% if participant.event==event %}
+                                <tr>
+                                    <td>{{ event.name }} </td>
+                                    <td>{{ event.description }} </td>
+                                    <td>{{ event.type }} </td>
+                                    <td>{{ event.date | date('d/m/Y') }} </td>
+                                    <td>{{ participant.participant }}</td>
+                                </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="6" style="text-align:center;">Vous ne participez à aucun évènement pour le moment</td>
+                                    </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    {# ======================================== #}
+    {# =============== VOS AVIS =============== #}
+    {# ======================================== #}
+
+    <div class="box box3">
         
         <h2>Vos avis laissés</h2>
     

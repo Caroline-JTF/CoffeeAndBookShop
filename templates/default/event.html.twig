@@ -1,0 +1,95 @@
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
+
+{% extends "base.html.twig" %}
+
+{# ======================================== #}
+{# ================= STYLE ================ #}
+{# ======================================== #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="assets/css/default/event.css">
+{% endblock %}
+
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
+
+{% block title %}Nos évènements{% endblock %}
+
+
+{# ======================================== #}
+{# ================== BODY ================ #}
+{# ======================================== #}
+
+{% block body %}
+
+    {# ======================================== #}
+    {# ================ FLASHES =============== #}
+    {# ======================================== #}
+
+    <div class="login-anim">
+        {% for message in app.flashes('success') %}
+            <div class="flash successFlash">{{message}}</div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="flash errorFlash">{{message}}</div>
+        {% endfor %}
+    </div>
+
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
+
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Participer à un de nos évènements</h2>
+        <p>Dégustation de nouveaux grains, dédicaces, ...</p> 
+    </section>
+
+    {# ======================================== #}
+    {# ================ EVENTS ================ #}
+    {# ======================================== #}
+
+    <section class="container-event">
+        <table>
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Participants</th>
+                    <th>Places disponibles</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for event in events %}
+                        <tr>
+                            <td>{{ event.id}}</td>
+                            <td>{{ event.name}}</td>
+                            <td style="width:50%;">{{ event.description}}</td>
+                            <td>{{ event.type}}</td>
+                            <td>{{ event.date | date('d/m/Y') }}</td>
+                            <td>{{ event.participants}}</td>
+                            <td>{{ event.place}}</td>
+                            <td>
+                                <div  class="actions">
+                                    {# SINSCRIRE #}
+                                    <a href="{{ path('app_user_participant', {'id': event.id}) }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                            <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

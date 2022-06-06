@@ -1,0 +1,50 @@
+{# ======================================== #}
+{# ================ EXTENDS =============== #}
+{# ======================================== #}
+
+{% extends "base.html.twig" %}
+
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
+
+{# {% block title %}S'inscrire à l'évènement {{ event.name}} {% endblock %} #}
+
+{# ======================================== #}
+{# ================= BODY ================= #}
+{# ======================================== #}
+
+{% block body %}
+
+    {# ======================================== #}
+    {# ================ HEADING =============== #}
+    {# ======================================== #}
+
+    <section class="heading">
+        <p>What's happening here?</p>
+        <h2>Inscrivez-vous à l'évènement {{ currentEvent.name }}</h2>
+        <a href="{{ path('app_default_event') }}">Retour</a>
+    </section>
+
+    {# ======================================== #}
+    {# ================== USER ================ #}
+    {# ======================================== #}
+    <p>Place restante : {{ currentEvent.place - currentEvent.participants }}</p>
+
+    <section class="section-form">
+
+        {# FORMULAIRE #}
+        {% if currentEvent.place - currentEvent.participants > 0 %}
+            <div class="container-form">
+
+                {{ form(form) }}
+
+            </div>
+            {% else %}
+                Plus de place
+        {% endif %}
+
+    </section>
+
+    
+{% endblock %}

@@ -94,7 +94,7 @@
     background-color: var(--color-light);
     display: flex;
     max-width: 80%;
-    max-height: 500px;
+    max-height: 600px;
     margin: 10rem auto;
 }
 .container-presentation .img-presentation{
@@ -102,28 +102,36 @@
 }
 .container-presentation .img-presentation img{
     width: 100%;
-    height: 500px;
+    height: 600px;
 }
 .container-presentation .text-presentation{
     width: 50%;
     padding: 3rem;
     position: relative;
+    justify-content: center;
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+
 }
 .container-presentation .text-presentation h2{
     font-size: 1.5rem;
     font-family: var(--font-serif);
     text-transform: uppercase;
+
 }
 .container-presentation .text-presentation p{
     font-size: 1rem;
     margin: 3rem 0;
 }
-.container-presentation .text-presentation button{
-    width: 15rem !important;
-    position: absolute;
+.container-presentation .container-btn{
+    display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 10%;
+}
+.container-presentation .text-presentation button{
+    width: 15rem !important;
+    margin: 0 1rem;
 
 }
 /*
