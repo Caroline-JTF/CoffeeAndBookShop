@@ -180,7 +180,7 @@
                         <tr>
                             <td>{{ food.id}}</td>
                             <td>
-                                <img width="100px" height="100px" src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
+                                <img width="100px" height="100px" src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" onerror="this.style.display='none';" />
                             </td>
                             <td>{{ food.name}}</td>
                             <td style="width:50%;">{{ food.description}}</td>
@@ -261,7 +261,7 @@
                         <tr>
                             <td>{{ book.id}}</td>
                             <td>
-                                <img width="100px" height="150px" src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
+                                <img width="100px" height="150px" src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" onerror="this.style.display='none';" />
                             </td>
                             <td>{{ book.name}}</td>
                             <td style="width:50%;">{{ book.description}}</td>
@@ -329,6 +329,7 @@
                  <thead>
                     <tr>
                         <th>Identifiant</th>
+                        <th>Photo</th>
                         <th>Nom</th>
                         <th>Description</th>
                         <th>Type</th>
@@ -343,6 +344,9 @@
                     {% for event in events %}
                         <tr>
                             <td>{{ event.id}}</td>
+                            <td>
+                                <img width="100px" height="150px" src="{{ asset('/uploads/' ~ event.img) }}" alt="{{ event.name }}" onerror="this.style.display='none';"/>
+                            </td>
                             <td>{{ event.name}}</td>
                             <td style="width:50%;">{{ event.description}}</td>
                             <td>{{ event.type}}</td>

@@ -112,7 +112,7 @@ class coffeeController extends AbstractController
             $photo->move($this->getParameter('uploads_dir'), $newFilename);
             $coffee->setImg($newFilename);
         } catch (FileException $exception) {
-            $this->addFlash('warning', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
+            $this->addFlash('error', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
         }
     }
 }

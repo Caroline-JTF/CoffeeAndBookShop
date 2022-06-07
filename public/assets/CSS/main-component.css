@@ -114,6 +114,9 @@ a img{
 .container-form textarea{
     height: 150px;
 }
+.container-form select{
+    margin-bottom: 1rem;
+}
 .container-form button{
     margin: 1rem auto 3rem !important;
 }

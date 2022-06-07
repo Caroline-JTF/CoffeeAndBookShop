@@ -1,0 +1,52 @@
+/*
+========================================
+============ CONTAINER EVENT ===========
+========================================
+*/
+.container-event{
+    width: 80%;
+    margin: 3rem auto;
+}
+.container-event .event{
+    width: 100%;
+    height: 600px;
+    margin: 3rem 0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: var(--color-light-brown);
+    display: flex;
+}
+.container-event .event .event-left,
+.container-event .event .event-right{
+    width: 50%;
+}
+.container-event .event .event-left img{
+    width: 100%;
+    height: 600px;
+    border-radius: 8px 0 0 8px;
+    object-fit: cover;
+}
+.container-event .event .event-right .title-event,
+.container-event .event .event-right .description-event,
+.container-event .event .event-right .event-bottom{
+    width: 100%;
+    height: 200px;
+}
+.container-event .event .event-right .description-event{
+    padding: 1rem;
+    text-align: center;
+}
+.container-event .event .event-right .event-bottom{
+    display: flex;
+}
+.container-event .event .event-right .event-bottom .detail-event,
+.container-event .event .event-right .event-bottom .btn-event{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container-event .event .event-right .event-bottom .btn-event button{
+    width: 15rem !important;
+}

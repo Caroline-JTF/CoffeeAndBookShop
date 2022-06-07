@@ -72,7 +72,7 @@
                 <div class="container-product">
 
                     <div class="product">
-                        <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" />
+                        <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" onerror="this.style.display='none';" />
 
                         <div class="text-product">
                             <div class="description">
@@ -111,7 +111,7 @@
                 <div class="container-product">
 
                     <div class="product">
-                        <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" />
+                        <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" onerror="this.style.display='none';"/>
 
                         <div class="text-product">
                             <div class="description">
@@ -152,7 +152,7 @@
                 <div class="container-product">
 
                     <div class="product">
-                        <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" />
+                        <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" onerror="this.style.display='none';"/>
 
                         <div class="text-product">
                             <div class="description">

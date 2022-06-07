@@ -53,43 +53,38 @@
     {# ======================================== #}
 
     <section class="container-event">
-        <table>
-            <thead>
-                <tr>
-                    <th>Identifiant</th>
-                    <th>Nom</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Date</th>
-                    <th>Participants</th>
-                    <th>Places disponibles</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% for event in events %}
-                        <tr>
-                            <td>{{ event.id}}</td>
-                            <td>{{ event.name}}</td>
-                            <td style="width:50%;">{{ event.description}}</td>
-                            <td>{{ event.type}}</td>
-                            <td>{{ event.date | date('d/m/Y') }}</td>
-                            <td>{{ event.participants}}</td>
-                            <td>{{ event.place}}</td>
-                            <td>
-                                <div  class="actions">
-                                    {# SINSCRIRE #}
-                                    <a href="{{ path('app_user_participant', {'id': event.id}) }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
-                                            <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                {% endfor %} 
-            </tbody>
-        </table>
+        {% for event in events %}
+            <div class="event">
+                <div class="event-left">
+                    <div class="img-event">
+                        <img src="{{ asset('/uploads/' ~ event.img) }}" alt="{{ event.name }}" onerror="this.style.display='none';"/>
+                    </div>
+                </div>
+                <div class="event-right">
+                    <div class="title-event">
+                        <div class="heading">
+                            <p>Type d'évènement : {{ event.type}}</p>
+                            <h2>{{ event.name}}</h2>
+                            <p>Aura lieu le : {{ event.date | date('d/m/Y') }}</p>
+                        </div>
+                    </div>
+                    <div class="description-event">
+                        <p>{{ event.description}}</p> 
+                    </div>
+                    <div class="event-bottom">
+                        <div class="detail-event">
+                            <p>Nombre de place disponible : {{ event.place}}</p>
+                            <p>Nombre de participant inscrit : {{ event.participants}}</p>
+                            <p>Statut : Inscription ouverte</p>
+                        </div>
+                        <div class="btn-event">
+                            <button>
+                                <a href="{{ path('app_user_participant', {'id': event.id}) }}">S'inscrire</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </section>
 {% endblock %}

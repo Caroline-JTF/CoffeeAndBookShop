@@ -36,6 +36,9 @@ class Event
     #[ORM\Column(type: 'string', length: 255)]
     private $type;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $img;
+
     public function __construct()
     {
         $this->eventParticipants = new ArrayCollection();
@@ -144,6 +147,18 @@ class Event
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): self
+    {
+        $this->img = $img;
 
         return $this;
     }
