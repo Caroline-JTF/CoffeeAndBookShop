@@ -52,39 +52,35 @@
     {# ================ EVENTS ================ #}
     {# ======================================== #}
 
-    <section class="container-event">
-        {% for event in events %}
+    <section class="container-review">
+
+        {% for event in events | reverse %}
+
             <div class="event">
-                <div class="event-left">
+                <div class="event-thumb">
                     <div class="img-event">
-                        <img src="{{ asset('/uploads/' ~ event.img) }}" alt="{{ event.name }}" onerror="this.style.display='none';"/>
+                        <div class="overlay"></div>
+                        <img width="500" height="500" src="{{ asset('/uploads/' ~ event.img) }}" alt="{{ event.name }}" onerror="this.style.display='none';"/>
                     </div>
-                </div>
-                <div class="event-right">
-                    <div class="title-event">
-                        <div class="heading">
-                            <p>Type d'évènement : {{ event.type}}</p>
+                    <div class="detail-event">
+                        <div class="title-event">
                             <h2>{{ event.name}}</h2>
+                        </div>
+                        <div class="text-event">
                             <p>Aura lieu le : {{ event.date | date('d/m/Y') }}</p>
-                        </div>
-                    </div>
-                    <div class="description-event">
-                        <p>{{ event.description}}</p> 
-                    </div>
-                    <div class="event-bottom">
-                        <div class="detail-event">
-                            <p>Nombre de place disponible : {{ event.place}}</p>
-                            <p>Nombre de participant inscrit : {{ event.participants}}</p>
-                            <p>Statut : Inscription ouverte</p>
-                        </div>
-                        <div class="btn-event">
-                            <button>
-                                <a href="{{ path('app_user_participant', {'id': event.id}) }}">S'inscrire</a>
-                            </button>
+                            <p>{{ event.description}}</p>
+                            <p>Place disponible : {{ event.place}}</p>
+                            <p>Participant inscrit : {{ event.participants}}</p>
                         </div>
                     </div>
                 </div>
+                
+
             </div>
+
+            {% else %}  
+                <p class="else">Il n'y a pas encore d'évènement</p>
+
         {% endfor %}
     </section>
 {% endblock %}

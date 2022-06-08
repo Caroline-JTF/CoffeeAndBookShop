@@ -18,6 +18,18 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class foodController extends AbstractController
 {
+    //Voir la fiche de la viennoiserie
+    #[Route("/admin/voir-le-livre/{id}", name: "app_admin_view_food", methods: ["GET", "POST"])]
+    public function viewFood(Request $request, FoodRepository $foodRepository): Response{
+        
+        $foodUrlArray = explode("/",$request->getUri());
+        $foodId = $foodUrlArray[sizeof($foodUrlArray)-1];
+        $currentfood = $foodRepository->find(['id'=>$foodId]);
+
+        return $this->render('/admin/view/food.html.twig', [
+            'currentfood' => $currentfood,
+        ]);
+    }
 
     //Ajout + liste des viennoiseries
     #[Route("/admin/gerez-vos-viennoiseries", name: "app_admin_add_food", methods: ["GET", "POST"])]
@@ -42,8 +54,7 @@ class foodController extends AbstractController
             $em->persist($food);
             $em->flush();
 
-            $this->addFlash('success', 'Votre viennoiserie a été enregistré avec succès !');
-
+            $this->addFlash('success', 'Vous avez ajouté ' . $food->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -70,14 +81,14 @@ class foodController extends AbstractController
             if($photo) {
                 $this->handleFile($food, $photo, $slugger);
             }
-            else {
+            else if($originalPhoto){
                 $food->setimg($originalPhoto);
             }
 
             $em->persist($food);
             $em->flush();
 
-            $this->addFlash('success', 'La viennoiserie à été modifié avec succès !');
+            $this->addFlash('success', 'Vous avez modifié ' . $food->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -94,7 +105,7 @@ class foodController extends AbstractController
 		$repository->remove($food);
         $em->flush();
 
-        $this->addFlash('error', 'La viennoiserie à été supprimé avec succès !');
+        $this->addFlash('error', 'Vous avez supprimé ' . $food->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

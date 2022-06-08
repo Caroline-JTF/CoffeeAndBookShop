@@ -18,6 +18,18 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class eventController extends AbstractController
 {
+    //Voir la fiche de l'evenement
+    #[Route("/admin/voir-l-evenement/{id}", name: "app_admin_view_event", methods: ["GET", "POST"])]
+    public function viewEvent(Request $request, EventRepository $eventRepository): Response{
+        
+        $eventUrlArray = explode("/",$request->getUri());
+        $eventId = $eventUrlArray[sizeof($eventUrlArray)-1];
+        $currentevent = $eventRepository->find(['id'=>$eventId]);
+
+        return $this->render('/admin/view/event.html.twig', [
+            'currentevent' => $currentevent,
+        ]);
+    }
 
     //Ajout + liste des events
     #[Route("/admin/nos-events", name: "app_admin_add_event", methods: ["GET", "POST"])]
@@ -44,8 +56,7 @@ class eventController extends AbstractController
             $em->persist($event);
             $em->flush();
 
-            $this->addFlash('success', 'Votre évènement a été enregistré avec succès !');
-
+            $this->addFlash('success', 'Vous avez ajouté ' . $event->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -72,14 +83,14 @@ class eventController extends AbstractController
             if($photo) {
                 $this->handleFile($event, $photo, $slugger);
             }
-            else {
+            else if($originalPhoto) {
                 $event->setImg($originalPhoto);
             }
 
             $em->persist($event);
             $em->flush();
 
-            $this->addFlash('success', 'L\'évènement a été modifié avec succès !');
+            $this->addFlash('success', 'Vous avez modifié ' . $event->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -96,7 +107,7 @@ class eventController extends AbstractController
 		$repository->remove($event);
         $em->flush();
 
-        $this->addFlash('error', 'L\'évènement à été supprimé avec succès !');
+        $this->addFlash('error', 'Vous avez supprimé ' . $event->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

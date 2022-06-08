@@ -18,7 +18,7 @@ class Event
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 1000)]
     private $description;
 
     #[ORM\Column(type: 'datetime')]

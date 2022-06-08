@@ -123,15 +123,13 @@
 .container-presentation .text-presentation p{
     font-size: 1rem;
     margin: 3rem 0;
+    height: 250px ;
 }
-.container-presentation .container-btn{
+.container-presentation .text-presentation .container-btn{
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
-.container-presentation .text-presentation button{
-    width: 15rem !important;
-    margin: 0 1rem;
+.container-presentation .text-presentation .container-btn button{
+    margin-right: 1rem;
 
 }
 /*

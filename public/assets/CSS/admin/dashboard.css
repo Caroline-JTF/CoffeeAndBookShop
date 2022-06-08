@@ -1,3 +1,8 @@
+.wrapper{
+    display: flex;
+    width: 90%;
+    margin: 0 auto 3rem;
+}
 /*
 ============================
 ====== SECTION BUTTON ======
@@ -5,65 +10,76 @@
 */
 .command-btn{
     display: flex;
-    width: 90%;
-    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 630px;
+    width: 20%;
 }
 .command-btn button{
     width: 15rem !important;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 /*
 ============================
 ======= SECTION TABLE ======
 ============================
 */
-.container-box{
-    margin-top: 3rem;
+.box{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.container-box .box{
-    display: none;
+.container-box{
     width: 80%;
-    flex-direction: column;
+}
+.container-box .heading{
+    display: flex;
+}
+.container-box .heading h2{
+    margin-right: 1rem;
+}
+.container-box .container-table{
+    width: 80%;
+    height: 400px;
+}
+.container-box .container-table table{
+    width: 100%;
     text-align: center;
 }
-.box a{
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; 
-}
-table {
-    text-align: left;
-    overflow: hidden;
-    width: 80%;
-    margin: 0 auto 3rem;
-    display: table;
-}
-table th,
-table td{
+.container-box .container-table table th,
+.container-box .container-table table td{
     padding: 1rem;
     border: 1px solid var(--color-light);
 }
-table th {
+.container-box .container-table table th {
     background-color: var(--color-dark-brown);
     color: var(--color-light);
     text-align: center;
 }
-table tr:nth-child(odd){
+.container-box .container-table table th:first-child{
+    width: 10%;
+}
+.container-box .container-table table th:last-child{
+    width: 20%;   
+}
+.container-box .container-table table tr:nth-child(odd){
     background-color: var(--color-light);
 }
-table tr:nth-child(even){
+.container-box .container-table table tr:nth-child(even){
     background-color: var(--color-light-brown);
 }
-table tr:hover {
+.container-box .container-table table tr:hover {
     background-color: var(--color-grey);
 }
-.actions{
+.container-box .container-table table .actions{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.container-box button{
+    margin: 3rem 0 0 !important;
 }
 /*
 ========================================
@@ -72,6 +88,9 @@ table tr:hover {
 */
 .active{
     display: flex !important;
+}
+.box{
+    display: none;
 }
 #addFood{
     width: 20rem;

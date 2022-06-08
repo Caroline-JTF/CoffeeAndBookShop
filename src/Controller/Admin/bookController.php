@@ -18,6 +18,18 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class bookController extends AbstractController
 {
+    //Voir la fiche du livre
+    #[Route("/admin/voir-le-livre/{id}", name: "app_admin_view_book", methods: ["GET", "POST"])]
+    public function viewBook(Request $request, BookRepository $bookRepository): Response{
+        
+        $bookUrlArray = explode("/",$request->getUri());
+        $bookId = $bookUrlArray[sizeof($bookUrlArray)-1];
+        $currentbook = $bookRepository->find(['id'=>$bookId]);
+
+        return $this->render('/admin/view/book.html.twig', [
+            'currentbook' => $currentbook,
+        ]);
+    }
 
     //Ajout + liste des livres
     #[Route("/admin/gerez-vos-livres", name: "app_admin_add_book", methods: ["GET", "POST"])]
@@ -42,8 +54,7 @@ class bookController extends AbstractController
             $em->persist($book);
             $em->flush();
 
-            $this->addFlash('success', 'Votre livre a été enregistré avec succès !');
-
+            $this->addFlash('success', 'Vous avez ajouté ' . $book->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -70,14 +81,14 @@ class bookController extends AbstractController
             if($photo) {
                 $this->handleFile($book, $photo, $slugger);
             }
-            else {
+            else if($originalPhoto){
                 $book->setimg($originalPhoto);
             }
 
             $em->persist($book);
             $em->flush();
 
-            $this->addFlash('success', 'Le livre a été modifié avec succès !');
+            $this->addFlash('success', 'Vous avez modifié ' . $book->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -94,7 +105,7 @@ class bookController extends AbstractController
 		$repository->remove($book);
         $em->flush();
 
-        $this->addFlash('error', 'Le livre à été supprimé avec succès !');
+        $this->addFlash('error', 'Vous avez supprimé ' . $book->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

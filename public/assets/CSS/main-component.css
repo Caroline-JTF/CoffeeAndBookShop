@@ -16,7 +16,7 @@ body{
 ========================================
 */
 button{
-    width: 25rem;
+    width: 15rem;
     height: 3rem;
     display: flex;
     justify-content: center;
@@ -132,6 +132,22 @@ a img{
 }
 .message a:hover{
     text-decoration: underline;
+}
+/*
+========================================
+============== PAGINATION ==============
+========================================
+*/
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.pagination span{
+    margin: 0 0.5rem;
+    cursor: pointer;
 }
 /*
 ========================================

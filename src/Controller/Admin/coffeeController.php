@@ -18,6 +18,18 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class coffeeController extends AbstractController
 {
+    //Voir la fiche du café
+    #[Route("/admin/voir-le-cafe/{id}", name: "app_admin_view_coffee", methods: ["GET", "POST"])]
+    public function viewCoffee(Request $request, CoffeeRepository $coffeeRepository): Response{
+        
+        $coffeeUrlArray = explode("/",$request->getUri());
+        $coffeeId = $coffeeUrlArray[sizeof($coffeeUrlArray)-1];
+        $currentCoffee = $coffeeRepository->find(['id'=>$coffeeId]);
+
+        return $this->render('/admin/view/coffee.html.twig', [
+            'currentCoffee' => $currentCoffee,
+        ]);
+    }
 
     //Ajout d'un café
     #[Route("/admin/ajoutez-un-cafe", name: "app_admin_add_coffee", methods: ["GET", "POST"])]
@@ -42,7 +54,7 @@ class coffeeController extends AbstractController
             $em->persist($coffee);
             $em->flush();
 
-            $this->addFlash('success', 'La boisson a été modifié avec succès !');
+            $this->addFlash('success', 'Vous avez ajouté ' . $coffee->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
 
         }
@@ -70,14 +82,14 @@ class coffeeController extends AbstractController
             if($photo) {
                 $this->handleFile($coffee, $photo, $slugger);
             }
-            else {
+            else if($originalPhoto){
                 $coffee->setImg($originalPhoto);
             }
 
             $em->persist($coffee);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié le produit avec succès !');
+            $this->addFlash('success', 'Vous avez modifié ' . $coffee->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -94,7 +106,7 @@ class coffeeController extends AbstractController
 		$repository->remove($coffee);
         $em->flush();
 
-        $this->addFlash('error', 'La boisson à été supprimé avec succès !');
+        $this->addFlash('error', 'Vous avez supprimé ' . $coffee->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

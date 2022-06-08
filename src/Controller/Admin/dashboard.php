@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
-use DateTime;
 use App\Repository\BookRepository;
 use App\Repository\FoodRepository;
 use App\Repository\UserRepository;
 use App\Repository\CoffeeRepository;
 use App\Repository\EventRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class dashboard extends AbstractController
 {
@@ -25,21 +26,53 @@ class dashboard extends AbstractController
         FoodRepository $foodRepository,
         BookRepository $bookRepository,
         EventRepository $eventRepository,
+        PaginatorInterface $paginatorInterface,
+        Request $request,
     ): Response
     {
         // Afficher les utilisateurs, boissons, viennoiseries et livres sur le dashboard:
-        $users = $userRepository->findAll();
+        // Avec un système de pagination pour afficher que 5 élèments par page
+
         $coffees = $coffeeRepository->findAll();
+        $coffees = $paginatorInterface->paginate(
+            $coffees,
+            $request->query->getInt('page', 1),
+            limit: 5
+        );
+
         $foods = $foodRepository->findAll();
+        $foods = $paginatorInterface->paginate(
+            $foods,
+            $request->query->getInt('page', 1),
+            limit: 5
+        );
+
         $books = $bookRepository->findAll();
+        $books = $paginatorInterface->paginate(
+            $books,
+            $request->query->getInt('page', 1),
+            limit: 5
+        );
+
         $events = $eventRepository->findAll();
+        $events = $paginatorInterface->paginate(
+            $events,
+            $request->query->getInt('page', 1),
+            limit: 5
+        );
+        $users = $userRepository->findAll();
+        $users = $paginatorInterface->paginate(
+            $users,
+            $request->query->getInt('page', 1),
+            limit: 5
+        );
 
         return $this->render('/admin/dashboard.html.twig', [
-            'users' => $users,
             'coffees' => $coffees,
             'foods' => $foods,
             'books' => $books,
             'events' => $events,
+            'users' => $users,
         ]);
     }
 
