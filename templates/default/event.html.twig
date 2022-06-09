@@ -77,13 +77,26 @@
                         <div class="footer-event">
                             <p>Place disponible : {{ event.place}}</p>
                             <p>Participant inscrit : {{ event.participants}}</p>
+                            <div>
+                                {% if event.status == 'Ouvert' %}
+                                    <div class="circle circleGreen"></div>
+                                    {% elseif event.status == 'Annulé'%}
+                                        <div class="circle circleRed"></div>
+                                    {% else %}
+                                        <div class="circle circleDark"></div>
+                                {% endif %}
+
+                                <p>{{ event.status }}</p>
+                            </div>
                         </div>
 
-                        <button>
-                            <a href="{{ path('app_user_participant', {'id': event.id}) }}">
-                                S'inscrire
-                            </a>
-                        </button>
+                        {% if event.status == 'Ouvert' %}
+                            <button>
+                                <a href="{{ path('app_user_participant', {'id': event.id}) }}">
+                                    S'inscrire
+                                </a>
+                            </button>
+                        {% endif %}
 
                     </div>{# DETAIL EVENT #}
 

@@ -61,6 +61,28 @@ img {
     width: 400px;
     text-align: left;
 }
+.footer-event div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-event p{
+    margin-left: 5px;
+}
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.circleGreen{
+    background-color: var(--color-green);
+}
+.circleRed{
+    background-color: var(--color-light-red);
+}
+.circleDark{
+    background-color: var(--color-dark);
+}
 button{
     margin-top: 1rem;
 }

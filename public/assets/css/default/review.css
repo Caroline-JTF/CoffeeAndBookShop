@@ -18,6 +18,9 @@
 .container-form{
     margin-top: 5rem;
 }
+button{
+    width: 20% !important;
+}
 /*
 ========================================
 ============ CONTAINER REVIEW ==========
@@ -29,22 +32,31 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.container-review .review{
+.card-review{
+    width: 400px;
     height: 300px;
-    padding: 2rem;
     margin: 1rem;
     background-color: var(--color-light-brown);
+    position: relative;
 }
-.container-review .review .text{
+.detail-review{
+    width: 350px;
+    height: 250px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.text{
+    padding: 1rem;
+    height: 180px;
     text-align: justify;
     overflow: auto;
-    height: 200px;
-    margin-bottom: 1rem;
 }
 .signature{
+    padding: 1rem;
     height: 50px;
     text-align: right;
-}
-button{
-    width: 20% !important;
 }

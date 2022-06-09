@@ -7,7 +7,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3rem;
 }
 .command-btn button{
     width: 15rem !important;
@@ -35,17 +34,17 @@
     margin: 0 auto;
     display: none;
 }
-.menu .heading h2{
+.heading h2{
     font-size: 3rem;
 }
-.menu .container-product{
+.container-product{
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column; 
 }
-.menu .container-product .product{
+.product{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,37 +57,37 @@
     height: 100px;
     border: 1px solid var(--color-dark);
 }
-.menu1 .container-product .product img,
-.menu2 .container-product .product img{
+.menu1 img,
+.menu2 img{
     object-fit: cover;
     border-radius: 50%;
     margin-right: 1rem;
     width: 100px;
     height: 100px;
 }
-.menu3 .container-product .product img{
+.menu3 img{
     object-fit: cover;
     width: 100px;
     height: 150px;
     margin-right: 1rem;
 }
-.menu .container-product .product .text-product{
+.text-product{
     display: flex;
 }
-.menu .container-product .product .description{
+.description{
     width: 300px;
 }
-.menu .container-product .product .price{
+.price{
     display: flex;
     float: right;
 }
-.menu .container-product .product .line{
+.line{
     background-color: var(--color-light-brown);
     width: 100px ;
     height: 3px;
     margin: auto 0;
 }
-.menu .container-product .product .price p{
+.price p{
     background: var(--color-light-brown);
     width: 100px;
     height: 30px;

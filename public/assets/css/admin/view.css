@@ -72,6 +72,8 @@ footer{
 }
 .detail-box p:first-child{
     height: 150px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
 }
 .detail-box p:nth-child(2),
 .detail-box p:nth-child(3),

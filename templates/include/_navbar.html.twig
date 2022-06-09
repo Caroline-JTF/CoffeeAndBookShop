@@ -35,18 +35,22 @@
                 
                 {# Partie visible quand on est déconnecter #}
 
-                <a  href="{{ path('app_default_coffee_beans') }}" title="Les grains de café" >
-                    <img src="/assets/img/icons/beans.png" alt="Icône des grains de café">
-                </a>
-
                 <a href="{{ path('app_default_menu') }}"  title="La carte" >
                     <img src="/assets/img/icons/menu.png" alt="Icône du menu'">
+                </a>
+
+                <a href="{{ path('app_default_event') }}"  title="Les évènements" >
+                    <img src="/assets/img/icons/tickets.png" alt="Icône d'un ticket">
+                </a>
+
+                <a  href="{{ path('app_default_coffee_beans') }}" title="Les grains de café" >
+                    <img src="/assets/img/icons/beans.png" alt="Icône des grains de café">
                 </a>
 
                 <a href="{{ path('app_default_home_page', {'_fragment': 'contact'}) }}" title="Nous contacter" >
                     <img src="/assets/img/icons/contact.png" alt="Icône de contact">
                 </a>
-                
+
                 {# Partie visible quand on n'est pas connecter en tant qu'utilisateur #}
                 {% if not app.user %}
 

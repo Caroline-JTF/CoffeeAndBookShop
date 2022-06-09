@@ -61,23 +61,31 @@
 
         {% for review in reviews | reverse %}
 
-            <div class="review">
-                <div class="text">
-                    <p>{{ review.message}}</p>
-                </div>
-                <div class="signature">
-                    <p>{{ review.name}}</p>
-                    <p>{{ review.createdAt | date('d/m/Y') }}</p>
-                </div>
-            </div>
+            <div class="card-review">
 
-            {% else %}
-                    
-                 <p class="else">Il n'y a pas encore d'avis</p>
+                <div class="review">
+
+                    <div class="detail-review">
+                        <div class="text">
+                            <p>{{ review.message}}</p>
+                        </div>
+
+                        <div class="signature">
+                            <p>{{ review.name}}</p>
+                            <p>{{ review.createdAt | date('d/m/Y') }}</p>
+                        </div>
+                    </div>
+
+                </div>{# END REVIEW #}
+
+            </div>{# END CARD-REVIEW #}
+
+        {% else %}
+            <p class="else">Il n'y a pas encore d'avis</p>
 
         {% endfor %}
 
-    </section>
+    </section>{# END CONTAINER REVIEW #}
 
 {% endblock %}
 

@@ -139,9 +139,9 @@
                     </div>
                     <div class="detail-box">
                         <p>{{ currentEvent.description }}</p>
-                        <p>Place(s) disponible(s) : {{ currentEvent.place }}</p> 
-                        <p>Participant(s) inscrit(s) : {{ currentEvent.participants }}</p>
+                        <p>Place(s) disponible(s) : {{ currentEvent.place }}</p>
                         <p>Place(s) restante(s) : {{ (currentEvent.place)-(currentEvent.participants) }}</p>
+                        <p>Statut : {{ currentEvent.status }}</p>
                     </div>
                         
                 </div>
@@ -152,11 +152,19 @@
                         Modifier l'évènement ?
                     </a>
                 </button>
-                <button>
-                    <a href="{{ path('app_admin_delete_event', {'id': currentEvent.id}) }}">
-                        Supprimer l'évènement ?
-                    </a>
-                </button>
+                {% if currentEvent.status == 'Annulé' %}
+                    <button>
+                        <a href="{{ path('app_admin_restore_event', {'id': currentEvent.id}) }}">
+                            Rouvrir l'évènement ?
+                        </a>
+                    </button>
+                    {% else %}
+                        <button>
+                            <a href="{{ path('app_admin_delete_event', {'id': currentEvent.id}) }}">
+                                Supprimer l'évènement ?
+                            </a>
+                        </button>
+                {% endif %}
             </div>
         </section>
 

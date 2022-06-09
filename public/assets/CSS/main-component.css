@@ -181,15 +181,15 @@ a img{
     }
 }
 .successFlash{
-    background: #27AE60;
+    background: var(--color-green);
     color: var(--color-light);
 }
 .warningFlash{
-    background-color: #F4D03F;
+    background-color: var(--color-yellow);
     color: var(--color-light);
 }
 .errorFlash{
-    background-color: #E74C3C;
+    background-color: var(--color-light-red);
     color: var(--color-light);
 }
 /*

@@ -43,9 +43,11 @@
         <button class="btn1">
             Voir les cafés
         </button>
+
         <button class="btn2">
             Voir les douceurs
         </button>
+
         <button class="btn3">
             Voir les livres
         </button>
@@ -69,9 +71,11 @@
             </div>
             
             {% for coffee in coffees %}
+
                 <div class="container-product">
 
                     <div class="product">
+
                         <div class="img-product">
                             {% if coffee.img == true %}
                                 <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" onerror="this.style.display='none';" />
@@ -79,19 +83,22 @@
                         </div>
                         
                         <div class="text-product">
+
                             <div class="description">
                                 <h2>{{ coffee.name }}</h2>
                                 <p class="color-red">{{ coffee.description }}</p>
                             </div>
+
                             <div class="price">
                                 <div class="line"></div> 
                                 <p>{{ coffee.price }}€</p>
                             </div>  
                             
                         </div>
-                    </div>
 
-                </div>
+                   </div> {# END PRODUCT#}
+
+                </div> {# END CONTAINER PRODUCT#}
 
                 {% else %}
                     
@@ -115,6 +122,7 @@
                 <div class="container-product">
 
                     <div class="product">
+
                         <div class="img-product">
                             {% if food.img == true %}
                                 <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" onerror="this.style.display='none';" />
@@ -122,19 +130,22 @@
                         </div>
                             
                         <div class="text-product">
+
                             <div class="description">
                                 <h2>{{ food.name }}</h2>
                                 <p class="color-red">{{ food.description }}</p>
                             </div>
+
                             <div class="price">
                                 <div class="line"></div> 
                                 <p>{{ food.price }}€</p>
                             </div>  
                             
                         </div>
-                    </div>
 
-                </div>
+                    </div> {# END PRODUCT#}
+
+                </div> {# END CONTAINER PRODUCT#}
 
                 {% else %}
                     
@@ -160,6 +171,7 @@
                 <div class="container-product">
 
                     <div class="product">
+
                         <div class="img-product">
                             {% if book.img == true %}
                                 <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" onerror="this.style.display='none';" />
@@ -167,19 +179,22 @@
                         </div>
 
                         <div class="text-product">
+
                             <div class="description">
                                 <h2>{{ book.name }}</h2>
                                 <p class="color-red">{{ book.description }}</p>
                             </div>
+
                             <div class="price">
                                 <div class="line"></div> 
                                 <p>{{ book.price }}€</p>
                             </div>  
                             
                         </div>
-                    </div>
 
-                </div>
+                    </div> {# END PRODUCT#}
+
+                </div> {# END CONTAINER PRODUCT#}
 
                 {% else %}
                     
@@ -188,8 +203,6 @@
             {% endfor %}
             
         </section>
-
-       
 
     </section>{# END CONTAINER MENU #}
 

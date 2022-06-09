@@ -62,7 +62,14 @@ class participantController extends AbstractController
 
                 // Incrémentation du nombre de participant
                 $eventRepository->find(['id'=>$eventId])->setParticipants(strval($eventRepository->find(['id'=>$eventId])->getParticipants()+$form['participant']->getData()));
-                
+
+                // On récupère l'évènement sur lequel on se trouve
+                // Et s'il y a autant de participant que de place le statut passera à complet
+                $currentEvent = $eventRepository->find(['id'=>$eventId]);
+                if($currentEvent->getPlace() - $currentEvent->getParticipants() == 0) {
+                    $eventRepository->find(['id' => $eventId])->setStatus('Complet');
+                }
+
                 $em->persist($participant);
                 $em->flush();
 

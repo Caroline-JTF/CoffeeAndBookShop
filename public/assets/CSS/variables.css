@@ -17,6 +17,9 @@
     --color-dark-brown: #d9ccbc;
     --color-light-brown: #efece9;
     --color-red: #ab3e2a;
+    --color-green: #27AE60;
+    --color-light-red: #E74C3C;
+    --color-yellow:  #F4D03F;
 
     /* OPACITY FOR OVERLAY */
     --overlay: rgba(0, 0, 0, 0.3);

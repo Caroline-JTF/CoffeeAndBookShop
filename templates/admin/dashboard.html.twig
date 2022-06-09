@@ -171,7 +171,7 @@
                         </div>
                         <div class="text">
                             <h2>Les cafés</h2>
-                            <p>10</p>
+                            <p>{{ nbCoffee }}</p>
                         </div>
                     </div>
                     <div class="card">
@@ -184,7 +184,7 @@
                         </div>
                         <div class="text">
                             <h2>Les viennosieries</h2>
-                            <p>10</p>
+                            <p>{{ nbFood }}</p>
                         </div>
                     </div>
                     <div class="card">
@@ -200,7 +200,7 @@
                         </div>
                         <div class="text">
                             <h2>Les livres</h2>
-                            <p>10</p>
+                            <p>{{ nbBook }}</p>
                         </div>
                     </div>
                     <div class="card">
@@ -216,7 +216,7 @@
                         </div>
                         <div class="text">
                             <h2>Les évènements</h2>
-                            <p>10</p>
+                            <p>{{ nbEvent }}</p>
                         </div>
                     </div>
                     <div class="card">
@@ -229,7 +229,7 @@
                         </div>
                         <div class="text">
                             <h2>Les utilisateurs</h2>
-                            <p>10</p>
+                            <p>{{ nbUser }}</p>
                         </div>
                     </div>
                 </div>
@@ -313,7 +313,6 @@
                         </tbody>
                     </table>
                 </div>
-                {{ knp_pagination_render(coffees) }}
             </section>{# END CONTAINER COFFEE #}
 
             {# ======================================== #}
@@ -393,7 +392,6 @@
                         </tbody>
                     </table>
                 </div>
-                {{ knp_pagination_render(foods) }}
             </section>{# END CONTAINER FOOD #}
 
             {# ======================================== #}
@@ -473,7 +471,6 @@
                         </tbody>
                     </table>
                 </div>
-                {{ knp_pagination_render(books) }}
             </section>{# END CONTAINER BOOK #}
 
             {# ======================================== #}
@@ -497,7 +494,7 @@
                             <tr>
                                 <th>Identifiant</th>
                                 <th>Nom</th>
-                                <th>Type</th>
+                                <th>Statut</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -506,7 +503,7 @@
                                 <tr>
                                     <td>{{ event.id }}</td>
                                     <td>{{ event.name }}</td>
-                                    <td>{{ event.type }}</td>
+                                    <td>{{ event.status }}</td>
                                     <td>
                                         <div class="actions">
                                             {# VOIR #}
@@ -553,7 +550,6 @@
                         </tbody>
                     </table>
                 </div>
-                {{ knp_pagination_render(events) }}
             </section>{# END CONTAINER EVENT #}
 
             {# ======================================== #}
@@ -610,7 +606,6 @@
                         </tbody>
                     </table>
                 </div>
-                {{ knp_pagination_render(users) }}
             </section> {# END CONTAINER USER #}
         </div> {# END CONTAINER BOX #}
     </main> {# END MAIN #}

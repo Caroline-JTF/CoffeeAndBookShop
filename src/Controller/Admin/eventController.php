@@ -24,10 +24,10 @@ class eventController extends AbstractController
         
         $eventUrlArray = explode("/",$request->getUri());
         $eventId = $eventUrlArray[sizeof($eventUrlArray)-1];
-        $currentevent = $eventRepository->find(['id'=>$eventId]);
+        $currentEvent = $eventRepository->find(['id'=>$eventId]);
 
         return $this->render('/admin/view/event.html.twig', [
-            'currentevent' => $currentevent,
+            'currentEvent' => $currentEvent,
         ]);
     }
 
@@ -52,6 +52,7 @@ class eventController extends AbstractController
             }
 
             $event->setParticipants('0');
+            $event->setStatus('Ouvert');
             
             $em->persist($event);
             $em->flush();
@@ -104,12 +105,28 @@ class eventController extends AbstractController
     #[Route('/admin/supprimez-l-evenement/{id}', name: 'app_admin_delete_event')]
 	public function deleteEvent(Event $event, EventRepository $repository, EntityManagerInterface $em): Response
 	{
-		$repository->remove($event);
+		$event->setStatus('Annulé');
         $em->flush();
 
-        $this->addFlash('error', 'Vous avez supprimé ' . $event->getName() . ' avec succès !');
+        $this->addFlash('error', 'Vous avez annulé ' . $event->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
+
+    //Remettre un évènement en ligne
+    #[Route('/admin/rouvrir-l-evenement/{id}', name: 'app_admin_restore_event')]
+    public function restoreEvent(Event $event, EntityManagerInterface $em): Response
+    {
+        if($event->getPlace()-$event->getParticipants() == 0){
+            $event->setStatus('Complet');
+        } else {
+            $event->setStatus('Ouvert');
+        }
+
+        $em->flush();
+
+        $this->addFlash('success', 'Vous avez réouvert ' . $event->getName() . ' avec succès !');
+        return $this->redirectToRoute('app_admin_dashboard');
+    }
 
     //Private function
     private function handleFile(Event $event, UploadedFile $photo, SluggerInterface $slugger): void
