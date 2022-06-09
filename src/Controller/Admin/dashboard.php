@@ -37,34 +37,34 @@ class dashboard extends AbstractController
         $coffees = $paginatorInterface->paginate(
             $coffees,
             $request->query->getInt('page', 1),
-            limit: 5
+            limit: 10
         );
 
         $foods = $foodRepository->findAll();
         $foods = $paginatorInterface->paginate(
             $foods,
             $request->query->getInt('page', 1),
-            limit: 5
+            limit: 10
         );
 
         $books = $bookRepository->findAll();
         $books = $paginatorInterface->paginate(
             $books,
             $request->query->getInt('page', 1),
-            limit: 5
+            limit: 10
         );
 
         $events = $eventRepository->findAll();
         $events = $paginatorInterface->paginate(
             $events,
             $request->query->getInt('page', 1),
-            limit: 5
+            limit: 10
         );
         $users = $userRepository->findAll();
         $users = $paginatorInterface->paginate(
             $users,
             $request->query->getInt('page', 1),
-            limit: 5
+            limit: 10
         );
 
         return $this->render('/admin/dashboard.html.twig', [
@@ -75,6 +75,5 @@ class dashboard extends AbstractController
             'users' => $users,
         ]);
     }
-
     
 }

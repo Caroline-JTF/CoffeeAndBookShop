@@ -24,10 +24,10 @@ class foodController extends AbstractController
         
         $foodUrlArray = explode("/",$request->getUri());
         $foodId = $foodUrlArray[sizeof($foodUrlArray)-1];
-        $currentfood = $foodRepository->find(['id'=>$foodId]);
+        $currentFood = $foodRepository->find(['id'=>$foodId]);
 
         return $this->render('/admin/view/food.html.twig', [
-            'currentfood' => $currentfood,
+            'currentFood' => $currentFood,
         ]);
     }
 

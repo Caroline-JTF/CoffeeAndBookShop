@@ -35,6 +35,8 @@ class CoffeeFormType extends AbstractType
             ])
             ->add('price', TextType::class, [
                 'label' => 'Prix :',
+                'help' => '<i>Pour rentrer un chiffre à virgule "," merci d\'utiliser un point "."</i>',
+                'help_html' => true,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez renseigner un prix'

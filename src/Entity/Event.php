@@ -18,7 +18,7 @@ class Event
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 1000)]
+    #[ORM\Column(type: 'string', length: 500)]
     private $description;
 
     #[ORM\Column(type: 'datetime')]
@@ -36,7 +36,7 @@ class Event
     #[ORM\Column(type: 'string', length: 255)]
     private $type;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $img;
 
     public function __construct()
@@ -156,7 +156,7 @@ class Event
         return $this->img;
     }
 
-    public function setImg(string $img): self
+    public function setImg(?string $img): self
     {
         $this->img = $img;
 

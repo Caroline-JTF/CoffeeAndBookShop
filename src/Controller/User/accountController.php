@@ -40,9 +40,13 @@ class accountController extends AbstractController
         ]);
     }
 
-    // Afficher les avis
+    // Afficher les avis et les évènements
     #[Route("/mon-compte", name: "app_user_account", methods: ["GET"])]
-    public function review(ReviewRepository $reviewRepository, ParticipantRepository $participantRepository, EventRepository $eventRepository): Response
+    public function review(
+        ReviewRepository $reviewRepository, 
+        ParticipantRepository $participantRepository, 
+        EventRepository $eventRepository
+        ): Response
     {
         // $user = $userRepository->findBy(['id' => $this->getUser()], ['id' => 'ASC'],1,0);
         // $reviews = $user[0]->getReviews();

@@ -26,8 +26,9 @@ class EventFormType extends AbstractType
                     'Sélectionnez le type d\'évènement' => null,
                     'Dégustation' => 'degustation',
                     'Dédicace' => 'dedicace',
+                    'Concert' => 'concert',
                     'Autre' => 'autre',
-                ]
+                ],
             ])
             ->add('name', TextType::class, [
                 'label' => false,
@@ -38,7 +39,7 @@ class EventFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Veuillez renseigner un nom'
                     ])
-                ]
+                ],
             ])
             ->add('description', TextareaType::class, [
                 'label' => false,
@@ -60,6 +61,7 @@ class EventFormType extends AbstractType
                     ])
                 ]
             ])
+            // ->add('participants')
             ->add('place', TextType::class, [
                 'label' => false,
                 'attr' => [
@@ -99,6 +101,8 @@ class EventFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Event::class,
+            'allow_file_upload' => true,
+            'img' => null,
         ]);
     }
 }

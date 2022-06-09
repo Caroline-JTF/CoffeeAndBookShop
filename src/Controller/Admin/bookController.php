@@ -24,10 +24,10 @@ class bookController extends AbstractController
         
         $bookUrlArray = explode("/",$request->getUri());
         $bookId = $bookUrlArray[sizeof($bookUrlArray)-1];
-        $currentbook = $bookRepository->find(['id'=>$bookId]);
+        $currentBook = $bookRepository->find(['id'=>$bookId]);
 
         return $this->render('/admin/view/book.html.twig', [
-            'currentbook' => $currentbook,
+            'currentBook' => $currentBook,
         ]);
     }
 

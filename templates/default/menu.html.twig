@@ -72,8 +72,12 @@
                 <div class="container-product">
 
                     <div class="product">
-                        <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" onerror="this.style.display='none';" />
-
+                        <div class="img-product">
+                            {% if coffee.img == true %}
+                                <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" onerror="this.style.display='none';" />
+                            {% endif %}
+                        </div>
+                        
                         <div class="text-product">
                             <div class="description">
                                 <h2>{{ coffee.name }}</h2>
@@ -111,8 +115,12 @@
                 <div class="container-product">
 
                     <div class="product">
-                        <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" onerror="this.style.display='none';"/>
-
+                        <div class="img-product">
+                            {% if food.img == true %}
+                                <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" onerror="this.style.display='none';" />
+                            {% endif %}
+                        </div>
+                            
                         <div class="text-product">
                             <div class="description">
                                 <h2>{{ food.name }}</h2>
@@ -152,7 +160,11 @@
                 <div class="container-product">
 
                     <div class="product">
-                        <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" onerror="this.style.display='none';"/>
+                        <div class="img-product">
+                            {% if book.img == true %}
+                                <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" onerror="this.style.display='none';" />
+                            {% endif %}
+                        </div>
 
                         <div class="text-product">
                             <div class="description">

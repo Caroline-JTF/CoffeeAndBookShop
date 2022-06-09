@@ -45,10 +45,7 @@ class participantController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
 
-            
-
             // Erreur si on essaie d'inscrire plus de personne que de place disponible
-
             $dispo = $currentEvent->getPlace() - $currentEvent->getParticipants();
 
             if ($form['participant']->getData() > $dispo){

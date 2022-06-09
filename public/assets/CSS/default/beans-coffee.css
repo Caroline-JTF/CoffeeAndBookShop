@@ -1,7 +1,7 @@
 /*
-========================================
-=============== LEGEND =================
-========================================
+==================================================
+================ CONTAINER LEGEND ================
+==================================================
 */
 .container-legend{
     display: flex;
@@ -10,38 +10,43 @@
     width: 70%;
     height: 150px;
     margin: 5rem auto;
-}
+}   
+/* ========== CONTAINER LEGEND COLOR ========== */
 .container-legends-color{
     width: 30%;
     height: 110px;
     padding: 1rem;
     border-right: 1px solid var(--color-dark);
 }
-.container-legend .container-legends-text{
+.legend{
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+.color{
+        width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+.color-no-coffee{
+    background-color: var(--color-dark-brown);
+}
+.color-coffee{
+    background-color: #9d8a78;
+}
+.color-available{
+    background-color: var(--color-red);
+    
+}/* ========== CONTAINER LEGEND TEXT ========== */
+.container-legends-text{
     width: 70%;
     height: 150px;
     padding: 1rem;
 }
-.container-legends-color .legend{
-    display: flex;
-    margin-bottom: 0.5rem;
-}
-.container-legend .container-legends-color .color{
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5rem;
-}
-.container-legend .container-legends-color .color-no-coffee{
-    background-color: var(--color-dark-brown);
-}
-.container-legend .container-legends-color .color-coffee{
-    background-color: #9d8a78;
-}
-.container-legend .container-legends-color .color-available{
-    background-color: var(--color-red);
-}
-.container-legend .container-legends-text h2{
+.container-legends-text h2{
     font-family: var(--font-serif);
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
+
+
+

@@ -5,7 +5,7 @@
 {% extends "base.html.twig" %}
 
 {# ======================================== #}
-{# ================ STYLE ================= #}
+{# ================= STYLE ================ #}
 {# ======================================== #}
 
 {% block stylesheets %}
@@ -16,7 +16,7 @@
 {# ================= TITLE ================ #}
 {# ======================================== #}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Bienvenue sur Coffee and Book{% endblock %}
 
 {# ======================================== #}
 {# ================= BODY ================= #}
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        {# ===================================================== #}
+        {# ================================================== #}
 
         <div class="card">
             <img src="assets/img/homepage/gourmet.jpg" alt="Photo d'un café avec des douceurs">
@@ -64,7 +64,7 @@
             </p>
         </div>
 
-        {# ==================================================== #}
+        {# ================================================== #}
 
         <div class="card">
             <img src="assets/img/homepage/relaxation.jpg" alt="Photo d'un café avec un livre">
@@ -81,6 +81,7 @@
     {# ========================================================= #}
 
     <section class="parallax">
+
         <div class="text-parallax">
             <h2>
                 Ayez le choix, <br>
@@ -89,6 +90,9 @@
             <p>
                  Choissisez le grain qui vous convient.
             </p>
+
+            {# ========== CONTAINER BTN ========== #}
+
             <div class="container-btn">
                 <button>
                     <a href="{{ path('app_default_coffee_beans') }}">
@@ -121,6 +125,9 @@
                 <br><br><br>
                 Nous vous proposons également de nombreux évènements, allant de la dégustation de grains de cafés à la dédicace de livres par vos auteurs préférés. Ces évènements seront gratuits, mais à places limitées donc dépêchez-vous de prendre vos places afin de passer un moment inoubliable aux côtés de l'équipe du C&B !
             </p>
+
+            {# ========== CONTAINER BTN ========== #}
+
             <div class="container-btn">
                 <button>
                     <a href="{{ path('app_default_review') }}">
@@ -152,6 +159,7 @@
         {# =================================================== #}
 
         <section id="personnel">
+
             <section class="heading">
                 <p>What's happening here?</p>
                 <h2>Le c&b shop c'est qui?</h2>
@@ -159,35 +167,44 @@
             </section>
 
             <div class="container-personnel">
-                <div class="card card1">
+
+                <div class="card-presentation">
                     <img src="assets/img/homepage/alexis.jpg"/>
                     <h3>Alexis</h3>
                     <div class="focus-content">
                         <p>Alexis est notre barista, c’est un vrai sommelier du café, il maitrise la technique du LATTE ART depuis 2013</p>
                     </div>
                 </div>
-                <div class="card card2">
+
+                {# ================================================== #}
+
+                <div class="card-presentation">
                     <img src="assets/img/homepage/olga.jpg"/>
                     <h3>Olga</h3>
                     <div class="focus-content">
                         <p>Olga est une passionnée de livre depuis son plus jeune âge, elle décide d’ouvrir le Coffee and Book en 2016. En plus d’être la gérante, elle fait également le service pour préserver une relation employés-clients unique</p>
                     </div>
                 </div>
-                <div class="card card3">
+
+                {# ================================================== #}
+
+                <div class="card-presentation">
                     <img src="assets/img/homepage/nicolas.jpg"/>
                     <h3>Nicolas</h3>
                     <div class="focus-content">
                         <p>Boulanger depuis 2016, il est élu meilleur apprenti de France en 2014 pendant ses études grâce à son fameux pain au chocolat aux amendes, qui fait partie de la carte.</p>
                     </div>
                 </div>
-            </div>
+
+            </div>{# END CONTAINER-PERSONNEL #}
 
             <button id="contact" class="btn-center">
                 <a href="mailto:CandBShop@mail.fr">
                     Nous contacter
                 </a>
             </button>
-        </section>{# END CONTAINER-PERSONNEL #}
+
+        </section>{# END PERSONNEL #}
         
     </section>{# END CONTAINER-CONTACT #}
 

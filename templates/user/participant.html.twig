@@ -5,6 +5,21 @@
 {% extends "base.html.twig" %}
 
 {# ======================================== #}
+{# ================ STYLE ================= #}
+{# ======================================== #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/user/participant.css') }}">
+{% endblock %}
+
+{# ======================================== #}
+{# ================= TITLE ================ #}
+{# ======================================== #}
+
+{% block title %}Fiche de l'évènement : {{ currentEvent.name }}{% endblock %}
+
+
+{# ======================================== #}
 {# ================= BODY ================= #}
 {# ======================================== #}
 
@@ -15,15 +30,38 @@
     {# ======================================== #}
 
     <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Inscrivez-vous à l'évènement {{ currentEvent.name }}</h2>
-        <a href="{{ path('app_default_event') }}">Retour</a>
+        <p>Inscription de l'évènement : </p>
+        <h2>{{ currentEvent.name }}</h2>
+        <a href="{{ path('app_default_event') }}">Retourner aux évènements</a>
     </section>
 
     {# ======================================== #}
     {# ================== USER ================ #}
     {# ======================================== #}
-    <p>Place restante : {{ currentEvent.place - currentEvent.participants }}</p>
+
+    <main class="wrapper">
+        <section class="container-event">
+            <div class="event">
+                <div class="img">
+                    <img width="500" height="500" src="{{ asset('/uploads/' ~ currentEvent.img) }}" alt="{{ currentEvent.name }}" onerror="this.style.display='none';"/>
+                </div>
+                <div class="detail-event">
+                    <div class="heading">
+                        <h2>{{ currentEvent.name}}</h2>
+                        <p>Aura lieu le : {{ currentEvent.date | date('d/m/Y') }}</p>
+                    </div>
+                    <div class="text-event">
+                        <p>{{ currentEvent.description}}</p>
+                    </div>
+                    <div class="footer-event">
+                        <p>Place disponible : {{ currentEvent.place}}</p>
+                        <p>Participant inscrit : {{ currentEvent.participants}}</p>
+                        <p>Place restante :{{ (currentEvent.place)-(currentEvent.participants) }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <section class="section-form">
 

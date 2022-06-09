@@ -1,7 +1,7 @@
 /*
-========================================
-======== SECTION CONTAINER-CARD ========
-========================================
+==================================================
+============= SECTION CONTAINER-CARD =============
+==================================================
 */
 .container-card {
     display: grid;
@@ -31,9 +31,9 @@
 }
 
 /*
-========================================
-======== SECTION PARALLAX EFFECT =======
-========================================
+==================================================
+============= SECTION PARALLAX EFFECT ============
+==================================================
 */
 .parallax{
     background: url('/assets/img/background/bg-section.jpg') no-repeat center center / cover;
@@ -86,9 +86,9 @@
     margin-right: 1rem;
 }
 /*
-========================================
-========= SECTION PRESENTATION =========
-========================================
+==================================================
+============== SECTION PRESENTATION ==============
+==================================================
 */
 .container-presentation{
     background-color: var(--color-light);
@@ -133,9 +133,9 @@
 
 }
 /*
-========================================
-=========== CONTAINER CONTACT ==========
-========================================
+==================================================
+================ CONTAINER CONTACT ===============
+==================================================
 */
 .container-contact{
     width: 100%;
@@ -143,9 +143,9 @@
     background-color: var(--color-light-brown);
 }
 /*
-========================================
-========== CONTAINER PERSONNEL =========
-========================================
+==================================================
+=============== CONTAINER PERSONNEL ==============
+==================================================
 */
 .container-personnel{
     display: flex;
@@ -153,7 +153,7 @@
     justify-content: center;
     align-items: center;
 }
-.container-personnel .card {
+.container-personnel .card-presentation {
     width: 350px;
     height: 480px;
     box-shadow: 0 2px 4px 2px rgba(0,0,0,0.1);
@@ -163,33 +163,33 @@
     margin: 0 1rem;
     background: var(--color-light);
 }
-.container-personnel .card * {
+.container-personnel .card-presentation * {
     transition: 0.3s ease all;
 }
-.container-personnel .card img {
+.container-personnel .card-presentation img {
     width: 500px;
     height: 400px;
     object-fit: cover;
     display: block;
 }
-.container-personnel .card h3 {
+.container-personnel .card-presentation h3 {
     padding: 1rem 1rem;
     font-family: var(--font-serif);
     color: var(--color-red);
     font-size: 2rem;
 }
-.container-personnel .card .focus-content {
+.container-personnel .card-presentation .focus-content {
     display: block;
     padding: 8px 12px;
 }
-.container-personnel .card p {
+.container-personnel .card-presentation p {
     margin: 0;
     line-height: 1.5;
 }
-.container-personnel .card:hover img, .card:focus-within img {
+.container-personnel .card-presentation:hover img, .card-presentation:focus-within img {
     margin-top: -40%;
 }
-.container-personnel .card:hover h3, .card:focus-within h3 {
+.container-personnel .card-presentation:hover h3, .card-presentation:focus-within h3 {
     padding: 8px 12px 0;
 }
  .contact{

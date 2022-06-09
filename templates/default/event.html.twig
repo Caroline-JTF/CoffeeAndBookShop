@@ -57,31 +57,46 @@
         {% for event in events | reverse %}
 
             <div class="event">
-                <div class="event-thumb">
+
+                <div class="card-event">
+
                     <div class="img-event">
-                        <div class="overlay"></div>
-                        <img width="500" height="500" src="{{ asset('/uploads/' ~ event.img) }}" alt="{{ event.name }}" onerror="this.style.display='none';"/>
+                        <img src="{{ asset('/uploads/' ~ event.img) }}" alt="{{ event.name }}" width="500" height="500"  onerror="this.style.display='none';"/>
                     </div>
+
                     <div class="detail-event">
                         <div class="heading">
                             <h2>{{ event.name}}</h2>
                             <p>Aura lieu le : {{ event.date | date('d/m/Y') }}</p>
                         </div>
+
                         <div class="text-event">
-                            
-                            {# <p>{{ event.description}}</p> #}
+                            <p>{{ event.description}}</p>
+                        </div>
+
+                        <div class="footer-event">
                             <p>Place disponible : {{ event.place}}</p>
                             <p>Participant inscrit : {{ event.participants}}</p>
                         </div>
-                    </div>
-                </div>
-                
 
-            </div>
+                        <button>
+                            <a href="{{ path('app_user_participant', {'id': event.id}) }}">
+                                S'inscrire
+                            </a>
+                        </button>
+
+                    </div>{# DETAIL EVENT #}
+
+                </div>{# END CARD EVENT #}
+
+            </div>{# END EVENT #}
 
             {% else %}  
                 <p class="else">Il n'y a pas encore d'évènement</p>
 
         {% endfor %}
-    </section>
+
+    </section>{# END CONTAINER EVENT #}
+
 {% endblock %}
+

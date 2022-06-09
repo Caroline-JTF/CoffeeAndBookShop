@@ -39,164 +39,209 @@
     
 
     {# ======================================== #}
-    {# ================ HEADING =============== #}
+    {# ================ WRAPPER =============== #}
     {# ======================================== #}
-
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Bienvenue sur votre espace {{ app.user.firstname }}</h2>
-        <p>Gérer votre espace ou vos avis ici</p> 
-    </section>
-
-    {# ======================================== #}
-    {# ================= BUTTON =============== #}
-    {# ======================================== #}
-
     
-    <section class="command-btn">
+    <main class="wrapper"> 
 
-        <button class="btn1">Vos informations</button>
-        <button class="btn2">Vos évènements</button>
-        <button class="btn3">Vos avis</button>
+        {# ======================================== #}
+        {# ================= BUTTON =============== #}
+        {# ======================================== #}
 
-    </section>
+        <section class="command-btn">
 
-    {# ======================================== #}
-    {# =========== VOS INFORMATIONS =========== #}
-    {# ======================================== #}
-
-    <div class="box box1 active">
-        
-        <h2>Vos informations personnelles</h2>
-    
-        <section class="container-information">
-
-            <div class="information">
-            
-                <div class="info">
-                    <p>Nom</p>                
-                    <p>{{ app.user.lastname }}</p>
-                </div>
-
-                <div class="info">
-                    <p>Prénom</p>             
-                    <p>{{ app.user.firstname}}</p> 
-                </div>
-
-                <div class="info">
-                    <p>N° de téléphone</p>    
-                    <p>{{ app.user.phoneNumber}}</p>
-                </div>
-
-                <div class="info">
-                    <p>Adresse email</p>      
-                    <p>{{ app.user.email}}</p>
-                </div>
-            </div>
-
-            <button class="btn-center">
-                <a href="{{ path('app_user_update', {'id': app.user.id}) }}">
-                Modifier les informations
+            {# ================= USER =============== #}
+            {# ================= USER =============== #}
+            {# ================= USER =============== #}
+            <button class="btn1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="12" cy="7" r="4" />
+                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+                <p>Les utilisateurs</p>
+            </button>
+            {# ================= EVENT =============== #}
+            {# ================= EVENT =============== #}
+            {# ================= EVENT =============== #}
+            <button class="btn2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <rect x="4" y="5" width="16" height="16" rx="2" />
+                    <line x1="16" y1="3" x2="16" y2="7" />
+                    <line x1="8" y1="3" x2="8" y2="7" />
+                    <line x1="4" y1="11" x2="20" y2="11" />
+                    <rect x="8" y="15" width="2" height="2" />
+                </svg>
+                <p>Les évènements</p>
+            </button>
+            {# ================= REVIEW =============== #}
+            {# ================= REVIEW =============== #}
+            {# ================= REVIEW =============== #}
+            <button class="btn3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-writing-sign" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 19c3.333 -2 5 -4 5 -6c0 -3 -1 -3 -2 -3s-2.032 1.085 -2 3c.034 2.048 1.658 2.877 2.5 4c1.5 2 2.5 2.5 3.5 1c.667 -1 1.167 -1.833 1.5 -2.5c1 2.333 2.333 3.5 4 3.5h2.5" />
+                    <path d="M20 17v-12c0 -1.121 -.879 -2 -2 -2s-2 .879 -2 2v12l2 2l2 -2z" />
+                    <path d="M16 7h4" />
+                </svg>
+                <p>Les avis</p>
+            </button>
+            {# ================= HOME =============== #}
+            {# ================= HOME =============== #}
+            {# ================= HOME =============== #}
+            <button>
+                <a href="{{ path('app_default_home_page') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                    <p>Accueil</p>
                 </a>
             </button>
-
         </section>
-    </div>
 
-    {# ======================================== #}
-    {# =============== VOS AVIS =============== #}
-    {# ======================================== #}
+        {# ======================================== #}
+        {# =========== VOS INFORMATIONS =========== #}
+        {# ======================================== #}
+        <div class="container-box">
 
-    <div class="box box2">
-        
-        <h2>Vos évènements</h2>
-    
-        <section class="container-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Date</th>
-                        <th>Participants</th>
-                    </tr>
-                </thead>
+            <div class="box box1 active">
+                
+                <h2>Vos informations personnelles</h2>
+            
+                <section class="container-information">
 
-                <tbody>
-                    {% for participant in participants | reverse %}
-                        {% for event in events %}
-                            {% if participant.event==event %}
+                    <div class="information">
+                    
+                        <div class="info">
+                            <p>Nom</p>                
+                            <p>{{ app.user.lastname }}</p>
+                        </div>
+
+                        <div class="info">
+                            <p>Prénom</p>             
+                            <p>{{ app.user.firstname}}</p> 
+                        </div>
+
+                        <div class="info">
+                            <p>N° de téléphone</p>    
+                            <p>{{ app.user.phoneNumber}}</p>
+                        </div>
+
+                        <div class="info">
+                            <p>Adresse email</p>      
+                            <p>{{ app.user.email}}</p>
+                        </div>
+                    </div>
+
+                    <button class="btn-center">
+                        <a href="{{ path('app_user_update', {'id': app.user.id}) }}">
+                        Modifier les informations
+                        </a>
+                    </button>
+
+                </section>
+            </div>
+
+            {# ======================================== #}
+            {# =============== VOS AVIS =============== #}
+            {# ======================================== #}
+
+            <div class="box box2">
+                
+                <h2>Vos évènements</h2>
+            
+                <section class="container-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Participants</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for participant in participants | reverse %}
+                                {% for event in events %}
+                                    {% if participant.event==event %}
+                                        <tr>
+                                            <td>{{ event.name }} </td>
+                                            <td>{{ event.description }} </td>
+                                            <td>{{ event.type }} </td>
+                                            <td>{{ event.date | date('d/m/Y') }} </td>
+                                            <td>{{ participant.participant }}</td>
+                                        </tr>
+                                    {% endif %}
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="6" style="text-align:center;">Vous ne participez à aucun évènement pour le moment</td>
+                                            </tr>
+                                {% endfor %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            {# ======================================== #}
+            {# =============== VOS AVIS =============== #}
+            {# ======================================== #}
+
+            <div class="box box3">
+                
+                <h2>Vos avis laissés</h2>
+            
+                <section class="container-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Heure</th>
+                                <th>Votre avis</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for review in reviews | reverse %}
                                 <tr>
-                                    <td>{{ event.name }} </td>
-                                    <td>{{ event.description }} </td>
-                                    <td>{{ event.type }} </td>
-                                    <td>{{ event.date | date('d/m/Y') }} </td>
-                                    <td>{{ participant.participant }}</td>
+                                    <td>{{ review.createdAt | date('d/m/Y') }}</td>
+                                    <td>{{ review.createdAt | date('H:i') }}</td>
+                                    <td>{{ review.message }}</td>
+                                    <td>
+                                        <div class="actions">
+                                            {# SUPPRIMER #}
+                                            <a href="{{ path('app_user_delete_review', {'id': review.id}) }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                    <line x1="4" y1="7" x2="20" y2="7" />
+                                                    <line x1="10" y1="11" x2="10" y2="17" />
+                                                    <line x1="14" y1="11" x2="14" y2="17" />
+                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                </svg>
+                                            </a>
+                                        </div> 
+
+                                    </td>
                                 </tr>
-                            {% endif %}
                                 {% else %}
                                     <tr>
-                                        <td colspan="6" style="text-align:center;">Vous ne participez à aucun évènement pour le moment</td>
+                                        <td colspan="6" style="text-align:center;">Vous n'avez laissé aucun avis</td>
                                     </tr>
-                        {% endfor %}
-                    {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </div>
-
-    {# ======================================== #}
-    {# =============== VOS AVIS =============== #}
-    {# ======================================== #}
-
-    <div class="box box3">
-        
-        <h2>Vos avis laissés</h2>
-    
-        <section class="container-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Heure</th>
-                        <th>Votre avis</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% for review in reviews | reverse %}
-                        <tr>
-                            <td>{{ review.createdAt | date('d/m/Y') }}</td>
-                            <td>{{ review.createdAt | date('H:i') }}</td>
-                            <td>{{ review.message }}</td>
-                            <td>
-                                <div class="actions">
-                                    {# SUPPRIMER #}
-                                    <a href="{{ path('app_user_delete_review', {'id': review.id}) }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                            <line x1="4" y1="7" x2="20" y2="7" />
-                                            <line x1="10" y1="11" x2="10" y2="17" />
-                                            <line x1="14" y1="11" x2="14" y2="17" />
-                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                        </svg>
-                                    </a>
-                                </div> 
-
-                            </td>
-                        </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="6" style="text-align:center;">Vous n'avez laissé aucun avis</td>
-                            </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </main>
 
 {% endblock %}
 

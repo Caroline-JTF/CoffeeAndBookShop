@@ -19,7 +19,7 @@
 {# ======================================== #}
 
 
-{% block title %}Nos grains de cafés{% endblock %}
+{% block title %}Les grains de cafés{% endblock %}
 
 {# ======================================== #}
 {# ================== BODY ================ #}
@@ -46,25 +46,36 @@
     </div>
 
     {# ======================================== #}
-    {# ================ LEGEND ================ #}
+    {# =========== CONTAINER LEGEND =========== #}
     {# ======================================== #}
 
     <section class="container-legend">
 
+        {# ========== CONTAINER LEGENDS COLOR ========== #}
+
         <div class="container-legends-color">
+
             <div class="legend">
                 <div class="color color-no-coffee"></div>
                 <p>Pays qui ne cultive pas le café</p>
             </div>
+
+            {# ======================================== #}
+
             <div class="legend">
                 <div class="color color-coffee"></div>
                 <p>Pays qui cultive le café</p>
             </div>
+
+            {# ======================================== #}
+
             <div class="legend">
                 <div class="color color-available"></div>
                 <p>Grain de café que nous proposons</p>
             </div>
         </div>
+
+        {# ========== CONTAINER LEGEND TEXT ========== #}
 
         <div class="container-legends-text">
             <div>
@@ -73,8 +84,7 @@
             </div>
         </div>
     
-    </section>
-
+    </section>{# END CONTAINER LEGEND #}
 
 {% endblock %}
 
