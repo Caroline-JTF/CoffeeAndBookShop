@@ -8,13 +8,15 @@
 {# ================== STYLE =============== #}
 {# ======================================== #}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/form.css') }}">
+{% endblock %}
 
 {# ======================================== #}
 {# ================= TITLE ================ #}
 {# ======================================== #}
 
-{% block title %}Modifier le café{% endblock %}
+{% block title %}Modifier le café {{ coffee.name }}{% endblock %}
 
 {# ======================================== #}
 {# ================= BODY ================= #}
@@ -23,29 +25,42 @@
 {% block body %}
 
     {# ======================================== #}
-    {# ================ HEADING =============== #}
+    {# ================ WRAPPER =============== #}
     {# ======================================== #}
 
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Modifier le café suivant : {{ coffee.name }}</h2>
-        <a href="{{ path('app_admin_dashboard') }}">Retour</a>
-    </section>
+    <main class="wrapper">
 
-    {# ======================================== #}
-    {# ================= COFFEE =============== #}
-    {# ======================================== #}
+        <img src="{{ asset('assets/img/form/book.jpg') }}" alt="image d'un café">
 
-    <section class="section-form">
-    
-        {# FORMULAIRE #}
-        <div class="container-form">
+        {# ======================================== #}
+        {# ============== SECTION FORM ============ #}
+        {# ======================================== #}
+        <section class="section-form">
 
-            {{ form(form) }}
+            {# ======================================== #}
+            {# ================ HEADING =============== #}
+            {# ======================================== #}
 
-        </div>
+            <section class="heading">
+                <h2>Modifier le café suivant : {{ coffee.name }}</h2>
+                <a href="{{ path('app_admin_dashboard') }}">Retour</a>
+            </section>
 
-    </section>
+            {# ======================================== #}
+            {# ================== BOOK ================ #}
+            {# ======================================== #}
+            <div class="container-form">
 
-    
+                {# FORMULAIRE #}
+                <div class="form">
+                    {{ form(form) }}
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
 {% endblock %}

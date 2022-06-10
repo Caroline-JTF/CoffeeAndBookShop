@@ -9,7 +9,7 @@
 {# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/css/default/home-page.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/default/home-page.css') }}">
 {% endblock %}
 
 {# ======================================== #}
@@ -41,7 +41,7 @@
     <section class="container-card">
 
         <div class="card">
-            <img src="assets/img/homepage/rustic.jpg" alt="Photo d'un café rustique">
+            <img src="{{ asset('assets/img/homepage/rustic.jpg') }}" alt="Photo d'un café rustique">
             <div class="card-text">
                 <h2> <span>01.</span> Café rustique </h2>
                 <p>
@@ -56,7 +56,7 @@
         {# ================================================== #}
 
         <div class="card">
-            <img src="assets/img/homepage/gourmet.jpg" alt="Photo d'un café avec des douceurs">
+            <img src="{{ asset('assets/img/homepage/gourmet.jpg') }}" alt="Photo d'un café avec des douceurs">
             <h2> <span>02.</span> Café gourmand </h2>
             <p>
                 On parle des cafés ou des douceurs?
@@ -67,7 +67,7 @@
         {# ================================================== #}
 
         <div class="card">
-            <img src="assets/img/homepage/relaxation.jpg" alt="Photo d'un café avec un livre">
+            <img src="{{ asset('assets/img/homepage/relaxation.jpg') }}" alt="Photo d'un café avec un livre">
             <h2> <span>03.</span> Café détente </h2>
             <p>
                 Vous trouverez chez C&B la possibilité d’emprunter un livre en guise d’accompagnement avec votre café pour vous offrir un réel moment de détente.
@@ -102,7 +102,7 @@
                 </button>
                 <button>
                     <a href="{{ path('app_default_menu') }}">
-                        <img src="assets/img/icons/beans-btn.png" alt="">
+                        <img src="{{ asset('assets/img/icons/beans-btn.png') }}" alt="">
                         Voir la carte
                     </a>
                 </button>
@@ -142,7 +142,7 @@
             </div>
         </div>
         <div class="img-presentation">
-            <img src="assets/img/homepage/presentation.jpg" alt="">
+            <img src="{{ asset('assets/img/homepage/presentation.jpg') }}" alt="">
         </div>
 
     </section>{# END .PRESENTATION #}
@@ -169,7 +169,7 @@
             <div class="container-personnel">
 
                 <div class="card-presentation">
-                    <img src="assets/img/homepage/alexis.jpg"/>
+                    <img src="{{ asset('assets/img/homepage/alexis.jpg') }}"/>
                     <h3>Alexis</h3>
                     <div class="focus-content">
                         <p>Alexis est notre barista, c’est un vrai sommelier du café, il maitrise la technique du LATTE ART depuis 2013</p>
@@ -179,7 +179,7 @@
                 {# ================================================== #}
 
                 <div class="card-presentation">
-                    <img src="assets/img/homepage/olga.jpg"/>
+                    <img src="{{ asset('assets/img/homepage/olga.jpg') }}"/>
                     <h3>Olga</h3>
                     <div class="focus-content">
                         <p>Olga est une passionnée de livre depuis son plus jeune âge, elle décide d’ouvrir le Coffee and Book en 2016. En plus d’être la gérante, elle fait également le service pour préserver une relation employés-clients unique</p>
@@ -189,7 +189,7 @@
                 {# ================================================== #}
 
                 <div class="card-presentation">
-                    <img src="assets/img/homepage/nicolas.jpg"/>
+                    <img src="{{ asset('assets/img/homepage/nicolas.jpg') }}"/>
                     <h3>Nicolas</h3>
                     <div class="focus-content">
                         <p>Boulanger depuis 2016, il est élu meilleur apprenti de France en 2014 pendant ses études grâce à son fameux pain au chocolat aux amendes, qui fait partie de la carte.</p>

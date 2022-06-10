@@ -9,7 +9,7 @@
 {# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="/assets/css/admin/view.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/admin/view.css') }}">
 {% endblock %}
 
 {# ======================================== #}
@@ -17,7 +17,6 @@
 {# ======================================== #}
 
 {% block title %}Fiche produit {{ currentCoffee.name }}{% endblock %}
-
 
 {# ======================================== #}
 {# ================= BODY ================= #}
@@ -34,8 +33,7 @@
         <section class="command-btn">
             
             {# ================= DASHBOARD =============== #}
-            {# ================= DASHBOARD =============== #}
-            {# ================= DASHBOARD =============== #}
+
             <button>
                 <a href="{{ path('app_admin_dashboard') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-border-all" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -47,8 +45,7 @@
                     <p>Dashboard</p>
                 </a>
             </button>
-            {# ================= COFFEE =============== #}
-            {# ================= COFFEE =============== #}
+
             {# ================= COFFEE =============== #}
             <button class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mug" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -58,8 +55,7 @@
                 </svg>
                 <p>Les cafés</p>
             </button>
-            {# ================= FOOD =============== #}
-            {# ================= FOOD =============== #}
+
             {# ================= FOOD =============== #}
             <button class="btn">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ice-cream-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -69,8 +65,7 @@
                     </svg>
                     <p>Les viennoiseries</p>
             </button>
-            {# ================= BOOK =============== #}
-            {# ================= BOOK =============== #}
+
             {# ================= BOOK =============== #}
             <button class="btn">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -83,8 +78,7 @@
                     </svg>
                     <p>Les livres</p>
             </button>
-            {# ================= EVENT =============== #}
-            {# ================= EVENT =============== #}
+
             {# ================= EVENT =============== #}
             <button class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -97,8 +91,7 @@
                 </svg>
                 <p>Les évènements</p>
             </button>
-            {# ================= USER =============== #}
-            {# ================= USER =============== #}
+
             {# ================= USER =============== #}
             <button class="btn">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -108,8 +101,7 @@
                     </svg>
                     <p>Les utilisateurs</p>
             </button>
-            {# ================= HOME =============== #}
-            {# ================= HOME =============== #}
+
             {# ================= HOME =============== #}
             <button>
                 <a href="{{ path('app_default_home_page') }}">
@@ -122,10 +114,13 @@
                     <p>Accueil</p>
                 </a>
             </button>
-        </section>
+
+        </section>{# END COMMAND BTN #}
 
         <section class="container-box">
+
             <div class="box">
+
                 <div class="img-box">
                     {% if currentCoffee.img == true %}
                         <img width="400" height="400" src="{{ asset('/uploads/' ~ currentCoffee.img) }}" alt="{{ currentCoffee.name }}" onerror="this.style.display='none';"/>
@@ -133,17 +128,22 @@
                             <p>Il n'y a pas d'image sur ce produit</p>
                     {% endif %} 
                 </div>
+
                 <div class="text-box">
+
                     <div class="heading">
                         <h2>{{ currentCoffee.name }}</h2>
                     </div>
+
                     <div class="detail-box">
                         <p>{{ currentCoffee.description }}</p>
                         <p>{{ currentCoffee.price }}€</p>
                     </div>
                         
                 </div>
-            </div>
+
+            </div>{# END BOX #}
+
             <div class="btn">
                 <button>
                     <a href="{{ path('app_admin_update_coffee', {'id': currentCoffee.id}) }}">
@@ -156,7 +156,8 @@
                     </a>
                 </button>
             </div>
-        </section>
+
+        </section> {# END CONTAINER BOX #}
         
 
         

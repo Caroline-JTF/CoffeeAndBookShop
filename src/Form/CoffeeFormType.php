@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Coffee;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -25,7 +26,7 @@ class CoffeeFormType extends AbstractType
                     ])
                 ]
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Description :',
                 'constraints' => [
                     new NotBlank([

@@ -9,7 +9,7 @@
 {# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/css/user/account.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/user/account.css') }}">
 {% endblock %}
 
 {# ======================================== #}
@@ -51,18 +51,15 @@
         <section class="command-btn">
 
             {# ================= USER =============== #}
-            {# ================= USER =============== #}
-            {# ================= USER =============== #}
             <button class="btn1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <circle cx="12" cy="7" r="4" />
                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                 </svg>
-                <p>Les utilisateurs</p>
+                <p>Mes informations</p>
             </button>
-            {# ================= EVENT =============== #}
-            {# ================= EVENT =============== #}
+
             {# ================= EVENT =============== #}
             <button class="btn2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -75,8 +72,7 @@
                 </svg>
                 <p>Les évènements</p>
             </button>
-            {# ================= REVIEW =============== #}
-            {# ================= REVIEW =============== #}
+
             {# ================= REVIEW =============== #}
             <button class="btn3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-writing-sign" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -87,8 +83,7 @@
                 </svg>
                 <p>Les avis</p>
             </button>
-            {# ================= HOME =============== #}
-            {# ================= HOME =============== #}
+
             {# ================= HOME =============== #}
             <button>
                 <a href="{{ path('app_default_home_page') }}">
@@ -101,7 +96,8 @@
                     <p>Accueil</p>
                 </a>
             </button>
-        </section>
+
+        </section>{# END COMMAND BTN #}
 
         {# ======================================== #}
         {# =========== VOS INFORMATIONS =========== #}
@@ -143,8 +139,9 @@
                         </a>
                     </button>
 
-                </section>
-            </div>
+                </section>{# END CONTAINER INFORMATION #}
+
+            </div>{# END BOX 1 #}
 
             {# ======================================== #}
             {# =============== VOS AVIS =============== #}
@@ -155,39 +152,63 @@
                 <h2>Vos évènements</h2>
             
                 <section class="container-table">
+
                     <table>
                         <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Description</th>
-                                <th>Type</th>
                                 <th>Date</th>
-                                <th>Participants</th>
+                                <th>Statut</th>
+                                <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {% for participant in participants | reverse %}
+
                                 {% for event in events %}
+
                                     {% if participant.event==event %}
+
                                         <tr>
                                             <td>{{ event.name }} </td>
-                                            <td>{{ event.description }} </td>
-                                            <td>{{ event.type }} </td>
                                             <td>{{ event.date | date('d/m/Y') }} </td>
-                                            <td>{{ participant.participant }}</td>
+                                            <td>
+                                                <div class="status">
+                                                    <p>{{ event.status }}</p>
+                                                    {% if event.status == 'Ouvert' %}
+                                                        <div class="circle circleGreen"></div>
+                                                    {% elseif event.status == 'Annulé'%}
+                                                        <div class="circle circleRed"></div>
+                                                    {% else %}
+                                                        <div class="circle circleDark"></div>
+                                                    {% endif %}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('app_user_view_event', {'id': event.id}) }}">
+                                                    Voir l'évènement
+                                                </a>
+                                            </td>
                                         </tr>
-                                    {% endif %}
+
+                                    {% endif %} {# END IF #}
+
                                         {% else %}
                                             <tr>
                                                 <td colspan="6" style="text-align:center;">Vous ne participez à aucun évènement pour le moment</td>
                                             </tr>
-                                {% endfor %}
-                            {% endfor %}
+
+                                {% endfor %}{# END FOR EVENT #}
+
+                            {% endfor %}{# END FOR PARTICIPANT #}
                         </tbody>
+
                     </table>
-                </section>
-            </div>
+
+                </section>{# END SECTION TABLE #}
+
+            </div>{# END BOX 2 #}
 
             {# ======================================== #}
             {# =============== VOS AVIS =============== #}
@@ -198,22 +219,25 @@
                 <h2>Vos avis laissés</h2>
             
                 <section class="container-table">
+
                     <table>
+
                         <thead>
                             <tr>
+                                <th>Votre avis</th>
                                 <th>Date</th>
                                 <th>Heure</th>
-                                <th>Votre avis</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {% for review in reviews | reverse %}
+
                                 <tr>
+                                    <td>{{ review.message }}</td>
                                     <td>{{ review.createdAt | date('d/m/Y') }}</td>
                                     <td>{{ review.createdAt | date('H:i') }}</td>
-                                    <td>{{ review.message }}</td>
                                     <td>
                                         <div class="actions">
                                             {# SUPPRIMER #}
@@ -231,20 +255,27 @@
 
                                     </td>
                                 </tr>
+
                                 {% else %}
                                     <tr>
                                         <td colspan="6" style="text-align:center;">Vous n'avez laissé aucun avis</td>
                                     </tr>
+
                             {% endfor %}
                         </tbody>
+
                     </table>
-                </section>
-            </div>
-        </div>
+
+                </section>{# END CONTAINER TABLE #}
+
+            </div>{# END BOX 3 #}
+
+        </div>{# END CONTAINER BOX #}
+
     </main>
 
 {% endblock %}
 
 {% block javascripts %}
-    <script src="assets/js/user/account.js"></script>
+    <script src="{{ asset('assets/js/user/account.js') }}"></script>
 {% endblock %}

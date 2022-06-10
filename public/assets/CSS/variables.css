@@ -23,4 +23,6 @@
 
     /* OPACITY FOR OVERLAY */
     --overlay: rgba(0, 0, 0, 0.3);
+    --overlay-light: rgba(255, 255, 255, 0.7);
+
 }

@@ -8,19 +8,15 @@
 {# ================== STYLE =============== #}
 {# ======================================== #}
 
-{% block stylesheets %}{% endblock %}
-
-{# ======================================== #}
-{# ================== STYLE =============== #}
-{# ======================================== #}
-
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/form.css') }}">
+{% endblock %}
 
 {# ======================================== #}
 {# ================= TITLE ================ #}
 {# ======================================== #}
 
-{% block title %}Modifier l'utilisateur{% endblock %}
+{% block title %}Modifier l'utilisateur {{ user.firstname }} {{ user.lastname }}{% endblock %}
 
 {# ======================================== #}
 {# ================= BODY ================= #}
@@ -29,28 +25,40 @@
 {% block body %}
 
     {# ======================================== #}
-    {# ================ HEADING =============== #}
+    {# ================ WRAPPER =============== #}
     {# ======================================== #}
 
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Modifier l'utilisateur suivant : {{ user.firstname}} {{ user.lastname }}</h2>
-        <a href="{{ path('app_admin_dashboard') }}">Retour</a>
-    </section>
+    <main class="wrapper">
 
-    {# ======================================== #}
-    {# ================== USER ================ #}
-    {# ======================================== #}
-    <section class="section-form">
-    
-        {# FORMULAIRE #}
-        <div class="container-form">
+        {# ======================================== #}
+        {# ============== SECTION FORM ============ #}
+        {# ======================================== #}
+        <section class="section-form">
 
-            {{ form(form) }}
+            {# ======================================== #}
+            {# ================ HEADING =============== #}
+            {# ======================================== #}
 
-        </div>
+            <section class="heading">
+                <h2>Modifier l'utilisateur suivant : {{ user.firstname }} {{ user.lastname }}</h2>
+                <a href="{{ path('app_admin_dashboard') }}">Retour</a>
+            </section>
 
-    </section>
+            {# ======================================== #}
+            {# ================== BOOK ================ #}
+            {# ======================================== #}
+            <div class="container-form">
 
-    
+                {# FORMULAIRE #}
+                <div class="form">
+                    {{ form(form) }}
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
 {% endblock %}

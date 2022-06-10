@@ -23,7 +23,7 @@
     margin-bottom: 0.5rem;
 }
 .color{
-        width: 20px;
+    width: 20px;
     height: 20px;
     margin-right: 0.5rem;
 }
@@ -35,8 +35,9 @@
 }
 .color-available{
     background-color: var(--color-red);
-    
-}/* ========== CONTAINER LEGEND TEXT ========== */
+}
+
+/* ========== CONTAINER LEGEND TEXT ========== */
 .container-legends-text{
     width: 70%;
     height: 150px;

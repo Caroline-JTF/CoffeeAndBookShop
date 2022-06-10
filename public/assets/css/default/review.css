@@ -9,12 +9,6 @@
     align-items: center;
     margin-bottom: 1rem;
 }
-.box{
-    display: none;
-}
-.active{
-    display: block;
-}
 .container-form{
     margin-top: 5rem;
 }
@@ -59,4 +53,16 @@ button{
     padding: 1rem;
     height: 50px;
     text-align: right;
+}
+
+/*
+========================================
+============== DYNAMISE JS =============
+========================================
+*/
+.box{
+    display: none;
+}
+.active{
+    display: block;
 }

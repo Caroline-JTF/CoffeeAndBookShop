@@ -1,13 +1,29 @@
+/*
+==================================================
+================= HIDE NAV FOOTER ================
+==================================================
+*/
+.container-header,
+footer{
+    display: none !important;
+}
+
+/*
+==================================================
+===================== WRAPPER ====================
+==================================================
+*/
 .wrapper{
     display: flex;
     width: 100%;
     height: 1000px;
     margin: 3rem auto;
 }
+
 /*
-============================
-====== SECTION BUTTON ======
-============================
+==================================================
+================= SECTION BUTTON =================
+==================================================
 */
 .command-btn{
     display: flex;
@@ -26,10 +42,11 @@
 .command-btn button p{
     margin-left: 1rem;
 }
+
 /*
-============================
-======= CONTAINER BOX ======
-============================
+==================================================
+================== CONTAINER BOX =================
+==================================================
 */
 .container-box{
     width: 80%;
@@ -40,16 +57,17 @@
     justify-content: center;
     align-items: center;
 }
+
 /*
-========================================
-============= INFORMATION ==============
-========================================
+==================================================
+=================== INFORMATION ==================
+==================================================
 */
 .container-information{
     width: 100%;
     margin-top: 3rem;
 }
-.container-information .information{
+.information{
     width: 80%;
     display: flex;
     justify-content: center;
@@ -57,11 +75,11 @@
     flex-direction: column;
     margin: 0 auto;
 }
-.container-information .information .info{
+.info{
     display: flex;
     width: 100%;
 }
-.container-information .information .info p{
+.info p{
     width: 100%;
     height: 50px;
     line-height: 50px;
@@ -69,66 +87,65 @@
     background-color: var(--color-light-brown);
     border: 1px solid var(--color-light);
 }
+.container-information button{
+    width: 20rem !important;
+}
 h2{
     text-align: center;
-    font-family: 2rem;
     font-family: var(--font-serif);
 }
+
 /*
-========================================
-================= TABLE ================
-========================================
+==================================================
+====================== TABLE =====================
+==================================================
 */
-/*
-============================
-====== CONTANER TABLE ======
-============================
-*/
-.container-box .container-table{
+.container-table{
     width: 80%;
     margin: 3rem auto;
 }
-.container-box .container-table table{
+table{
     width: 100%;
     text-align: center;
 }
-.container-box .container-table table th,
-.container-box .container-table table td{
+table th,
+table td{
     padding: 1rem;
     border: 1px solid var(--color-light);
 }
-.container-box .container-table table th {
+table th {
     background-color: var(--color-dark-brown);
     color: var(--color-light);
     text-align: center;
 }
-.container-box .container-table table th:first-child{
-    width: 10%;
+table th{
+    width: 20%;
 }
-.container-box .container-table table th:last-child{
-    width: 20%;   
+table th:first-child{
+    width: 40%;
 }
-.container-box .container-table table tr:nth-child(odd){
+table tr:nth-child(odd){
     background-color: var(--color-light);
 }
-.container-box .container-table table tr:nth-child(even){
+table tr:nth-child(even){
     background-color: var(--color-light-brown);
 }
-.container-box .container-table table tr:hover {
+table tr:hover {
     background-color: var(--color-grey);
 }
-.container-box .container-table table .actions{
+table .actions{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.container-box button{
-    width: 20% !important;
+table .status,
+table a{
+    justify-content: center !important;
 }
 /*
-========================================
-============== DYNAMISE JS =============
-========================================
+==================================================
+=================== DYNAMISE JS ==================
+==================================================
 */
 .box{
     margin: 1rem 0;

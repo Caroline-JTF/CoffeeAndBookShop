@@ -8,7 +8,7 @@
 {# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/css/default/menu.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/default/menu.css') }}">
 {% endblock %}
 
 
@@ -213,5 +213,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="assets/JS/default/menu.js"></script>
+    <script src="{{ asset('assets/JS/default/menu.js') }}"></script>
 {% endblock %}

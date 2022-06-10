@@ -10,6 +10,7 @@ body{
     background-color: var(--color-grey);
     overflow-x: hidden;
 }
+
 /*
 ==================================================
 ===================== BUTTON =====================
@@ -38,6 +39,7 @@ button a img{
     height: 20px;
     margin-right: 1rem;
 }
+
 /*
 ==================================================
 ====================== LIENS =====================
@@ -52,6 +54,7 @@ a img{
     width: 30px;
     height: 30px;
 }
+
 /*
 ==================================================
 ===================== HEADING ====================
@@ -78,59 +81,7 @@ a img{
 .heading a:hover{
     text-decoration: underline;
 }
-/*
-==================================================
-=================== FORMULAIRE ===================
-==================================================
-*/
-.container-form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.container-form form{
-    width: 50%;
-}
-.container-form label{
-    display: block;
-}
-.container-form input,
-.container-form textarea{
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 4px;
-    resize: none;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-.container-form input[type='file']{
-    padding: 1rem 0 !important;
-}
-.container-form textarea{
-    height: 150px;
-}
-.container-form select{
-    margin-bottom: 1rem;
-}
-.container-form button{
-    margin: 1rem auto 3rem !important;
-}
-.message{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0 3rem;
-}
-.message a{
-    cursor: pointer;
-    margin-left: 5px;
-}
-.message a:hover{
-    text-decoration: underline;
-}
+
 /*
 ==================================================
 =================== PAGINATION ===================
@@ -147,6 +98,7 @@ a img{
     margin: 0 0.5rem;
     cursor: pointer;
 }
+
 /*
 ==================================================
 ====================== ELSE ======================
@@ -155,6 +107,7 @@ a img{
 .else{
     text-align:center;
 }
+
 /*
 ==================================================
 ===================== FLASHES ====================
@@ -192,6 +145,7 @@ a img{
     background-color: var(--color-light-red);
     color: var(--color-light);
 }
+
 /*
 ==================================================
 ==================== HELP TEXT ===================
@@ -199,4 +153,35 @@ a img{
 */
 .help-text{
     margin :-10px 0 2rem !important; 
+}
+
+/*
+==================================================
+==================== CIRCLE  =====================
+==================================================
+*/
+.status{
+    display: flex;
+    height: 50px;
+    justify-content: right;
+    align-items: center;
+}
+.status p{
+    margin-right: 5px;
+    line-height: 30px;
+}
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 1px;
+}
+.circleGreen{
+    background-color: var(--color-green);
+}
+.circleRed{
+    background-color: var(--color-light-red);
+}
+.circleDark{
+    background-color: var(--color-dark);
 }

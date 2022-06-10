@@ -1,7 +1,7 @@
 /*
-========================================
-============ CONTAINER EVENT ===========
-========================================
+==================================================
+================= CONTAINER EVENT ================
+==================================================
 */
 .container-event{
     width: 1050px;
@@ -10,11 +10,14 @@
     gap: 2rem;
     grid-template-columns: repeat(2, 500px);
 }
+/*========== EVENT  ==========*/
 .event{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/*========== CARD  ==========*/
 .card-event{
     width: 500px;
     height: 500px;
@@ -23,9 +26,13 @@
     overflow: hidden;
     background-color: var(--color-dark-brown);
 }
+
+/*========== HEADING  ==========*/
 .heading{
     padding: 1rem 0 !important;
 }
+
+/*========== IMG  ==========*/
 .img-event {
     position: absolute;
     top: 0;
@@ -40,6 +47,8 @@ img {
     height: 100%;
     object-fit: cover;
 }
+
+/*}  ========== OVERLAY CARD  ==========*/
 .detail-event{
     width: 450px;
     height: 450px;
@@ -55,12 +64,16 @@ img {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.7);
 }
+
+/*========== TEXT  ==========*/
 .text-event{
     margin: 1rem;
     height: 180px;
     width: 400px;
     text-align: left;
 }
+
+/*========== FOOTER  ==========*/
 .footer-event div{
     display: flex;
     justify-content: center;
@@ -69,6 +82,8 @@ img {
 .footer-event p{
     margin-left: 5px;
 }
+
+/* ========== CIRCLE  ========== */
 .circle{
     width: 10px;
     height: 10px;
@@ -83,14 +98,16 @@ img {
 .circleDark{
     background-color: var(--color-dark);
 }
+
+/*========== BOUTON  ==========*/
 button{
     margin-top: 1rem;
 }
 
 /*
-========================================
-============ MEDIAS QUERIES ============
-========================================
+==================================================
+================= MEDIAS QUERIES =================
+==================================================
 */
 @media only screen and (min-width: 2000px) {
     .container-event{

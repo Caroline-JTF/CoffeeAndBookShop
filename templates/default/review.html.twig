@@ -8,7 +8,7 @@
 {# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/css/default/review.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/default/review.css') }}">
 {% endblock %}
 
 {# ======================================== #}
@@ -90,5 +90,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="assets/JS/default/review.js"></script>
+    <script src="{{ asset('assets/JS/default/review.js') }}"></script>
 {% endblock %}

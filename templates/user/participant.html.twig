@@ -9,7 +9,7 @@
 {# ======================================== #}
 
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/user/participant.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/user/participant.css') }}">
 {% endblock %}
 
 {# ======================================== #}
@@ -54,9 +54,9 @@
                         <p>{{ currentEvent.description}}</p>
                     </div>
                     <div class="footer-event">
-                        <p>Place disponible : {{ currentEvent.place}}</p>
-                        <p>Participant inscrit : {{ currentEvent.participants}}</p>
-                        <p>Place restante :{{ (currentEvent.place)-(currentEvent.participants) }}</p>
+                        <p>Place(s) disponible(s) : {{ currentEvent.place}}</p>
+                        <p>Participant(s) inscrit(s) : {{ currentEvent.participants}}</p>
+                        <p>Place(s) restante(s) :{{ (currentEvent.place)-(currentEvent.participants) }}</p>
                     </div>
                 </div>
             </div>
