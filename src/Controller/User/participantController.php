@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\User;
 
-use App\Entity\Event;
 use App\Entity\Participant;
 use App\Form\ParticipationFormType;
 use App\Repository\EventRepository;

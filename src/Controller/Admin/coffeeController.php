@@ -21,9 +21,15 @@ class coffeeController extends AbstractController
     //Voir la fiche du café
     #[Route("/admin/voir-le-cafe/{id}", name: "app_admin_view_coffee", methods: ["GET", "POST"])]
     public function viewCoffee(Request $request, CoffeeRepository $coffeeRepository): Response{
-        
+
+        // Récupération de l'URL actuelle : /admin/voir-le-café/id
+        // Explode : Sépare l'URL en une liste : ['admin', 'voir-le-café', 'id']
         $coffeeUrlArray = explode("/",$request->getUri());
+
+        // Récupération de l'élément en dernière position
         $coffeeId = $coffeeUrlArray[sizeof($coffeeUrlArray)-1];
+
+        // Permet de récupérer le café actuel
         $currentCoffee = $coffeeRepository->find(['id'=>$coffeeId]);
 
         return $this->render('/admin/view/coffee.html.twig', [

@@ -18,11 +18,6 @@ class eventController extends AbstractController
     {
       //Afficher les évènements
       $events = $eventRepository->findAll();
-        // $events = $paginatorInterface->paginate(
-        //     $events,
-        //     $request->query->getInt('page', 1),
-        //     limit: 5
-        // );
 
       return $this->render('default/event.html.twig', [
           'events' => $events,

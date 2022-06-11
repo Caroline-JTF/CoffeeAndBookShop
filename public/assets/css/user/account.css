@@ -142,6 +142,12 @@ table .status,
 table a{
     justify-content: center !important;
 }
+.event-name{
+    cursor: pointer;
+}
+.event-name a:hover{
+    text-decoration: underline;
+}
 /*
 ==================================================
 =================== DYNAMISE JS ==================

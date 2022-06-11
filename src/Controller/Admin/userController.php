@@ -45,6 +45,7 @@ class userController extends AbstractController
 	{
         $reviews = $reviewRepository->findBy(['user' => $user->getId()]);
 
+        // Pour chaque review de reviews on passe l'utilisateur à NULL
         foreach($reviews as $review){
             $review->setUser(Null);
         } 

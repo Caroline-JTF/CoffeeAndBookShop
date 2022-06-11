@@ -100,7 +100,9 @@
       </option>
       <option name="myCustomValuesEnabled" value="true" />
     </inspection_tool>
+    <inspection_tool class="NullPointerExceptionInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PhpUndefinedMethodInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PhpUnhandledExceptionInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="SecurityAdvisoriesInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="optionConfiguration">
         <list>
@@ -156,5 +158,7 @@
         </list>
       </option>
     </inspection_tool>
+    <inspection_tool class="TypeUnsafeComparisonInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="TypesCastingCanBeUsedInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   </profile>
 </component>

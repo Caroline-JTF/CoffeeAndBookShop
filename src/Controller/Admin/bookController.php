@@ -21,7 +21,8 @@ class bookController extends AbstractController
     //Voir la fiche du livre
     #[Route("/admin/voir-le-livre/{id}", name: "app_admin_view_book", methods: ["GET", "POST"])]
     public function viewBook(Request $request, BookRepository $bookRepository): Response{
-        
+
+        //
         $bookUrlArray = explode("/",$request->getUri());
         $bookId = $bookUrlArray[sizeof($bookUrlArray)-1];
         $currentBook = $bookRepository->find(['id'=>$bookId]);
