@@ -1,34 +1,25 @@
-{# ======================================== #}
-{# ================= STYLE ================ #}
-{# ======================================== #}
+<style>
+    .link a{
+        text-decoration: none !important;
+        color: var(--color-light) !important;
+    }
+    footer p,
+    footer li{
+        color: var(--color-light) !important;
+    }
+</style>
 
-{% block stylesheets %}
+<footer class="py-7 py-md-9 bg-dark">
+    <div class="container px-4">
+        <div class="row gx-7">
+            <div class="col-sm-4">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+                <!-- Heading -->
+                <h3 class="text-xs text-primary">
+                    Heure d'ouverture
+                </h3>
 
-    <link rel="stylesheet" href="/assets/css/include/footer.css">
-    <link rel="stylesheet" href="/assets/css/mini-reset.css">
-    <link rel="stylesheet" href="/assets/css/variables.css"> 
-
-{% endblock %}
-
-{# ======================================== #}
-{# ================= FOOTER =============== #}
-{# ======================================== #}
-
-<footer>
-
-    <section class="footer">
-
-        {# ======================================== #}
-        {# =============== SCHEDULE =============== #}
-        {# ======================================== #}
-
-        <article class="schedule">
-            <h2>Heure d'ouverture</h2>
-            <div class="border">
+                <!-- Text -->
                 <p>Lundi : 08h30 à 16h30</p>
                 <p>Mardi : Fermé</p>
                 <p>Mercredi : 08h30 à 16h30</p>
@@ -36,54 +27,67 @@
                 <p>Vendredi : 08h30 à 16h30</p>
                 <p>Samedi : 14h00 à 14h00</p>
                 <p>Dimanche : 14h00 à 14h00</p>
+
             </div>
-        </article>
 
-        <div class="line line1"></div>
+            <div class="col-sm-4">
 
-        {# ======================================== #}
-        {# ================== LINK ================ #}
-        {# ======================================== #}
+                <!-- Heading -->
+                <h3 class="text-xs text-primary">
+                    Nos informations
+                </h3>
 
-        <article class="link ">
-            <h2>Liens utiles</h2>
-            <div class="border">
+                <!-- Text -->
+                <ul class="list-unstyled mb-6">
+                    <li class="d-flex mb-2">
+                        <div class="fas fa-map-marker-alt me-3 mt-2 fs-sm"></div>
+                        1607 du pot au noir, Paris (75)
+                    </li>
+                    <li class="d-flex mb-2">
+                        <div class="fas fa-phone me-3 mt-2 fs-sm"></div>
+                        06 24 16 26 23
+                    </li>
+                    <li class="d-flex">
+                        <div class="far fa-envelope me-3 mt-2 fs-sm"></div> <a href="mailto:carolinejtf@gmail.com">CoffeeAndBook@mail.fr</a>
+                    </li>
+                </ul>
 
-                <a href="{{ path('app_default_home_page') }}">Accueil</a>
-                <a href="{{ path('app_default_coffee_beans') }}">Les grains de café</a>
-                <a href="{{ path('app_default_menu') }}">La carte</a>
-                <a href="{{ path('app_default_event') }}">Les évènements</a>
-                <a href="{{ path('app_default_review') }}">Les avis</a>
-                <a href="{{ path('app_default_home_page', {'_fragment': 'personnel'}) }}">À propos de nous</a>
-                <a href="{{ path('app_default_home_page', {'_fragment': 'contact'}) }}">Nous contacter</a>
-                
             </div>
-        </article>
 
-        <div class="line line2"></div>
+            <div class="col-sm-4">
 
-        {# ======================================== #}
-        {# =============== ABOUT US =============== #}
-        {# ======================================== #}
+                <!-- Heading -->
+                <h3 class="text-xs text-primary">
+                    Lien utile
+                </h3>
 
-        <article class="about-us ">
-            <h2>À propos de nous</h2>
+                <!-- Link -->
+                <div class="link d-flex flex-column">
+                    <p><a href="{{ path('app_default_home_page') }}">Accueil</a></p>
+                    <p><a href="{{ path('app_default_coffee_beans') }}">Les grains de café</a></p>
+                    <p><a href="{{ path('app_default_menu') }}">La carte</a></p>
+                    <p><a href="{{ path('app_default_event') }}">Les évènements</a></p>
+                    <p><a href="{{ path('app_default_review') }}">Les avis</a></p>
+                    <p><a href="{{ path('app_default_home_page', {'_fragment': 'personnel'}) }}">À propos de nous</a></p>
+                    <p><a href="{{ path('app_default_home_page', {'_fragment': 'contact'}) }}">Nous contacter</a></p>
+                </div>
+            </div>
+        </div>
 
-            <p>1607 avenue du pot au noir - Paris (75)</p>
-            <p>06 24 16 26 23</p>
-            <p>CandBShop@mail.fr</p>
+        <div class="row py-5">
+            <div class="col-12">
+                <!-- Copyright -->
+                <section class="d-flex align-items-center copyright">
+                    <hr class="hr-sm me-3" style="height: 1px;" />
+                    <p>C&B SHOP <span id="copyright"></span> © Réalisée par JUSTC</p>
+                </section>
 
-        </article>
-<section class="copyright">
-        <p>C&B SHOP <span id="copyright"></span> © Réalisée par JUSTC</p>
-    </section>
-    </section>{# END SECTION FOOTER #}
-    
+            </div>
+        </div>
+
+    </div>
+
 </footer>
-
-{# ======================================== #}
-{# ============= JAVA SCRIPT ============== #}
-{# ======================================== #}
 
 {% block javascript %}
     <script src="/assets/JS/include/footer.js"></script>

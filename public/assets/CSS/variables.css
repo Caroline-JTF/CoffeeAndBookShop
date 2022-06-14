@@ -26,3 +26,38 @@
     --overlay-light: rgba(255, 255, 255, 0.7);
 
 }
+
+/* --- font --- */
+.font-serif{
+    font-family: var(--font-serif);
+}.font-sans-serif{
+    font-family: var(--font-sans-serif);
+}.font-default{
+    font-family: var(--font-default);
+}
+
+/* --- color --- */
+ .color-dark{
+     color: var(--color-dark);
+ } .color-light{
+     color: var(--color-light);
+ } .color-grey{
+     color: var(--color-grey);
+ } .color-dark-brown{
+     color: var(--color-dark-brown);
+ } .color-light-brown{
+     color: var(--color-light-brown);
+ } .color-red{
+     color: var(--color-red);
+ } .color-green{
+     color: var(--color-green);
+ } .color-light-red{
+     color: var(--color-light-red);
+ } .color-yellow{
+     color: var(--color-yellow);
+ }
+
+   /*--- text ---*/
+.uppercase{
+    text-transform: uppercase;
+}
