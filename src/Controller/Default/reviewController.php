@@ -26,6 +26,8 @@ class reviewController extends AbstractController
         if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
             $user = $this->getUser();
             $review->setName($user->getFirstname());
+
+            $review->setUser($user);
         }
 
         $form = $this->createForm(ReviewFormType::class, $review);

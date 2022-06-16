@@ -1,117 +1,263 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
-
 {% extends "base.html.twig" %}
 
-{# ======================================== #}
-{# ================= STYLE ================ #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/default/event.css') }}">
-{% endblock %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
-
-{% block title %}Nos évènements{% endblock %}
-
-{# ======================================== #}
-{# ================== BODY ================ #}
-{# ======================================== #}
+{% block title %}C&B : Nos évènements{% endblock %}
 
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ FLASHES =============== #}
-    {# ======================================== #}
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top">
 
-    <div class="login-anim">
-        {% for message in app.flashes('success') %}
-            <div class="flash successFlash">{{message}}</div>
-        {% endfor %}
-        {% for message in app.flashes('error') %}
-            <div class="flash errorFlash">{{message}}</div>
-        {% endfor %}
-    </div>
+        <div class="container">
 
-    {# ======================================== #}
-    {# ================ HEADING =============== #}
-    {# ======================================== #}
+            <!-- Navbar brand (mobile) -->
+            <a class="navbar-brand d-lg-none" href="{{ path('app_default_home_page') }}">Coffee and Book</a>
 
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Participer à un de nos évènements</h2>
-        <p>Dégustation de nouveaux grains, dédicaces, ...</p> 
-    </section>
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    {# ======================================== #}
-    {# ================ EVENTS ================ #}
-    {# ======================================== #}
+            <!-- Navbar collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
 
-    <section class="container-event">
+                <!-- Navbar nav -->
+                <ul class="navbar-nav">
 
-        {% for event in events | reverse %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ path('app_default_menu') }}">Menu</a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('app_default_event') }}">Évènements</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ path('app_default_coffee_beans') }}">Grains</a>
+                    </li>
+
+                </ul>
+
+                <!-- Navbar brand -->
+                <a class="navbar-brand d-none d-lg-flex mx-lg-auto" href="{{ path('app_default_home_page') }}">
+                    Coffee and Book
+                </a>
+
+                <!-- Navbar nav -->
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ path('app_user_account') }}">Compte</a>
+                    </li>
+
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_admin_dashboard') }}">Dashboard</a>
+                        </li>
+                    {% endif %}
+
+                    {% if not app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_security_log_in') }}">Connexion</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_security_log_out') }}">Déconnexion</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    {# ================================================== #}
+
+    <!-- ARTICLE -->
+    <article class="pt-10 pt-md-12">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6 text-center">
+
+                    <!-- Preheading -->
+                    <h6 class="text-xs text-primary">
+                        Nos évènement
+                    </h6>
+
+                    <!-- Heading -->
+                    <h1 class="display-3 mb-4">
+                        Vivez un moment <span class="text-primary"><em>inoubliable</em></span>
+                    </h1>
+
+                    <!-- Subheading -->
+                    <p class="mb-6">
+                        Envie de passer plus de temps avec nous ?
+                    </p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- Image -->
+                    <figure class="mb-6 text-center">
+                        <img width="500" height="auto" class="img-fluid" src="assets/img/event.jpg" alt="...">
+                    </figure>
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+
+                    <!-- Heading -->
+                    <h2 class="fw-bold mt-6 mb-3">
+                        Tous nos évènements sont gratuits !
+                    </h2>
+
+                    <!-- Text -->
+                    <p>
+                        Comme les bons vins, les bons cafés possèdent une riche palette aromatique.
+                        Elle est le reflet de l’origine du café, de l’espèce, du climat, du soin porté à la récolte…
+                        S’arrêter le temps d’une dégustation pour se concentrer sur ses sensations fera voyager vos papilles!
+                    </p>
+                    <p>
+                        Ou que diriez-vous de rencontrez votre auteur préféré ou d'en découvrir un le temps d'une dédicace ? Ou qui sait échanger avec lui autour d'un café ?
+                    </p>
+
+                    <!-- Divider -->
+                    <hr class="mt-6 mt-md-9 mb-0" />
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    {# ================================================== #}
+
+    <!-- EVENTS -->
+    <section class="pt-7 pt-md-9">
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-8 col-lg-6 text-center">
+
+                    <!-- Heading -->
+                    <h2 class="mb-6">
+                        Les évènements à venir
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div id="events">
+
+            <!-- Poster -->
             <div class="event">
 
-                <div class="card-event">
+                <div class="event-lg collapse show bg-cover" id="eventOne" data-bs-parent="#events" style="background-image: url(assets/img/8.jpg);">
 
-                    <div class="img-event">
-                        <img src="{{ asset('/uploads/' ~ event.img) }}" alt="{{ event.name }}" width="500" height="500"  onerror="this.style.display='none';"/>
-                    </div>
+                    <div class="bg-black-50">
 
-                    <div class="detail-event">
+                        <div class="container">
 
-                        <div class="heading">
-                            <h2>{{ event.name}}</h2>
-                            <p>Aura lieu le : {{ event.date | date('d/m/Y') }}</p>
-                        </div>
+                            <div class="row py-10">
 
-                        <div class="text-event">
-                            <p>{{ event.description}}</p>
-                        </div>
+                                <div class="col-md-8 col-lg-5">
 
-                        <div class="footer-event">
-                            <p>Place disponible : {{ event.place}}</p>
-                            <p>Participant inscrit : {{ event.participants}}</p>
+                                    <!-- Date -->
+                                    <h3 class="text-xs text-primary">
+                                        <time datetime="2017-09-30">16 juillet 2019</time>
+                                    </h3>
 
-                            <div>
-                                {% if event.status == 'Ouvert' %}
-                                    <div class="circle circleGreen"></div>
-                                    {% elseif event.status == 'Annulé'%}
-                                        <div class="circle circleRed"></div>
-                                    {% else %}
-                                        <div class="circle circleDark"></div>
-                                {% endif %}
+                                    <!-- Heading -->
+                                    <h2 class="mb-3 text-white">
+                                        TO THE MOON AND BACK
+                                    </h2>
 
-                                <p>{{ event.status }}</p>
+                                    <!-- Description -->
+                                    <p class="mb-6 text-white-75">
+                                        Vous ne voulez pas louper des évènements qui peuvent changer votre vie ? <br>
+                                        Alors qu'attendez-vous pour participer à l'un de nos évènements ? <br>
+                                        Des places limitées, mais des souvenirs à l'infini !
+                                    </p>
+
+                                    <!-- Divider -->
+                                    <hr class="hr-sm bg-primary">
+
+                                </div>
+
                             </div>
 
-                        </div>{# END FOOOTER EVENT #}
+                        </div>
 
-                        {% if event.status == 'Ouvert' %}
-                            <button>
-                                <a href="{{ path('app_user_participant', {'id': event.id}) }}">
-                                    S'inscrire
-                                </a>
-                            </button>
-                        {% endif %}
+                    </div>
 
-                    </div>{# END DETAIL EVENT #}
+                </div>
 
-                </div>{# END CARD EVENT #}
+            </div>
 
-            </div>{# END EVENT #}
+            <div class="event mb-10">
 
-            {% else %}  
-                <p class="else">Il n'y a pas encore d'évènement</p>
+                {% for event in events %}
 
-        {% endfor %}
+                    <div class="event-sm collapse show">
 
-    </section>{# END CONTAINER EVENT #}
+                        <div class="container border-top">
+
+                            <div class="row align-items-center py-6">
+
+                                <div class="col-3 col-md-2 col-lg-1">
+
+                                    <!-- Date -->
+                                    <time class="d-block text-center text-black">
+                                        <span class="d-block mb-2 display-6 font-serif">{{ event.date|format_datetime(locale='fr',pattern="dd") }}</span>
+                                        <span>{{ event.date|format_datetime(locale='fr',pattern="MMMM") }}</span>
+                                    </time>
+
+                                </div>
+
+                                <div class="col-9 col-md-7 col-lg-8">
+
+                                    <!-- Heading -->
+                                    <div class="mb-4 mb-md-0" data-bs-toggle="collapse" data-bs-target="#eventTwo" aria-controls="eventTwo" role="button">
+                                        {{ event.description }}
+                                    </div>
+
+                                </div>
+
+                                <div class="col-9 offset-3 col-md-3 offset-md-0 text-md-right">
+
+                                    <!-- Button -->
+                                    <a class="btn btn-outline-primary" href="{{ path('app_user_participant', {'id': event.id}) }}">
+                                        S'inscrire
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% else %}
+                        <p class="else">Il n'y a pas encore d'évènement</p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
 
 {% endblock %}
 

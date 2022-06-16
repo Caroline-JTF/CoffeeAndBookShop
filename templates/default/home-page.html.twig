@@ -1,9 +1,128 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Coffee and Book{% endblock %}
+
 {% block body %}
 
+    <!-- WELCOME -->
     <style>
-        .container-card {
+        header{
+            background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
+        }
+        header h1{
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            font-size: 5rem;
+            text-align: center;
+            color: var(--color-light-brown);
+            text-shadow:
+                    1px 0 1px var(--color-dark-brown),
+                    0 1px 1px var(--color-light-brown),
+                    2px 1px 1px var(--color-dark-brown),
+                    1px 2px 1px var(--color-light-brown),
+                    3px 2px 1px var(--color-dark-brown),
+                    2px 3px 1px var(--color-light-brown),
+                    4px 3px 1px var(--color-dark-brown),
+                    3px 4px 1px var(--color-light-brown),
+                    5px 4px 1px var(--color-dark-brown),
+                    4px 5px 1px var(--color-light-brown),
+                    6px 5px 1px var(--color-dark-brown),
+                    5px 6px 1px var(--color-light-brown),
+                    7px 6px 1px var(--color-dark-brown);
+        }
+    </style>
+    <header data-jarallax data-speed=".8">
+
+        <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0">
+
+            <div class="container my-auto">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
+
+                        <!-- Preheading -->
+                        <h6 class="text-xs text-white-75">
+                            <span class="text-primary">Café</span> / Bistrot
+                        </h6>
+
+                        <!-- Heading -->
+                        <h1 class="display-3 text-white mb-4">
+                            Coffee and Book
+                        </h1>
+
+                        <!-- Subheading -->
+                        <p class="text-center text-white-75 mb-7">
+                            « Un bon livre doit vous faire le même effet que le café : vous maintenir en éveil.»
+                        </p>
+
+                        <!-- Button -->
+                        <a class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0" href="{{ path('app_default_home_page', {'_fragment': 'contact'}) }}">
+                            Nous contacter
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md">
+
+                        <!-- Social links -->
+                        <ul class="list-inline text-center text-md-start mb-3 my-md-5">
+
+                            <!-- Twitter -->
+                            <li class="list-inline-item">
+                                <a class="text-white-75 text-primary-hover" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+
+                            <!-- Facebook -->
+                            <li class="list-inline-item ms-5">
+                                <a class="text-white-75 text-primary-hover" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+
+                            <!-- Instagram -->
+                            <li class="list-inline-item ms-5">
+                                <a class="text-white-75 text-primary-hover" href="#!">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md">
+
+                        <!-- Address -->
+                        <p class="font-serif text-white-75 text-center text-md-end text-lg-end my-md-5">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i> 1607 du pot au noir à Paris (75)
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    {# ================================================== #}
+
+    <!-- DISCOVER -->
+    <style>
+        .container-discover {
             display: grid;
             display: flex;
             grid-template-areas:
@@ -23,23 +142,10 @@
         .relax{
             grid-area: relax;
         }
-        .container-card .card{
+        .container-discover .discover{
             width: 350px;
             height: 400px;
             border: none !important;
-            color: var(--color-dark);
-        }
-        .container-card img{
-            width: 350px;
-            height: 200px;
-        }
-        .container-card h2{
-            font-family: var(--font-serif);
-            margin: 1rem 0;
-            color: var(--color-red);
-        }
-        .container-card span{
-            color: var(--color-dark);
         }
         @media screen and (max-width: 1150px){
             .container-card{
@@ -61,52 +167,80 @@
             }
         }
     </style>
-    <!-- DISCOVER -->
-    <section class="py-7 py-md-9">
-        <div class="container-card">
-            <div class="rustic card">
-                <img src="{{ asset('assets/img/homepage/rustic.jpg') }}" alt="Photo d'un café rustique">
-                <div class="card-text">
-                    <h2>
-                        <span><em>01.</em></span>
-                        Café rustique
-                    </h2>
-                    <p>
-                        Un bistro à l’ambiance rustique.
-                        Un café fraîchement moulu.
-                        Une torréfaction parfaite.
-                        Les meilleurs arômes avec des grains venus du monde entier.
-                    </p>
-                </div>
+    <section class="py-7 py-md-9 my-5">
+
+        <div class="container-discover">
+
+            <div class="rustic discover">
+
+                <!-- Img -->
+                <img width="350" height="200" src="{{ asset('assets/img/homepage/rustic.jpg') }}" alt="Photo d'un café rustique">
+
+                <!-- Heading -->
+                <h2 class="font-serif color-red my-1">
+                    <span style="color: var(--color-dark);"><em>01.</em></span>
+                    Café rustique
+                </h2>
+
+                <!-- Text -->
+                <p>
+                    Un bistro à l’ambiance rustique.
+                    Un café fraîchement moulu.
+                    Une torréfaction parfaite.
+                    Les meilleurs arômes avec des grains venus du monde entier.
+                </p>
+
             </div>
+
             {# ================================================== #}
 
-            <div class="gourmet card">
-                <img src="{{ asset('assets/img/homepage/gourmet.jpg') }}" alt="Photo d'un café avec des douceurs">
-                <h2>
-                    <span><em>02.</em></span>
+            <div class="gourmet discover">
+
+                <!-- Img -->
+                <img width="350" height="200" src="{{ asset('assets/img/homepage/gourmet.jpg') }}" alt="Photo d'un café avec des douceurs">
+
+                <!-- Heading -->
+                <h2 class="font-serif color-red my-1">
+                    <span style="color: var(--color-dark);"><em>02.</em></span>
                     Café gourmand
                 </h2>
+
+                <!-- Text -->
                 <p>
                     On parle des cafés ou des douceurs?
                     Quoi qu’il en soit, nous vous offrons le meilleur en terme de qualité.
                 </p>
+
             </div>
 
             {# ================================================== #}
 
-            <div class="relax card">
-                <img src="{{ asset('assets/img/homepage/relaxation.jpg') }}" alt="Photo d'un café avec un livre">
-                <h2>
-                    <span><em>03.</em></span>
+            <div class="relax discover">
+
+                <!-- Img -->
+                <img width="350" height="200" src="{{ asset('assets/img/homepage/relaxation.jpg') }}" alt="Photo d'un café avec un livre">
+
+                <!-- Heading -->
+                <h2 class="font-serif color-red my-1">
+                    <span style="color: var(--color-dark);"><em>03.</em></span>
                     Café détente
                 </h2>
+
+                <!-- Text -->
                 <p>
-                    Vous trouverez chez C&B la possibilité d’emprunter un livre en guise d’accompagnement avec votre café pour vous offrir un réel moment de détente.
+                    Vous trouverez chez C&B la possibilité
+                    d’emprunter un livre en guise d’accompagnement avec votre café
+                    pour vous offrir un réel moment de détente.
                 </p>
+
             </div>
+
         </div>
+
     </section>
+
+    {# ================================================== #}
+
     <!-- PARALLAX -->
     <style>
         .parallax{
@@ -135,8 +269,11 @@
         }
     </style>
     <section class="parallax">
+
         <div class="container">
+
             <div class="row">
+
                 <div class="col-12 col-md-8 col-lg-6">
 
                     <!-- Divider -->
@@ -159,20 +296,30 @@
                     </a>
 
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
+    {# ================================================== #}
+
     <!-- INFO -->
-    <section class="py-7 py-md-9 border-bottom">
+    <section class="py-7 py-md-9 my-5 border-bottom">
+
+
         <div class="container">
+
             <div class="row align-items-center justify-content-between">
+
                 <div class="col-md-6 order-md-2">
 
-                    <!-- Image -->
+                    <!-- Img -->
                     <img class="img-fluid mw-md-120 clip-top-start" src="{{ asset('assets/img/homepage/presentation.jpg') }}" alt="...">
 
                 </div>
+
                 <div class="col-md-5 order-md-1">
 
                     <!-- Heading -->
@@ -190,26 +337,38 @@
                     </p>
 
                     <!-- Bouton -->
-                    <a class="btn btn-outline-primary" href="contact-us.html">
+                    <a class="btn btn-outline-primary" href="{{ path('app_default_review') }}">
                         Voir nos avis
                     </a>
 
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+    {# ================================================== #}
 
     <!-- EVENTS -->
     <section class="pt-7 pt-md-9">
+
         <div id="events">
+
             <div class="event">
+
                 <div class="event-lg collapse show bg-cover" id="eventOne" data-bs-parent="#events" style="background-image: url(assets/img/homepage/event.jpg);">
+
                     <div class="bg-black-50">
+
                         <div class="container">
+
                             <div class="row py-10">
+
                                 <div class="col-md-8 col-lg-5">
 
-                                    <!-- Date -->
+                                    <!-- Preheading -->
                                     <h3 class="text-xs text-primary">
                                         Envie d'un moment inoubliable ?
                                     </h3>
@@ -227,18 +386,27 @@
                                     </p>
 
                                     <!-- Button -->
-                                    <a class="btn btn-outline-primary text-white text-primary-hover" href="#section_reservation">
+                                    <a class="btn btn-outline-primary text-white text-primary-hover" href="{{ path('app_default_event') }}">
                                         Voir nos évènements
                                     </a>
 
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
+
+    {# ================================================== #}
 
     <!-- ABOUT US -->
     <style>
@@ -271,7 +439,7 @@
             display: block;
         }
         .container-personnel .card-presentation h3 {
-            padding: 1rem 1rem;
+            padding: 1rem;
             font-family: var(--font-serif);
             color: var(--color-red);
             font-size: 2rem;
@@ -310,7 +478,7 @@
             }
         }
     </style>
-    <section class="container-contact">
+    <section class="container-contact my-10">
 
         <section id="personnel">
 
@@ -319,34 +487,69 @@
             <div class="container-personnel">
 
                 <div class="alexis card-presentation">
+
+                    <!-- Img -->
                     <img src="{{ asset('assets/img/homepage/alexis.jpg') }}"/>
+
+                    <!-- Heading -->
                     <h3>Alexis</h3>
+
+                    <!-- Text -->
                     <div class="focus-content">
-                        <p>Alexis est notre barista, c’est un vrai sommelier du café, il maitrise la technique du LATTE ART depuis 2013</p>
+                        <p>
+                            Alexis est notre barista,
+                            c’est un vrai sommelier du café,
+                            il maitrise la technique du LATTE ART depuis 2013
+                        </p>
                     </div>
+
                 </div>
 
                 {# ================================================== #}
 
                 <div class="olga card-presentation">
+
+                    <!-- Img -->
                     <img src="{{ asset('assets/img/homepage/olga.jpg') }}"/>
+
+                    <!-- Heading -->
                     <h3>Olga</h3>
+
+                    <!-- Text -->
                     <div class="focus-content">
-                        <p>Olga est une passionnée de livre depuis son plus jeune âge, elle décide d’ouvrir le Coffee and Book en 2016. En plus d’être la gérante, elle fait également le service pour préserver une relation employés-clients unique</p>
+                        <p>
+                            Olga est une passionnée de livre depuis son plus jeune âge,
+                            elle décide d’ouvrir le Coffee and Book en 2016.
+                            En plus d’être la gérante,
+                            elle fait également le service pour préserver une relation employés-clients unique
+                        </p>
                     </div>
+
                 </div>
 
                 {# ================================================== #}
 
                 <div class="nicolas card-presentation">
+
+                    <!-- Img -->
                     <img src="{{ asset('assets/img/homepage/nicolas.jpg') }}"/>
+
+                    <!-- Heading -->
                     <h3>Nicolas</h3>
+
+                    <!-- Text -->
                     <div class="focus-content">
-                        <p>Boulanger depuis 2016, il est élu meilleur apprenti de France en 2014 pendant ses études grâce à son fameux pain au chocolat aux amendes, qui fait partie de la carte.</p>
+                        <p>
+                            Boulanger depuis 2016,
+                            il est élu meilleur apprenti de France en 2014 pendant ses études
+                            grâce à son fameux pain au chocolat aux amendes,
+                            qui fait partie de la carte.
+                        </p>
                     </div>
+
                 </div>
 
-            </div>{# END CONTAINER-PERSONNEL #}
+            </div>
 
     <div class="text-center my-5">
         <a id="contact" class="btn btn-outline-primary text-primary-hover" href="mailto:carolinejtf@gmail.com">
@@ -358,5 +561,7 @@
         </section>{# END PERSONNEL #}
 
     </section>
+
+    {# ================================================== #}
 
 {% endblock %}

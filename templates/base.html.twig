@@ -1,6 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
     <head>
+
+        <!-- META -->
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,7 +12,6 @@
         <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/mini-reset.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/variables.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/css/include/navbar.css') }}">
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/theme/favicon/apple-touch-icon.png') }}">
@@ -29,27 +32,34 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
         <!-- Title -->
-        <title>Coffee and Book</title>
+        <title>{% block title %}Coffee and Book{% endblock %}</title>
+
     </head>
 
+    {% block stylesheets %}{% endblock %}
+
     <body>
+
         <style>
             body{
+                color: var(--color-dark);
                 font-family: var(--font-default) !important;
             }
         </style>
+
         {{ include('include/_navbar.html.twig') }}
             {% block body %}
             {% endblock %}
         {{ include('include/_footer.html.twig') }}
+
     </body>
 
     {% block javascripts %}
-        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-        <script src="{{ asset('assets/map/map.js') }}"></script>
 
         <!-- Theme JS -->
+        <script src="{{ asset('assets/theme/js/map.js') }}"></script>
         <script src="{{ asset('assets/theme/js/theme.bundle.js') }}"></script>
         <script src="{{ asset('assets/theme/js/vendor.bundle.js') }}"></script>
+
     {% endblock %}
 </html>

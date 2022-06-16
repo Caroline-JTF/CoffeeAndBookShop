@@ -1,94 +1,187 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
 {% extends "base.html.twig" %}
 
-{# ======================================== #}
-{# ================ STYLE ================= #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/default/review.css') }}">
-{% endblock %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
-
-{% block title %}Le mur des avis{% endblock %}
-
-{# ======================================== #}
-{# ================= BODY ================= #}
-{# ======================================== #}
+{% block title %}C&B : Le mur des avis{% endblock %}
 
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ HEADING =============== #}
-    {# ======================================== #}
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top">
 
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Bienvenue sur le mur des avis</h2>
-        <p>Laisser votre marque dans l'histoire du café</p> 
-    </section>
+        <div class="container">
 
-    {# ======================================== #}
-    {# ============== FORMULAIRE ============== #}
-    {# ======================================== #}
+            <!-- Navbar brand (mobile) -->
+            <a class="navbar-brand d-lg-none" href="{{ path('app_default_home_page') }}">Coffee and Book</a>
 
-    <div class="container-btn">
-        <button class="btn">Vous voulez laisser un avis ?</button>
-    </div>
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    {# ======================================== #}
-    {# ============== FORMULAIRE ============== #}
-    {# ======================================== #}
+            <!-- Navbar collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
 
-    <div class="box">
-        <section class="container-form">
-            
-            {{ form(form) }}
+                <!-- Navbar nav -->
+                <ul class="navbar-nav">
 
-        </section>
-    </div>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ path('app_default_menu') }}">Menu</a>
+                    </li>
 
-    {# ======================================== #}
-    {# ================ REVIEW ================ #}
-    {# ======================================== #}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_default_event') }}">Évènements</a>
+                    </li>
 
-    <section class="container-review">
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ path('app_default_coffee_beans') }}">Grains</a>
+                    </li>
 
-        {% for review in reviews | reverse %}
+                </ul>
 
-            <div class="card-review">
+                <!-- Navbar brand -->
+                <a class="navbar-brand d-none d-lg-flex mx-lg-auto" href="{{ path('app_default_home_page') }}">
+                    Coffee and Book
+                </a>
 
-                <div class="review">
+                <!-- Navbar nav -->
+                <ul class="navbar-nav">
 
-                    <div class="detail-review">
-                        <div class="text">
-                            <p>{{ review.message}}</p>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ path('app_user_account') }}">Compte</a>
+                    </li>
 
-                        <div class="signature">
-                            <p>{{ review.name}}</p>
-                            <p>{{ review.createdAt | date('d/m/Y') }}</p>
-                        </div>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_admin_dashboard') }}">Dashboard</a>
+                        </li>
+                    {% endif %}
+
+                    {% if not app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_security_log_in') }}">Connexion</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_security_log_out') }}">Déconnexion</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    {# ================================================== #}
+
+    <!-- HEADER -->
+    <header data-jarallax data-speed=".8" style="background-image: url(assets/img/background/bg-header.jpg);">
+
+        <div class="pt-10 pb-8 pt-md-15 pb-md-13 bg-black-50">
+
+            <div class="container">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-12 col-md-8 col-lg-6 text-center">
+
+                        <!-- Heading -->
+                        <h1 class="display-6 fw-bold text-white">
+                            Le mur des avis
+                        </h1>
+
                     </div>
 
-                </div>{# END REVIEW #}
+                </div>
 
-            </div>{# END CARD-REVIEW #}
+            </div>
 
-        {% else %}
-            <p class="else">Il n'y a pas encore d'avis</p>
+        </div>
 
-        {% endfor %}
+    </header>
 
-    </section>{# END CONTAINER REVIEW #}
+    {# ================================================== #}
 
-{% endblock %}
+    <!-- FORMULAIRE -->
+    <style>
+        textarea{
+            height: 150px;
+            resize: none;
+        }
+    </style>
+    <section class="py-7 py-md-9" style="background: var(--color-light);">
 
-{% block javascripts %}
-    <script src="{{ asset('assets/JS/default/review.js') }}"></script>
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-10 col-lg-8 text-center">
+
+                    <!-- Heading -->
+                    <h2 class="mb-2">
+                        Laisser votre marque dans l'histoire du café
+                    </h2>
+
+                    <!-- Subheading -->
+                    <p class="mb-6">
+                        Tout avis <em>réfléchi</em> et <em>constructif</em> est bon à prendre ! <br>
+                        Un petit mot gentil aussi.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Formulaire -->
+
+            <div class="row justify-content-lg-center">
+
+                <div class="col-lg-8">
+
+                    {{ form(form) }}
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    {# ================================================== #}
+
+    <!-- REVIEW -->
+    <style>
+        .review{
+            width: 350px;
+            height: 350px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+            border-radius: 0.25rem;
+            margin: 10px;
+            background-color: var(--color-light);
+        }
+        .review p{
+            height: 200px;
+            overflow: auto;
+            text-align: justify;
+        }
+    </style>
+    <section class="pt-0 pattern pattern-dark">
+    <div class="container my-5">
+        <div class="row separated boxed">
+            {% for review in reviews | reverse %}
+                <div class="col-md-6 col-lg-4 p-5 text-center review">
+                    <p>{{ review.message }}</p>
+                    <h4 class="fs-24 font-weight-normal">{{ review.name }}</h4>
+                    <figcaption class="blockquote-footer text-xs mb-0">
+                        {{ review.createdAt | date('d/m/Y') }}
+                    </figcaption>
+                </div>
+                {% else %}
+                    <p class="else">Il n'y a pas encore d'avis</p>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 {% endblock %}

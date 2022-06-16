@@ -20,7 +20,8 @@ class ReviewFormType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => false, 
                 'attr' => [
-                    'placeholder' => 'Votre nom et prénom',
+                    'placeholder' => 'Votre prénom ou pseudo',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -32,6 +33,7 @@ class ReviewFormType extends AbstractType
                 'label' => false, 
                 'attr' => [
                     'placeholder' => 'Votre message',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -40,7 +42,10 @@ class ReviewFormType extends AbstractType
                 ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Valider',
+                'label' => 'Publier votre avis',
+                'attr' => [
+                    'class' => 'd-block mx-auto my-5 btn btn-outline-primary',
+                ]
             ])
         ;
     }

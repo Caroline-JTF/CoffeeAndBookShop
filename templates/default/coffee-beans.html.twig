@@ -1,93 +1,139 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
+{% extends 'base.html.twig' %}
 
-{% extends "base.html.twig" %}
-
-{# ======================================== #}
-{# ================= STYLE ================ #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
-    <link rel="stylesheet" href="{{ asset('assets/css/default/beans-coffee.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/map/map.css') }}">
-{% endblock %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
-
-{% block title %}Les grains de cafés{% endblock %}
-
-{# ======================================== #}
-{# ================== BODY ================ #}
-{# ======================================== #}
+{% block title %}C&B : Les grains{% endblock %}
 
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ HEADING =============== #}
-    {# ======================================== #}
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top">
 
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Voyez d'où viennent nos grains</h2>
-        <p>Pour vous aider à choisir le meilleur pour votre café</p> 
-    </section>
+        <div class="container">
 
-    {# ======================================== #}
-    {# ================== MAP ================= #}
-    {# ======================================== #}
+            <!-- Navbar brand (mobile) -->
+            <a class="navbar-brand d-lg-none" href="{{ path('app_default_home_page') }}">Coffee and Book</a>
 
-    <div class="container-map">
-        <div id="map"></div>
-    </div>
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    {# ======================================== #}
-    {# =========== CONTAINER LEGEND =========== #}
-    {# ======================================== #}
+            <!-- Navbar collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
 
-    <section class="container-legend">
+                <!-- Navbar nav -->
+                <ul class="navbar-nav">
 
-        {# ========== CONTAINER LEGENDS COLOR ========== #}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_default_menu') }}">Menu</a>
+                    </li>
 
-        <div class="container-legends-color">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_default_event') }}">Évènements</a>
+                    </li>
 
-            <div class="legend">
-                <div class="color color-no-coffee"></div>
-                <p>Pays qui ne cultive pas le café</p>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('app_default_coffee_beans') }}">Grains</a>
+                    </li>
+
+                </ul>
+
+                <!-- Navbar brand -->
+                <a class="navbar-brand d-none d-lg-flex mx-lg-auto" href="{{ path('app_default_home_page') }}">
+                    Coffee and Book
+                </a>
+
+                <!-- Navbar nav -->
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ path('app_user_account') }}">Compte</a>
+                    </li>
+
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_admin_dashboard') }}">Dashboard</a>
+                        </li>
+                    {% endif %}
+
+                    {% if not app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_security_log_in') }}">Connexion</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ path('app_security_log_out') }}">Déconnexion</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+
             </div>
 
-            {# ======================================== #}
-
-            <div class="legend">
-                <div class="color color-coffee"></div>
-                <p>Pays qui cultive le café</p>
-            </div>
-
-            {# ======================================== #}
-
-            <div class="legend">
-                <div class="color color-available"></div>
-                <p>Grain de café que nous proposons</p>
-            </div>
         </div>
 
-        {# ========== CONTAINER LEGEND TEXT ========== #}
+    </nav>
 
-        <div class="container-legends-text">
-            <div>
-                <h2 id="titleInfo">Cliquez sur un pays</h2>
-                <p id="textInfo">Pour afficher son détail</p>
+    {# ================================================== #}
+
+
+    <!-- ARTICLE -->
+    <article class="pt-10 pt-md-12">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8 text-center">
+
+                    <!-- Preheading -->
+                    <h6 class="text-xs text-primary">
+                        Les grains de café du monde
+                    </h6>
+
+                    <!-- Heading -->
+                    <h1 class="display-3 mb-4">
+                        Envie de découvrir de nouvelle <span class="text-primary"><em>saveur</em></span> ?
+                    </h1>
+
+                    <!-- Subheading -->
+                    <p class="mb-6">
+                        Voyez quels grains sont disponibles chez nous
+                    </p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- Image -->
+                    <figure class="mb-6 text-center">
+                        <img width="500" height="auto" class="img-fluid" src="assets/img/beans/article2.jpg" alt="...">
+                    </figure>
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+
+                    <!-- Heading -->
+                    <h2 class="fw-bold mt-6 mb-3">
+                        Chez C&B on vous offre le choix.
+                    </h2>
+
+                    <!-- Text -->
+                    <p>
+                        On peut classer les meilleurs cafés selon plusieurs critères
+                        comme le goût, en s’assurant d’avoir un excellent équilibre entre acidité et amertume ;
+                        l’odeur, dégagée d’un café fraichement moulu,
+                        et la torréfaction parfaite de ses grains pour assurer les meilleurs arômes lors de la dégustation.
+                    </p>
+                    <p>
+                        Et vous ? Si vous choissisez, le <span class="text-primary">meilleur</span> pour votre café ?
+                    </p>
+
+                    <!-- Divider -->
+                    <hr class="mt-6 mt-md-9 mb-0" />
+
+                </div>
             </div>
         </div>
-    
-    </section>{# END CONTAINER LEGEND #}
+    </article>
 
-{% endblock %}
-
-{% block javascripts %}
-     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-     <script src="{{ asset('assets/map/map.js') }}"></script>
 {% endblock %}

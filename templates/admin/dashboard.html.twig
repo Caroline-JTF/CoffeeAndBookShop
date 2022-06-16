@@ -1,692 +1,788 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
-
 {% extends "base.html.twig" %}
 
-{# ======================================== #}
-{# ================== STYLE =============== #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/admin/dashboard.css') }}">
-{% endblock %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
-
-{% block title %}Panneau de gestion{% endblock %}
-
-{# ======================================== #}
-{# ================= BODY ================= #}
-{# ======================================== #}
+{% block title %}Mon compte{% endblock %}
 
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ FLASHES =============== #}
-    {# ======================================== #}
+    <style>
 
-    <div class="login-anim">
-        {% for message in app.flashes('success') %}
-            <div class="flash successFlash">{{message}}</div>
-        {% endfor %}
-        {% for message in app.flashes('error') %}
-            <div class="flash errorFlash">{{message}}</div>
-        {% endfor %}
-    </div>
+        /* navbar & footer */
+        #navbar, footer{
+            display: none !important;
+        }
 
-    {# ======================================== #}
-    {# ================ WRAPPER =============== #}
-    {# ======================================== #}
-    
-    <main class="wrapper"> 
+        /* Card */
+        .card{
+            height: 100px !important;
+            margin: 1rem;
+            border: none;
+            border-radius: 1rem 1rem 0 0;
+        }
+        .card-body{
+            padding: 10px 0 10px 10px !important;
+        }
+        .card-footer{
+            border: none;
+            border-radius: 0 0 1rem 1rem;
+        }
 
-        {# ======================================== #}
-        {# ================= BUTTON =============== #}
-        {# ======================================== #}
+        /* Table */
+        .coffee tbody td,
+        .food tbody td,
+        .book tbody td,
+        .event tbody td,
+        .user tbody td{
+            border-bottom: 1px solid #C7C7C7FF;
+            padding: 20px 0 !important;
+        }
 
-        <section class="command-btn">
-            
-            {# ================= DASHBOARD =============== #}
-            <button class="btn1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-border-all" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <rect x="4" y="4" width="16" height="16" rx="2" />
-                    <line x1="4" y1="12" x2="20" y2="12" />
-                    <line x1="12" y1="4" x2="12" y2="20" />
-                </svg>
-                <p>Dashboard</p>
+        /* Badge */
+        .badge {
+            --bs-badge-padding-x: 0.65em;
+            --bs-badge-padding-y: 0.35em;
+            --bs-badge-font-size: 0.75em;
+            --bs-badge-font-weight: 700;
+            --bs-badge-color: #fff;
+            --bs-badge-border-radius: 0.375rem;
+            display: inline-block;
+            padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+            font-size: var(--bs-badge-font-size);
+            font-weight: var(--bs-badge-font-weight);
+            line-height: 1;
+            color: var(--bs-badge-color);
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+        }
+        .text-bg-success {
+            color: #fff!important;
+            background-color: RGBA(25,135,84,var(--bs-bg-opacity,1))!important;
+        }
+        .text-bg-danger {
+            color: #fff!important;
+            background-color: RGBA(220,53,69,var(--bs-bg-opacity,1))!important;
+        }
+        .text-bg-secondary {
+            color: #fff!important;
+            background-color: RGBA(108,117,125,var(--bs-bg-opacity,1))!important;
+        }
+        .rounded-pill {
+            border-radius: 50px !important;
+        }
+
+        /* Table Review */
+        .review tbody td{
+            border-bottom: 1px solid #C7C7C7FF;
+            padding: 20px 0 !important;
+        }
+    </style>
+
+    <nav class="navbar navbar-dark navbar-expand-lg" style="background : #25252b;">
+
+        <div class="container">
+
+            <!-- Navbar brand (mobile) -->
+            <a class="navbar-brand d-lg-none" href="{{ path('app_default_home_page') }}">Coffee and Book</a>
+
+            <!-- Navbar brand  -->
+            <a class="navbar-brand d-none d-lg-flex mx-lg-auto" href="{{ path('app_default_home_page') }}">
+                Coffee and Book
+            </a>
+
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
+        </div>
+    </nav>
 
-            {# ================= COFFEE =============== #}
-            <button class="btn2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mug" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M4.083 5h10.834a1.08 1.08 0 0 1 1.083 1.077v8.615c0 2.38 -1.94 4.308 -4.333 4.308h-4.334c-2.393 0 -4.333 -1.929 -4.333 -4.308v-8.615a1.08 1.08 0 0 1 1.083 -1.077" />
-                    <path d="M16 8h2.5c1.38 0 2.5 1.045 2.5 2.333v2.334c0 1.288 -1.12 2.333 -2.5 2.333h-2.5" />
-                </svg>
-                <p>Les cafés</p>
-            </button>
+    <div class="row">
 
-            {# ================= FOOD =============== #}
-            <button class="btn3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ice-cream-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M17.657 11.004a6 6 0 1 0 -11.315 0" />
-                    <path d="M6.342 11l5.658 11l5.657 -10.996z" />
-                </svg>
-                <p>Les viennoiseries</p>
-            </button>
+        <div id="sidebarMenu" class="col-md-3 d-md-block sidebar collapse" style="background: #25252b;">
 
-            {# ================= BOOK =============== #}
-            <button class="btn4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                    <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                    <line x1="3" y1="6" x2="3" y2="19" />
-                    <line x1="12" y1="6" x2="12" y2="19" />
-                    <line x1="21" y1="6" x2="21" y2="19" />
-                </svg>
-                <p>Les livres</p>
-            </button>
+            <div class="nav position-sticky pt-3 nav flex-column" id="menuTabs" role="tablist">
 
-            {# ================= EVENT =============== #}
-            <button class="btn5">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <rect x="4" y="5" width="16" height="16" rx="2" />
-                    <line x1="16" y1="3" x2="16" y2="7" />
-                    <line x1="8" y1="3" x2="8" y2="7" />
-                    <line x1="4" y1="11" x2="20" y2="11" />
-                    <rect x="8" y="15" width="2" height="2" />
-                </svg>
-                <p>Les évènements</p>
-            </button>
+                <a class="nav-link text-white text-primary-hover  my-2 active" href="#main" id="mainTab" data-bs-toggle="tab" role="tab" aria-controls="main" aria-selected="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-border-all" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="4" y="4" width="16" height="16" rx="2" />
+                        <line x1="4" y1="12" x2="20" y2="12" />
+                        <line x1="12" y1="4" x2="12" y2="20" />
+                    </svg>
+                    Dashboard
+                </a>
 
-            {# ================= USER =============== #}
-            <button class="btn6">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <circle cx="12" cy="7" r="4" />
-                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                </svg>
-                <p>Les utilisateurs</p>
-            </button>
+                <a class="nav-link text-white text-primary-hover my-2" href="#coffee" id="coffeeTab" data-bs-toggle="tab" role="tab" aria-controls="coffee">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mug" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4.083 5h10.834a1.08 1.08 0 0 1 1.083 1.077v8.615c0 2.38 -1.94 4.308 -4.333 4.308h-4.334c-2.393 0 -4.333 -1.929 -4.333 -4.308v-8.615a1.08 1.08 0 0 1 1.083 -1.077" />
+                        <path d="M16 8h2.5c1.38 0 2.5 1.045 2.5 2.333v2.334c0 1.288 -1.12 2.333 -2.5 2.333h-2.5" />
+                    </svg>
+                    Les cafés
+                </a>
 
-            {# ================= HOME =============== #}
-            <button>
-                <a href="{{ path('app_default_home_page') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <a class="nav-link text-white text-primary-hover my-2" href="#food" id="foodTab" data-bs-toggle="tab" role="tab" aria-controls="food">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ice-cream-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M17.657 11.004a6 6 0 1 0 -11.315 0" />
+                        <path d="M6.342 11l5.658 11l5.657 -10.996z" />
+                    </svg>
+                    Les viennoiseries
+                </a>
+
+                <a class="nav-link text-white text-primary-hover my-2" href="#book" id="bookTab" data-bs-toggle="tab" role="tab" aria-controls="book">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                        <line x1="3" y1="6" x2="3" y2="19" />
+                        <line x1="12" y1="6" x2="12" y2="19" />
+                        <line x1="21" y1="6" x2="21" y2="19" />
+                    </svg>
+                    Les livres
+                </a>
+
+                <a class="nav-link text-white text-primary-hover my-2" href="#event" id="eventTab" data-bs-toggle="tab" role="tab" aria-controls="event">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="4" y="5" width="16" height="16" rx="2" />
+                        <line x1="16" y1="3" x2="16" y2="7" />
+                        <line x1="8" y1="3" x2="8" y2="7" />
+                        <line x1="4" y1="11" x2="20" y2="11" />
+                        <rect x="8" y="15" width="2" height="2" />
+                    </svg>
+                    Les évènements
+                </a>
+
+                <a class="nav-link text-white text-primary-hover my-2" href="#client" id="clientTab" data-bs-toggle="tab" role="tab" aria-controls="client">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    </svg>
+                    Les utilisateurs
+                </a>
+
+                <hr>
+
+                <a class="nav-link text-white my-2" href="mailto:carolinejtf@gmail.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <polyline points="3 7 12 13 21 7" />
+                    </svg>
+                    Nous contacter
+                </a>
+
+                <a class="nav-link text-white my-2" href="{{ path('app_default_home_page') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <polyline points="5 12 3 12 12 3 21 12 19 12" />
                         <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
                         <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
                     </svg>
-                    <p>Accueil</p>
+                    Accueil
                 </a>
-            </button>
 
-        </section> {# END COMMAND BTN #}
+            </div>
 
-        {# ================================================================================== #}
-        {# ================= SECTION : LIST COFFEE, FOOD, BOOK, USER, EVENT ================= #}
-        {# ================================================================================== #}
-        <div class="container-box">
+        </div>
 
-        {# ======================================== #}
-        {# ================ HEADING =============== #}
-        {# ======================================== #}
+        <main class="col-md-9 px-md-4 min-vh-100" style="background: var(--color-light);">
 
-        <section class="heading">
-            <p>What's happening here?</p>
-            <h2>Votre panneau de gestion</h2>
-            <p>Gérer votre Coffee and Book ici</p>
-        </section>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Panneau de gestion</h1>
+            </div>
 
-            {# ======================================== #}
-            {# ============== DASHBOARD =============== #}
-            {# ======================================== #}
-            <section class="box box1 active">
+            <div class="tab-content" id="menuContent">
 
-                <section class="heading">
-                    <h2>Vue d'ensemble</h2>
-                </section>
+                <!-- Dashboard -->
+                <div class="tab-pane fade show active" id="main" role="tabpanel" aria-labelledby="mainTab">
 
-                <div class="dashboard">
+                    <div class="row mb-3">
 
-                    <div class="card">
-
-                        <div class="svg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mug" width="80" height="80" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M4.083 5h10.834a1.08 1.08 0 0 1 1.083 1.077v8.615c0 2.38 -1.94 4.308 -4.333 4.308h-4.334c-2.393 0 -4.333 -1.929 -4.333 -4.308v-8.615a1.08 1.08 0 0 1 1.083 -1.077" />
-                                <path d="M16 8h2.5c1.38 0 2.5 1.045 2.5 2.333v2.334c0 1.288 -1.12 2.333 -2.5 2.333h-2.5" />
-                            </svg>
+                        <!-- Coffee -->
+                        <div class="mb-4 col-sm-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <h4 style="color: #f5a637;">{{ nbCoffee }}</h4>
+                                            <p class="subtitle text-sm mb-0">Nb cafés</p>
+                                        </div>
+                                        <div class="mt-3 ms-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mug" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f5a637" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4.083 5h10.834a1.08 1.08 0 0 1 1.083 1.077v8.615c0 2.38 -1.94 4.308 -4.333 4.308h-4.334c-2.393 0 -4.333 -1.929 -4.333 -4.308v-8.615a1.08 1.08 0 0 1 1.083 -1.077" />
+                                                <path d="M16 8h2.5c1.38 0 2.5 1.045 2.5 2.333v2.334c0 1.288 -1.12 2.333 -2.5 2.333h-2.5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer py-3" style="background-color: #f5a637;">
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="text">
-                            <h2>Les cafés</h2>
-                            <p>{{ nbCoffee }}</p>
+                        <!-- Food -->
+                        <div class="mb-4 col-sm-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <h4 style="color: #f5a637;">{{ nbFood }}</h4>
+                                            <p class="subtitle text-sm mb-0">Nb de viennoiseries</p>
+                                        </div>
+                                        <div class="mt-3 ms-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ice-cream-2" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f5a637" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M17.657 11.004a6 6 0 1 0 -11.315 0" />
+                                                <path d="M6.342 11l5.658 11l5.657 -10.996z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer py-3" style="background-color: #f5a637;">
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Book -->
+                        <div class="mb-4 col-sm-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <h4 style="color: #f5a637;">{{ nbBook }}</h4>
+                                            <p class="subtitle text-sm mb-0">Nb de livres</p>
+                                        </div>
+                                        <div class="mt-3 ms-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f5a637" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                                <line x1="3" y1="6" x2="3" y2="19" />
+                                                <line x1="12" y1="6" x2="12" y2="19" />
+                                                <line x1="21" y1="6" x2="21" y2="19" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer py-3" style="background-color: #f5a637;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event -->
+                        <div class="mb-4 col-sm-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <h4 style="color: #f5a637;">{{ nbEvent }}</h4>
+                                            <p class="subtitle text-sm mb-0">Nb d'évènements</p>
+                                        </div>
+                                        <div class="mt-3 ms-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f5a637" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <rect x="4" y="5" width="16" height="16" rx="2" />
+                                                <line x1="16" y1="3" x2="16" y2="7" />
+                                                <line x1="8" y1="3" x2="8" y2="7" />
+                                                <line x1="4" y1="11" x2="20" y2="11" />
+                                                <rect x="8" y="15" width="2" height="2" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer py-3" style="background-color: #f5a637;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User -->
+                        <div class="mb-4 col-sm-6 col-xl-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <h4 style="color: #f5a637;">{{ nbUser }}</h4>
+                                            <p class="subtitle text-sm mb-0">Nb d'utilisateurs</p>
+                                        </div>
+                                        <div class="mt-3 ms-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f5a637" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <circle cx="12" cy="7" r="4" />
+                                                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer py-3" style="background-color: #f5a637;">
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
 
-                    {# ======================================== #}
+                </div>
 
-                    <div class="card">
+                <!-- Coffee -->
+                <div class="tab-pane fade" id="coffee" role="tabpanel" aria-labelledby="coffeeTab">
 
-                        <div class="svg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ice-cream-2" width="80" height="80" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M17.657 11.004a6 6 0 1 0 -11.315 0" />
-                                <path d="M6.342 11l5.658 11l5.657 -10.996z" />
-                            </svg>
-                        </div>
+                    <div class="row">
 
-                        <div class="text">
-                            <h2>Les viennosieries</h2>
-                            <p>{{ nbFood }}</p>
-                        </div>
+                        <h2>Les cafés</h2>
 
-                    </div>
+                        <div class="col-md-12">
 
-                    {# ======================================== #}
+                            <div class="table-wrap">
 
-                    <div class="card">
+                                <table class="coffee table table-hover table-responsive-md">
 
-                        <div class="svg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="80" height="80" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                                <line x1="3" y1="6" x2="3" y2="19" />
-                                <line x1="12" y1="6" x2="12" y2="19" />
-                                <line x1="21" y1="6" x2="21" y2="19" />
-                            </svg>
-                        </div>
+                                    <thead>
 
-                        <div class="text">
-                            <h2>Les livres</h2>
-                            <p>{{ nbBook }}</p>
-                        </div>
-
-                    </div>
-
-                    {# ======================================== #}
-
-                    <div class="card">
-
-                        <div class="svg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="80" height="80" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <rect x="4" y="5" width="16" height="16" rx="2" />
-                                <line x1="16" y1="3" x2="16" y2="7" />
-                                <line x1="8" y1="3" x2="8" y2="7" />
-                                <line x1="4" y1="11" x2="20" y2="11" />
-                                <rect x="8" y="15" width="2" height="2" />
-                            </svg>
-                        </div>
-
-                        <div class="text">
-                            <h2>Les évènements</h2>
-                            <p>{{ nbEvent }}</p>
-                        </div>
-
-                    </div>
-
-                    {# ======================================== #}
-
-                    <div class="card">
-
-                        <div class="svg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="80" height="80" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <circle cx="12" cy="7" r="4" />
-                                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                            </svg>
-                        </div>
-
-                        <div class="text">
-                            <h2>Les utilisateurs</h2>
-                            <p>{{ nbUser }}</p>
-                        </div>
-
-                    </div>
-
-                </div> {# END DASHBOARD #}
-                
-            </section>{# END CONTAINER DASHBOARD #}
-
-            {# ======================================== #}
-            {# ================ COFFEE ================ #}
-            {# ======================================== #}
-            <section id="coffee" class="box box2">
-
-                <section class="heading">
-                    <h2>Les cafés</h2>
-                    <a href="{{ path('app_admin_add_coffee') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9" />
-                            <line x1="9" y1="12" x2="15" y2="12" />
-                            <line x1="12" y1="9" x2="12" y2="15" />
-                        </svg>
-                    </a>
-                </section>
-
-                <div class="container-table">
-
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>Identifiant</th>
-                                <th>Café</th>
-                                <th>Prix</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {% for coffee in coffees | reverse %}
-
-                                <tr>
-                                    <td>{{ coffee.id }}</td>
-                                    <td>{{ coffee.name }}</td>
-                                    <td>{{ coffee.price }}€</td>
-                                    <td>
-                                        <div class="actions">
-                                            {# VOIR #}
-                                            <a href="{{ path('app_admin_view_coffee', {'id': coffee.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <circle cx="12" cy="12" r="2" />
-                                                    <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
-                                                </svg>
-                                            </a> 
-
-                                            <p style="margin: 0 1rem"> | </p>
-
-                                            {# MODIFIER #}
-                                            <a href="{{ path('app_admin_update_coffee', {'id': coffee.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                                                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                                                </svg>
-                                            </a> 
-
-                                            <p style="margin: 0 1rem"> | </p>
-
-                                            {# SUPPRIMER #}
-                                            <a href="{{ path('app_admin_delete_coffee', {'id': coffee.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <line x1="4" y1="7" x2="20" y2="7" />
-                                                    <line x1="10" y1="11" x2="10" y2="17" />
-                                                    <line x1="14" y1="11" x2="14" y2="17" />
-                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                </svg>
-                                            </a>
-                                        </div> 
-                                    </td>
-                                </tr>
-
-                                {% else %}
                                     <tr>
-                                        <td colspan="4" style="text-align:center;">Il n'y a pas de café pour le moment</td>
+                                        <th>&nbsp;</th>
+                                        <th>Nom</th>
+                                        <th>Description</th>
+                                        <th>Prix</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
                                     </tr>
 
-                            {% endfor %}
-                        </tbody>
+                                    </thead>
 
-                    </table>
+                                    <tbody>
 
-                </div> {# END CONTAINER TABLE #}
+                                        {% for coffee in coffees %}
+                                            <tr class="alert" role="alert">
 
-            </section>{# END CONTAINER COFFEE #}
+                                                <td>{{ coffee.id }}</td>
+                                                <td>{{ coffee.name }}</td>
+                                                <td>{{ coffee.description }}</td>
+                                                <td>{{ coffee.price }}</td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_view_coffee', {'id': coffee.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <circle cx="12" cy="12" r="2" />
+                                                            <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_update_coffee', {'id': coffee.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                                                            <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_delete_coffee', {'id': coffee.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <line x1="4" y1="7" x2="20" y2="7" />
+                                                            <line x1="10" y1="11" x2="10" y2="17" />
+                                                            <line x1="14" y1="11" x2="14" y2="17" />
+                                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                            </tr>
 
-            {# ======================================== #}
-            {# ================= FOOD ================= #}
-            {# ======================================== #}
-            <section id="food" class="box box3">
+                                            {% else %}
+                                                <tr>
+                                                    <td colspan="7" style="text-align:center;">Vous n'avez pas enregistré de café pour le moment</td>
+                                                </tr>
 
-                <section class="heading">
-                    <h2>Les viennoiseries</h2>
-                    <a href="{{ path('app_admin_add_food') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9" />
-                            <line x1="9" y1="12" x2="15" y2="12" />
-                            <line x1="12" y1="9" x2="12" y2="15" />
-                        </svg>
-                    </a>
-                </section>
+                                        {% endfor %}
 
-                <div class="container-table">
+                                    </tbody>
 
-                    <table>
+                                </table>
 
-                        <thead>
-                            <tr>
-                                <th>Identifiant</th>
-                                <th>Viennoiserie</th>
-                                <th>Prix</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                            </div>
 
-                        <tbody>
-                            {% for food in foods | reverse %}
-                                <tr>
-                                    <td>{{ food.id }}</td>
-                                    <td>{{ food.name }}</td>
-                                    <td>{{ food.price }}€</td>
-                                    <td>
-                                        <div class="actions">
-                                            {# VOIR #}
-                                            <a href="{{ path('app_admin_view_food', {'id': food.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <circle cx="12" cy="12" r="2" />
-                                                    <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
-                                                </svg>
-                                            </a>
+                        </div>
 
-                                            <p style="margin: 0 1rem"> | </p>
+                    </div>
 
-                                            {# MODIFIER #}
-                                            <a href="{{ path('app_admin_update_food', {'id': food.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                                                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                                                </svg>
-                                            </a> 
+                </div>
 
-                                            <p style="margin: 0 1rem"> | </p>
+                <!-- Food -->
+                <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="foodTab">
 
-                                            {# SUPPRIMER #}
-                                            <a href="{{ path('app_admin_delete_food', {'id': food.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <line x1="4" y1="7" x2="20" y2="7" />
-                                                    <line x1="10" y1="11" x2="10" y2="17" />
-                                                    <line x1="14" y1="11" x2="14" y2="17" />
-                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                </svg>
-                                            </a>
-                                        </div> 
-                                    </td>
-                                </tr>
+                    <div class="row">
 
-                                {% else %}
+                        <h2>Les viennoiseries</h2>
+
+                        <div class="col-md-12">
+
+                            <div class="table-wrap">
+
+                                <table class="food table table-hover table-responsive-md">
+
+                                    <thead>
+
                                     <tr>
-                                        <td colspan="4" style="text-align:center;">Il n'y a pas de viennoiserie pour le moment</td>
+                                        <th>&nbsp;</th>
+                                        <th>Nom</th>
+                                        <th>Description</th>
+                                        <th>Prix</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
                                     </tr>
 
-                            {% endfor %}
-                        </tbody>
+                                    </thead>
 
-                    </table>
+                                    <tbody>
 
-                </div>{# END CONTAINER TABLE #}
+                                    {% for food in foods %}
+                                        <tr class="alert" role="alert">
 
-            </section>{# END CONTAINER FOOD #}
+                                            <td>{{ food.id }}</td>
+                                            <td>{{ food.name }}</td>
+                                            <td>{{ food.description }}</td>
+                                            <td>{{ food.price }}</td>
+                                            <td>
+                                                <a href="{{ path('app_admin_view_food', {'id': food.id}) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <circle cx="12" cy="12" r="2" />
+                                                        <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('app_admin_update_food', {'id': food.id}) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                                                        <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('app_admin_delete_food', {'id': food.id}) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <line x1="4" y1="7" x2="20" y2="7" />
+                                                        <line x1="10" y1="11" x2="10" y2="17" />
+                                                        <line x1="14" y1="11" x2="14" y2="17" />
+                                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
 
-            {# ======================================== #}
-            {# ================= BOOK ================= #}
-            {# ======================================== #}
-            <section id="book" class="box box4">
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="7" style="text-align:center;">Vous n'avez pas enregistré de viennoiserie pour le moment</td>
+                                            </tr>
 
-                <section class="heading">
-                    <h2>Les livres</h2>
-                    <a href="{{ path('app_admin_add_book') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9" />
-                            <line x1="9" y1="12" x2="15" y2="12" />
-                            <line x1="12" y1="9" x2="12" y2="15" />
-                        </svg>
-                    </a>
-                </section>
+                                    {% endfor %}
 
-                <div class="container-table">
+                                    </tbody>
 
-                    <table>
+                                </table>
 
-                        <thead>
-                            <tr>
-                                <th>Identifiant</th>
-                                <th>Livre</th>
-                                <th>Prix</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                            </div>
 
-                        <tbody>
-                            {% for book in books | reverse %}
-                                <tr>
-                                    <td>{{ book.id }}</td>
-                                    <td>{{ book.name }}</td>
-                                    <td>{{ book.price }}€</td>
-                                    <td>
-                                        <div class="actions">
-                                            {# VOIR #}
-                                            <a href="{{ path('app_admin_view_book', {'id': book.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <circle cx="12" cy="12" r="2" />
-                                                    <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
-                                                </svg>
-                                            </a>
+                        </div>
 
-                                            <p style="margin: 0 1rem"> | </p>
+                    </div>
 
-                                            {# MODIFIER #}
-                                            <a href="{{ path('app_admin_update_book', {'id': book.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                                                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                                                </svg>
-                                            </a> 
+                </div>
 
-                                            <p style="margin: 0 1rem"> | </p>
+                <!-- Book -->
+                <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="bookTab">
 
-                                            {# SUPPRIMER #}
-                                            <a href="{{ path('app_admin_delete_book', {'id': book.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <line x1="4" y1="7" x2="20" y2="7" />
-                                                    <line x1="10" y1="11" x2="10" y2="17" />
-                                                    <line x1="14" y1="11" x2="14" y2="17" />
-                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                </svg>
-                                            </a>
-                                        </div> 
-                                    </td>
-                                </tr>
+                    <div class="row">
 
-                                {% else %}
+                        <h2>Les livres</h2>
+
+                        <div class="col-md-12">
+
+                            <div class="table-wrap">
+
+                                <table class="book table table-hover table-responsive-md">
+
+                                    <thead>
+
                                     <tr>
-                                        <td colspan="4" style="text-align:center;">Il n'y a pas de livre pour le moment</td>
+                                        <th>&nbsp;</th>
+                                        <th>Nom</th>
+                                        <th>Description</th>
+                                        <th>Prix</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
                                     </tr>
 
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                                    </thead>
 
-                </div>{# END CONTAINER TABLE #}
+                                    <tbody>
 
-            </section>{# END CONTAINER BOOK #}
+                                    {% for book in books %}
 
-            {# ======================================== #}
-            {# ================ EVENT ================= #}
-            {# ======================================== #}
-            <section id="event" class="box box5">
+                                        <tr class="alert" role="alert">
 
-                <section class="heading">
-                    <h2>Les évènements</h2>
-                    <a href="{{ path('app_admin_add_event') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <circle cx="12" cy="12" r="9" />
-                            <line x1="9" y1="12" x2="15" y2="12" />
-                            <line x1="12" y1="9" x2="12" y2="15" />
-                        </svg>
-                    </a>
-                </section>
+                                            <td>{{ book.id }}</td>
+                                            <td>{{ book.name }}</td>
+                                            <td>{{ book.description }}</td>
+                                            <td>{{ book.price }}</td>
+                                            <td>
+                                                <a href="{{ path('app_admin_view_book', {'id': book.id}) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <circle cx="12" cy="12" r="2" />
+                                                        <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('app_admin_update_book', {'id': book.id}) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                                                        <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('app_admin_delete_book', {'id': book.id}) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <line x1="4" y1="7" x2="20" y2="7" />
+                                                        <line x1="10" y1="11" x2="10" y2="17" />
+                                                        <line x1="14" y1="11" x2="14" y2="17" />
+                                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
 
-                <div class="container-table">
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="7" style="text-align:center;">Vous n'avez pas enregistré de livre pour le moment</td>
+                                            </tr>
 
-                    <table>
+                                    {% endfor %}
 
-                        <thead>
-                            <tr>
-                                <th>Identifiant</th>
-                                <th>Nom</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                                    </tbody>
 
-                        <tbody>
-                            {% for event in events | reverse %}
-                                <tr>
-                                    <td>{{ event.id }}</td>
-                                    <td>{{ event.name }}</td>
-                                    <td>{{ event.status }}</td>
-                                    <td>
-                                        <div class="actions">
-                                            {# VOIR #}
-                                            <a href="{{ path('app_admin_view_event', {'id': event.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <circle cx="12" cy="12" r="2" />
-                                                    <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
-                                                </svg>
-                                            </a>
+                                </table>
 
-                                            <p style="margin: 0 1rem"> | </p>
+                            </div>
 
-                                            {# MODIFIER #}
-                                            <a href="{{ path('app_admin_update_event', {'id': event.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                                                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                                                </svg>
-                                            </a> 
+                        </div>
 
-                                            <p style="margin: 0 1rem"> | </p>
+                    </div>
 
-                                            {# SUPPRIMER #}
-                                            <a href="{{ path('app_admin_delete_event', {'id': event.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <line x1="4" y1="7" x2="20" y2="7" />
-                                                    <line x1="10" y1="11" x2="10" y2="17" />
-                                                    <line x1="14" y1="11" x2="14" y2="17" />
-                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                </svg>
-                                            </a>
-                                        </div> 
-                                    </td>
-                                </tr>
+                </div>
 
-                                {% else %}
+                <!-- Event -->
+                <div class="tab-pane fade" id="event" role="tabpanel" aria-labelledby="eventTab">
+
+                    <div class="row">
+
+                        <h2>Vos évènements</h2>
+
+                        <div class="col-md-12">
+
+                            <div class="table-wrap">
+
+                                <table class="event table table-hover table-responsive-xl">
+
+                                    <thead>
+
                                     <tr>
-                                        <td colspan="4" style="text-align:center;">Il n'y a pas d'évènement pour le moment</td>
+                                        <th>&nbsp;</th>
+                                        <th>Nom de l'évènement</th>
+                                        <th>Date</th>
+                                        <th>Statut</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
                                     </tr>
 
-                            {% endfor %}
-                        </tbody>
+                                    </thead>
 
-                    </table>
+                                    <tbody>
 
-                </div>{# END CONTAINER TABLE #}
+                                        {% for event in events %}
 
-            </section>{# END CONTAINER EVENT #}
+                                            <tr class="alert" role="alert">
 
-            {# ======================================== #}
-            {# ================= USER ================= #}
-            {# ======================================== #}
-            <section id="user" class="box box6">
+                                                <td>{{ event.id }}</td>
+                                                <td>{{ event.name }}</td>
+                                                <td class="col-sm-2">{{ event.date|format_datetime(locale='fr',pattern="dd MMMM YY") }}</td>
+                                                <td>
+                                                    {% if event.status == 'Ouvert' %}
+                                                        <span class="badge rounded-pill text-bg-success">{{ event.status }}</span>
 
-                <section class="heading">
-                    <h2>Les utilisateurs</h2>
-                </section>
+                                                    {% elseif event.status == 'Annulé'%}
+                                                        <span class="badge rounded-pill text-bg-danger">{{ event.status }}</span>
 
-                <div class="container-table">
+                                                    {% else %}
+                                                        <span class="badge rounded-pill text-bg-secondary">{{ event.status }}</span>
 
-                    <table>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_view_event', {'id': event.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <circle cx="12" cy="12" r="2" />
+                                                            <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_update_event', {'id': event.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                                                            <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_delete_event', {'id': event.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <line x1="4" y1="7" x2="20" y2="7" />
+                                                            <line x1="10" y1="11" x2="10" y2="17" />
+                                                            <line x1="14" y1="11" x2="14" y2="17" />
+                                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                            </tr>
 
-                        <thead>
-                            <tr>
-                                <th>Identifiant</th>
-                                <th>Nom</th>
-                                <th>Prénom</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                                            {% else %}
+                                                <tr>
+                                                    <td colspan="5" style="text-align:center;">Vous n'avez pas enregistré d'évènement pour le moment</td>
+                                                </tr>
 
-                        <tbody>
-                            {% for user in users | reverse %}
-                                <tr>
-                                    <td>{{ user.id }}</td>
-                                    <td>{{ user.lastname }}</td>
-                                    <td>{{ user.firstname }}</td>
-                                    <td>
-                                        <div class="actions">
-                                            {# MODIFIER #}
-                                            <a href="{{ path('app_admin_update_user', {'id': user.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-                                                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-                                                </svg>
-                                            </a> 
+                                        {% endfor %}
 
-                                            <p style="margin: 0 1rem"> | </p>
+                                    </tbody>
 
-                                            {# SUPPRIMER #}
-                                            <a href="{{ path('app_admin_delete_user', {'id': user.id}) }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <line x1="4" y1="7" x2="20" y2="7" />
-                                                    <line x1="10" y1="11" x2="10" y2="17" />
-                                                    <line x1="14" y1="11" x2="14" y2="17" />
-                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                </svg>
-                                            </a>
-                                        </div> 
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
+                                </table>
 
-                    </table>
+                            </div>
 
-                </div>{# END CONTAINER TABLE #}
+                    </div>
 
-            </section> {# END CONTAINER USER #}
+                </div>
 
-        </div> {# END CONTAINER BOX #}
+                <!-- User -->
+                <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="userTab">
 
-    </main> {# END MAIN #}
+                    <div class="row">
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+                <!-- User -->
+                <div class="tab-pane fade" id="client" role="tabpanel" aria-labelledby="clientTab">
+
+                    <div class="row">
+
+                        <h2>Les utilisateurs</h2>
+
+                        <div class="col-md-12">
+
+                            <div class="table-wrap">
+
+                                <table class="book table table-hover table-responsive-md">
+
+                                    <thead>
+
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <th>Nom</th>
+                                            <th>Prénom</th>
+                                            <th>Email</th>
+                                            <th>Numéro</th>
+                                            <th>&nbsp;</th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        {% for user in users %}
+
+                                            <tr class="alert" role="alert">
+
+                                                <td>{{ user.id }}</td>
+                                                <td>{{ user.lastname }}</td>
+                                                <td>{{ user.firstname }}</td>
+                                                <td>{{ user.email }}</td>
+                                                <td>{{ user.phoneNumber }}</td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_update_user', {'id': user.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                                                            <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('app_admin_delete_user', {'id': user.id}) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                            <line x1="4" y1="7" x2="20" y2="7" />
+                                                            <line x1="10" y1="11" x2="10" y2="17" />
+                                                            <line x1="14" y1="11" x2="14" y2="17" />
+                                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="7" style="text-align:center;">Vous n'avez pas enregistré de livre pour le moment</td>
+                                            </tr>
+
+                                        {% endfor %}
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
 
 {% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('assets/js/admin/dashboard.js') }}"></script>
-{% endblock %}
-                            

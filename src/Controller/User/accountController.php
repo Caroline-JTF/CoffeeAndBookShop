@@ -21,7 +21,11 @@ class accountController extends AbstractController
 {
     // Modifiez les informations 
     #[Route('/mon-compte/modifier-vos-informations/{id}', name: 'app_user_update', methods: ['GET', 'POST'])]
-    public function updateUser(User $user, EntityManagerInterface $em, Request $request): Response
+    public function updateUser(
+        User $user,
+        EntityManagerInterface $em,
+        Request $request
+    ): Response
     {
     
         $form = $this->createForm(UserFormType::class, $user);
@@ -92,7 +96,7 @@ class accountController extends AbstractController
         ReviewRepository $reviewRepository, 
         ParticipantRepository $participantRepository, 
         EventRepository $eventRepository
-        ): Response
+    ): Response
     {
 
         // On récupère toutes les reviews écrites par l'utilisateur en cours

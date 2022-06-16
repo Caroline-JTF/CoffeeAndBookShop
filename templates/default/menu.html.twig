@@ -1,217 +1,280 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
 {% extends "base.html.twig" %}
 
-{# ======================================== #}
-{# ================ STYLE ================= #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/default/menu.css') }}">
-{% endblock %}
-
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
-
-{% block title %}La carte{% endblock %}
-
-{# ======================================== #}
-{# ================= BODY ================= #}
-{# ======================================== #}
+{% block title %}C&B : La carte{% endblock %}
 
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ HEADING =============== #}
-    {# ======================================== #}
+    <!-- Navbar -->
+    <style>
+        ul:first-child li:first-child a{
+            color : #f5a637 !important;
+        }
+    </style>
 
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Voici la carte du C&B</h2>
-        <p>Cafés, viennoiseries et livres</p> 
+    {# ================================================== #}
+
+    <!-- Header -->
+    <header data-jarallax data-speed=".8" style="background-image: url(assets/img/background/bg-header.jpg);">
+        <div class="pt-10 pb-8 pt-md-15 pb-md-13 bg-black-50">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6 text-center">
+
+                        <!-- Heading -->
+                        <h1 class="display-6 fw-bold text-white">
+                            La carte
+                        </h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {# ================================================== #}
+
+    <!-- Menu -->
+    <section class="py-7 py-md-9 border-bottom">
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-8 col-lg-6 text-center">
+
+                    <!-- Heading -->
+                    <h2 class="mb-2">
+                        Parcourez les catégories
+                    </h2>
+
+                    <!-- Subheading -->
+                    <p class="mb-6">
+                        AN : Le prix des livres corresponds à la caution chaque livre emprunté doit être rendu
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+
+                    <!-- Navigation -->
+                    <div class="nav justify-content-center mb-6" id="menuTabs" role="tablist">
+
+                        <a class="nav-link active" id="coffeeTab" data-bs-toggle="tab" href="#coffee" role="tab" aria-controls="coffee" aria-selected="true">
+                            Café
+                        </a>
+
+                        <a class="nav-link" id="foodTab" data-bs-toggle="tab" href="#food" role="tab" aria-controls="food">
+                            Viennoiserie
+                        </a>
+
+                        <a class="nav-link" id="bookTab" data-bs-toggle="tab" href="#book" role="tab" aria-controls="book">
+                            Book
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-12">
+
+                    <!-- Content -->
+                    <div class="tab-content" id="menuContent">
+
+                        <!-- Coffee -->
+                        <div class="tab-pane fade show active" id="coffee" role="tabpanel" aria-labelledby="coffeeTab">
+
+                            <div class="row">
+
+                                {% for coffee in coffees %}
+
+                                    <div class="col-12 col-md-6">
+
+                                        <div class="py-3 border-bottom">
+
+                                            <div class="row">
+
+                                                <div class="col-3 align-self-center">
+
+                                                    <!-- Image -->
+                                                    <div class="ratio ratio-1x1">
+                                                        {% if coffee.img == true %}
+                                                            <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" onerror="this.style.display='none';" />
+                                                        {% endif %}
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-7">
+
+                                                    <!-- Heading -->
+                                                    <h5 class="mb-2">{{ coffee.name }}</h5>
+
+                                                    <!-- Text -->
+                                                    <p class="mb-0">
+                                                        {{ coffee.description}}
+                                                    </p>
+
+                                                </div>
+
+                                                <div class="col-2">
+
+                                                    <!-- Price -->
+                                                    <div class="fs-4 font-serif text-center text-black">
+                                                        {{ coffee.price }}
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    {% else %}
+
+                                        <p class="else">Il n'y a pas de café à la carte</p>
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                        <!-- Food -->
+                        <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="foodTab">
+
+                            <div class="row">
+
+                                {% for food in foods %}
+
+                                    <div class="col-12 col-md-6">
+
+                                        <div class="py-3 border-bottom">
+
+                                            <div class="row">
+
+                                                <div class="col-3 align-self-center">
+
+                                                    <!-- Image -->
+                                                    <div class="ratio ratio-1x1">
+                                                        {% if food.img == true %}
+                                                            <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" onerror="this.style.display='none';" />
+                                                        {% endif %}
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-7">
+
+                                                    <!-- Heading -->
+                                                    <h5 class="mb-2">{{ food.name }}</h5>
+
+                                                    <!-- Text -->
+                                                    <p class="mb-0">
+                                                        {{ food.description}}
+                                                    </p>
+
+                                                </div>
+
+                                                <div class="col-2">
+
+                                                    <!-- Price -->
+                                                    <div class="fs-4 font-serif text-center text-black">
+                                                        {{ food.price }}
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                {% else %}
+
+                                    <p class="else">Il n'y a pas de viennoiserie à la carte</p>
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                        <!-- Book -->
+                        <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="bookTab">
+
+                            <div class="row">
+
+                                {% for book in books %}
+
+                                    <div class="col-12 col-md-6">
+
+                                        <div class="py-3 border-bottom">
+
+                                            <div class="row">
+
+                                                <div class="col-3 align-self-center">
+
+                                                    <!-- Image -->
+                                                    <div class="ratio ratio-1x1">
+                                                        {% if book.img == true %}
+                                                            <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" onerror="this.style.display='none';" />
+                                                        {% endif %}
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-7">
+
+                                                    <!-- Heading -->
+                                                    <h5 class="mb-2">{{ book.name }}</h5>
+
+                                                    <!-- Text -->
+                                                    <p class="mb-0">
+                                                        {{ book.description}}
+                                                    </p>
+
+                                                </div>
+
+                                                <div class="col-2">
+
+                                                    <!-- Price -->
+                                                    <div class="fs-4 font-serif text-center text-black">
+                                                        {{ book.price }}
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                {% else %}
+
+                                    <p class="else">Il n'y a pas de livre disponible</p>
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
-    {# ========================================== #}
-    {# ================== BUTTON ================ #}
-    {# ========================================== #}
-
-     <section class="command-btn">
-
-        <button class="btn1">
-            Voir les cafés
-        </button>
-
-        <button class="btn2">
-            Voir les douceurs
-        </button>
-
-        <button class="btn3">
-            Voir les livres
-        </button>
-
-    </section>
-
-    {# ========================================== #}
-    {# =================== MENU ================= #}
-    {# ========================================== #}
-
-    <section class="container-menu">
-
-        {# ========================================== #}
-        {# ================== COFFEE ================ #}
-        {# ========================================== #}
-
-        <section class="menu menu1 active">
-
-            <div class="heading">
-                <h2 class="text-center font-serif uppercase">La carte des cafés</h2>
-            </div>
-            
-            {% for coffee in coffees %}
-
-                <div class="container-product">
-
-                    <div class="product">
-
-                        <div class="img-product">
-                            {% if coffee.img == true %}
-                                <img src="{{ asset('/uploads/' ~ coffee.img) }}" alt="{{ coffee.name }}" onerror="this.style.display='none';" />
-                            {% endif %}
-                        </div>
-                        
-                        <div class="text-product">
-
-                            <div class="description">
-                                <h2>{{ coffee.name }}</h2>
-                                <p class="color-red">{{ coffee.description }}</p>
-                            </div>
-
-                            <div class="price">
-                                <div class="line"></div> 
-                                <p>{{ coffee.price }}€</p>
-                            </div>  
-                            
-                        </div>
-
-                   </div> {# END PRODUCT#}
-
-                </div> {# END CONTAINER PRODUCT#}
-
-                {% else %}
-                    
-                    <p class="else">Il n'y a pas de café à la carte</p>
-
-            {% endfor %}
-            
-        </section>
-
-        {# ========================================== #}
-        {# =================== FOOD ================= #}
-        {# ========================================== #}
-
-        <section class="menu menu2">
-
-            <div class="heading">
-                <h2 class="text-center font-serif uppercase">La carte des viennoiseries</h2>
-            </div>
-            
-            {% for food in foods %}
-                <div class="container-product">
-
-                    <div class="product">
-
-                        <div class="img-product">
-                            {% if food.img == true %}
-                                <img src="{{ asset('/uploads/' ~ food.img) }}" alt="{{ food.name }}" onerror="this.style.display='none';" />
-                            {% endif %}
-                        </div>
-                            
-                        <div class="text-product">
-
-                            <div class="description">
-                                <h2>{{ food.name }}</h2>
-                                <p class="color-red">{{ food.description }}</p>
-                            </div>
-
-                            <div class="price">
-                                <div class="line"></div> 
-                                <p>{{ food.price }}€</p>
-                            </div>  
-                            
-                        </div>
-
-                    </div> {# END PRODUCT#}
-
-                </div> {# END CONTAINER PRODUCT#}
-
-                {% else %}
-                    
-                    <p class="else">Il n'y a pas de viennoiseries à la carte</p>
-
-            {% endfor %}
-            
-        </section>
-
-        {# ========================================== #}
-        {# =================== BOOK ================= #}
-        {# ========================================== #}
-
-        <section class="menu menu3">
-
-            <div class="heading">
-                <h2 class="text-center font-serif uppercase">La carte des livres</h2>
-                <p>Le prix des livres correspond à la caution</p>
-                <p>Chaque livre emprunté doit être rendu</p>
-            </div>
-            
-            {% for book in books %}
-                <div class="container-product">
-
-                    <div class="product">
-
-                        <div class="img-product">
-                            {% if book.img == true %}
-                                <img src="{{ asset('/uploads/' ~ book.img) }}" alt="{{ book.name }}" onerror="this.style.display='none';" />
-                            {% endif %}
-                        </div>
-
-                        <div class="text-product">
-
-                            <div class="description">
-                                <h2>{{ book.name }}</h2>
-                                <p class="color-red">{{ book.description }}</p>
-                            </div>
-
-                            <div class="price">
-                                <div class="line"></div> 
-                                <p>{{ book.price }}€</p>
-                            </div>  
-                            
-                        </div>
-
-                    </div> {# END PRODUCT#}
-
-                </div> {# END CONTAINER PRODUCT#}
-
-                {% else %}
-                    
-                    <p class="else">Il n'y a pas de livre à la carte</p>
-
-            {% endfor %}
-            
-        </section>
-
-    </section>{# END CONTAINER MENU #}
-
-    <button class="btn-center">
-        <a href="#">Revenir en haut</a>
-    </button>
-
-{% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('assets/JS/default/menu.js') }}"></script>
 {% endblock %}
