@@ -29,11 +29,15 @@ class EventFormType extends AbstractType
                     'Concert' => 'concert',
                     'Autre' => 'autre',
                 ],
+                'attr' => [
+                    'class' => 'form-control my-3 font-serif',
+                ],
             ])
             ->add('name', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nom de l\'évènement',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -45,6 +49,7 @@ class EventFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Description',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -59,13 +64,17 @@ class EventFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Veuillez renseigner une date'
                     ])
-                ]
+                ],
+                'attr' => [
+                    'class' => 'form-control my-3',
+                ],
             ])
             // ->add('participants')
             ->add('place', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nombre de place',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -86,12 +95,15 @@ class EventFormType extends AbstractType
                         'maxSizeMessage' => 'Le poids maximal du fichier est : {{ limit }} {{ suffix }} ({{ name }}: {{ size }} {{ suffix }})',
                     ]),
                 ],
+                'attr' => [
+                    'class' => 'form-control my-3 font-serif',
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
                 'validate' => false,
                 'attr' => [
-                    'class' => 'btn-center'
+                    'class' => 'btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0'
                 ]
             ])
         ;

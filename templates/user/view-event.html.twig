@@ -1,161 +1,127 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
-
 {% extends "base.html.twig" %}
 
-{# ======================================== #}
-{# ================ STYLE ================= #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/user/account.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/admin/view-event.css') }}">
-{% endblock %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
-
-{% block title %}Évènement {{ currentEvent.name }} {% endblock %}
-
-{# ======================================== #}
-{# ================= BODY ================= #}
-{# ======================================== #}
+{% block title %}Évènement : {{ currentEvent.name }}{% endblock %}
 
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ FLASHES =============== #}
-    {# ======================================== #}
+    <style>
+        footer{
+            display: none;
+        }
+        header{
+            background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
+        }
+        header::after{
+            content: " ";
+            position: absolute;
+            z-index: 0;
+            top: 10%;
+            bottom: 10%;
+            left: 10%;
+            right: 10%;
+            background: rgba(255, 255, 255, 0.4);
+        }
+        header h1{
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            text-align: center;
+            color: var(--color-light-brown);
+            text-shadow:
+                    1px 0 1px var(--color-dark-brown),
+                    0 1px 1px var(--color-light-brown),
+                    2px 1px 1px var(--color-dark-brown),
+                    1px 2px 1px var(--color-light-brown),
+                    3px 2px 1px var(--color-dark-brown),
+                    2px 3px 1px var(--color-light-brown),
+                    4px 3px 1px var(--color-dark-brown),
+                    3px 4px 1px var(--color-light-brown),
+                    5px 4px 1px var(--color-dark-brown),
+                    4px 5px 1px var(--color-light-brown),
+                    6px 5px 1px var(--color-dark-brown),
+                    5px 6px 1px var(--color-light-brown),
+                    7px 6px 1px var(--color-dark-brown);
+        }
+        @media screen and (max-width: 800px){
+            header::after{
+                content: " ";
+                position: absolute;
+                z-index: 0;
+                top: 10%;
+                bottom: 10%;
+                left: 0%;
+                right: 0%;
+                background: rgba(255, 255, 255, 0.4);
+            }
+            .description{
+                text-align: center !important;
+            }
+            .places{
+                display: flex;
+                flex-direction: column;
+            }
+            .places .barre{
+                display: none;
+            }
+        }
+    </style>
 
-    <div class="login-anim">
-        {% for message in app.flashes('success') %}
-            <div class="flash successFlash">{{message}}</div>
-        {% endfor %}
-        {% for message in app.flashes('error') %}
-            <div class="flash errorFlash">{{message}}</div>
-        {% endfor %}
-    </div>
+    {% if currentEvent.img != true %}
+        <header data-jarallax data-speed=".8" style="background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;">
+    {% else %}
+        <header data-jarallax data-speed=".8" style="background: url('/uploads/{{ currentEvent.img }}') no-repeat center center / cover;">
+    {% endif %}
 
+        <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0" style="z-index: 1; position:relative;">
 
-    {# ======================================== #}
-    {# ================ WRAPPER =============== #}
-    {# ======================================== #}
+            <div class="container mt-10 my-auto">
 
-    <main class="wrapper">
+                <div class="row justify-content-center">
 
-        {# ======================================== #}
-        {# ================= BUTTON =============== #}
-        {# ======================================== #}
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
 
-        <section class="command-btn">
+                        <div class="display-3 text-white mb-4">
 
-            {# ================= USER =============== #}
-            <button>
-                <a href="{{ path('app_user_account') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <circle cx="12" cy="7" r="4" />
-                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                    </svg>
-                    <p>Mes informations</p>
-                </a>
-            </button>
+                            <!-- Heading -->
+                            <h1 class="color-light display-5">{{ currentEvent.name }}</h1>
 
-            {# ================= EVENT =============== #}
-            <button class="btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <rect x="4" y="5" width="16" height="16" rx="2" />
-                    <line x1="16" y1="3" x2="16" y2="7" />
-                    <line x1="8" y1="3" x2="8" y2="7" />
-                    <line x1="4" y1="11" x2="20" y2="11" />
-                    <rect x="8" y="15" width="2" height="2" />
-                </svg>
-                <p>Les évènements</p>
-            </button>
+                            <!-- Subheading -->
+                            <p class="font-default color-light text-center mt-0 uppercase" style="font-size: 1.5rem">
+                                Le
+                                <span class="text-primary">{{ currentEvent.date|format_datetime(locale='fr',pattern="dd MMMM yyyy") }}</span>
+                                au
+                                <span class="text-primary">C&B</span>
+                            </p>
 
-            {# ================= REVIEW =============== #}
-            <button class="btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-writing-sign" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M3 19c3.333 -2 5 -4 5 -6c0 -3 -1 -3 -2 -3s-2.032 1.085 -2 3c.034 2.048 1.658 2.877 2.5 4c1.5 2 2.5 2.5 3.5 1c.667 -1 1.167 -1.833 1.5 -2.5c1 2.333 2.333 3.5 4 3.5h2.5" />
-                    <path d="M20 17v-12c0 -1.121 -.879 -2 -2 -2s-2 .879 -2 2v12l2 2l2 -2z" />
-                    <path d="M16 7h4" />
-                </svg>
-                <p>Les avis</p>
-            </button>
+                            <!-- Text -->
+                            <p class="description my-5 text-start font-default" style="font-size: 1rem">
+                                {{ currentEvent.description}}
+                            </p>
 
-            {# ================= HOME =============== #}
-            <button>
-                <a href="{{ path('app_default_home_page') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <polyline points="5 12 3 12 12 3 21 12 19 12" />
-                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                    </svg>
-                    <p>Accueil</p>
-                </a>
-            </button>
+                            <div class="places d-flex align-items-center justify-content-center my-5">
+                                <p style="font-size: 1rem">
+                                    Place(s) disponible(s) : {{ currentEvent.place}}
+                                    <span class="barre text-primary mx-1">|</span>
+                                </p>
+                                <p style="font-size: 1rem">
+                                    Participant(s) inscrit(s) : {{ currentEvent.participants}}
+                                    <span class="barre text-primary mx-1">|</span>
+                                </p>
+                                <p style="font-size: 1rem">
+                                    <span class="text-primary mx-1">Place(s) restante(s) :{{ (currentEvent.place)-(currentEvent.participants) }}</span>
+                                </p>
 
-        </section>{# END COMMAND BTN #}
+                            </div>
 
-        {# ======================================== #}
-        {# =========== VOS INFORMATIONS =========== #}
-        {# ======================================== #}
-        <section class="container-event">
-
-            <div class="event">
-
-                <div class="img-event">
-                    <img width="400" height="400" src="{{ asset('/uploads/' ~ currentEvent.img) }}" alt="{{ currentEvent.name }}" onerror="this.style.display='none';"/>
-                </div>
-
-                <div class="detail-event">
-
-                    <div class="heading">
-                        <h2>{{ currentEvent.name }}</h2>
-                        <p>Type d'évènement : {{ currentEvent.type }}</p>
-                    </div>
-
-                    <div class="text-event">
-                        <p>{{ currentEvent.description }}</p>
-                    </div>
-
-                    <div class="footer-event">
-                        <p>Place(s) disponible(s) : {{ currentEvent.place }}</p>
-                        <p>Participant(s) inscrit(s) : {{ currentEvent.participants }}</p>
-                        <p>Place(s) restante(s) : {{ (currentEvent.place)-(currentEvent.participants) }}</p>
-
-                        <div class="status">
-                            <p>{{ currentEvent.status }}</p>
-                            {% if currentEvent.status == 'Ouvert' %}
-                                <div class="circle circleGreen"></div>
-                            {% elseif currentEvent.status == 'Annulé'%}
-                                <div class="circle circleRed"></div>
-                            {% else %}
-                                <div class="circle circleDark"></div>
-                            {% endif %}
                         </div>
 
                     </div>
 
-                </div> {# END DETAIL EVENT #}
-
-            </div>{# END EVENT #}
-
-            <div class="btn">
-
-                <button>
-                    Afficher
-                    les participants
-                </button>
+                </div>
 
             </div>
 
-        </section>{# END SECTION EVENT #}
-    </main>
+        </div>
+
+    </header>
 
 {% endblock %}

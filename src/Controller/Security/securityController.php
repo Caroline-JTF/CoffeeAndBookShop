@@ -16,10 +16,16 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class securityController extends AbstractController
 {
-    //Formulaire d'inscription :
+    //Formulaire d'inscription & conexion :
     #[Route('/inscription', name: 'app_security_sign_up', methods: ['GET', 'POST'])]
-    public function inscription(Request $request, EntityManagerInterface $entity, UserPasswordHasherInterface $hasher): Response 
+    public function inscription(
+        Request $request,
+        EntityManagerInterface $em,
+        UserPasswordHasherInterface $hasher,
+    ): Response
     {
+
+        // Inscription
         $user = new User();
         $form = $this->createForm(RegisterFormType::class, $user);
         $form->handleRequest($request);
@@ -31,10 +37,10 @@ class securityController extends AbstractController
                     $user, $form->get('password')->getData()
                 )
             );
-            $entity->persist($user);
-            $entity->flush();
+            $em->persist($user);
+            $em->flush();
 
-            return $this->redirectToRoute('app_security_log_in');
+            return $this->redirectToRoute('app_security_login');
         }
 
         return $this->render('security/sign-up.html.twig', [
@@ -43,14 +49,14 @@ class securityController extends AbstractController
     }
 
     //Formulaure de connexion
-    #[Route('/connexion', name: 'app_security_log_in')]
+    #[Route('/connexion', name: 'app_security_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
 
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/log-in.html.twig', [
+        return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername, 'error' => $error
         ]);
     }

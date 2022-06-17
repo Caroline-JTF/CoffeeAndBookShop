@@ -1,66 +1,79 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
-
 {% extends "base.html.twig" %}
-
-{# ======================================== #}
-{# ================== STYLE =============== #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/form.css') }}">
-{% endblock %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
 
 {% block title %}Ajouter un évènement{% endblock %}
 
-{# ======================================== #}
-{# ================= BODY ================= #}
-{# ======================================== #}
-
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ WRAPPER =============== #}
-    {# ======================================== #}
+    <style>
+        footer{
+            display: none;
+        }
+        header{
+            background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
+        }
+        header h1{
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            font-size: 5rem;
+            text-align: center;
+            color: var(--color-light-brown);
+            text-shadow:
+                    1px 0 1px var(--color-dark-brown),
+                    0 1px 1px var(--color-light-brown),
+                    2px 1px 1px var(--color-dark-brown),
+                    1px 2px 1px var(--color-light-brown),
+                    3px 2px 1px var(--color-dark-brown),
+                    2px 3px 1px var(--color-light-brown),
+                    4px 3px 1px var(--color-dark-brown),
+                    3px 4px 1px var(--color-light-brown),
+                    5px 4px 1px var(--color-dark-brown),
+                    4px 5px 1px var(--color-light-brown),
+                    6px 5px 1px var(--color-dark-brown),
+                    5px 6px 1px var(--color-light-brown),
+                    7px 6px 1px var(--color-dark-brown);
+        }
+        .help-text{
+            font-size: 1rem;
+            text-align: left;
+        }
+        textarea{
+            height: 100px;
+            resize: none;
+        }
+    </style>
 
-    <main class="wrapper">
+    <header data-jarallax data-speed=".8">
 
-        <img src="{{ asset('assets/img/form/event.jpg') }}" alt="image d'évènement">
+        <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0">
 
-        {# ======================================== #}
-        {# ============== SECTION FORM ============ #}
-        {# ======================================== #}
-        <section class="section-form">
+            <div class="container my-auto">
 
-            {# ======================================== #}
-            {# ================ HEADING =============== #}
-            {# ======================================== #}
+                <div class="row justify-content-center">
 
-            <section class="heading">
-                <h2>Ajouter un nouveau évènement</h2>
-                <a href="{{ path('app_admin_dashboard') }}">Retour</a>
-            </section>
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
 
-            {# ======================================== #}
-            {# ================== BOOK ================ #}
-            {# ======================================== #}
-            <div class="container-form">
+                        <div class="display-3 text-white mb-4">
 
-                {# FORMULAIRE #}
-                <div class="form">
-                    {{ form(form) }}
+                            <div class="col-md-12">
+
+                                <h1 class="color-light display-3">Ajouter un évènement</h1>
+
+                                {{ form(form) }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
-
+    </header>
 
 {% endblock %}

@@ -75,8 +75,23 @@
 
     {# ================================================== #}
 
-
     <!-- ARTICLE -->
+    <style>
+        @media screen and (max-width: 800px){
+            .carte{
+                flex-direction: column;
+            }
+            .carte a{
+                pointer-events: none;
+                cursor: default;
+            }
+            .carte p{
+                margin-top: 1rem;
+                display: block !important;
+                text-align: center;
+            }
+        }
+    </style>
     <article class="pt-10 pt-md-12">
         <div class="container">
             <div class="row justify-content-center">
@@ -131,9 +146,19 @@
                     <!-- Divider -->
                     <hr class="mt-6 mt-md-9 mb-0" />
 
+                    <div class="carte d-flex justify-content-center my-10">
+                        <a class="btn btn-outline-primary text-primary-hover mb-7 mb-md-0" href="https://caroline-jtf.github.io/map_coffee_and_book/" onclick="javascript:window.open(this.href,'MAP_Coffee_and_Book','height=1000,width=1500,location=no,resizable=yes,scrollbars=yes');return false;">
+                            Voir les grains disponible dans notre café
+                        </a>
+                        <p style="display: none">Carte disponible que sur version desktop</p>
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </article>
 
 {% endblock %}

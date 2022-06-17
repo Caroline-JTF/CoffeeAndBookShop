@@ -1,44 +1,77 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
-
 {% extends "base.html.twig" %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
 
 {% block title %}Inscription{% endblock %}
 
-{# ======================================== #}
-{# ================= BODY ================= #}
-{# ======================================== #}
-
 {% block body %}
-    
-    {# ======================================== #}
-    {# ================ HEADING =============== #}
-    {# ======================================== #}
 
-    <section class="heading">
-        <p>What's happening here?</p>
-        <h2>Inscrivez-vous</h2>
-        <p>Bienvenue parmis nous</p> 
-    </section>
+    <style>
+        footer{
+            display: none;
+        }
+        header{
+            background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
+        }
+        header h1{
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            font-size: 5rem;
+            text-align: center;
+            color: var(--color-light-brown);
+            text-shadow:
+                    1px 0 1px var(--color-dark-brown),
+                    0 1px 1px var(--color-light-brown),
+                    2px 1px 1px var(--color-dark-brown),
+                    1px 2px 1px var(--color-light-brown),
+                    3px 2px 1px var(--color-dark-brown),
+                    2px 3px 1px var(--color-light-brown),
+                    4px 3px 1px var(--color-dark-brown),
+                    3px 4px 1px var(--color-light-brown),
+                    5px 4px 1px var(--color-dark-brown),
+                    4px 5px 1px var(--color-light-brown),
+                    6px 5px 1px var(--color-dark-brown),
+                    5px 6px 1px var(--color-light-brown),
+                    7px 6px 1px var(--color-dark-brown);
+        }
+    </style>
 
-    {# ======================================== #}
-    {# ============== INSCRIPTION ============= #}
-    {# ======================================== #}
+    <header data-jarallax data-speed=".8">
 
-    <section class="container-form">
-        
-        {{ form(form) }}
+        <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0">
 
-    </section>
+            <div class="container my-auto">
 
-    <section class="message">
-        <p> Vous avez un compte ?</p>
-        <a href=" {{ path('app_security_log_in') }}">Connectez-vous</a>
-    </section> 
+                <div class="row justify-content-center">
+
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
+
+                        <div class="display-3 text-white mb-4">
+
+                            <div class="col-md-12">
+
+                                <h1 class="color-light display-3">S'inscrire</h1>
+
+                                {{ form(form) }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="nav justify-content-center mt-5 d-flex" style="font-size: 1rem">
+                        <p class="text-white">Vous avez déjà un compte ?
+                            <a class="active" href="{{ path('app_security_login') }}">
+                                Conectez-vous
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
 
 {% endblock %}

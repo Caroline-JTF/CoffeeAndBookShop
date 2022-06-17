@@ -1,82 +1,140 @@
-{# ======================================== #}
-{# ================ EXTENDS =============== #}
-{# ======================================== #}
-
 {% extends "base.html.twig" %}
 
-{# ======================================== #}
-{# ================ STYLE ================= #}
-{# ======================================== #}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/user/participant.css') }}">
-{% endblock %}
-
-{# ======================================== #}
-{# ================= TITLE ================ #}
-{# ======================================== #}
-
-{% block title %}Fiche de l'évènement : {{ currentEvent.name }}{% endblock %}
-
-
-{# ======================================== #}
-{# ================= BODY ================= #}
-{# ======================================== #}
+{% block title %}Évènement : {{ currentEvent.name }}{% endblock %}
 
 {% block body %}
 
-    {# ======================================== #}
-    {# ================ HEADING =============== #}
-    {# ======================================== #}
+    <style>
+        footer{
+            display: none;
+        }
+        header{
+            background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
+        }
+        header::after{
+            content: " ";
+            position: absolute;
+            z-index: 0;
+            top: 10%;
+            bottom: 10%;
+            left: 10%;
+            right: 10%;
+            background: rgba(255, 255, 255, 0.4);
+        }
+        header h1{
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            text-align: center;
+            color: var(--color-light-brown);
+            text-shadow:
+                    1px 0 1px var(--color-dark-brown),
+                    0 1px 1px var(--color-light-brown),
+                    2px 1px 1px var(--color-dark-brown),
+                    1px 2px 1px var(--color-light-brown),
+                    3px 2px 1px var(--color-dark-brown),
+                    2px 3px 1px var(--color-light-brown),
+                    4px 3px 1px var(--color-dark-brown),
+                    3px 4px 1px var(--color-light-brown),
+                    5px 4px 1px var(--color-dark-brown),
+                    4px 5px 1px var(--color-light-brown),
+                    6px 5px 1px var(--color-dark-brown),
+                    5px 6px 1px var(--color-light-brown),
+                    7px 6px 1px var(--color-dark-brown);
+        }
+        @media screen and (max-width: 800px){
+            header::after{
+                content: " ";
+                position: absolute;
+                z-index: 0;
+                top: 10%;
+                bottom: 10%;
+                left: 0%;
+                right: 0%;
+                background: rgba(255, 255, 255, 0.4);
+            }
+            .description{
+                text-align: center !important;
+            }
+            .places{
+                display: flex;
+                flex-direction: column;
+            }
+            .places .barre{
+                display: none;
+            }
+        }
+    </style>
 
-    <section class="heading">
-        <p>Inscription de l'évènement : </p>
-        <h2>{{ currentEvent.name }}</h2>
-        <a href="{{ path('app_default_event') }}">Retourner aux évènements</a>
-    </section>
-
-    {# ======================================== #}
-    {# ================== USER ================ #}
-    {# ======================================== #}
-
-    <main class="wrapper">
-        <section class="container-event">
-            <div class="event">
-                <div class="img">
-                    <img width="500" height="500" src="{{ asset('/uploads/' ~ currentEvent.img) }}" alt="{{ currentEvent.name }}" onerror="this.style.display='none';"/>
-                </div>
-                <div class="detail-event">
-                    <div class="heading">
-                        <h2>{{ currentEvent.name}}</h2>
-                        <p>Aura lieu le : {{ currentEvent.date | date('d/m/Y') }}</p>
-                    </div>
-                    <div class="text-event">
-                        <p>{{ currentEvent.description}}</p>
-                    </div>
-                    <div class="footer-event">
-                        <p>Place(s) disponible(s) : {{ currentEvent.place}}</p>
-                        <p>Participant(s) inscrit(s) : {{ currentEvent.participants}}</p>
-                        <p>Place(s) restante(s) :{{ (currentEvent.place)-(currentEvent.participants) }}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <section class="section-form">
-
-        {# FORMULAIRE #}
-        {% if currentEvent.place - currentEvent.participants > 0 %}
-            <div class="container-form">
-
-                {{ form(form) }}
-
-            </div>
-            {% else %}
-                Plus de place
+    {% if currentEvent.img != true %}
+        <header data-jarallax data-speed=".8" style="background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;">
+        {% else %}
+            <header data-jarallax data-speed=".8" style="background: url('/uploads/{{ currentEvent.img }}') no-repeat center center / cover;">
         {% endif %}
 
-    </section>
+        <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0" style="z-index: 1; position:relative;">
 
-    
+            <div class="container mt-10 my-auto">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
+
+                        <div class="display-3 text-white mb-4">
+
+                                <!-- Heading -->
+                                <h1 class="color-light display-5">{{ currentEvent.name }}</h1>
+
+                                <!-- Subheading -->
+                                <p class="font-default color-light text-center mt-0 uppercase" style="font-size: 1.5rem">
+                                    Le
+                                    <span class="text-primary">{{ currentEvent.date|format_datetime(locale='fr',pattern="dd MMMM yyyy") }}</span>
+                                    au
+                                    <span class="text-primary">C&B</span>
+                                </p>
+
+                                <!-- Text -->
+                                <p class="description my-5 text-start font-default" style="font-size: 1rem">
+                                    {{ currentEvent.description}}
+                                </p>
+
+                                <div class="places d-flex align-items-center justify-content-center my-5">
+                                    <p style="font-size: 1rem">
+                                        Place(s) disponible(s) : {{ currentEvent.place}}
+                                        <span class="barre text-primary mx-1">|</span>
+                                    </p>
+                                    <p style="font-size: 1rem">
+                                        Participant(s) inscrit(s) : {{ currentEvent.participants}}
+                                        <span class="barre text-primary mx-1">|</span>
+                                    </p>
+                                    <p style="font-size: 1rem">
+                                        <span class="text-primary mx-1">Place(s) restante(s) :{{ (currentEvent.place)-(currentEvent.participants) }}</span>
+                                    </p>
+
+                                </div>
+
+                                <div class="mx-5" style="font-size: 1rem">
+                                    {% if currentEvent.place - currentEvent.participants > 0 %}
+                                        <div class="container-form">
+
+                                            {{ form(form) }}
+
+                                        </div>
+                                    {% else %}
+                                        <span class="text-primary uppercase">Plus de place</span>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+    </header>
+
 {% endblock %}

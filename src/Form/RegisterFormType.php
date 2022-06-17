@@ -25,6 +25,7 @@ class RegisterFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nom',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -43,6 +44,7 @@ class RegisterFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Prénom',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -61,6 +63,7 @@ class RegisterFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Numéro de téléphone',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -72,6 +75,7 @@ class RegisterFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Adresse email',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -90,6 +94,7 @@ class RegisterFormType extends AbstractType
                     'label' => false,
                     'attr' => [
                         'placeholder' => 'Mot de passe',
+                        'class' => 'form-control my-3',
                     ],
                     'constraints' => [
                         new NotBlank([
@@ -101,6 +106,7 @@ class RegisterFormType extends AbstractType
                     'label' => false,
                     'attr' => [
                         'placeholder' => 'Répétez votre mot de passe',
+                        'class' => 'form-control my-3',
                     ],
                     'constraints' => [
                         new NotBlank([
@@ -123,7 +129,7 @@ class RegisterFormType extends AbstractType
                 'label' => 'S\'inscrire',
                 'validate' => false,
                 'attr' => [
-                    'class' => 'btn-center'
+                    'class' => 'btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0'
                 ]
             ])
         ;

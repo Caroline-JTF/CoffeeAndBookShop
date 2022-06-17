@@ -26,6 +26,7 @@ class UserFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nom',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new Length([
@@ -40,6 +41,7 @@ class UserFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Prénom',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new Length([
@@ -54,12 +56,14 @@ class UserFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Numéro de téléphone',
+                    'class' => 'form-control my-3',
                 ],
             ])
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Email',
+                    'class' => 'form-control my-3',
                 ],
                 'constraints' => [
                     new Email([
@@ -71,7 +75,7 @@ class UserFormType extends AbstractType
                 'label' => 'Modifier les informations',
                 'validate' => false,
                 'attr' => [
-                    'class' => 'btn-center'
+                    'class' => 'btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0'
                 ]
             ])
         ;

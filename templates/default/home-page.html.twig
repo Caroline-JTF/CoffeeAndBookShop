@@ -148,7 +148,7 @@
             border: none !important;
         }
         @media screen and (max-width: 1150px){
-            .container-card{
+            .container-discover{
                 height: auto;
                 display: grid;
                 grid-template-areas:
@@ -157,13 +157,30 @@
             }
         }
         @media screen and (max-width: 800px){
-            .container-card{
+            .container-discover{
                 height: auto;
                 display: grid;
                 grid-template-areas:
                 'rustic'
                 'gourmet'
                 'relax';
+            }
+        }
+        @media screen and (max-width: 414px) {
+            .container-discover .discover{
+                width: 300px !important;
+                margin: 0 1rem;
+            }
+            .container-discover .discover img{
+                width: 300px;
+            }
+        }@media screen and (max-width: 320px) {
+            .container-discover .discover{
+                width: 250px !important;
+                margin: 0 1rem;
+            }
+            .container-discover .discover img{
+                width: 250px;
             }
         }
     </style>
@@ -475,6 +492,35 @@
                 'alexis'
                 'olga'
                 'nicolas';
+            }
+        }
+        @media screen and (max-width: 414px) {
+            .container-personnel .card-presentation{
+                width: 300px !important;
+                margin: 0 1rem;
+            }
+            .container-personnel .card-presentation img{
+                width: 300px;
+            }
+            .container-personnel .card-presentation:hover img, .card-presentation:focus-within img {
+                margin-top: -55%;
+            }
+        }
+        @media screen and (max-width: 375){
+            .container-personnel .card-presentation:hover img, .card-presentation:focus-within img {
+                margin-top: -60%;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            .container-personnel .card-presentation{
+                width: 250px !important;
+                margin: 0 1rem;
+            }
+            .container-personnel .card-presentation img{
+                width: 250px;
+            }
+            .container-personnel .card-presentation:hover img, .card-presentation:focus-within img {
+                margin-top: -75%;
             }
         }
     </style>

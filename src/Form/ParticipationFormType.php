@@ -20,22 +20,28 @@ class ParticipationFormType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nom',
+                    'class' => 'form-control my-3',
                 ],
             ])
             ->add('firstname', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Prénom',
+                    'class' => 'form-control my-3',
                 ],
             ])
             ->add('participant', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nombre de place',
+                    'class' => 'form-control my-3',
                 ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'S\'inscrire',
+                'attr' => [
+                    'class' => 'btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0'
+                ]
             ])
         ;
     }

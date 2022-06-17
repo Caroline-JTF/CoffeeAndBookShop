@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\User;
 
 use App\Repository\EventRepository;
+use App\Repository\ParticipantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,10 @@ class eventController extends AbstractController
 {
     //Voir la fiche de l'evenement
     #[Route("/voir-l-evenement/{id}", name: "app_user_view_event", methods: ["GET", "POST"])]
-    public function viewEvent(Request $request, EventRepository $eventRepository): Response{
+    public function viewEvent(
+        Request $request,
+        EventRepository $eventRepository,
+    ): Response{
 
         $eventUrlArray = explode("/",$request->getUri());
         $eventId = $eventUrlArray[sizeof($eventUrlArray)-1];

@@ -19,36 +19,54 @@ class CoffeeFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom :',
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Nom',
+                    'class' => 'form-control my-3',
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez renseigner un nom'
                     ])
-                ]
+                ],
             ])
+
             ->add('description', TextareaType::class, [
-                'label' => 'Description :',
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Description',
+                    'class' => 'form-control my-3',
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez renseigner une description'
                     ])
-                ]
+                ],
             ])
+
             ->add('price', TextType::class, [
-                'label' => 'Prix :',
+                'label' => false,
                 'help' => '<i>Pour rentrer un chiffre à virgule "," merci d\'utiliser un point "."</i>',
                 'help_html' => true,
+                'attr' => [
+                    'placeholder' => 'Prix',
+                    'class' => 'form-control my-3',
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez renseigner un prix'
                     ])
-                ]
+                ],
             ])
+
             ->add('img', FileType::class, [
-                'label' => 'Photo :',
+                'label' => false,
                 'data_class' => null,
                 'required' => false,
                 'mapped' => false,
+                'attr' => [
+                    'class' => 'form-control my-3 font-serif',
+                ],
                 'constraints' => [
                     new Image([
                         'mimeTypes' => ['image/jpeg', 'image/png'],
@@ -58,11 +76,12 @@ class CoffeeFormType extends AbstractType
                     ]),
                 ],
             ])
+
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
                 'validate' => false,
                 'attr' => [
-                    'class' => 'btn-center'
+                    'class' => 'btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0'
                 ]
             ])
         ;
