@@ -22,24 +22,24 @@
             background: rgba(255, 255, 255, 0.4);
         }
         header h1{
-            font-family: var(--font-serif);
+            font-family: 'Playfair Display', serif;
             text-transform: uppercase;
             text-align: center;
-            color: var(--color-light-brown);
+            color: #efece9;
             text-shadow:
-                    1px 0 1px var(--color-dark-brown),
-                    0 1px 1px var(--color-light-brown),
-                    2px 1px 1px var(--color-dark-brown),
-                    1px 2px 1px var(--color-light-brown),
-                    3px 2px 1px var(--color-dark-brown),
-                    2px 3px 1px var(--color-light-brown),
-                    4px 3px 1px var(--color-dark-brown),
-                    3px 4px 1px var(--color-light-brown),
-                    5px 4px 1px var(--color-dark-brown),
-                    4px 5px 1px var(--color-light-brown),
-                    6px 5px 1px var(--color-dark-brown),
-                    5px 6px 1px var(--color-light-brown),
-                    7px 6px 1px var(--color-dark-brown);
+                    1px 0 1px #d9ccbc,
+                    0 1px 1px  #efece9,
+                    2px 1px 1px #d9ccbc,
+                    1px 2px 1px  #efece9,
+                    3px 2px 1px #d9ccbc,
+                    2px 3px 1px  #efece9,
+                    4px 3px 1px #d9ccbc,
+                    3px 4px 1px  #efece9,
+                    5px 4px 1px #d9ccbc,
+                    4px 5px 1px  #efece9,
+                    6px 5px 1px #d9ccbc,
+                    5px 6px 1px  #efece9,
+                    7px 6px 1px #d9ccbc;
         }
         @media screen and (max-width: 800px){
             header::after{
@@ -82,10 +82,10 @@
                         <div class="display-3 text-white mb-4">
 
                             <!-- Heading -->
-                            <h1 class="color-light display-5">{{ currentEvent.name }}</h1>
+                            <h1 class="display-5" style="color: #f9f9f9;">{{ currentEvent.name }}</h1>
 
                             <!-- Subheading -->
-                            <p class="font-default color-light text-center mt-0 uppercase" style="font-size: 1.5rem">
+                            <p class="font-default text-center mt-0 text-uppercase" style="font-size: 1.5rem; color: #f9f9f9;">
                                 Le
                                 <span class="text-primary">{{ currentEvent.date|format_datetime(locale='fr',pattern="dd MMMM yyyy") }}</span>
                                 au

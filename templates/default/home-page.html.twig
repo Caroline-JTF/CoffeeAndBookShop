@@ -10,25 +10,24 @@
             background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;
         }
         header h1{
-            font-family: var(--font-serif);
+            font-family: 'Playfair Display', serif;
             text-transform: uppercase;
-            font-size: 5rem;
             text-align: center;
-            color: var(--color-light-brown);
+            color: #efece9;
             text-shadow:
-                    1px 0 1px var(--color-dark-brown),
-                    0 1px 1px var(--color-light-brown),
-                    2px 1px 1px var(--color-dark-brown),
-                    1px 2px 1px var(--color-light-brown),
-                    3px 2px 1px var(--color-dark-brown),
-                    2px 3px 1px var(--color-light-brown),
-                    4px 3px 1px var(--color-dark-brown),
-                    3px 4px 1px var(--color-light-brown),
-                    5px 4px 1px var(--color-dark-brown),
-                    4px 5px 1px var(--color-light-brown),
-                    6px 5px 1px var(--color-dark-brown),
-                    5px 6px 1px var(--color-light-brown),
-                    7px 6px 1px var(--color-dark-brown);
+                    1px 0 1px #d9ccbc,
+                    0 1px 1px  #efece9,
+                    2px 1px 1px #d9ccbc,
+                    1px 2px 1px  #efece9,
+                    3px 2px 1px #d9ccbc,
+                    2px 3px 1px  #efece9,
+                    4px 3px 1px #d9ccbc,
+                    3px 4px 1px  #efece9,
+                    5px 4px 1px #d9ccbc,
+                    4px 5px 1px  #efece9,
+                    6px 5px 1px #d9ccbc,
+                    5px 6px 1px  #efece9,
+                    7px 6px 1px #d9ccbc;
         }
     </style>
     <header data-jarallax data-speed=".8">
@@ -104,7 +103,7 @@
                     <div class="col-md">
 
                         <!-- Address -->
-                        <p class="font-serif text-white-75 text-center text-md-end text-lg-end my-md-5">
+                        <p class="text-white-75 text-center text-md-end text-lg-end my-md-5" style="font-family: 'Playfair Display', serif;">
                             <i class="fas fa-map-marker-alt text-primary me-3"></i> 1607 du pot au noir à Paris (75)
                         </p>
 
@@ -194,8 +193,8 @@
                 <img width="350" height="200" src="{{ asset('assets/img/homepage/rustic.jpg') }}" alt="Photo d'un café rustique">
 
                 <!-- Heading -->
-                <h2 class="font-serif color-red my-1">
-                    <span style="color: var(--color-dark);"><em>01.</em></span>
+                <h2 class="my-1" style="color: #ab3e2a; font-family: 'Playfair Display', serif;">
+                    <span style="color: #2d2d2d;"><em>01.</em></span>
                     Café rustique
                 </h2>
 
@@ -217,8 +216,8 @@
                 <img width="350" height="200" src="{{ asset('assets/img/homepage/gourmet.jpg') }}" alt="Photo d'un café avec des douceurs">
 
                 <!-- Heading -->
-                <h2 class="font-serif color-red my-1">
-                    <span style="color: var(--color-dark);"><em>02.</em></span>
+                <h2 class="my-1" style="color: #ab3e2a; font-family: 'Playfair Display', serif;">
+                    <span style="color: #2d2d2d;"><em>02.</em></span>
                     Café gourmand
                 </h2>
 
@@ -238,8 +237,8 @@
                 <img width="350" height="200" src="{{ asset('assets/img/homepage/relaxation.jpg') }}" alt="Photo d'un café avec un livre">
 
                 <!-- Heading -->
-                <h2 class="font-serif color-red my-1">
-                    <span style="color: var(--color-dark);"><em>03.</em></span>
+                <h2 class="my-1" style="color: #ab3e2a; font-family: 'Playfair Display', serif;">
+                    <span style="color: #2d2d2d;"><em>03.</em></span>
                     Café détente
                 </h2>
 
@@ -278,7 +277,7 @@
             min-width: 100%;
             min-height: 700px;
             z-index: 0;
-            background: var(--overlay);
+            background: rgba(0, 0, 0, 0.3);
         }
         .parallax .container{
             position: relative;
@@ -297,13 +296,13 @@
                     <hr class="hr-sm bg-primary">
 
                     <!-- Heading -->
-                    <h2 class="color-light uppercase font-serif">
+                    <h2 class="text-uppercase" style="color: #f9f9f9; font-family: 'Playfair Display', serif;">
                         Ayez le choix, <br>
                         <span>jusqu'au bout de vos grains!</span>
                     </h2>
 
                     <!-- Text -->
-                    <p class="color-light-brown uppercase font-serif py-2">
+                    <p class="text-uppercase py-2" style="color: #f9f9f9; font-family: 'Playfair Display', serif;" >
                         Choissisez le grain qui vous convient.
                     </p>
 
@@ -444,7 +443,7 @@
             box-sizing: border-box;
             overflow: hidden;
             margin: 0 1rem;
-            background: var(--color-light);
+            background: #f9f9f9;
         }
         .container-personnel .card-presentation * {
             transition: 0.3s ease all;
@@ -457,8 +456,8 @@
         }
         .container-personnel .card-presentation h3 {
             padding: 1rem;
-            font-family: var(--font-serif);
-            color: var(--color-red);
+            font-family: 'Playfair Display', serif;
+            color: #ab3e2a;
             font-size: 2rem;
         }
         .container-personnel .card-presentation .focus-content {
