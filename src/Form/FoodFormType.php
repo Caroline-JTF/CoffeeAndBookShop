@@ -71,8 +71,6 @@ class FoodFormType extends AbstractType
                     new Image([
                         'mimeTypes' => ['image/jpeg', 'image/png'],
                         'mimeTypesMessage' => 'Les formats autorisés sont .jpg ou .png',
-                        'maxSize' => '10M',
-                        'maxSizeMessage' => 'Le poids maximal du fichier est : {{ limit }} {{ suffix }} ({{ name }}: {{ size }} {{ suffix }})',
                     ]),
                 ],
             ])

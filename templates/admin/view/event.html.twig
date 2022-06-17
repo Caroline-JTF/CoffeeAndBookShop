@@ -109,21 +109,6 @@
 
                             </div>
 
-                            <div class="mx-5 d-flex justify-content-center">
-                                <a class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0 mx-3" href="{{ path('app_admin_update_event', {'id': currentEvent.id}) }}">
-                                    Modifier
-                                </a>
-                                {% if currentEvent.status == 'Annulé' %}
-                                    <a class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0 mx-3" href="{{ path('app_admin_restore_event', {'id': currentEvent.id}) }}">
-                                        Rouvrir
-                                    </a>
-                                {% else %}
-                                    <a class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0 mx-3" href="{{ path('app_admin_delete_event', {'id': currentEvent.id}) }}">
-                                        Annuler
-                                    </a>
-                                {% endif %}
-                            </div>
-
                         </div>
 
                     </div>
