@@ -8,6 +8,9 @@
         footer{
             display: none;
         }
+        header{
+            background: url('/assets/img/event.jpg') no-repeat center center / cover;
+        }
         header h1{
             font-family: 'Playfair Display', serif;
             text-transform: uppercase;
@@ -42,28 +45,25 @@
         }
     </style>
 
-    {% if event.img != true %}
-        <header data-jarallax data-speed=".8" style="background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;">
-    {% else %}
-        <header data-jarallax data-speed=".8" style="background: url('/uploads/{{ event.img }}') no-repeat center center / cover;">
-    {% endif %}
+    <header data-jarallax data-speed=".8">
 
+        <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0">
 
-    <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0">
+            <div class="container my-auto">
 
-        <div class="container my-auto">
+                <div class="row justify-content-center">
 
-            <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
 
-                <div class="col-12 col-md-10 col-lg-8 text-center">
+                        <div class="display-3 text-white mb-4">
 
-                    <div class="display-3 text-white mb-4">
+                            <div class="col-md-12">
 
-                        <div class="col-md-12">
+                                <h1 class="display-3" style="color: #f9f9f9;">Modifier {{ event.name }}</h1>
 
-                            <h1 class="display-3" style="color: #f9f9f9;">Modifier {{ event.name }}</h1>
+                                {{ form(form) }}
 
-                            {{ form(form) }}
+                            </div>
 
                         </div>
 
@@ -74,8 +74,6 @@
             </div>
 
         </div>
-
-    </div>
 
     </header>
 

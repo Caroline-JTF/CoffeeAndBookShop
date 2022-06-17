@@ -8,6 +8,9 @@
         footer{
             display: none;
         }
+        header{
+            background: url('/assets/img/event.jpg') no-repeat center center / cover;
+        }
         header::after{
             content: " ";
             position: absolute;
@@ -62,11 +65,7 @@
         }
     </style>
 
-    {% if currentEvent.img != true %}
-        <header data-jarallax data-speed=".8" style="background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;">
-    {% else %}
-        <header data-jarallax data-speed=".8" style="background: url('/uploads/{{ currentEvent.img }}') no-repeat center center / cover;">
-    {% endif %}
+    <header data-jarallax data-speed=".8">
 
         <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0" style="z-index: 1; position:relative;">
 

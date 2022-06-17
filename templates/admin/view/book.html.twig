@@ -18,6 +18,9 @@
             right: 10%;
             background: rgba(255, 255, 255, 0.4);
         }
+        header{
+            background: url('/assets/img/homepage/relaxation.jpg') no-repeat center center / cover;
+        }
         header h1{
             font-family: 'Playfair Display', serif;
             text-transform: uppercase;
@@ -55,11 +58,7 @@
         }
     </style>
 
-    {% if currentBook.img != true %}
-        <header data-jarallax data-speed=".8" style="background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;">
-    {% else %}
-        <header data-jarallax data-speed=".8" style="background: url('/uploads/{{ currentBook.img }}') no-repeat center center / cover;">
-        {% endif %}
+    <header data-jarallax data-speed=".8">
 
         <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0" style="z-index: 1; position:relative;">
 

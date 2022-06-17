@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 class foodController extends AbstractController
 {
     //Voir la fiche de la viennoiserie
-    #[Route("/admin/voir-le-livre/{id}", name: "app_admin_view_food", methods: ["GET", "POST"])]
+    #[Route("/admin/voir-la-viennoiserie/{id}", name: "app_admin_view_food", methods: ["GET", "POST"])]
     public function viewFood(Request $request, FoodRepository $foodRepository): Response{
         
         $foodUrlArray = explode("/",$request->getUri());

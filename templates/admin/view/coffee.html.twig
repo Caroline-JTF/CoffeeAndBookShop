@@ -8,6 +8,9 @@
         footer{
             display: none;
         }
+        header{
+            background: url('/assets/img/coffee.jpg') no-repeat center center / cover;
+        }
         header::after{
             content: " ";
             position: absolute;
@@ -55,37 +58,35 @@
         }
     </style>
 
-    {% if currentCoffee.img != true %}
-        <header data-jarallax data-speed=".8" style="background: url('/assets/img/background/bg-header.jpg') no-repeat center center / cover;">
-    {% else %}
-        <header data-jarallax data-speed=".8" style="background: url('/uploads/{{ currentCoffee.img }}') no-repeat center center / cover;">
-    {% endif %}
+    <header data-jarallax data-speed=".8">
 
-    <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0" style="z-index: 1; position:relative;">
+        <div class="d-flex flex-column min-vh-100 bg-black-50 pt-10 pt-md-8 pb-7 pb-md-0" style="z-index: 1; position:relative;">
 
-        <div class="container mt-10 my-auto">
+            <div class="container mt-10 my-auto">
 
-            <div class="row justify-content-center">
+                <div class="row justify-content-center">
 
-                <div class="col-12 col-md-10 col-lg-8 text-center">
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
 
-                    <div class="display-3 text-white mb-4">
+                        <div class="display-3 text-white mb-4">
 
-                        <!-- Heading -->
-                        <h1 class="color-light display-5">{{ currentCoffee.name }}</h1>
+                            <!-- Heading -->
+                            <h1 class="color-light display-5">{{ currentCoffee.name }}</h1>
 
-                        <!-- Subheading -->
-                        <p class="font-default color-light text-center mt-0 text-uppercase" style="font-size: 1.5rem">
-                            À
-                            <span class="text-primary">{{ currentCoffee.price }}€</span>
-                            au
-                            <span class="text-primary">C&B</span>
-                        </p>
+                            <!-- Subheading -->
+                            <p class="font-default color-light text-center mt-0 text-uppercase" style="font-size: 1.5rem">
+                                À
+                                <span class="text-primary">{{ currentCoffee.price }}€</span>
+                                au
+                                <span class="text-primary">C&B</span>
+                            </p>
 
-                        <!-- Text -->
-                        <p class="description my-5 text-start font-default" style="font-size: 1rem">
-                            {{ currentCoffee.description}}
-                        </p>
+                            <!-- Text -->
+                            <p class="description my-5 text-start font-default" style="font-size: 1rem">
+                                {{ currentCoffee.description}}
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -94,8 +95,6 @@
             </div>
 
         </div>
-
-    </div>
 
     </header>
 
