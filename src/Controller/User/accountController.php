@@ -36,7 +36,7 @@ class accountController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success', 'Les informations ont été modifié avec succès !');
+            $this->addFlash('info', 'Les informations ont été modifié avec succès !');
             return $this->redirectToRoute('app_user_account');
 
         }
@@ -86,7 +86,7 @@ class accountController extends AbstractController
         // On met à jour la BDD
         $em->flush();
 
-        $this->addFlash('error', 'Votre inscription à l\'évènement été supprimée avec succès !');
+        $this->addFlash('success', 'Votre inscription à l\'évènement été supprimée avec succès !');
         return $this->redirectToRoute('app_user_account');
     }
 
@@ -126,7 +126,7 @@ class accountController extends AbstractController
 		$reviewRepository->remove($review);
         $em->flush();
 
-        $this->addFlash('error', 'L\'avis à été supprimé avec succès !');
+        $this->addFlash('danger', 'L\'avis à été supprimé avec succès !');
 		return $this->redirectToRoute('app_user_account');
 	}
 }

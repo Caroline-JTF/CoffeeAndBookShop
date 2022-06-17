@@ -91,7 +91,7 @@ class eventController extends AbstractController
             $em->persist($event);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié ' . $event->getName() . ' avec succès !');
+            $this->addFlash('info', 'Vous avez modifié ' . $event->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -108,7 +108,7 @@ class eventController extends AbstractController
 		$event->setStatus('Annulé');
         $em->flush();
 
-        $this->addFlash('error', 'Vous avez annulé ' . $event->getName() . ' avec succès !');
+        $this->addFlash('danger', 'Vous avez annulé ' . $event->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 
@@ -142,7 +142,7 @@ class eventController extends AbstractController
             $photo->move($this->getParameter('uploads_dir'), $newFilename);
             $event->setImg($newFilename);
         } catch (FileException $exception) {
-            $this->addFlash('error', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
+            $this->addFlash('warning', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
         }
     }
 }

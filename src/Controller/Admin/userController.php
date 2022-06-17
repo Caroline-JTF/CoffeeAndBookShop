@@ -29,7 +29,7 @@ class userController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success', 'L\'utilisateur à été modifié avec succès !');
+            $this->addFlash('info', 'L\'utilisateur à été modifié avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
 
         }
@@ -53,7 +53,7 @@ class userController extends AbstractController
 		$repository->remove($user);
         $em->flush();
 
-        $this->addFlash('error', 'L\'utilisateur à été supprimé avec succès !');
+        $this->addFlash('danger', 'L\'utilisateur à été supprimé avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 }

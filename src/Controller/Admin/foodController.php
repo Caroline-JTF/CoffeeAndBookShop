@@ -88,7 +88,7 @@ class foodController extends AbstractController
             $em->persist($food);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié ' . $food->getName() . ' avec succès !');
+            $this->addFlash('info', 'Vous avez modifié ' . $food->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -105,7 +105,7 @@ class foodController extends AbstractController
 		$repository->remove($food);
         $em->flush();
 
-        $this->addFlash('error', 'Vous avez supprimé ' . $food->getName() . ' avec succès !');
+        $this->addFlash('danger', 'Vous avez supprimé ' . $food->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 

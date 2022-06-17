@@ -95,7 +95,7 @@ class coffeeController extends AbstractController
             $em->persist($coffee);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié ' . $coffee->getName() . ' avec succès !');
+            $this->addFlash('info', 'Vous avez modifié ' . $coffee->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -112,7 +112,7 @@ class coffeeController extends AbstractController
 		$repository->remove($coffee);
         $em->flush();
 
-        $this->addFlash('error', 'Vous avez supprimé ' . $coffee->getName() . ' avec succès !');
+        $this->addFlash('danger', 'Vous avez supprimé ' . $coffee->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 
@@ -130,7 +130,7 @@ class coffeeController extends AbstractController
             $photo->move($this->getParameter('uploads_dir'), $newFilename);
             $coffee->setImg($newFilename);
         } catch (FileException $exception) {
-            $this->addFlash('error', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
+            $this->addFlash('warning', 'La photo du produit ne s\'est pas importée avec succès. Veuillez réessayer en modifiant le produit.');
         }
     }
 }

@@ -78,6 +78,23 @@
     <!-- ARTICLE -->
     <article class="pt-10 pt-md-12">
         <div class="container">
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success" role="alert">{{message}}</div>
+            {% endfor %}
+
+            {% for message in app.flashes('danger') %}
+                <div class="alert alert-danger" role="alert">{{message}}</div>
+            {% endfor %}
+
+            {% for message in app.flashes('warning') %}
+                <div class="alert alert-warning" role="alert">{{ message}}</div>
+            {% endfor %}
+
+            {% for message in app.flashes('info') %}
+                <div class="alert alert-info" role="alert">{{message}}</div>
+            {% endfor %}
+
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 text-center">
 
@@ -103,7 +120,7 @@
 
                     <!-- Image -->
                     <figure class="mb-6 text-center">
-                        <img width="500" height="auto" class="img-fluid" src="assets/img/event.jpg" alt="...">
+                        <img width="500" height="auto" class="img-fluid" src="assets/img/event/event.jpg" alt="image coffee is alway a good idea">
                     </figure>
 
                 </div>
@@ -162,7 +179,7 @@
             <!-- Poster -->
             <div class="event">
 
-                <div class="event-lg collapse show bg-cover" id="eventOne" data-bs-parent="#events" style="background-image: url(assets/img/8.jpg);">
+                <div class="event-lg collapse show bg-cover" id="eventOne" data-bs-parent="#events" style="background-image: url(assets/img/event/event2.jpg);">
 
                     <div class="bg-black-50">
 

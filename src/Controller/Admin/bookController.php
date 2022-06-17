@@ -89,7 +89,7 @@ class bookController extends AbstractController
             $em->persist($book);
             $em->flush();
 
-            $this->addFlash('success', 'Vous avez modifié ' . $book->getName() . ' avec succès !');
+            $this->addFlash('info', 'Vous avez modifié ' . $book->getName() . ' avec succès !');
             return $this->redirectToRoute('app_admin_dashboard');
         }
 
@@ -106,7 +106,7 @@ class bookController extends AbstractController
 		$repository->remove($book);
         $em->flush();
 
-        $this->addFlash('error', 'Vous avez supprimé ' . $book->getName() . ' avec succès !');
+        $this->addFlash('danger', 'Vous avez supprimé ' . $book->getName() . ' avec succès !');
 		return $this->redirectToRoute('app_admin_dashboard');
 	}
 
