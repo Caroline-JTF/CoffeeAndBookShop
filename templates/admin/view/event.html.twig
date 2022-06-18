@@ -88,7 +88,7 @@
                             <!-- Subheading -->
                             <p class="font-default color-light text-center mt-0 text-uppercase" style="font-size: 1.5rem">
                                 Le
-                                <span class="text-primary">{{ currentEvent.date|format_datetime(locale='fr',pattern="dd MMMM yyyy") }}</span>
+                                <span class="text-primary">{{ currentEvent.date | date('d/m/Y') }}</span>
                                 au
                                 <span class="text-primary">C&B</span>
                             </p>
