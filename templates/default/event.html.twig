@@ -242,8 +242,8 @@
 
                                     <!-- Date -->
                                     <time class="d-block text-center text-black">
-                                        <span class="d-block mb-2 display-6" style="font-family: 'Playfair Display', serif;">{{ event.date|format_datetime(locale='fr',pattern="dd") }}</span>
-                                        <span>{{ event.date|format_datetime(locale='fr',pattern="MMMM") }}</span>
+                                        <span class="d-block mb-2 display-6" style="font-family: 'Playfair Display', serif;">{{ event.date | date('d') }}</span>
+                                        <span>{{ event.date | date('m') }}</span>
                                     </time>
 
                                 </div>
