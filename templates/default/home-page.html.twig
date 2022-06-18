@@ -29,6 +29,11 @@
                     5px 6px 1px  #efece9,
                     7px 6px 1px #d9ccbc;
         }
+        @media screen and (max-width: 320px){
+            header h1{
+                font-size: 2.5rem !important;
+            }
+        }
     </style>
     <header data-jarallax data-speed=".8">
 
@@ -283,6 +288,7 @@
             position: relative;
             z-index: 1;
         }
+
     </style>
     <section class="parallax">
 
@@ -332,7 +338,7 @@
                 <div class="col-md-6 order-md-2">
 
                     <!-- Img -->
-                    <img class="img-fluid mw-md-120 clip-top-start" src="{{ asset('assets/img/homepage/presentation.jpg') }}" alt="...">
+                    <img class="img-fluid mw-md-120 clip-top-start mb-3" src="{{ asset('assets/img/homepage/presentation.jpg') }}" alt="...">
 
                 </div>
 

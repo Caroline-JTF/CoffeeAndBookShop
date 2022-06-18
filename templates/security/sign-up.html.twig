@@ -31,6 +31,15 @@
                     5px 6px 1px  #efece9,
                     7px 6px 1px #d9ccbc;
         }
+        ul li{
+            font-size: 1rem;
+            text-align: left;
+        }
+        @media screen and (max-width: 320px){
+            header h1{
+                font-size: 2.5rem !important;
+            }
+        }
     </style>
 
     <header data-jarallax data-speed=".8">
@@ -57,8 +66,8 @@
 
                     </div>
 
-                    <div class="nav justify-content-center mt-5 d-flex" style="font-size: 1rem">
-                        <p class="text-white">Vous avez déjà un compte ?
+                    <div class="nav justify-content-center text-center mt-5 d-flex" style="font-size: 1rem">
+                        <p class="text-white">Vous avez déjà un compte ? <br>
                             <a class="active" href="{{ path('app_security_login') }}">
                                 Conectez-vous
                             </a>

@@ -6,8 +6,41 @@
 
     <!-- Navbar -->
     <style>
+        header h1{
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            text-align: center;
+            color: #efece9;
+            text-shadow:
+                    1px 0 1px #d9ccbc,
+                    0 1px 1px  #efece9,
+                    2px 1px 1px #d9ccbc,
+                    1px 2px 1px  #efece9,
+                    3px 2px 1px #d9ccbc,
+                    2px 3px 1px  #efece9,
+                    4px 3px 1px #d9ccbc,
+                    3px 4px 1px  #efece9,
+                    5px 4px 1px #d9ccbc,
+                    4px 5px 1px  #efece9,
+                    6px 5px 1px #d9ccbc,
+                    5px 6px 1px  #efece9,
+                    7px 6px 1px #d9ccbc;
+        }
+        @media screen and (max-width: 320px){
+            header h1{
+                font-size: 2.5rem !important;
+            }
+        }
         ul:first-child li:first-child a{
             color : #f5a637 !important;
+        }
+        @media screen and (max-width: 320px){
+            #menuTabs{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
         }
     </style>
 
