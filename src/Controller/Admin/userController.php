@@ -19,7 +19,11 @@ class userController extends AbstractController
 
     //Modifiez un utilisateur
     #[Route('/admin/modifier-l-utilisateur/{id}', name: 'app_admin_update_user', methods: ['GET', 'POST'])]
-	public function update(User $user, Request $request, EntityManagerInterface $em): Response
+	public function update(
+        User $user,
+        Request $request,
+        EntityManagerInterface $em
+    ): Response
 	{
 		$form = $this->createForm(UserFormType::class, $user);
         $form->handleRequest($request);
@@ -41,7 +45,12 @@ class userController extends AbstractController
 
     //Supprimez un utilisateur
     #[Route('/admin/supprimez-l-utilisateur/{id}', name: 'app_admin_delete_user')]
-	public function deleteUser(User $user, UserRepository $repository, ReviewRepository $reviewRepository, EntityManagerInterface $em): Response
+	public function deleteUser(
+        User $user,
+        UserRepository $repository,
+        ReviewRepository $reviewRepository,
+        EntityManagerInterface $em
+    ): Response
 	{
         $reviews = $reviewRepository->findBy(['user' => $user->getId()]);
 

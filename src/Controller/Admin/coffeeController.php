@@ -20,7 +20,11 @@ class coffeeController extends AbstractController
 {
     //Voir la fiche du café
     #[Route("/admin/voir-le-cafe/{id}", name: "app_admin_view_coffee", methods: ["GET", "POST"])]
-    public function viewCoffee(Request $request, CoffeeRepository $coffeeRepository): Response{
+    public function viewCoffee(
+        Request $request,
+        CoffeeRepository $coffeeRepository
+    ): Response
+    {
 
         // Récupération de l'URL actuelle : /admin/voir-le-café/id
         // Explode : Sépare l'URL en une liste : ['admin', 'voir-le-café', 'id']
@@ -39,7 +43,12 @@ class coffeeController extends AbstractController
 
     //Ajout d'un café
     #[Route("/admin/ajoutez-un-cafe", name: "app_admin_add_coffee", methods: ["GET", "POST"])]
-    public function coffee(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response{
+    public function coffee(
+        Request $request,
+        EntityManagerInterface $em,
+        SluggerInterface $slugger
+    ): Response
+    {
 
         //Ajouter un café
         $coffee = new coffee();
@@ -72,7 +81,12 @@ class coffeeController extends AbstractController
 
     //Modifiez un café
     #[Route('/admin/modifiez-le-cafe/{id}', name: 'app_admin_update_coffee', methods: ['GET', 'POST'])]
-    public function updateCoffee(Coffee $coffee, EntityManagerInterface $em, Request $request, SluggerInterface $slugger): Response
+    public function updateCoffee(
+        Coffee $coffee,
+        EntityManagerInterface $em,
+        Request $request,
+        SluggerInterface $slugger
+    ): Response
     {
         $originalPhoto = $coffee->getImg();
 
@@ -107,7 +121,11 @@ class coffeeController extends AbstractController
 
     //Supprimez un café
     #[Route('/admin/supprimez-le-cafe/{id}', name: 'app_admin_delete_coffee')]
-	public function deleteCoffee(Coffee $coffee, CoffeeRepository $repository, EntityManagerInterface $em): Response
+	public function deleteCoffee(
+        Coffee $coffee,
+        CoffeeRepository $repository,
+        EntityManagerInterface $em
+    ): Response
 	{
 		$repository->remove($coffee);
         $em->flush();
@@ -117,7 +135,11 @@ class coffeeController extends AbstractController
 	}
 
     //Private function
-    private function handleFile(Coffee $coffee, UploadedFile $photo, SluggerInterface $slugger): void
+    private function handleFile(
+        Coffee $coffee,
+        UploadedFile $photo,
+        SluggerInterface $slugger
+    ): void
     {
         
         $extension = '.' . $photo->guessExtension();

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Controller\User;
 
 use App\Repository\EventRepository;
-use App\Repository\ParticipantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

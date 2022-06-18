@@ -11,9 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class eventController extends AbstractController
 {
@@ -71,8 +69,7 @@ class eventController extends AbstractController
         Request $request,
     ): Response
     {
-
-        $form = $this->createForm(EventFormType::class);
+        $form = $this->createForm(EventFormType::class, $event);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -92,7 +89,11 @@ class eventController extends AbstractController
 
     //Supprimez un évènement
     #[Route('/admin/supprimez-l-evenement/{id}', name: 'app_admin_delete_event')]
-	public function deleteEvent(Event $event, EventRepository $repository, EntityManagerInterface $em): Response
+	public function deleteEvent(
+        Event $event,
+        EventRepository $repository,
+        EntityManagerInterface $em
+    ): Response
 	{
 		$event->setStatus('Annulé');
         $em->flush();
@@ -103,7 +104,10 @@ class eventController extends AbstractController
 
     //Remettre un évènement en ligne
     #[Route('/admin/rouvrir-l-evenement/{id}', name: 'app_admin_restore_event')]
-    public function restoreEvent(Event $event, EntityManagerInterface $em): Response
+    public function restoreEvent(
+        Event $event,
+        EntityManagerInterface $em
+    ): Response
     {
         if($event->getPlace()-$event->getParticipants() == 0){
             $event->setStatus('Complet');

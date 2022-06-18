@@ -20,9 +20,12 @@ class bookController extends AbstractController
 {
     //Voir la fiche du livre
     #[Route("/admin/voir-le-livre/{id}", name: "app_admin_view_book", methods: ["GET", "POST"])]
-    public function viewBook(Request $request, BookRepository $bookRepository): Response{
+    public function viewBook(
+        Request $request,
+        BookRepository $bookRepository
+    ): Response
+    {
 
-        //
         $bookUrlArray = explode("/",$request->getUri());
         $bookId = $bookUrlArray[sizeof($bookUrlArray)-1];
         $currentBook = $bookRepository->find(['id'=>$bookId]);
@@ -34,9 +37,12 @@ class bookController extends AbstractController
 
     //Ajout + liste des livres
     #[Route("/admin/gerez-vos-livres", name: "app_admin_add_book", methods: ["GET", "POST"])]
-    public function book(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response{
-
-        //Ajouter un livre
+    public function book(
+        Request $request,
+        EntityManagerInterface $em,
+        SluggerInterface $slugger
+    ): Response
+    {
         $book = new book();
 
         $form = $this->createForm(BookFormType::class, $book);
@@ -66,7 +72,12 @@ class bookController extends AbstractController
 
     //Modifiez un livre
     #[Route('/admin/modifiez-le-livre/{id}', name: 'app_admin_update_book', methods: ['GET', 'POST'])]
-    public function updateBook(Book $book, EntityManagerInterface $em, Request $request, SluggerInterface $slugger): Response
+    public function updateBook(
+        Book $book,
+        EntityManagerInterface $em,
+        Request $request,
+        SluggerInterface $slugger
+    ): Response
     {
         $originalPhoto = $book->getimg();
 
@@ -101,7 +112,11 @@ class bookController extends AbstractController
 
     //Supprimez un livre
     #[Route('/admin/supprimez-le-livres/{id}', name: 'app_admin_delete_book')]
-	public function deleteBook(Book $book, BookRepository $repository, EntityManagerInterface $em): Response
+	public function deleteBook(
+        Book $book,
+        BookRepository $repository,
+        EntityManagerInterface $em
+    ): Response
 	{
 		$repository->remove($book);
         $em->flush();
@@ -111,7 +126,11 @@ class bookController extends AbstractController
 	}
 
     //Private function
-    private function handleFile(Book $book, UploadedFile $photo, SluggerInterface $slugger): void
+    private function handleFile(
+        Book $book,
+        UploadedFile $photo,
+        SluggerInterface $slugger
+    ): void
     {
         
         $extension = '.' . $photo->guessExtension();

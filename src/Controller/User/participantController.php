@@ -16,7 +16,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class participantController extends AbstractController
 {
     #[Route("/mon-compte/formulaire-evenement/{id}", name: "app_user_participant", methods: ["GET", "POST"])]
-    public function participant(Request $request, EntityManagerInterface $em, EventRepository $eventRepository): Response{
+    public function participant(
+        Request $request,
+        EntityManagerInterface $em,
+        EventRepository $eventRepository
+    ): Response{
         
         // ========== FORMULAIRE ==========
         

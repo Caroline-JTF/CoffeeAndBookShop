@@ -17,7 +17,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class reviewController extends AbstractController
 {
     #[Route("/les-avis", name: "app_default_review", methods: ["GET", "POST"])]
-    public function review(Request $request, EntityManagerInterface $em, ReviewRepository $reviewRepository): Response{
+    public function review(
+        Request $request,
+        EntityManagerInterface $em,
+        ReviewRepository $reviewRepository
+    ): Response
+    {
         
         //Ajouter un avis
         $review = new review();

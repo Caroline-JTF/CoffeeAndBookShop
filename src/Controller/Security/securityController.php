@@ -50,7 +50,9 @@ class securityController extends AbstractController
 
     //Formulaure de connexion
     #[Route('/connexion', name: 'app_security_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(
+        AuthenticationUtils $authenticationUtils
+    ): Response
     {
 
         $error = $authenticationUtils->getLastAuthenticationError();

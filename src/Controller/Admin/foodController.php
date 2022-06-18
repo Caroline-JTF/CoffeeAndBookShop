@@ -20,7 +20,11 @@ class foodController extends AbstractController
 {
     //Voir la fiche de la viennoiserie
     #[Route("/admin/voir-la-viennoiserie/{id}", name: "app_admin_view_food", methods: ["GET", "POST"])]
-    public function viewFood(Request $request, FoodRepository $foodRepository): Response{
+    public function viewFood(
+        Request $request,
+        FoodRepository $foodRepository
+    ): Response
+    {
         
         $foodUrlArray = explode("/",$request->getUri());
         $foodId = $foodUrlArray[sizeof($foodUrlArray)-1];
@@ -33,7 +37,12 @@ class foodController extends AbstractController
 
     //Ajout + liste des viennoiseries
     #[Route("/admin/gerez-vos-viennoiseries", name: "app_admin_add_food", methods: ["GET", "POST"])]
-    public function food(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response{
+    public function food(
+        Request $request,
+        EntityManagerInterface $em,
+        SluggerInterface $slugger
+    ): Response
+    {
 
         //Ajouter une viennoiserie
         $food = new food();
@@ -65,7 +74,12 @@ class foodController extends AbstractController
 
     //Modifiez une viennoiserie
     #[Route('/admin/modifiez-la-viennoiserie/{id}', name: 'app_admin_update_food', methods: ['GET', 'POST'])]
-    public function updateFood(Food $food, EntityManagerInterface $em, Request $request, SluggerInterface $slugger): Response
+    public function updateFood(
+        Food $food,
+        EntityManagerInterface $em,
+        Request $request,
+        SluggerInterface $slugger
+    ): Response
     {
         $originalPhoto = $food->getimg();
 
@@ -100,7 +114,11 @@ class foodController extends AbstractController
 
     //Supprimez une viennoiserie
     #[Route('/admin/supprimez-la-viennoiserie/{id}', name: 'app_admin_delete_food')]
-	public function deleteFood(Food $food, FoodRepository $repository, EntityManagerInterface $em): Response
+	public function deleteFood(
+        Food $food,
+        FoodRepository $repository,
+        EntityManagerInterface $em
+    ): Response
 	{
 		$repository->remove($food);
         $em->flush();
