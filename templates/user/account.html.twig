@@ -141,28 +141,28 @@
                         <section class="container-information">
                             <div class="information">
 
-                                <div class="info">
+                                <div class="info my-2">
                                     <p>Nom</p>
                                     <p>{{ app.user.lastname }}</p>
                                 </div>
 
-                                <div class="info">
+                                <div class="info my-2">
                                     <p>Prénom</p>
                                     <p>{{ app.user.firstname}}</p>
                                 </div>
 
-                                <div class="info">
+                                <div class="info my-2">
                                     <p>N° de téléphone</p>
                                     <p>{{ app.user.phoneNumber}}</p>
                                 </div>
 
-                                <div class="info">
+                                <div class="info my-2">
                                     <p>Adresse email</p>
                                     <p>{{ app.user.email}}</p>
                                 </div>
                             </div>
 
-                            <div class="text-center">
+                            <div class="text-center my-5">
                                 <a class="btn btn-outline-primary" href="{{ path('app_user_update', {'id': app.user.id}) }}">
                                     Modifier les informations
                                 </a>
