@@ -680,7 +680,7 @@
 
                                                 <td>{{ event.id }}</td>
                                                 <td>{{ event.name }}</td>
-                                                <td class="col-sm-2">{{ event.date|format_datetime(locale='fr',pattern="dd MMMM YY") }}</td>
+                                                <td class="col-sm-2">{{ event.date | date('d/m/Y') }}</td>
                                                 <td>
                                                     {% if event.status == 'Ouvert' %}
                                                         <span class="badge rounded-pill text-bg-success">{{ event.status }}</span>

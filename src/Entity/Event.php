@@ -34,12 +34,6 @@ class Event
     private $eventParticipants;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $type;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $img;
-
-    #[ORM\Column(type: 'string', length: 255)]
     private $status;
 
     public function __construct()
@@ -138,30 +132,6 @@ class Event
                 $eventParticipant->setEvent(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    public function getImg(): ?string
-    {
-        return $this->img;
-    }
-
-    public function setImg(?string $img): self
-    {
-        $this->img = $img;
 
         return $this;
     }

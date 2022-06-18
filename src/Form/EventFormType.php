@@ -20,19 +20,6 @@ class EventFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('type', ChoiceType::class, [
-                'label' => false,
-                'choices' => [
-                    'Sélectionnez le type d\'évènement' => null,
-                    'Dégustation' => 'degustation',
-                    'Dédicace' => 'dedicace',
-                    'Concert' => 'concert',
-                    'Autre' => 'autre',
-                ],
-                'attr' => [
-                    'class' => 'form-control my-3 font-serif',
-                ],
-            ])
             ->add('name', TextType::class, [
                 'label' => false,
                 'attr' => [
@@ -81,21 +68,6 @@ class EventFormType extends AbstractType
                         'message' => 'Veuillez choisir un nombre de participants'
                     ])
                 ]
-            ])
-            ->add('img', FileType::class, [
-                'label' => false,
-                'data_class' => null,
-                'required' => false,
-                'mapped' => false,
-                'constraints' => [
-                    new Image([
-                        'mimeTypes' => ['image/jpeg', 'image/png'],
-                        'mimeTypesMessage' => 'Les formats autorisés sont .jpg ou .png',
-                    ]),
-                ],
-                'attr' => [
-                    'class' => 'form-control my-3 font-serif',
-                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
