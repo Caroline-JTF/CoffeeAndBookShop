@@ -16,7 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class securityController extends AbstractController
 {
-    //Formulaire d'inscription & conexion :
+    //Formulaire d'inscription :
     #[Route('/inscription', name: 'app_security_sign_up', methods: ['GET', 'POST'])]
     public function inscription(
         Request $request,
@@ -25,8 +25,8 @@ class securityController extends AbstractController
     ): Response
     {
 
-        // Inscription
         $user = new User();
+
         $form = $this->createForm(RegisterFormType::class, $user);
         $form->handleRequest($request);
 
@@ -66,7 +66,5 @@ class securityController extends AbstractController
     // Déconnexion
     #[Route(path: '/deconnexion', name: 'app_security_log_out')]
     public function logout(): void
-    {
-        // throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
-    }
+    {}
 }
