@@ -346,7 +346,7 @@
                                             <tr>
 
                                                 <td class="col-sm-6 col-md-8">{{ review.message }}</td>
-                                                <td class="col-sm-2">{{ review.createdAt|format_datetime(locale='fr',pattern="dd MMMM") }}</td>
+                                                <td class="col-sm-2">{{ review.createdAt | date('d/m/Y') }}</td>
                                                 <td class="col-sm-2">{{ review.createdAt | date('H:i') }}</td>
                                                 <td class="col-sm-2">
                                                     <div class="actions">
